@@ -1,0 +1,78 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gerador de QR Code</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body{
+    font-family: Arial;
+    text-align:center;
+    margin-top:40px;
+}
+
+input{
+    width:300px;
+    padding:10px;
+    font-size:16px;
+}
+
+button{
+    padding:10px 20px;
+    margin:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>Gerador de QR Code</h2>
+
+<input id="link" placeholder="cole o link aqui">
+
+<br>
+
+<button onclick="gerarQR()">Gerar QR</button>
+<button onclick="baixarQR()">Baixar PNG</button>
+
+<div id="qrcode" style="margin-top:20px;"></div>
+
+<script>
+
+function gerarQR(){
+
+    document.getElementById("qrcode").innerHTML="";
+
+    let link = document.getElementById("link").value;
+
+    new QRCode(document.getElementById("qrcode"),{
+        text: link,
+        width:200,
+        height:200
+    });
+}
+
+function baixarQR(){
+
+    let img = document.querySelector("#qrcode img");
+
+    if(!img){
+        alert("gere o QR primeiro");
+        return;
+    }
+
+    let a = document.createElement("a");
+    a.href = img.src;
+    a.download = "qrcode.png";
+    a.click();
+}
+
+</script>
+
+</body>
+</html>

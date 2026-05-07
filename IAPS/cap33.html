@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IAPs · Capítulo 33 · Perspectivas Psicanalíticas e Existenciais · Bruscia 1987</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="iaps.css" rel="stylesheet"/>
+</head>
+<body class="lang-pt">
+<a class="skip-link" data-lang="pt" href="#main-content">Ir para o conteúdo</a>
+<a class="skip-link" data-lang="en" href="#main-content">Skip to content</a>
+<div aria-hidden="true" id="progress-bar"></div>
+<div aria-live="polite" id="read-tip" role="status"></div>
+
+<!-- ════════════════════════ VERTICAL TOC ════════════════════ -->
+<nav aria-label="Navegação de seções" id="vtoc">
+  <div class="vtoc-dot" data-href="#sec-psycho-intro" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">1 Perspectiva Psicanalítica</span>
+    <span class="vtoc-dot-label" data-lang="en">1 Psychoanalytic Perspective</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-rhythm" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">2 Componentes Rítmicos</span>
+    <span class="vtoc-dot-label" data-lang="en">2 Rhythmic Components</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-tonal" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">3 Componentes Tonais</span>
+    <span class="vtoc-dot-label" data-lang="en">3 Tonal Components</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-other-elements" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">4 Outros Elementos</span>
+    <span class="vtoc-dot-label" data-lang="en">4 Other Elements</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-existential" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">5 Perspectiva Existencial</span>
+    <span class="vtoc-dot-label" data-lang="en">5 Existential Perspective</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-space" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">6 Espaço</span>
+    <span class="vtoc-dot-label" data-lang="en">6 Space</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-time" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">7 Tempo</span>
+    <span class="vtoc-dot-label" data-lang="en">7 Time</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-material" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">8 Material</span>
+    <span class="vtoc-dot-label" data-lang="en">8 Material</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-causality" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">9 Causalidade</span>
+    <span class="vtoc-dot-label" data-lang="en">9 Causality</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+</nav>
+
+<!-- ════════════════════════ TOP NAV ════════════════════════ -->
+<nav aria-label="Navegação principal" class="top-nav" role="navigation">
+  <div aria-hidden="true" class="nav-brand"><strong>IAPs</strong> ·
+    <span data-lang="pt">Adaptado de Bruscia (1987) por <strong>Ivan Moriá Borges</strong> · Improvisação em Musicoterapia I - UFMG · 2026</span>
+    <span data-lang="en">Adapted from Bruscia (1987) by <strong>Ivan Moriá Borges</strong> · Improvisation in Music Therapy I - UFMG · 2026</span>
+  </div>
+  <div class="nav-controls">
+    <div aria-label="Controles de leitura em voz alta" class="audio-controls" id="audio-controls" role="group">
+      <button aria-label="Iniciar leitura em voz alta" class="nav-audio-btn" id="btn-play" onclick="ttsTogglePlay()">
+        <svg aria-hidden="true" fill="currentColor" id="icon-play" viewbox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"></path></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-stop" style="display:none" viewbox="0 0 16 16"><rect height="10" rx="1" width="10" x="3" y="3"></rect></svg>
+      </button>
+      <button aria-label="Pausar leitura" class="nav-audio-btn" id="btn-pause" onclick="ttsTogglePause()" style="display:none">
+        <svg aria-hidden="true" fill="currentColor" id="icon-pause" viewbox="0 0 16 16"><rect height="12" rx="1" width="4" x="3" y="2"></rect><rect height="12" rx="1" width="4" x="9" y="2"></rect></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-resume" style="display:none" viewbox="0 0 16 16"><path d="M4 2.5l9 5.5-9 5.5z"></path></svg>
+      </button>
+      <label class="sr-only" for="speed-sel">Velocidade de leitura</label>
+      <select class="speed-select" id="speed-sel" onchange="ttsSpeedChange()">
+        <option value="0.7">0.7×</option>
+        <option value="0.85">0.85×</option>
+        <option selected="" value="1">1×</option>
+        <option value="1.2">1.2×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+    </div>
+    <div aria-label="Selecionar idioma" class="lang-toggle" role="group">
+      <button aria-pressed="true" class="lang-btn active" lang="pt" onclick="setLang('pt')">PT</button>
+      <button aria-pressed="false" class="lang-btn" lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════ HERO ═══════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="hero-eyebrow">
+    <span data-lang="pt">Unidade 9 · Capítulo 33</span>
+    <span data-lang="en">Unit 9 · Chapter 33</span>
+  </div>
+  <h1 class="hero-title">
+    <span data-lang="pt"><em>Perspectivas Psicanalíticas</em><br/>e Existenciais</span>
+    <span data-lang="en"><em>Psychoanalytic and</em><br/>Existential Perspectives</span>
+  </h1>
+  <p class="hero-sub">IAPs · Improvisation Assessment Profiles</p>
+  <p class="hero-lead">
+    <span data-lang="pt">A significância simbólica dos elementos musicais interpretada através das lentes psicanalítica e existencial, iluminando como a improvisação revela aspectos inconscientes do self e o ser-no-mundo do cliente.</span>
+    <span data-lang="en">The symbolic significance of musical elements interpreted through psychoanalytic and existential lenses, illuminating how improvisation reveals unconscious aspects of the self and the client's being-in-the-world.</span>
+  </p>
+  <div class="hero-meta">
+    <div class="hero-chip"><span data-lang="pt">Autor</span><span data-lang="en">Author</span> · <strong>Kenneth E. Bruscia</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Livro</span><span data-lang="en">Book</span> · <strong>Improvisational Models of Music Therapy</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Publicação</span><span data-lang="en">Published</span> · <strong>1987</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Páginas</span><span data-lang="en">Pages</span> · <strong>pp. 450–464</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Adaptação e Interface gráfica</span><span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong></div>
+  </div>
+</header>
+
+<!-- ════════════════════════ MAIN ═══════════════════════════ -->
+<main class="page-body" id="main-content">
+
+  <!-- ══════════════════ 1. PERSPECTIVA PSICANALÍTICA ══════════════════ -->
+  <section class="section" id="sec-psycho-intro">
+    <h2 class="sec-title" data-lang="pt">Perspectivas Psicanalíticas</h2>
+    <h2 class="sec-title" data-lang="en">Psychoanalytic Perspectives</h2>
+
+    <div data-lang="en">
+      <p class="rp">When taking a psychoanalytic perspective, a major assumption is that one's music is a symbolic projection of unconscious aspects of the self. That is, the musical elements, and the processes through which they unfold and interact within the improvisation (i.e., integration, variability, etc.) are symbolic representations of unconscious elements of the self and the processes through which these elements unfold and interact within the personality. Thus, each musical element symbolically represents a particular aspect of personality, and each musical process corresponds to a psychological process.</p>
+      <p class="rp">In the paragraphs that follow, the symbolic derivations of each musical element are described with reference to the most relevant processes. The value of these derivations are apparent when applied to each of the profiles and how the profiles interact. Unfortunately, space does not permit a complete elaboration of these symbols in terms of every profile and interaction.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Ao adotar uma perspectiva psicanalítica, uma premissa fundamental é que a música de uma pessoa é uma projeção simbólica de aspectos inconscientes do self. Isto é, os elementos musicais, e os processos pelos quais eles se desdobram e interagem na improvisação (i.e., integração, variabilidade, etc.) são representações simbólicas de elementos inconscientes do self e dos processos pelos quais esses elementos se desdobram e interagem dentro da personalidade. Assim, cada elemento musical representa simbolicamente um aspecto particular da personalidade, e cada processo musical corresponde a um processo psicológico.</p>
+      <p class="rp">Nos parágrafos a seguir, as derivações simbólicas de cada elemento musical são descritas com referência aos processos mais relevantes. O valor dessas derivações se torna evidente quando aplicado a cada um dos perfis e à maneira como os perfis interagem. Infelizmente, o espaço não permite uma elaboração completa desses símbolos em termos de cada perfil e interação.</p>
+    </div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"Cada elemento musical representa simbolicamente um aspecto particular da personalidade, e cada processo musical corresponde a um processo psicológico."</blockquote>
+      <blockquote data-lang="en">"Each musical element symbolically represents a particular aspect of personality, and each musical process corresponds to a psychological process."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 450</cite></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════════════ 2. COMPONENTES RÍTMICOS ══════════════════ -->
+  <section class="section" id="sec-rhythm">
+    <h2 class="sec-title" data-lang="pt">A Significância Simbólica dos Componentes Rítmicos</h2>
+    <h2 class="sec-title" data-lang="en">The Symbolic Significance of Rhythmic Components</h2>
+
+    <div data-lang="en">
+      <p class="rp">The components of rhythm are usually considered as manifestations of instinctual energy. Thus, pulse, meter, subdivisions, rhythmic patterns, and accents are interpreted as symbolic derivations of the amount, direction and flow of instinctual energy or drives.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Os componentes do ritmo são geralmente considerados como manifestações de energia instintiva. Assim, pulso, metro, subdivisões, padrões rítmicos e acentos são interpretados como derivações simbólicas da quantidade, direção e fluxo de energia instintiva ou pulsões.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Pulso</h3>
+    <h3 class="subsec-title" data-lang="en">Pulse</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Pulse.</strong> A pulse is a division of time into equal, recurring segments which are marked off by equally significant events. As such, it represents homeostasis, or a state of controlled, pleasurable equilibrium similar to the intrauterine experience of the mother's heartbeat. Since the energy is in a state of equilibrium, the pulse is not driven towards an object or aim outside of itself, and therefore does not arouse or inhibit needs. As with the fetus, instinctual gratification is immediate and undelayed, and the experience is one of euphoric embeddedness of self in its origin with respect to both time and matter.</p>
+      <p class="rp">Pulse gives security, stability, predictability, and a reassurance that instinctual forces or energy will not become overwhelming or disappear. The pulse provides a "ground" that holds, supports, controls, and equalizes energy and drives. In doing so, pulse serves to ward off primal anxiety and fears of overstimulation.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Pulso.</strong> Um pulso é uma divisão do tempo em segmentos iguais e recorrentes marcados por eventos igualmente significativos. Como tal, representa a homeostase, ou um estado de equilíbrio controlado e prazeroso semelhante à experiência intrauterina do batimento cardíaco da mãe. Como a energia está em estado de equilíbrio, o pulso não é impulsionado em direção a um objeto ou objetivo externo a si mesmo e, portanto, não desperta nem inibe necessidades. Como no feto, a gratificação instintiva é imediata e sem atraso, e a experiência é de incorporação eufórica do self em sua origem, tanto no tempo quanto na matéria.</p>
+      <p class="rp">O pulso dá segurança, estabilidade, previsibilidade e a garantia de que as forças ou energias instintivas não se tornarão avassaladoras nem desaparecerão. O pulso fornece um "fundo" que sustenta, apoia, controla e equaliza energia e pulsões. Ao fazê-lo, o pulso serve para afastar a ansiedade primária e os medos de superestimulação.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Subdivisões do Pulso</h3>
+    <h3 class="subsec-title" data-lang="en">Subdivisions of Pulse</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Subdivisions of Pulse.</strong> Subdivisions are equal divisions of the pulse into shorter temporal units. What they actually accomplish is a speeding up or charging of the pulse. As such, subdivisions create, increase, and accumulate energy. They change the state of equilibrium by introducing the possibility that energy can be doubled or tripled in quantity, and that all events are not equal to the pulse. They provide surges of energy, yet they remain a grounding force.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Subdivisões do Pulso.</strong> Subdivisões são divisões iguais do pulso em unidades temporais mais curtas. O que elas de fato realizam é uma aceleração ou carregamento do pulso. Como tal, as subdivisões criam, aumentam e acumulam energia. Alteram o estado de equilíbrio ao introduzir a possibilidade de que a energia possa ser duplicada ou triplicada em quantidade e que nem todos os eventos sejam iguais ao pulso. Fornecem surtos de energia, mas permanecem uma força de ancoragem.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Andamento (Tempo)</h3>
+    <h3 class="subsec-title" data-lang="en">Tempo</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Tempo.</strong> Like subdivisions, tempo moves the state of equilibrium to different levels of energy. As with heartbeat changes, faster pulses imply increased activity, drive, or urgency. Fast tempos also create the need for more space or organization at a higher level (i.e., meter). Slower pulses imply decreased activity, and less drive or urgency, and create the need to fill in or subdivide the spaces. Tempo is a gauge of energy, signalling the need to be held up by a ground, or carried away by the forces of drive.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Andamento.</strong> Assim como as subdivisões, o andamento move o estado de equilíbrio para diferentes níveis de energia. Como nas mudanças do batimento cardíaco, pulsos mais rápidos implicam maior atividade, impulso ou urgência. Andamentos rápidos também criam a necessidade de mais espaço ou organização em um nível mais elevado (i.e., metro). Pulsos mais lentos implicam menor atividade, menos impulso ou urgência, e criam a necessidade de preencher ou subdividir os espaços. O andamento é um indicador de energia, sinalizando a necessidade de ser sustentado por um fundo ou arrebatado pelas forças do impulso.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Fundos Rítmicos</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Grounds</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Rhythmic Grounds.</strong> Pulse, subdivision, and tempo function as "grounds." As continuous states of equilibrium, they provide holding environments which can vary in the amount of energy they sustain. What is conspicuously absent in all of them is a drive towards an object or aim. Because the events of a pulse are equally significant, changes in energy produced through subdivision or tempo do not suggest or predict a climax or end. They go nowhere. In order for a more significant event or climax to take place, the events marking off the pulse must be directed towards an aim or point of destination, and becomes differentiated in relative significance and value. When such differentiation of significance (accent) and value (duration) take place and when these events take on direction (phrase), rhythmic pattern arises. When states of energy become directed, drives occur.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Fundos Rítmicos.</strong> Pulso, subdivisão e andamento funcionam como "fundos". Como estados contínuos de equilíbrio, fornecem ambientes de sustentação que podem variar na quantidade de energia que sustentam. O que está conspicuamente ausente em todos eles é um impulso em direção a um objeto ou objetivo. Como os eventos de um pulso são igualmente significativos, as mudanças de energia produzidas pela subdivisão ou andamento não sugerem nem predizem um clímax ou fim. Não levam a nenhum lugar. Para que um evento mais significativo ou um clímax ocorra, os eventos que marcam o pulso devem ser direcionados a um objetivo ou ponto de destino, e tornam-se diferenciados em significância e valor relativos. Quando tal diferenciação de significância (acento) e valor (duração) ocorre e quando esses eventos assumem direção (frase), o padrão rítmico surge. Quando os estados de energia se tornam direcionados, os impulsos ocorrem.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Figuras e Padrões Rítmicos</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Figures or Patterns</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Rhythmic Figures or Patterns.</strong> Rhythmic patterns are formed when the sounds do not coincide with the pulse. They are what is "not pulse," or what is commonly called "impulse." The sounds are no longer equal to each other in significance and value, and they are now inclined to move towards an object or aim with varying degrees of drive or urgency. The patterns disturb the state of equilibrium or homeostasis, and therefore stimulate tension and the need for resolution. Gratification is not a matter of self-origin embeddedness in time and matter — it must be negotiated through directed interaction between self and object. Safety is also not a matter of embeddedness, and therefore must be maintained by moving towards or away from objects. Thus, rhythmic patterns are impulses, object cathexes, and pathways of drives moving toward or away from objects. Developmentally, they occur after the child has developed concepts of object-permanence.</p>
+      <p class="rp">The forming of a rhythmic pattern is the process of becoming disembedded from the pulse. It is the intentional birthing of an organized entity of energy, and a separation from instinctual life. It is a driving of oneself away from instinctual origins towards a higher order of intentionality. It is the leaving of one's holding, nurturing environment. How much the pattern is disembedded from the pulse is a function of where the needs for gratification or safety will be met, and how urgent they are. When a pattern becomes reembedded in the pulse, there is a symbiotic retreat to the safety of a ground, accompanied by a reduction of drive and intention; when a pattern becomes disembedded from the pulse, there is an increase in drive and an intentional struggle for individuation, accompanied by the ever present danger of isolation and loss of one's grounding.</p>
+      <p class="rp">A rhythmic pattern exists as an entity, apart from its underlying pulse, like a child separated from, yet near its mother. Interestingly, children begin to repeat rhythms to themselves as they enter the developmental period characterized by separation anxiety. The repeated rhythms form a slightly figured ground wherein the rhythm and the pulse are intimately linked together yet different — not unlike the resemblances between child and parent. As the child repeats the pattern, the rhythm serves as a reminder of the separate existence of the self, while the repetition serves as a reminder of the introjected presence of parents. As such, rhythm serves to ward off separation anxiety, by serving as its own permanent object and substitution for the pulse.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Figuras ou Padrões Rítmicos.</strong> Padrões rítmicos se formam quando os sons não coincidem com o pulso. São o que é "não pulso", ou o que comumente se chama de "impulso". Os sons já não são mais iguais entre si em significância e valor, e agora tendem a se mover em direção a um objeto ou objetivo com variados graus de impulso ou urgência. Os padrões perturbam o estado de equilíbrio ou homeostase e, portanto, estimulam a tensão e a necessidade de resolução. A gratificação não é uma questão de imersão de origem do self no tempo e na matéria — ela deve ser negociada por meio da interação dirigida entre o self e o objeto. A segurança também não é uma questão de imersão e, portanto, deve ser mantida movendo-se em direção ou se afastando dos objetos. Assim, padrões rítmicos são impulsos, catexes de objeto e caminhos de pulsões que se movem em direção a ou se afastando de objetos. Do ponto de vista do desenvolvimento, ocorrem após a criança desenvolver conceitos de permanência do objeto.</p>
+      <p class="rp">A formação de um padrão rítmico é o processo de se desvincular do pulso. É o nascimento intencional de uma entidade organizada de energia, e uma separação da vida instintiva. É um impulso de si mesmo para longe das origens instintivas em direção a uma ordem superior de intencionalidade. É o abandono do ambiente de sustentação e nutrição. O quanto o padrão está desvinculado do pulso é uma função de onde as necessidades de gratificação ou segurança serão atendidas e quão urgentes elas são. Quando um padrão se reembute no pulso, há um recuo simbiótico para a segurança de um fundo, acompanhado por uma redução do impulso e da intenção; quando um padrão se desvincula do pulso, há um aumento do impulso e uma luta intencional pela individuação, acompanhados pelo perigo sempre presente de isolamento e perda do enraizamento.</p>
+      <p class="rp">Um padrão rítmico existe como uma entidade, à parte de seu pulso subjacente, como uma criança separada, mas próxima à mãe. Curiosamente, as crianças começam a repetir ritmos para si mesmas quando entram no período de desenvolvimento caracterizado pela ansiedade de separação. Os ritmos repetidos formam um fundo levemente figurado no qual o ritmo e o pulso estão intimamente ligados, mas diferentes — não diferente das semelhanças entre filho e pai. À medida que a criança repete o padrão, o ritmo serve como lembrança da existência separada do self, enquanto a repetição serve como lembrança da presença introjetada dos pais. Como tal, o ritmo serve para afastar a ansiedade de separação, servindo como seu próprio objeto permanente e substituto do pulso.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Metro</h3>
+    <h3 class="subsec-title" data-lang="en">Meter</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Meter.</strong> Meter is the component which serves to organize the surges of energy created by subdivisions and tempo. It also controls the driving forces of rhythms as they become disembedded.</p>
+      <p class="rp">Meter is the organization of pulses into numerical units. It provides a hierarchical structure for keeping energy levels at different levels of consciousness and for sublimating the drives of rhythms into higher level objectives. As a superordinate level of organization and control, meter exerts authority and power over the other components of rhythm and thereby provides a moral context for the discharge of instinctual energies.</p>
+      <p class="rp">When the rhythms fit into the measure, the meter provides reassurance that the energy states, drives, and impulses are occurring in the right place at the right time, and that their significance is contained within an overall value system. When the rhythms extend beyond the measure, the meter provides boundaries for rhythmic deviation or points out the need for temporal controls. When meters are stable, they serve to assimilate energy and drives into acceptable time frames; when meters change constantly, they serve to accommodate impulses and drives of the moment. In its many functions, meter provides a basis for warding off moral anxiety. Developmentally, it appears in children concurrent with super-ego functions.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Metro.</strong> O metro é o componente que serve para organizar os surtos de energia criados pelas subdivisões e pelo andamento. Também controla as forças motrizes dos ritmos à medida que se desvinculam.</p>
+      <p class="rp">O metro é a organização dos pulsos em unidades numéricas. Fornece uma estrutura hierárquica para manter os níveis de energia em diferentes níveis de consciência e para sublimar os impulsos dos ritmos em objetivos de nível superior. Como nível superordenado de organização e controle, o metro exerce autoridade e poder sobre os outros componentes do ritmo e, assim, fornece um contexto moral para a descarga de energias instintivas.</p>
+      <p class="rp">Quando os ritmos se encaixam na medida, o metro fornece a garantia de que os estados de energia, impulsos e pulsões estão ocorrendo no lugar certo, na hora certa, e que sua significância está contida em um sistema de valores global. Quando os ritmos se estendem além da medida, o metro fornece limites para o desvio rítmico ou aponta a necessidade de controles temporais. Quando os metros são estáveis, servem para assimilar energia e pulsões em molduras temporais aceitáveis; quando os metros mudam constantemente, servem para acomodar impulsos e pulsões do momento. Em suas muitas funções, o metro fornece base para afastar a ansiedade moral. Do ponto de vista do desenvolvimento, aparece nas crianças concomitante com as funções do superego.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Acentos</h3>
+    <h3 class="subsec-title" data-lang="en">Accents</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Accents.</strong> Accents are another important component of rhythm. Accents distinguish beats or notes from one another by giving certain ones more force (i.e., intensity) or significance (i.e., prolongation or delay). In differentiating the relative significance of beats or notes, accents help to organize pulses into hierarchical structures that convey the values of meter. Or they provide the means by which rhythms can climax and thereby reveal the direction of drives. Paradoxically then, accents serve as a policing force for meter while also providing motivation and reward for rhythmic disturbances.</p>
+      <p class="rp">When accents occur within the boundaries of meter, there is an affirmation of law and order and an expression of deference to a higher authority. When rhythmic accents cut across the boundaries of measure, disrupt subdivisions, or destabilize tempos, they serve as signals of revolutionary change or rebellion against authority. When such accents are organized in relation to themselves, there is an orderly overthrow of existing temporal regimes; when the accents are disorganized and unstructured, there is anarchy and a deterioration of values.</p>
+      <p class="rp">All of the components of rhythm contribute to the flow of energy. They convey the amount of energy attached to feelings, but not what the feelings are. In order to express more specific feelings and emotions, the tonal elements are needed.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Acentos.</strong> Os acentos são outro componente importante do ritmo. Os acentos distinguem tempos ou notas uns dos outros ao conferir a certos uma maior força (i.e., intensidade) ou significância (i.e., prolongação ou atraso). Ao diferenciar a significância relativa dos tempos ou notas, os acentos ajudam a organizar os pulsos em estruturas hierárquicas que transmitem os valores do metro. Ou fornecem os meios pelos quais os ritmos podem atingir o clímax e, assim, revelar a direção dos impulsos. Paradoxalmente, os acentos servem tanto como força policiadora do metro quanto como motivação e recompensa para as perturbações rítmicas.</p>
+      <p class="rp">Quando os acentos ocorrem dentro dos limites do metro, há uma afirmação da lei e da ordem e uma expressão de deferência a uma autoridade superior. Quando os acentos rítmicos atravessam os limites da medida, perturbam as subdivisões ou desestabilizam os andamentos, servem como sinais de mudança revolucionária ou rebelião contra a autoridade. Quando tais acentos são organizados em relação a si mesmos, há uma derrubada ordenada dos regimes temporais existentes; quando os acentos são desorganizados e desestruturados, há anarquia e deterioração de valores.</p>
+      <p class="rp">Todos os componentes do ritmo contribuem para o fluxo de energia. Eles transmitem a quantidade de energia associada aos sentimentos, mas não o que os sentimentos são. Para expressar sentimentos e emoções mais específicos, os elementos tonais são necessários.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 3. COMPONENTES TONAIS ══════════════════ -->
+  <section class="section" id="sec-tonal">
+    <h2 class="sec-title" data-lang="pt">A Significância Simbólica dos Componentes Tonais</h2>
+    <h2 class="sec-title" data-lang="en">The Symbolic Significance of Tonal Components</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Melodia</h3>
+    <h3 class="subsec-title" data-lang="en">Melody</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Melody.</strong> Melody is the expression of a specific feeling. It is the wish or desire attached to the rhythmic impulse which it clothes. Melody adds the spatial dimension to rhythm and reveals where the feelings are in relation to the self. Melody reveals attitudes towards one's impulses.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Melodia.</strong> A melodia é a expressão de um sentimento específico. É o desejo ou anseio associado ao impulso rítmico que ela veste. A melodia acrescenta a dimensão espacial ao ritmo e revela onde os sentimentos estão em relação ao self. A melodia revela atitudes em relação aos próprios impulsos.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Modalidade</h3>
+    <h3 class="subsec-title" data-lang="en">Modality</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Modality.</strong> A melody is created out of the tones of a scale. Like rhythm and pulse, melody and scale have a figure-ground relationship. The scale (or modality) presents a selection of tones and intervallic possibilities that can be included in the melody. In doing so, the scale limits or contains the feelings that can be expressed in the melody. The scale provides an emotional matrix or ground for feelings expressed in the melody. The more closely related the melody is to the scale, the more it is embedded in the ground.</p>
+      <p class="rp">When the melody is embedded in the scale, feelings have not been differentiated from the emotional context or mood from which they spring. When the melody is disembedded from the scale, it has been differentiated from its context and has clear definition and direction. When the melody stays within the confines of the scale, it is grounded within a particular emotional context. When the melody begins to use tones outside of the scale, the feelings of the melody are being transported to different emotional contexts.</p>
+      <p class="rp">When melodies never change, there is obsession with a feeling, or a compulsion to repeat one's past. When they change continuously, the feelings are fickle and unstable, or unformed.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Modalidade.</strong> Uma melodia é criada a partir dos tons de uma escala. Como ritmo e pulso, melodia e escala têm uma relação figura-fundo. A escala (ou modalidade) apresenta uma seleção de tons e possibilidades interválicas que podem ser incluídos na melodia. Ao fazê-lo, a escala limita ou contém os sentimentos que podem ser expressos na melodia. A escala fornece uma matriz emocional ou fundo para os sentimentos expressos na melodia. Quanto mais intimamente relacionada for a melodia à escala, mais está imersa no fundo.</p>
+      <p class="rp">Quando a melodia está imersa na escala, os sentimentos não foram diferenciados do contexto emocional ou humor do qual surgem. Quando a melodia se desvincula da escala, ela foi diferenciada de seu contexto e possui definição e direção claras. Quando a melodia permanece dentro dos limites da escala, está enraizada em um contexto emocional particular. Quando a melodia começa a usar tons fora da escala, os sentimentos da melodia estão sendo transportados para diferentes contextos emocionais.</p>
+      <p class="rp">Quando as melodias nunca mudam, há obsessão com um sentimento, ou uma compulsão para repetir o passado. Quando mudam continuamente, os sentimentos são voláteis e instáveis, ou ainda informes.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Harmonia</h3>
+    <h3 class="subsec-title" data-lang="en">Harmony</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Harmony.</strong> Another tonal component which is affected by scale and melody is harmony. Harmony serves several important functions. As an accompaniment to melody, harmony conveys how the feeling in the melody feels. The harmony reveals attitudes or values concerning what is being expressed in the melody. When the chords and melody use the same tones, there is consonance; when they use different tones, there is dissonance. Harmony can integrate the feeling of the melody into an emotional context, or point out its deviations from it. Harmony can ground the melody, or serve to stimulate its movement into other emotional areas. When harmony moves quickly, it gives the melody urgency and inspires action; when it moves slowly, it calms the melody and elicits reflection. When harmony deviates from the scale, it destabilizes the melody, and disconnects it from the center of the self. Without harmonic support, melodies are fleeting whims without basis in reality, and without real commitment from the self.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Harmonia.</strong> Outro componente tonal que é afetado pela escala e pela melodia é a harmonia. A harmonia desempenha várias funções importantes. Como acompanhamento da melodia, a harmonia transmite como o sentimento da melodia se sente. A harmonia revela atitudes ou valores acerca do que está sendo expresso na melodia. Quando os acordes e a melodia usam os mesmos tons, há consonância; quando usam tons diferentes, há dissonância. A harmonia pode integrar o sentimento da melodia a um contexto emocional ou apontar seus desvios. A harmonia pode ancorar a melodia ou estimular seu movimento para outras áreas emocionais. Quando a harmonia se move rapidamente, confere urgência à melodia e inspira ação; quando se move lentamente, acalma a melodia e suscita reflexão. Quando a harmonia se desvia da escala, desestabiliza a melodia e a desconecta do centro do self. Sem suporte harmônico, as melodias são caprichos passageiros sem base na realidade e sem real comprometimento do self.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Tonalidade</h3>
+    <h3 class="subsec-title" data-lang="en">Tonality</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Tonality.</strong> Melody and harmony move along according to directions that are dictated by tonality. Tonality provides a hierarchy of functions for each tone in a melody, and for each chord in the progression. It determines the relative importance of each tone and chord, and stipulates where the tones and chords should go and come to rest.</p>
+      <p class="rp">While modality provides an emotional context for melodic and harmonic feelings to take form, tonality provides an emotional center to contain and direct their unfolding. Like modality, tonality provides a ground for melody and harmony, and their unification.</p>
+      <p class="rp">Like meter, tonality is a controlling, organizational structure. It determines hierarchical relationships of tones within the scale, and specifies resting points and destinations for the journeys of melody and chords through time. Tonality provides a gravitational force towards a point of rest within the center of the self. Unlike meter which is a suprastructure that controls from above, tonality is an infrastructure that controls from within. Like meter, tonality presents moral values, however the values emanate from the self or internalized conscience, rather than from an external source of authority.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Tonalidade.</strong> Melodia e harmonia se movem de acordo com direções ditadas pela tonalidade. A tonalidade fornece uma hierarquia de funções para cada tom de uma melodia e para cada acorde da progressão. Determina a importância relativa de cada tom e acorde e estipula onde tons e acordes devem ir e repousar.</p>
+      <p class="rp">Enquanto a modalidade fornece um contexto emocional para que os sentimentos melódicos e harmônicos tomem forma, a tonalidade fornece um centro emocional para conter e dirigir seu desdobramento. Como a modalidade, a tonalidade fornece um fundo para melodia e harmonia, e sua unificação.</p>
+      <p class="rp">Como o metro, a tonalidade é uma estrutura organizacional de controle. Determina as relações hierárquicas dos tons dentro da escala e especifica pontos de repouso e destinos para as jornadas da melodia e dos acordes ao longo do tempo. A tonalidade fornece uma força gravitacional em direção a um ponto de repouso no centro do self. Ao contrário do metro, que é uma superestrutura que controla de cima, a tonalidade é uma infraestrutura que controla de dentro. Como o metro, a tonalidade apresenta valores morais; porém, os valores emanam do self ou da consciência internalizada, em vez de uma fonte externa de autoridade.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 4. OUTROS ELEMENTOS MUSICAIS ══════════════════ -->
+  <section class="section" id="sec-other-elements">
+    <h2 class="sec-title" data-lang="pt">A Significância Simbólica de Outros Elementos Musicais</h2>
+    <h2 class="sec-title" data-lang="en">The Symbolic Significance of Other Musical Elements</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Fraseado</h3>
+    <h3 class="subsec-title" data-lang="en">Phrasing</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Phrasing.</strong> Rhythm and melody are related to each other through phrasing. Phrasing places the flow of rhythmic energy together with the shape of the melodic and harmonic feelings. When the rhythm and melody do not fit together into the same phrase, drives are not consistent with feelings, in intensity or direction.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Fraseado.</strong> Ritmo e melodia se relacionam entre si por meio do fraseado. O fraseado coloca o fluxo de energia rítmica em conjunto com a forma dos sentimentos melódicos e harmônicos. Quando ritmo e melodia não se encaixam na mesma frase, os impulsos não são consistentes com os sentimentos, em intensidade ou direção.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Volume</h3>
+    <h3 class="subsec-title" data-lang="en">Volume</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Volume.</strong> The intensity and amount of sound, or volume, contributes greatly to the feelings that emerge through the rhythmic-melodic phrase. Volume represents how much energy is directed towards an aim, or how intense the feeling is about an object. It can symbolize force, power, strength, size, and commitment.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Volume.</strong> A intensidade e quantidade do som, ou volume, contribui imensamente para os sentimentos que emergem por meio da frase rítmico-melódica. O volume representa quanta energia é direcionada a um objetivo ou quão intenso é o sentimento acerca de um objeto. Pode simbolizar força, poder, robustez, tamanho e comprometimento.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Timbre</h3>
+    <h3 class="subsec-title" data-lang="en">Timbre</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Timbre.</strong> While volume tells "how much," timbre reveals "who." Timbre represents the identity of the player through his/her selection of medium, instrument, production techniques, and sound vocabulary. The voice reveals the invisible, inner self, externalizing it so that it is audible. An instrument extends and engages the body, and symbolizes its inner feelings and desires, both auditorally and visually. Production techniques and sound vocabularies project the self-concerns of the body and the colorfulness of one's character.</p>
+      <p class="rp">The body may be tense or relaxed with itself, going with the flow of energy or against it, agreeing with the character or revealing the lie. The sounds may be harsh or pleasant, biting or sweet. Like timbre, the character may be colorful or drab, bright or dark, monochromatic or multicolored, pale or intense, ugly or nice.</p>
+      <p class="rp">The symbolic aspects of timbre can be interpreted with reference to the sounds themselves, the visual images of the instruments, and the physical relationships that exist between the body and the sounds and instruments. Most of the symbolic derivations are psychosexual in nature, and refer to the oral, anal, phallic, and genital stages of development.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Timbre.</strong> Enquanto o volume diz "quanto", o timbre revela "quem". O timbre representa a identidade do tocador por meio de sua seleção de meio, instrumento, técnicas de produção e vocabulário sonoro. A voz revela o self invisível e interno, externalizando-o para que seja audível. Um instrumento estende e engaja o corpo, e simboliza seus sentimentos e desejos internos, tanto auditiva quanto visualmente. As técnicas de produção e os vocabulários sonoros projetam as preocupações do self corporal e a riqueza da personalidade.</p>
+      <p class="rp">O corpo pode estar tenso ou relaxado consigo mesmo, indo com o fluxo de energia ou contra ele, concordando com o personagem ou revelando a mentira. Os sons podem ser ásperos ou agradáveis, cortantes ou doces. Como o timbre, o personagem pode ser colorido ou opaco, brilhante ou sombrio, monocromático ou multicolorido, pálido ou intenso, feio ou bonito.</p>
+      <p class="rp">Os aspectos simbólicos do timbre podem ser interpretados com referência aos próprios sons, às imagens visuais dos instrumentos e às relações físicas que existem entre o corpo e os sons e instrumentos. A maioria das derivações simbólicas é de natureza psicossexual e se refere aos estágios oral, anal, fálico e genital do desenvolvimento.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Textura</h3>
+    <h3 class="subsec-title" data-lang="en">Texture</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Texture.</strong> Texture reveals the location and role of each character or part. A texture may reflect hierarchical structures, part-whole relationships, or role functions within the self, between two people, or within a group.</p>
+      <p class="rp">The musical texture serves to organize, administer, and execute the overall plan of action. It provides the strategy or tactics by which each character or part achieves its goals and finds its place. It is the systematization of roles and role functions.</p>
+      <p class="rp">Within texture, the tessitura tells where the character or part is — high or low, above or below the others. The overall texture and the voice configurations reveal what the characters or parts are doing in relation to each other, and how closely they are working together. Specifically, are the two parts in the same space or are they far apart? Do they express the same, similar, or different feelings or ideas? Do they have equal or unequal energy, and are they equally active? Do they have equal or unequal control and authority? Are their roles competing, compatible, or integrated? Are the relationships horizontal or vertical, independent or dependent? How often do these relationships change? How much tension is created by these relationships? Where and between whom are the power struggles?</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Textura.</strong> A textura revela a localização e o papel de cada personagem ou parte. Uma textura pode refletir estruturas hierárquicas, relações parte-todo ou funções de papel dentro do self, entre duas pessoas ou dentro de um grupo.</p>
+      <p class="rp">A textura musical serve para organizar, administrar e executar o plano geral de ação. Ela fornece a estratégia ou as táticas pelas quais cada personagem ou parte alcança seus objetivos e encontra seu lugar. É a sistematização dos papéis e das funções de papel.</p>
+      <p class="rp">Dentro da textura, a tessitura indica onde o personagem ou a parte está — alto ou baixo, acima ou abaixo dos outros. A textura geral e as configurações vocais revelam o que os personagens ou partes estão fazendo em relação uns aos outros e quão proximamente estão trabalhando juntos. Especificamente: as duas partes estão no mesmo espaço ou estão distantes? Elas expressam os mesmos sentimentos ou ideias, semelhantes ou diferentes? Têm energia igual ou desigual, e são igualmente ativas? Têm controle e autoridade iguais ou desiguais? Seus papéis são competitivos, compatíveis ou integrados? As relações são horizontais ou verticais, independentes ou dependentes? Com que frequência essas relações mudam? Quanta tensão é criada por essas relações? Onde e entre quem estão as lutas de poder?</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Programas</h3>
+    <h3 class="subsec-title" data-lang="en">Programs</h3>
+
+    <div data-lang="en">
+      <p class="rp"><strong>Programs.</strong> In addition to the musical elements, the images, stories, lyrics, and programs that serve as the basis for improvisations are of great symbolic importance. These components can be interpreted using techniques for dream analysis.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Programas.</strong> Além dos elementos musicais, as imagens, histórias, letras e programas que servem de base para as improvisações têm grande importância simbólica. Esses componentes podem ser interpretados usando técnicas de análise de sonhos.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 5. PERSPECTIVA EXISTENCIAL ══════════════════ -->
+  <section class="section" id="sec-existential">
+    <h2 class="sec-title" data-lang="pt">Perspectivas Existenciais</h2>
+    <h2 class="sec-title" data-lang="en">Existential Perspectives</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Ser-no-Mundo</h3>
+    <h3 class="subsec-title" data-lang="en">Being-in-the-World</h3>
+
+    <div data-lang="en">
+      <p class="rp">At the most basic level of interpretation, the IAPs provide opportunities to understand the individual's "being-in-the-world." In existential thought, "being-in-the-world" can be understood in three contexts: in the physical world of objects (<em>Umwelt</em>), in the psychological world of the self (<em>Eigenwelt</em>), and in the social world of others (<em>Mitwelt</em>).</p>
+      <p class="rp">In an improvisational context, being-in-the-world of physical objects (Umwelt) is revealed through intramusical relationships (those within and between the musical elements and sound objects), and through intrapersonal physical relationships (between the music and the improviser's body). Being-in-the-world of self (Eigenwelt) is revealed through intrapersonal relationships (between the client's music and his/her thoughts, and among his/her thoughts, feelings, traits, etc.). And being-in-the-world of the other (Mitwelt) is revealed through intermusical and interpersonal relationships found between the client's music, thoughts, and feelings and those of others.</p>
+      <p class="rp">"Being-in-the-world" involves experiencing space, time, matter, and causality of the client within the Umwelt, Eigenwelt, and Mitwelt. Thus, interpretation of the client within an existential framework is an attempt to reconstruct and understand the client's experiences of space, time, material, and causality, as they occur in the world of physical objects, self, and other.</p>
+      <p class="rp">Interpreting one's experiences of space focuses on who/where questions. Interpreting one's experiences of time focuses on who/when questions. Materiality focuses on "what" questions, and causality focuses on "why" questions. Inevitably, however, because space and time are inseparable from one another and the material world, and because they are all experienced causally, each focus is merely a different starting point for reconstructing the entire inner experiences of the client.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">No nível mais básico de interpretação, os IAPs fornecem oportunidades para compreender o "ser-no-mundo" do indivíduo. No pensamento existencial, o "ser-no-mundo" pode ser compreendido em três contextos: no mundo físico dos objetos (<em>Umwelt</em>), no mundo psicológico do self (<em>Eigenwelt</em>) e no mundo social dos outros (<em>Mitwelt</em>).</p>
+      <p class="rp">Em um contexto improvisacional, o ser-no-mundo dos objetos físicos (Umwelt) é revelado por meio de relações intramusicais (aquelas dentro e entre os elementos musicais e objetos sonoros) e por meio de relações físicas intrapessoais (entre a música e o corpo do improvisador). O ser-no-mundo do self (Eigenwelt) é revelado por meio de relações intrapessoais (entre a música do cliente e seus pensamentos, e entre seus pensamentos, sentimentos, traços, etc.). E o ser-no-mundo do outro (Mitwelt) é revelado por meio das relações intermusicais e interpessoais encontradas entre a música, pensamentos e sentimentos do cliente e os dos outros.</p>
+      <p class="rp">O "ser-no-mundo" envolve vivenciar espaço, tempo, matéria e causalidade do cliente dentro do Umwelt, Eigenwelt e Mitwelt. Assim, a interpretação do cliente dentro de uma estrutura existencial é uma tentativa de reconstruir e compreender as experiências do cliente de espaço, tempo, material e causalidade, tal como ocorrem no mundo dos objetos físicos, do self e do outro.</p>
+      <p class="rp">Interpretar as experiências de espaço de alguém foca em questões de quem/onde. Interpretar as experiências de tempo foca em questões de quem/quando. A materialidade foca em questões do "quê", e a causalidade foca em questões do "por quê". Inevitavelmente, porém, como espaço e tempo são inseparáveis uns dos outros e do mundo material, e porque todos são experienciados causalmente, cada foco é meramente um ponto de partida diferente para reconstruir as experiências internas do cliente.</p>
+    </div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"A interpretação do cliente dentro de uma estrutura existencial é uma tentativa de reconstruir e compreender as experiências do cliente de espaço, tempo, material e causalidade, tal como ocorrem no mundo dos objetos físicos, do self e do outro."</blockquote>
+      <blockquote data-lang="en">"Interpretation of the client within an existential framework is an attempt to reconstruct and understand the client's experiences of space, time, material, and causality, as they occur in the world of physical objects, self, and other."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 456</cite></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════════════ 6. ESPAÇO ══════════════════ -->
+  <section class="section" id="sec-space">
+    <h2 class="sec-title" data-lang="pt">Espaço</h2>
+    <h2 class="sec-title" data-lang="en">Space</h2>
+
+    <div data-lang="en">
+      <p class="rp">In existential thought, spatiality extends beyond typical notions of physical, visual, or mathematical space to include one's subjective experiences of it. In music, one experiences space in myriad ways.</p>
+      <p class="rp">Among the IAPs, the integration, salience, congruence, and autonomy profiles provide the most relevant metaphors for spatial processes. Among the scales, tonality, modality, melody, harmony, and texture are the most relevant elements.</p>
+      <p class="rp"><strong>Integration.</strong> Inasmuch as the integration profile describes embeddedness, boundaries, and distance, it provides a metaphor for being-in-the-world of musical space. Within the Umwelt context, integration is a metaphor for where each musical element or component is in reference to its origins. Within the Eigenwelt, integration is a metaphor for how thoughts and feelings are formed within the individual's musical space. Within the Mitwelt, integration is a metaphor for how embedded or disembedded the client is from the other person (musically and personally), how close or near they are, and how permeable their boundaries are.</p>
+      <p class="rp"><strong>Salience.</strong> The salience profile deals with where elements are in musical space with regard to prominence and control. As such, it reveals vertical positions (e.g., top/bottom and up/down) and depth positions (e.g., forward/backward). Within the Umwelt, the elements can be in the foreground or background, conforming with or controlling the other elements. Within the Eigenwelt, certain thoughts and feelings are in the foreground while others are in the background. Within the Mitwelt, certain elements are used to compete for attention, and others are used as a means of paying attention.</p>
+      <p class="rp"><strong>Congruence.</strong> The congruence profile points out how distant one's musical feelings are from one's body experiences and thoughts, and how distant a particular musical feeling is from another. It also reveals how distant the client's thoughts and feelings may be from another person's. Thus, it is the most relevant profile for understanding how the client's thoughts and feelings are fused, integrated, and differentiated within his/her own musical space, as well as the musical space shared by others.</p>
+      <p class="rp"><strong>Autonomy.</strong> The autonomy profile is most relevant to understanding auditory spaces in the Mitwelt. It indicates who is where in a relationship. Vertical positions are assumed by leaders and followers. Horizontal positions are taken by partners. The client uses certain elements to follow and comply with the other, and certain ones to lead and control the other.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">No pensamento existencial, a espacialidade vai além das noções típicas de espaço físico, visual ou matemático para incluir as experiências subjetivas do indivíduo. Na música, experimenta-se o espaço de inúmeras maneiras.</p>
+      <p class="rp">Entre os IAPs, os perfis de integração, saliência, congruência e autonomia fornecem as metáforas mais relevantes para os processos espaciais. Entre as escalas, tonalidade, modalidade, melodia, harmonia e textura são os elementos mais relevantes.</p>
+      <p class="rp"><strong>Integração.</strong> Na medida em que o perfil de integração descreve imersão, fronteiras e distância, fornece uma metáfora para o ser-no-mundo do espaço musical. No contexto do Umwelt, a integração é uma metáfora de onde cada elemento ou componente musical está em referência às suas origens. No Eigenwelt, a integração é uma metáfora de como pensamentos e sentimentos são formados dentro do espaço musical do indivíduo. No Mitwelt, a integração é uma metáfora de quão imerso ou desvinculado o cliente está da outra pessoa (musicalmente e pessoalmente), quão próximos estão e quão permeáveis são suas fronteiras.</p>
+      <p class="rp"><strong>Saliência.</strong> O perfil de saliência trata de onde os elementos estão no espaço musical com relação à proeminência e ao controle. Como tal, revela posições verticais (ex.: topo/base e acima/abaixo) e posições de profundidade (ex.: frente/trás). No Umwelt, os elementos podem estar no primeiro plano ou no fundo, conformando-se com ou controlando os outros elementos. No Eigenwelt, certos pensamentos e sentimentos estão em primeiro plano enquanto outros estão em segundo plano. No Mitwelt, certos elementos são usados para competir pela atenção, e outros são usados como meio de prestar atenção.</p>
+      <p class="rp"><strong>Congruência.</strong> O perfil de congruência aponta quão distantes os sentimentos musicais estão das experiências e pensamentos corporais, e quão distante um sentimento musical particular está de outro. Também revela quão distantes os pensamentos e sentimentos do cliente podem estar dos de outra pessoa. Assim, é o perfil mais relevante para compreender como os pensamentos e sentimentos do cliente estão fundidos, integrados e diferenciados dentro de seu próprio espaço musical, bem como no espaço musical compartilhado por outros.</p>
+      <p class="rp"><strong>Autonomia.</strong> O perfil de autonomia é mais relevante para compreender os espaços auditivos no Mitwelt. Indica quem está onde em uma relação. Posições verticais são assumidas por líderes e seguidores. Posições horizontais são adotadas por parceiros. O cliente usa certos elementos para seguir e concordar com o outro, e certos para liderar e controlar o outro.</p>
+    </div>
+
+    <div data-lang="en">
+      <p class="rp"><strong>The Musical Elements.</strong> As for the musical elements, melody, modality, tonality, and phrasing define horizontal auditory space, whereas harmony and texture define vertical auditory space. Register provides boundaries for horizontal and vertical space. Volume is the amount of sound mass occupying auditory space.</p>
+      <p class="rp">Melody is a pitch design in horizontal space, somewhat like a line drawing that travels in only one direction. Contour is shape, and interval is distance. A modality is a vertical arrangement of pitches, which travels up and down to high and low positions.</p>
+      <p class="rp">Tonality is a centering of oneself around a pitch location. It may stay in one place, move away from home base, migrate to a new location, wander aimlessly, or float in mid-air. Being in distant tonalities is like staying away from the self or other, while being in ambiguous tonalities is like being in two places at once. One can stay centered around oneself or another person.</p>
+      <p class="rp">Register provides territorial boundaries for each voice or part. The boundaries may be confining, comfortable, or very expansive. Texture reveals distances between voices and parts. The distances may be near or far. Voicing configurations determine how filled the spaces are. The spaces may be open or crowded. Volume indicates how large or small sound waves are, or how much sound mass is being used.</p>
+      <p class="rp">Though not as "spatial" as other elements, rhythm, tempo, and meter also have spatial significance. Rhythmic grounding is a spatial metaphor for gravity towards the center of the earth. Rhythmic figures rise above the pulse at various distances, filling the spaces of time or leaving them open. Meter is a measuring off of horizontal space. Duration tells how much horizontal space each tone needs, while accents designate the specific location of the most significant tones.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp"><strong>Os Elementos Musicais.</strong> Quanto aos elementos musicais, melodia, modalidade, tonalidade e fraseado definem o espaço auditivo horizontal, enquanto harmonia e textura definem o espaço auditivo vertical. O registro fornece limites para o espaço horizontal e vertical. O volume é a quantidade de massa sonora que ocupa o espaço auditivo.</p>
+      <p class="rp">A melodia é um design de altura no espaço horizontal, um pouco como um desenho de linha que se move em apenas uma direção. O contorno é a forma, e o intervalo é a distância. Uma modalidade é uma disposição vertical de alturas, que percorre posições altas e baixas.</p>
+      <p class="rp">A tonalidade é um centramento de si mesmo em torno de uma localização de altura. Pode permanecer em um lugar, se afastar da base, migrar para uma nova localização, vagar sem rumo ou flutuar no ar. Estar em tonalidades distantes é como ficar longe do self ou do outro, enquanto estar em tonalidades ambíguas é como estar em dois lugares ao mesmo tempo. Pode-se permanecer centrado em torno de si mesmo ou de outra pessoa.</p>
+      <p class="rp">O registro fornece limites territoriais para cada voz ou parte. Os limites podem ser confinantes, confortáveis ou muito expansivos. A textura revela distâncias entre vozes e partes. As distâncias podem ser próximas ou distantes. As configurações de voicing determinam o quanto os espaços estão preenchidos. Os espaços podem ser abertos ou lotados. O volume indica o tamanho das ondas sonoras ou quanta massa sonora está sendo usada.</p>
+      <p class="rp">Embora não tão "espaciais" quanto outros elementos, ritmo, andamento e metro também têm significância espacial. O enraizamento rítmico é uma metáfora espacial para a gravidade em direção ao centro da terra. As figuras rítmicas se elevam acima do pulso em várias distâncias, preenchendo os espaços do tempo ou deixando-os abertos. O metro é uma medição do espaço horizontal. A duração indica quanto espaço horizontal cada tom necessita, enquanto os acentos designam a localização específica dos tons mais significativos.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 7. TEMPO ══════════════════ -->
+  <section class="section" id="sec-time">
+    <h2 class="sec-title" data-lang="pt">Tempo (Temporalidade)</h2>
+    <h2 class="sec-title" data-lang="en">Time</h2>
+
+    <div data-lang="en">
+      <p class="rp">In existential thought, temporality extends beyond physical, biological, and psychological concepts of time to include one's subjective experiences of it. A person can experience time as slow or fast, regardless of how much physical, biological, or psychological time has lapsed. A person's experiences can be dominated by the past, present, or future, regardless of one's embeddedness in the present.</p>
+      <p class="rp">Among the IAPs, the variability, integration, tension, and autonomy profiles are most relevant to temporal processes. Among the scales, rhythm, tempo, and meter are the most relevant.</p>
+      <p class="rp"><strong>Variability.</strong> The variability profile reflects one's orientation towards past, present, and future. It distinguishes between individuals who are prospective versus retrospective in their experiential bias. It can express regret, remorse, nostalgia, expectation, hope, and reform. It reveals the degree to which each time zone is experienced as mutable or immutable, repressed or realized, clear or confused, idealized or real, regretted or cherished, and meaningful or empty.</p>
+      <p class="rp"><strong>Integration.</strong> While the variability profile addresses the unfolding of time and the relationship of the three time zones, the integration profile addresses the simultaneous "now" experience. It is the profile of the present, revealing how much one can experience at one time. Along with the salience profile, integration indicates differences in the levels of consciousness needed to absorb all that is happening within and among the elements.</p>
+      <p class="rp"><strong>Tension.</strong> The tension profile reflects whether energy is stored in the past, flowing in the present, or blocked from the future. It tells when and how often peak experiences of emotional climaxes take place, and indicates whether events in each time zone are experienced as constructive or destructive, catastrophic or triumphant. In the context of another person, tension reflects one's comfort in sharing feelings with the other. Can the life of a feeling be relived together, or is it a strictly personal experience?</p>
+      <p class="rp"><strong>Autonomy.</strong> The autonomy profile examines the extent to which the client lives in his/her own personal time versus the time of others. Establishing one's own tempo is living in one's own time; following the other person's tempo is living in their time. Repeating one's own music is living in one's own past; imitating the other person is living in their past.</p>
+      <p class="rp"><strong>The Musical Elements.</strong> With regard to specific musical elements, rhythmic integration is a measure of temporal coincidence or synchrony among the musical parts of the self and between the self and other. Tempo may reveal how fast the individual works, plays, or lives, or it may reflect how slowly time passes for him/her. Subdivisions of the beat fill up the spaces of time and give tempo more urgency. Meter organizes the spaces, and gives tempo less urgency. Through rhythm and tempo, one experiences the past, present, and future as urgent or lackadaisical, fast or slow moving, meaningful or empty, climactic or boring.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">No pensamento existencial, a temporalidade vai além dos conceitos físicos, biológicos e psicológicos do tempo para incluir as experiências subjetivas do indivíduo. Uma pessoa pode experienciar o tempo como lento ou rápido, independentemente de quanto tempo físico, biológico ou psicológico tenha decorrido. As experiências de uma pessoa podem ser dominadas pelo passado, presente ou futuro, independentemente de sua imersão no presente.</p>
+      <p class="rp">Entre os IAPs, os perfis de variabilidade, integração, tensão e autonomia são mais relevantes para os processos temporais. Entre as escalas, ritmo, andamento e metro são os mais relevantes.</p>
+      <p class="rp"><strong>Variabilidade.</strong> O perfil de variabilidade reflete a orientação do indivíduo em relação ao passado, presente e futuro. Distingue entre indivíduos que são prospectivos versus retrospectivos em sua tendência experiencial. Pode expressar arrependimento, remorso, nostalgia, expectativa, esperança e reforma. Revela o grau em que cada zona temporal é experienciada como mutável ou imutável, reprimida ou realizada, clara ou confusa, idealizada ou real, lamentada ou apreciada, e significativa ou vazia.</p>
+      <p class="rp"><strong>Integração.</strong> Enquanto o perfil de variabilidade aborda o desdobramento do tempo e a relação das três zonas temporais, o perfil de integração aborda a experiência do "agora" simultâneo. É o perfil do presente, revelando quanto se pode experienciar de uma vez. Junto com o perfil de saliência, a integração indica diferenças nos níveis de consciência necessários para absorver tudo o que está acontecendo dentro e entre os elementos.</p>
+      <p class="rp"><strong>Tensão.</strong> O perfil de tensão reflete se a energia está armazenada no passado, fluindo no presente ou bloqueada do futuro. Indica quando e com que frequência ocorrem experiências de pico de clímax emocionais, e indica se os eventos em cada zona temporal são experienciados como construtivos ou destrutivos, catastróficos ou triunfantes. No contexto de outra pessoa, a tensão reflete o conforto do indivíduo ao compartilhar sentimentos com o outro. A vida de um sentimento pode ser revivida juntos, ou é uma experiência estritamente pessoal?</p>
+      <p class="rp"><strong>Autonomia.</strong> O perfil de autonomia examina até que ponto o cliente vive em seu próprio tempo pessoal versus o tempo dos outros. Estabelecer o próprio andamento é viver no próprio tempo; seguir o andamento da outra pessoa é viver no tempo dela. Repetir a própria música é viver no próprio passado; imitar a outra pessoa é viver no passado dela.</p>
+      <p class="rp"><strong>Os Elementos Musicais.</strong> Com relação aos elementos musicais específicos, a integração rítmica é uma medida de coincidência temporal ou sincronia entre as partes musicais do self e entre o self e o outro. O andamento pode revelar quão rápido o indivíduo trabalha, brinca ou vive, ou pode refletir quão lentamente o tempo passa para ele/ela. As subdivisões do tempo preenchem os espaços do tempo e dão ao andamento mais urgência. O metro organiza os espaços e dá ao andamento menos urgência. Por meio do ritmo e do andamento, experimenta-se o passado, o presente e o futuro como urgentes ou indolentes, de movimento rápido ou lento, significativos ou vazios, clímaticos ou entediantes.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 8. MATERIAL ══════════════════ -->
+  <section class="section" id="sec-material">
+    <h2 class="sec-title" data-lang="pt">Material</h2>
+    <h2 class="sec-title" data-lang="en">Material</h2>
+
+    <div data-lang="en">
+      <p class="rp">In an improvisatory situation, material is the actual content of the musical experience, or its musical feeling qualities. It is the substance of the music. It pertains to whether the music is heavy or light, stormy or calm, flowing or blocked, thick or thin, dark or bright, simple or complex. It also reflects what the emotional and ideational substance of the music is.</p>
+      <p class="rp">In interpreting improvisational material, the elements or scales are more relevant starting points than the profiles. Volume, timbre, and texture scales convey the physical qualities of the music (Umwelt), while rhythmic and melodic scales reveal its emotional and ideational substance for the improviser (Eigenwelt).</p>
+      <p class="rp">The use of the body, sound media, and instruments reveal the physical relationship between the improviser and music as objects (Umwelt) and the psychological relationships of self as subject and the music as object (Eigenwelt). Lyrics, program, and verbal reactions convey the improviser's experience of the sounds themselves (Umwelt), or their emotional or ideational content for him/her (Eigenwelt).</p>
+      <p class="rp">Within the Mitwelt, volume, timbre, body use, instrument, medium, and texture reveal physical relationships with the other, while rhythm, melody, lyrics, program, and verbal reactions convey emotional and ideational relationships. Of course, these are not hard and fast rules but require modification within the context of each unique individual.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Em uma situação improvisatória, o material é o conteúdo real da experiência musical ou suas qualidades de sentimento musical. É a substância da música. Diz respeito a se a música é pesada ou leve, tempestuosa ou calma, fluída ou bloqueada, espessa ou fina, sombria ou brilhante, simples ou complexa. Também reflete qual é a substância emocional e ideacional da música.</p>
+      <p class="rp">Ao interpretar o material improvisacional, os elementos ou escalas são pontos de partida mais relevantes do que os perfis. As escalas de volume, timbre e textura transmitem as qualidades físicas da música (Umwelt), enquanto as escalas rítmicas e melódicas revelam sua substância emocional e ideacional para o improvisador (Eigenwelt).</p>
+      <p class="rp">O uso do corpo, meios sonoros e instrumentos revelam a relação física entre o improvisador e a música como objetos (Umwelt) e as relações psicológicas do self como sujeito e a música como objeto (Eigenwelt). Letras, programa e reações verbais transmitem a experiência do improvisador com os próprios sons (Umwelt) ou seu conteúdo emocional ou ideacional (Eigenwelt).</p>
+      <p class="rp">No Mitwelt, volume, timbre, uso do corpo, instrumento, meio e textura revelam relações físicas com o outro, enquanto ritmo, melodia, letras, programa e reações verbais transmitem relações emocionais e ideacionais. Claro, essas não são regras rígidas, mas exigem modificação dentro do contexto de cada indivíduo único.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 9. CAUSALIDADE ══════════════════ -->
+  <section class="section" id="sec-causality">
+    <h2 class="sec-title" data-lang="pt">Causalidade</h2>
+    <h2 class="sec-title" data-lang="en">Causality</h2>
+
+    <div data-lang="en">
+      <p class="rp">Causality involves several concepts. The principle of "determinism" applies whenever an occurrence or state of being is attributed to causes which are outside of one's "power" to control (e.g., natural law, physical reality). The principle of "chance" applies whenever an occurrence or state of being is left to happenstance or accident instead of personal "responsibility." A person who has "power" and "responsibility," must also have the "freedom" and "will" to choose a course of action.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">A causalidade envolve vários conceitos. O princípio do "determinismo" aplica-se sempre que uma ocorrência ou estado de ser é atribuído a causas que estão fora do "poder" do indivíduo de controlar (ex.: lei natural, realidade física). O princípio do "acaso" aplica-se sempre que uma ocorrência ou estado de ser é deixado ao acidente ou à sorte, em vez de à "responsabilidade" pessoal. Uma pessoa que tem "poder" e "responsabilidade" deve também ter a "liberdade" e a "vontade" de escolher um curso de ação.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Determinismo versus Poder</h3>
+    <h3 class="subsec-title" data-lang="en">Determinism versus Power</h3>
+
+    <div data-lang="en">
+      <p class="rp">Determinism is the extent to which the music is determined by physical, psychological, or social forces beyond the improviser's power. It is also reflected in the extent to which the music lies within the power of the improviser to determine. In using the IAPs, the primary question is: What is possible or impossible for the improviser to determine within each profile and scale?</p>
+      <p class="rp">The deterministic forces which beset or overpower the client may emanate from the Umwelt, Eigenwelt, or Mitwelt. Hence the client may struggle against powers in: the physical world of objects (e.g., the physical properties, tendencies, and limitations of sounds, sound objects, and one's own body), the psychological world of the self (e.g., thoughts, feelings, drives, traits), or the social world of others (e.g., the actions and role relationships of others).</p>
+      <p class="rp">Deterministic tendencies can be observed in every profile. In the integration profile, determinism is reflected in the extent to which the client has the power to embed, disembed, join, separate, and form boundaries within the musical elements, and between the musical elements and one's body. In the variability profile, determinism is reflected in the extent to which the improviser has the power to determine the amount, frequency, and abruptness of change. In the tension profile, determinism is reflected in the extent to which the improviser has power over the flow of tension within the music, the self, or the other. In the congruence profile, determinism is reflected in the extent to which the improviser has power to coordinate simultaneous feeling states and role relationships. In the salience profile, determinism is reflected in the extent to which the improviser has power over the relative prominence and control of each musical element. In the autonomy profile, determinism is reflected in the extent to which the improviser attempts to influence role relationships with the other.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O determinismo é a extensão em que a música é determinada por forças físicas, psicológicas ou sociais além do poder do improvisador. Também se reflete até que ponto a música está dentro do poder do improvisador de determinar. Ao usar os IAPs, a questão primária é: O que é possível ou impossível para o improvisador determinar dentro de cada perfil e escala?</p>
+      <p class="rp">As forças determinísticas que assediam ou dominam o cliente podem emanar do Umwelt, Eigenwelt ou Mitwelt. Portanto, o cliente pode lutar contra poderes no: mundo físico dos objetos (ex.: as propriedades físicas, tendências e limitações dos sons, objetos sonoros e do próprio corpo), mundo psicológico do self (ex.: pensamentos, sentimentos, pulsões, traços) ou mundo social dos outros (ex.: as ações e relações de papel dos outros).</p>
+      <p class="rp">Tendências determinísticas podem ser observadas em cada perfil. No perfil de integração, o determinismo se reflete na extensão em que o cliente tem o poder de imergir, desvincular, unir, separar e formar fronteiras dentro dos elementos musicais e entre os elementos musicais e o próprio corpo. No perfil de variabilidade, o determinismo se reflete na extensão em que o improvisador tem o poder de determinar a quantidade, frequência e abruptura das mudanças. No perfil de tensão, o determinismo se reflete na extensão em que o improvisador tem poder sobre o fluxo de tensão na música, no self ou no outro. No perfil de congruência, o determinismo se reflete na extensão em que o improvisador tem poder para coordenar estados de sentimento simultâneos e relações de papéis. No perfil de saliência, o determinismo se reflete na extensão em que o improvisador tem poder sobre a proeminência e o controle relativos de cada elemento musical. No perfil de autonomia, o determinismo se reflete na extensão em que o improvisador tenta influenciar as relações de papéis com o outro.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Acaso versus Responsabilidade</h3>
+    <h3 class="subsec-title" data-lang="en">Chance versus Responsibility</h3>
+
+    <div data-lang="en">
+      <p class="rp">Chance causality is the extent to which aspects of the improvisations are left to happenstance or accident, versus the extent to which they are taken as a responsibility by the client. In using the IAPs, the primary question is which profiles and scales are left to chance factors and which are purposefully manipulated by the client?</p>
+      <p class="rp">Chance factors may emanate from the Umwelt, Eigenwelt, or Mitwelt. When the Umwelt factors are left to chance, the client is deferring to the world of objects and others, and directing control efforts to the world of self and others. When Eigenwelt factors are left to chance, the client is deferring to his/her own inner experiences. When Mitwelt factors are left to chance, the client is deferring to the other, while directing control efforts to the world of objects and self.</p>
+      <p class="rp">Locating chance factors within the various contexts of being-in-the-world helps to understand where the client's experiences of existential and neurotic anxiety are. Existential anxiety is an authentic experience of the risks inherent in the human condition, of which chance is only one. Neurotic anxiety is either an inauthentic experience of the human condition (e.g., denial) or engulfment by the risks inherent in it.</p>
+      <p class="rp">Chance factors can also be recognized in the process that the client undergoes when improvising. An easy way to assess the process is to observe client's need for plans, structures, guidelines, or instructions — before versus during the improvisation. When many important aspects have to be determined beforehand, the client is probably trying to minimize chance occurrences. In interpreting these data, the key question is whether the client prefers spontaneous versus reflective modes of consciousness.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">A causalidade do acaso é a extensão em que aspectos das improvisações são deixados ao acaso ou ao acidente, versus a extensão em que são tomados como responsabilidade pelo cliente. Ao usar os IAPs, a questão primária é quais perfis e escalas são deixados a fatores de acaso e quais são propositalmente manipulados pelo cliente?</p>
+      <p class="rp">Os fatores de acaso podem emanar do Umwelt, Eigenwelt ou Mitwelt. Quando os fatores do Umwelt são deixados ao acaso, o cliente está se subordinando ao mundo dos objetos e dos outros, e direcionando esforços de controle para o mundo do self e dos outros. Quando os fatores do Eigenwelt são deixados ao acaso, o cliente está se subordinando às suas próprias experiências internas. Quando os fatores do Mitwelt são deixados ao acaso, o cliente está se subordinando ao outro, enquanto direciona esforços de controle para o mundo dos objetos e do self.</p>
+      <p class="rp">Localizar fatores de acaso nos vários contextos do ser-no-mundo ajuda a compreender onde estão as experiências de ansiedade existencial e neurótica do cliente. A ansiedade existencial é uma experiência autêntica dos riscos inerentes à condição humana, dos quais o acaso é apenas um. A ansiedade neurótica é ou uma experiência inautêntica da condição humana (ex.: negação) ou engolfamento pelos riscos inerentes a ela.</p>
+      <p class="rp">Os fatores de acaso também podem ser reconhecidos no processo que o cliente passa ao improvisar. Uma maneira fácil de avaliar o processo é observar a necessidade do cliente de planos, estruturas, diretrizes ou instruções — antes versus durante a improvisação. Quando muitos aspectos importantes têm de ser determinados de antemão, o cliente provavelmente está tentando minimizar ocorrências de acaso. Ao interpretar esses dados, a questão chave é se o cliente prefere modos espontâneos versus reflexivos de consciência.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Liberdade e Vontade</h3>
+    <h3 class="subsec-title" data-lang="en">Freedom and Will</h3>
+
+    <div data-lang="en">
+      <p class="rp">Having power to act and taking responsibility for the outcome, does not automatically lead to choice. Even though overcoming deterministic and chance factors requires a certain degree of intentionality, acting upon one's intentions requires freedom and will. Freedom is here defined as the ability to identify and evaluate one's alternatives, and to freely choose the preferred alternative. Will is the act of choosing.</p>
+      <p class="rp">Freedom is often a matter of creativity. In improvising, creativity is of core significance for it determines how many alternatives the client finds and makes work. Freedom and creativity can be assessed in every profile and scale. Essentially, the ability to function within the three middle levels of each profile continuum is the most relevant measure. For example, within the integration profile, freedom and creativity is manifested in the client's ability to fuse, integrate, or differentiate the musical elements. Within the variability profile, freedom and creativity is manifested in the client's ability to stabilize, vary, or contrast the musical elements, and so forth.</p>
+      <p class="rp">Will requires motivation and courage. It implies a commitment to the process of improvising (i.e., choosing musical alternatives within the Umwelt, Eigenwelt, and Mitwelt). It also implies courage to confront the deterministic and chance forces which may rob the individual of power and responsibility.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Ter poder para agir e assumir responsabilidade pelo resultado não leva automaticamente à escolha. Mesmo que superar fatores determinísticos e de acaso exija certo grau de intencionalidade, agir sobre as próprias intenções requer liberdade e vontade. A liberdade é aqui definida como a capacidade de identificar e avaliar as alternativas e de escolher livremente a alternativa preferida. A vontade é o ato de escolher.</p>
+      <p class="rp">A liberdade é frequentemente uma questão de criatividade. Na improvisação, a criatividade é de importância central, pois determina quantas alternativas o cliente encontra e faz funcionar. Liberdade e criatividade podem ser avaliadas em cada perfil e escala. Essencialmente, a capacidade de funcionar dentro dos três níveis intermediários do contínuo de cada perfil é a medida mais relevante. Por exemplo, dentro do perfil de integração, liberdade e criatividade se manifestam na capacidade do cliente de fundir, integrar ou diferenciar os elementos musicais. Dentro do perfil de variabilidade, liberdade e criatividade se manifestam na capacidade do cliente de estabilizar, variar ou contrastar os elementos musicais, e assim por diante.</p>
+      <p class="rp">A vontade requer motivação e coragem. Implica um comprometimento com o processo de improvisação (i.e., escolher alternativas musicais dentro do Umwelt, Eigenwelt e Mitwelt). Também implica coragem para enfrentar as forças determinísticas e de acaso que podem roubar do indivíduo o poder e a responsabilidade.</p>
+    </div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"A liberdade é frequentemente uma questão de criatividade. Na improvisação, a criatividade é de importância central, pois determina quantas alternativas o cliente encontra e faz funcionar."</blockquote>
+      <blockquote data-lang="en">"Freedom is often a matter of creativity. In improvising, creativity is of core significance for it determines how many alternatives the client finds and makes work."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 463</cite></figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<!-- ════════════════════════ CHAPTER NAV ════════════════════ -->
+<nav aria-label="Navegação entre capítulos" class="chapter-nav">
+  <a class="chapter-nav-prev" href="cap32.html">
+    <span aria-hidden="true" class="chapter-nav-arrow">←</span>
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Capítulo anterior</span>
+      <span class="chapter-nav-label" data-lang="en">Previous chapter</span>
+      <span class="chapter-nav-title" data-lang="pt">Cap. 32 · Os Perfis</span>
+      <span class="chapter-nav-title" data-lang="en">Ch. 32 · The Profiles</span>
+    </span>
+  </a>
+  <div class="chapter-nav-center">
+    <span class="chapter-nav-current" data-lang="pt">Cap. 33</span>
+    <span class="chapter-nav-current" data-lang="en">Ch. 33</span>
+  </div>
+  <a aria-disabled="true" class="chapter-nav-next" href="apendice.html" tabindex="-1">
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Próximo Capítulo</span>
+      <span class="chapter-nav-label" data-lang="en">Next Chapter</span>
+      <span class="chapter-nav-title" data-lang="pt">Apêndice</span>
+      <span class="chapter-nav-title" data-lang="en">Appendix</span>
+    </span>
+    <span aria-hidden="true" class="chapter-nav-arrow">→</span>
+  </a>
+</nav>
+
+<footer>
+  <p>
+    <strong>Bruscia, K. E.</strong> · Improvisational Models of Music Therapy<br/>
+    Springfield: Charles C. Thomas · 1987<br/>
+    <span data-lang="pt">Unidade 9 · Capítulo 33 · pp. 450–464</span>
+    <span data-lang="en">Unit 9 · Chapter 33 · pp. 450–464</span>
+  </p>
+  <p>
+    <span data-lang="pt">Adaptação e Interface gráfica</span>
+    <span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong>
+  </p>
+</footer>
+
+<script src="iaps.js"></script>
+</body>
+</html>

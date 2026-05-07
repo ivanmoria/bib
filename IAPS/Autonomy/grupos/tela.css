@@ -1,0 +1,403 @@
+ :root {
+      --green: #00ff87;
+      --green-dim: rgba(0, 255, 135, 0.15);
+      --green-glow: rgba(0, 255, 135, 0.4);
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.75);
+      --text-dim: rgba(255,255,255,0.35);
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'Syne Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%; background: #050505; color: white;
+      font-family: var(--font-body); overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+
+    /* ═══ WELCOME PANEL ═══ */
+    #welcome-panel {
+      position: fixed; inset: 0; z-index: 1000;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,255,135,0.07) 0%, transparent 70%), #050505;
+      padding: clamp(24px, 5vh, 60px) clamp(20px, 5vw, 80px);
+      overflow-y: auto;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    body.is-ready #welcome-panel { opacity: 0; pointer-events: none; transform: scale(0.97); }
+
+    .welcome-header { text-align: center; margin-bottom: clamp(20px, 3vh, 40px); }
+    .welcome-subtitle {
+      font-family: var(--font-mono); font-size: clamp(10px, 1.1vw, 14px);
+      letter-spacing: 0.25em; color: var(--green); text-transform: uppercase;
+      margin-bottom: 10px; opacity: 0.8;
+    }
+   .welcome-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+
+  color: #ffffff;
+}
+    .btn-audio-play {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 10px 24px; border-radius: 100px;
+      background: transparent; border: 1px solid var(--green);
+      color: var(--green); font-family: var(--font-mono);
+      font-size: clamp(11px, 1vw, 14px); letter-spacing: 0.1em;
+      cursor: pointer; transition: all 0.25s ease;
+      margin-bottom: clamp(16px, 2.5vh, 32px);
+    }
+    .btn-audio-play:hover { background: var(--green-dim); box-shadow: 0 0 20px var(--green-glow); }
+    .btn-audio-play.playing { background: rgba(255,60,60,0.1); border-color: #ff4444; color: #ff4444; }
+    .btn-audio-play .play-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; transition: all 0.25s;
+    }
+    .btn-audio-play.playing .play-dot { background: #ff4444; animation: pulse-dot 1s infinite; }
+    @keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.5);opacity:0.6} }
+
+    #welcome-text-container {
+      width: 100%; max-width: 860px;
+      font-size: clamp(13px, 1.5vw, 18px); line-height: 1.7;
+        text-align: justify;
+      color: var(--text-dim);
+      margin-bottom: clamp(20px, 3vh, 36px);
+    }
+    .word-span { display: inline; margin-right: 0.3em; transition: color 0.2s, text-shadow 0.2s; }
+    .word-active { color: #fff; text-shadow: 0 0 12px var(--green); }
+    .word-past { color: var(--text); }
+
+/* ── GRID: Ajuste de Perspectiva ── */
+.info-grid {
+  display: grid; 
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(10px, 1.5vw, 20px); 
+  width: 100%; 
+  max-width: 1200px;
+  perspective: 1000px; /* Cria o ambiente para o efeito 3D */
+}
+
+/* ── CARD: Base e Transições Premium ── */
+.info-card {
+  position: relative; 
+  overflow: hidden;
+  padding: clamp(16px, 2.2vw, 32px) clamp(14px, 1.8vw, 24px);
+  border-radius: 16px; 
+  background: var(--surface); 
+  border: 1px solid var(--border);
+  text-align: left;
+  /* Curva de transição mais orgânica e responsiva */
+  transition: 
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Overlay de textura sutil */
+.info-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 50%, rgba(255,255,255,0.02)); 
+  pointer-events: none;
+}
+
+/* ── NÚMERO: De "Fantasma" a "Neon" ── */
+.card-number {
+  font-family: var(--font-mono); 
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 400; 
+  line-height: 1; 
+  color: #fff;
+  opacity: 0.05; /* Quase invisível em repouso */
+  margin-bottom: 8px; 
+  transition: all 0.4s ease;
+}
+
+.info-card h4 {
+  font-family: var(--font-display); 
+  font-weight: 800;
+  font-size: clamp(11px, 1.1vw, 15px); 
+  text-transform: uppercase; 
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3); 
+  margin-bottom: 8px; 
+  transition: all 0.4s ease;
+}
+
+.card-accent-bar {
+  height: 2px; 
+  width: 20px; 
+  border-radius: 2px;
+  background: rgba(255,255,255,0.1); 
+  margin-bottom: 12px; 
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.info-card p { 
+  font-size: clamp(11px, 0.9vw, 14px); 
+  line-height: 1.6; 
+  color: rgba(255,255,255,0.25); 
+  transition: color 0.4s ease; 
+}
+
+/* ── ESTADO ATIVO E HOVER (Unificados) ── */
+/* Usamos :where para manter a especificidade baixa e o código limpo */
+.info-card:where(.card-active, :hover) {
+  transform: translateY(-10px) rotateX(4deg); /* Efeito de inclinação 3D */
+  border-color: var(--card-color, var(--green));
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 15px 45px rgba(0,0,0,0.8), 
+    0 0 0 1px var(--card-color, var(--green)),
+    inset 0 0 25px rgba(255,255,255,0.01);
+  z-index: 10;
+}
+
+/* O número agora fica FORTE e vibrante */
+.info-card:where(.card-active, :hover) .card-number { 
+  opacity: 0.95; 
+  color: var(--card-color, var(--green));
+  text-shadow: 0 0 25px var(--card-color, var(--green)); /* Glow Intenso */
+  transform: scale(1.05) translateX(5px);
+}
+
+.info-card:where(.card-active, :hover) h4 { 
+  color: #fff; 
+  text-shadow: 0 0 10px var(--card-color, var(--green));
+}
+
+.info-card:where(.card-active, :hover) .card-accent-bar { 
+  background: var(--card-color, var(--green)); 
+  width: 100%; /* Expande a barra totalmente */
+  box-shadow: 0 0 15px var(--card-color, var(--green)); 
+}
+
+.info-card:where(.card-active, :hover) p { 
+  color: rgba(255,255,255,0.85); 
+}
+
+/* Ajuste no link interno para acompanhar o brilho */
+.info-card:where(.card-active, :hover) .card-link {
+  color: var(--card-color);
+  border-color: var(--card-color);
+  text-shadow: 0 0 10px var(--card-color);
+  opacity: 1;
+}
+    /* ═══ GEAR MENU ═══ */
+    #peer-info {
+      position: fixed; top: 16px; right: 16px; z-index: 5000;
+      background: rgba(12,12,12,0.92); border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      display: flex; gap: 10px; align-items: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer; width: 44px; height: 44px; padding: 0;
+      border-radius: 50%; justify-content: center; overflow: hidden;
+    }
+    #peer-info::before { content: "⚙"; font-size: 18px; color: var(--text-dim); display: block; }
+    #peer-info > * { display: none !important; }
+    #peer-info.expanded {
+      width: auto; height: auto; padding: 8px 14px; border-radius: 50px;
+      cursor: default; border-color: rgba(255,255,255,0.15);
+    }
+    #peer-info.expanded::before { display: none; }
+    #peer-info.expanded > * { display: flex !important; }
+    #peer-id-input {
+      background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.12);
+      color: var(--green); font-family: var(--font-mono);
+      padding: 6px 10px; border-radius: 8px; width: 60px;
+      text-align: center; font-size: 15px; outline: none; transition: border-color 0.2s;
+    }
+    #peer-id-input:focus { border-color: var(--green); }
+    #btn-mute-local, #btn-lang-local {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+      color: white; width: 36px; height: 36px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 15px; transition: all 0.2s ease; flex-shrink: 0;
+    }
+    #btn-lang-local { font-family: var(--font-mono); font-size: 11px; width: auto; padding: 0 10px; border-radius: 20px; }
+    #btn-mute-local:hover, #btn-lang-local:hover { background: rgba(255,255,255,0.12); }
+    #btn-mute-local.active { background: rgba(231,76,60,0.2); border-color: #e74c3c; }
+    #btn-connect {
+      background: linear-gradient(135deg, #00c96e, #00ff87); color: #000; border: none;
+      padding: 8px 16px; border-radius: 20px; cursor: pointer;
+      font-family: var(--font-display); font-weight: 700; font-size: 12px;
+      text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; transition: all 0.3s;
+    }
+    #btn-connect:hover { box-shadow: 0 0 16px var(--green-glow); }
+    #btn-connect.connected { box-shadow: 0 0 12px var(--green-glow); }
+
+    /* ═══ MAIN DISPLAY ═══ */
+    .container {
+      display: flex; height: 100vh; width: 100vw; background-color: #000;
+      transition: opacity 0.8s ease; opacity: 0; pointer-events: none;
+    }
+    body.is-ready .container { opacity: 1; pointer-events: auto; }
+
+    .participant {
+      flex: 1; min-width: 0; /* prevent flex child from overflowing */
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      transition: background-color 0.8s ease; background-color: #000;
+      padding: clamp(16px, 3vw, 40px); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .participant::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 70%);
+    }
+    .left { border-right: 1px solid rgba(255,255,255,0.08); }
+
+    /* Role: scales with the narrower of vw or vh so it never clips.
+       On landscape desktop each half is ~50vw wide, so 10vw ≈ 5% of total width.
+       cap at 9vh so tall words (RESISTENTE 9 chars) still fit vertically. */
+    .role {
+      font-family: var(--font-display);
+      font-size: clamp(26px, min(8vw, 11vh), 100px);
+      font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em;
+      line-height: 1; margin-bottom: 12px;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+      word-break: break-word; /* last resort wrap */
+      max-width: 100%;
+    }
+    .description {
+      font-family: var(--font-body); font-weight: 300; font-style: italic;
+      font-size: clamp(12px, min(1.6vw, 2.4vh), 20px);
+      max-width: 85%;    text-shadow: 0 4px 40px rgba(0,0,0,0.6); line-height: 1.45;
+    }
+    .name {
+      font-family: var(--font-mono);
+      font-size: clamp(11px, min(1.4vw, 2vh), 18px);
+      letter-spacing: 0.15em; opacity: 0.45; margin-top: clamp(16px, 3vh, 36px);
+      text-transform: uppercase; max-width: 100%;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    /* ── Landscape mobile / small tablets ── */
+    @media (max-width: 768px) and (orientation: landscape) {
+      .role { font-size: clamp(28px, 7vh, 72px); }
+      .description { font-size: clamp(11px, 1.8vh, 15px); }
+      .name { margin-top: 10px; font-size: clamp(10px, 1.6vh, 14px); }
+    }
+
+    /* ── Portrait mobile ── */
+    @media (max-width: 768px) and (orientation: portrait) {
+      .container { flex-direction: column; }
+      .participant { padding: 20px 16px; }
+      .left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      /* Each half is ~50vh tall in portrait; role should fill ~30% of it */
+      .role { font-size: clamp(30px, 10vw, 64px); margin-bottom: 8px; }
+      .description { font-size: clamp(12px, 3.8vw, 16px); max-width: 92%; }
+      .name { font-size: clamp(10px, 3.2vw, 14px); margin-top: 10px; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .info-grid .info-card:last-child { grid-column: 1 / -1; }
+      #peer-info.expanded { right: 10px; left: 10px; width: auto; justify-content: space-around; padding: 10px; border-radius: 16px; }
+    }
+
+    /* ── Very small screens (320px wide phones) ── */
+    @media (max-width: 480px) {
+      .info-grid { grid-template-columns: 1fr; }
+      .info-grid .info-card:last-child { grid-column: auto; }
+      .role { font-size: clamp(28px, 9vw, 52px); }
+    }
+
+
+/* ── Card link ── */
+.card-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.78rem;
+  font-family: 'Syne Mono', monospace;
+  color: var(--card-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--card-color);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.card-link:hover { opacity: 1; }
+
+.card-note {
+  text-align: center;
+  font-size: 0.75rem;
+  font-family: 'DM Sans', sans-serif;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1.5rem;
+  padding: 0 1rem 2rem;
+}
+
+
+/* ── Botões de Navegação Inferiores (IAPs e Controle) ── */
+.btn-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.5rem auto; /* Margem ajustada para empilhar dois botões harmoniosamente */
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px;
+  padding: 0.7rem 1.3rem;
+  cursor: pointer;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Syne Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  width: fit-content;
+}
+
+.btn-link:hover {
+  color: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.05);
+}
+
+.btn-link svg { 
+  flex-shrink: 0; 
+}
+
+/* ── Controle de Idioma dos Botões ── */
+.btn-iaps-label-pt { display: inline; }
+.btn-iaps-label-en { display: none; }
+body.lang-en .btn-iaps-label-pt { display: none; }
+body.lang-en .btn-iaps-label-en { display: inline; }
+
+/* ── Hover que imita o estado de leitura (Glow) ── */
+.info-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-color, var(--green));
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 
+              0 0 0 1px var(--card-color, var(--green)), 
+              inset 0 0 40px rgba(255,255,255,0.02);
+}
+
+/* Faz os elementos internos brilharem no hover com a cor correta */
+.info-card:hover .card-number { 
+  color: var(--card-color, var(--green)); 
+  opacity: 0.25; 
+}
+
+.info-card:hover h4 { 
+  color: var(--card-color, var(--green)); 
+}
+
+.info-card:hover .card-accent-bar { 
+  background: var(--card-color, var(--green)); 
+  width: 40px; 
+  box-shadow: 0 0 10px var(--card-color, var(--green)); 
+}
+
+.info-card:hover p { 
+  color: rgba(255,255,255,0.75); 
+}

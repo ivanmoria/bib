@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IAPs · Apêndice · Escalas e Critérios · Bruscia 1987</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="iaps.css" rel="stylesheet"/>
+</head>
+<body class="lang-pt">
+<a class="skip-link" data-lang="pt" href="#main-content">Ir para o conteúdo</a>
+<a class="skip-link" data-lang="en" href="#main-content">Skip to content</a>
+<div aria-hidden="true" id="progress-bar"></div>
+<div aria-live="polite" id="read-tip" role="status"></div>
+
+<!-- ════════════════════════ VERTICAL TOC ════════════════════ -->
+<nav aria-label="Navegação de seções" id="vtoc">
+  <div class="vtoc-dot" data-href="#sec-rhythmic" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXIV · Escalas Rítmicas</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXIV · Rhythmic Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-tonal" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXV · Escalas Tonais</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXV · Tonal Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-texture" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXVI · Escalas de Textura</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXVI · Texture Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-phrasing" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXVII · Escalas de Fraseado</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXVII · Phrasing Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-volume" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXVIII · Escalas de Volume</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXVIII · Volume Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-timbre" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXIX · Escalas de Timbre</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXIX · Timbre Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-physical" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXX · Escalas Físicas</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXX · Physical Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-program" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">Tabela XXXI · Escalas de Programa</span>
+    <span class="vtoc-dot-label" data-lang="en">Table XXXI · Program Scales</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+</nav>
+
+<!-- ════════════════════════ TOP NAV ════════════════════════ -->
+<nav aria-label="Navegação principal" class="top-nav" role="navigation">
+  <div aria-hidden="true" class="nav-brand"><strong>IAPs</strong> ·
+    <span data-lang="pt">Adaptado de Bruscia (1987) por <strong>Ivan Moriá Borges</strong> · Improvisação em Musicoterapia I - UFMG · 2026</span>
+    <span data-lang="en">Adapted from Bruscia (1987) by <strong>Ivan Moriá Borges</strong> · Improvisation in Music Therapy I - UFMG · 2026</span>
+  </div>
+  <div class="nav-controls">
+    <div aria-label="Controles de leitura em voz alta" class="audio-controls" id="audio-controls" role="group">
+      <button aria-label="Iniciar leitura em voz alta" class="nav-audio-btn" id="btn-play" onclick="ttsTogglePlay()">
+        <svg aria-hidden="true" fill="currentColor" id="icon-play" viewbox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"></path></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-stop" style="display:none" viewbox="0 0 16 16"><rect height="10" rx="1" width="10" x="3" y="3"></rect></svg>
+      </button>
+      <button aria-label="Pausar leitura" class="nav-audio-btn" id="btn-pause" onclick="ttsTogglePause()" style="display:none">
+        <svg aria-hidden="true" fill="currentColor" id="icon-pause" viewbox="0 0 16 16"><rect height="12" rx="1" width="4" x="3" y="2"></rect><rect height="12" rx="1" width="4" x="9" y="2"></rect></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-resume" style="display:none" viewbox="0 0 16 16"><path d="M4 2.5l9 5.5-9 5.5z"></path></svg>
+      </button>
+      <label class="sr-only" for="speed-sel">Velocidade de leitura</label>
+      <select class="speed-select" id="speed-sel" onchange="ttsSpeedChange()">
+        <option value="0.7">0.7×</option>
+        <option value="0.85">0.85×</option>
+        <option selected="" value="1">1×</option>
+        <option value="1.2">1.2×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+    </div>
+    <div aria-label="Selecionar idioma" class="lang-toggle" role="group">
+      <button aria-pressed="true" class="lang-btn active" lang="pt" onclick="setLang('pt')">PT</button>
+      <button aria-pressed="false" class="lang-btn" lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════ HERO ═══════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="hero-eyebrow">
+    <span data-lang="pt">Apêndice · Tabelas XXIV–XXXI</span>
+    <span data-lang="en">Appendix · Tables XXIV–XXXI</span>
+  </div>
+  <h1 class="hero-title">
+    <span data-lang="pt"><em>Escalas e Critérios</em><br/>dos IAPs</span>
+    <span data-lang="en"><em>IAP Scales</em><br/>and Criteria</span>
+  </h1>
+  <p class="hero-sub">IAPs · Improvisation Assessment Profiles</p>
+  <p class="hero-lead">
+    <span data-lang="pt">Referência completa das escalas e critérios utilizados na avaliação de improvisações musicais, organizados por elemento musical: ritmo, tonalidade, textura, fraseado, volume, timbre, físico e programa/letras.</span>
+    <span data-lang="en">Complete reference of the scales and criteria used to assess musical improvisations, organized by musical element: rhythm, tonality, texture, phrasing, volume, timbre, physical, and program/lyrics.</span>
+  </p>
+  <div class="hero-meta">
+    <div class="hero-chip"><span data-lang="pt">Autor</span><span data-lang="en">Author</span> · <strong>Kenneth E. Bruscia</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Livro</span><span data-lang="en">Book</span> · <strong>Improvisational Models of Music Therapy</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Publicação</span><span data-lang="en">Published</span> · <strong>1987</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Páginas</span><span data-lang="en">Pages</span> · <strong>pp. 465–496</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Adaptação e Interface gráfica</span><span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong></div>
+  </div>
+</header>
+
+<!-- ════════════════════════ MAIN ═══════════════════════════ -->
+<main class="page-body" id="main-content">
+
+  <!-- ══════════════════ TABELA XXIV · ESCALAS RÍTMICAS ══════════════════ -->
+  <section class="section" id="sec-rhythmic">
+    <h2 class="sec-title" data-lang="pt">Tabela XXIV · Escalas Rítmicas</h2>
+    <h2 class="sec-title" data-lang="en">Table XXIV · Rhythmic Scales</h2>
+
+    <!-- Integração Figura-Fundo Rítmica -->
+    <h3 class="subsec-title" data-lang="pt">Integração Figura-Fundo Rítmica</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Figure-Ground Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">As used here, a rhythmic "ground" consists of a pulse or basic beat (i.e., the marking off of time into equal, recurring segments), a consistent subdivision (further division of the basic beat into equal segments), and meter (i.e., the grouping of these beats into measures). A "figure" is a rhythmic pattern, or a series of sounds that vary in duration and emphases in relation to one another and/or to an underlying pulse.</p>
+      <p class="rp">This scale describes the extent to which the rhythm creates a ground or a figure, and the extent to which the figure relates to a basic pulse and meter. More specifically, to what extent do the durations coincide with an underlying pulse, and to what extent do the emphases given to the sounds coincide with the basic meter?</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Figure and ground are not clearly formed. Sounds are not systematically manipulated in duration and emphasis.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> The rhythm sounds more like a ground than figure. Duration and emphases vary minimally, and coincide frequently with pulse and meter. Typically heard at this level are: basic pulse, metered pulse, subdivided pulse, or pulse with simple recurring pattern.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> The rhythm consists of distinct patterns or figures that are closely integrated into an underlying pulse and meter. Figures are grounded, and grounds are figured.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> The rhythm consists of highly distinct, complex patterns that are differentiated from yet related to the underlying pulse and meter. Syncopations, cross-rhythms, and subdivision changes are common.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> The rhythm consists of overly complicated, fragmentary patterns that have no basic beat or meter. Rhythms are ungrounded and/or in conflict with pulse and meter.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Conforme usado aqui, um "fundo" rítmico consiste em um pulso ou batida básica (i.e., a marcação do tempo em segmentos iguais e recorrentes), uma subdivisão consistente (divisão adicional da batida básica em segmentos iguais) e metro (i.e., o agrupamento dessas batidas em compassos). Uma "figura" é um padrão rítmico, ou uma série de sons que variam em duração e ênfases em relação uns aos outros e/ou a um pulso subjacente.</p>
+      <p class="rp">Esta escala descreve a extensão em que o ritmo cria um fundo ou uma figura, e a extensão em que a figura se relaciona com um pulso e metro básicos. Mais especificamente, em que medida as durações coincidem com um pulso subjacente e em que medida as ênfases dadas aos sons coincidem com o metro básico?</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> Figura e fundo não estão claramente formados. Os sons não são sistematicamente manipulados em duração e ênfase.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> O ritmo soa mais como fundo do que figura. Duração e ênfases variam minimamente e coincidem frequentemente com o pulso e o metro. Tipicamente ouvido neste nível: pulso básico, pulso metrado, pulso subdividido ou pulso com padrão recorrente simples.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> O ritmo consiste em padrões ou figuras distintos que estão estreitamente integrados em um pulso e metro subjacentes. As figuras são fundamentadas e os fundos são figurados.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> O ritmo consiste em padrões complexos e altamente distintos que são diferenciados, mas relacionados ao pulso e metro subjacentes. Síncopes, contra-ritmos e mudanças de subdivisão são comuns.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> O ritmo consiste em padrões excessivamente complicados e fragmentários que não têm batida básica nem metro. Os ritmos não têm base e/ou estão em conflito com o pulso e o metro.</p>
+    </div>
+
+    <!-- Integração Parte-Todo Rítmica -->
+    <h3 class="subsec-title" data-lang="pt">Integração Parte-Todo Rítmica</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Part-Whole Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which two or more simultaneous rhythmic parts coincide with each other and are integrated into the same underlying pulse and meter. The parts may be two pulses, two-rhythms patterns, or any combination thereof.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> The improvisation does not contain two separate rhythmic parts.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> The parts are more alike than different. They are often synchronous or nearly so, yet they are recognizable as distinct and separate parts. The sounds coincide very frequently, in both duration and emphases. The parts have the same underlying pulse and meter.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> The parts are both alike and different. They are closely related rhythmically, yet recognizable as distinct and separate parts. The sounds coincide and deviate in duration and emphases with equal frequency. The parts share the same underlying pulse and meter.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> The parts are more different than alike. They are highly contrasted, separate, and independent parts. The sounds deviate in duration and emphases more than they coincide. The parts have compatible underlying pulses and meters.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> The parts are rhythmically in conflict with one another, and do not share a common pulse or meter.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que duas ou mais partes rítmicas simultâneas coincidem entre si e são integradas no mesmo pulso e metro subjacentes. As partes podem ser dois pulsos, dois padrões rítmicos ou qualquer combinação deles.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> A improvisação não contém duas partes rítmicas separadas.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> As partes são mais semelhantes do que diferentes. Muitas vezes são síncronas ou quase isso, mas são reconhecíveis como partes distintas e separadas. Os sons coincidem muito frequentemente, tanto em duração quanto em ênfases. As partes têm o mesmo pulso e metro subjacentes.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> As partes são tanto semelhantes quanto diferentes. Elas são estreitamente relacionadas ritmicamente, mas reconhecíveis como partes distintas e separadas. Os sons coincidem e desviam em duração e ênfases com igual frequência. As partes compartilham o mesmo pulso e metro subjacentes.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> As partes são mais diferentes do que semelhantes. São partes altamente contrastadas, separadas e independentes. Os sons desviam em duração e ênfases mais do que coincidem. As partes têm pulsos e metros subjacentes compatíveis.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> As partes estão ritmicamente em conflito entre si e não compartilham um pulso ou metro comum.</p>
+    </div>
+
+    <!-- Variabilidade de Tempo -->
+    <h3 class="subsec-title" data-lang="pt">Variabilidade de Andamento</h3>
+    <h3 class="subsec-title" data-lang="en">Tempo Variability</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the range, amount, frequency, and abruptness of changes that are made in the speed of the basic beat.</p>
+      <p class="rp"><em><strong>Rigid.</strong></em> Only one tempo is used. The tempo is maintained with mechanical rigidity. Accelerandos, ritardandos, and rubatos do not occur.</p>
+      <p class="rp"><em><strong>Stable.</strong></em> A limited range of tempos is used. Tempo is maintained with some flexibility. Slight accelerandos, ritardandos, and rubatos may occur occasionally, but most tempo changes are slight and gradual. Efforts are directed towards maintaining stability of tempo.</p>
+      <p class="rp"><em><strong>Variable.</strong></em> A moderately wide range of tempos is used. Tempos are maintained and modulated with equal frequency. Slight to moderate accelerandos, ritardandos, and rubatos are made. Dramatic tempo changes occur occasionally. Efforts are directed towards maintaining stability and flexibility in tempo.</p>
+      <p class="rp"><em><strong>Contrasting.</strong></em> An extensive range of tempos is used. Tempo changes are rather frequent, yet some stability is maintained. Accelerandos, ritardandos, and rubatos are exaggerated. Dramatic changes are made often. Efforts are directed towards contrasting tempos within a consistent framework.</p>
+      <p class="rp"><em><strong>Random.</strong></em> The range of tempos is unlimited. Tempos are not controlled or maintained. There are continual, abrupt, and drastic changes in tempo that are meaningless.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da amplitude, quantidade, frequência e abruptura das mudanças feitas na velocidade da batida básica.</p>
+      <p class="rp"><em><strong>Rígido.</strong></em> Apenas um andamento é usado. O andamento é mantido com rigidez mecânica. Accelerandos, ritardandos e rubatos não ocorrem.</p>
+      <p class="rp"><em><strong>Estável.</strong></em> Uma faixa limitada de andamentos é usada. O andamento é mantido com certa flexibilidade. Leves accelerandos, ritardandos e rubatos podem ocorrer ocasionalmente, mas a maioria das mudanças de andamento são leves e graduais. Os esforços são direcionados para manter a estabilidade do andamento.</p>
+      <p class="rp"><em><strong>Variável.</strong></em> Uma faixa moderadamente ampla de andamentos é usada. Os andamentos são mantidos e modulados com igual frequência. Accelerandos, ritardandos e rubatos leves a moderados são feitos. Mudanças dramáticas de andamento ocorrem ocasionalmente. Os esforços são direcionados para manter estabilidade e flexibilidade no andamento.</p>
+      <p class="rp"><em><strong>Contrastante.</strong></em> Uma extensa faixa de andamentos é usada. As mudanças de andamento são bastante frequentes, mas alguma estabilidade é mantida. Accelerandos, ritardandos e rubatos são exagerados. Mudanças dramáticas são feitas com frequência. Os esforços são direcionados para contrastar andamentos dentro de um quadro consistente.</p>
+      <p class="rp"><em><strong>Aleatório.</strong></em> A faixa de andamentos é ilimitada. Os andamentos não são controlados ou mantidos. Há mudanças contínuas, abruptas e drásticas no andamento que são sem sentido.</p>
+    </div>
+
+    <!-- Variabilidade de Metro e Subdivisão -->
+    <h3 class="subsec-title" data-lang="pt">Variabilidade de Metro e Subdivisão</h3>
+    <h3 class="subsec-title" data-lang="en">Meter and Subdivision Variability</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the range, extent, frequency, and abruptness of changes that are made in meter (numerical grouping of pulses or beats into measures), and subdivisions (further dividing the time between beats into equal segments).</p>
+      <p class="rp"><em><strong>Rigid.</strong></em> Only one meter and subdivision are used, without change. Metric accents are made with mechanical precision and regularity. Subdivisions are rigidly precise and never changing. Efforts are directed towards organizing the beats and making subdivisions with absolute temporal accuracy.</p>
+      <p class="rp"><em><strong>Stable.</strong></em> One meter is used. A limited range of subdivisions (i.e., either duple or triple) may be used, however, changes are slight and gradual. Metric accents are made with some flexibility, and cross-accents occur rarely. Efforts are made to keep groupings of pulses and successive rhythms numerically stable.</p>
+      <p class="rp"><em><strong>Variable.</strong></em> A few meters may be used, including simple and compound. A moderately wide range of subdivisions are used, including both duple and triple. Metric accents and cross accents are made to emphasize phrase boundaries rather than regular groupings of the beat into strict measures. Subdivisions are made to bring out the shapes of phrases rather than the basic beat. Efforts are made to maintain stability in the groupings of pulses and successive rhythms while also exploring variations according to phrase structure.</p>
+      <p class="rp"><em><strong>Contrasting.</strong></em> An extensive range of meters and subdivisions is used, including both simple and compound meters and duple and triple subdivisions. Both meter and subdivisions are changed and contrasted frequently, and often simultaneously. A minimum degree of stability is maintained. Efforts are made to contrast duple and triple groupings of beats and subdivisions, and to change the organizational structure of the basic beat.</p>
+      <p class="rp"><em><strong>Random.</strong></em> Meters and subdivisions are not controlled or maintained. There are continual, abrupt, drastic changes in both, whenever they are established. No efforts are made to maintain consistency or flow in meter or subdivisions.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da amplitude, extensão, frequência e abruptura das mudanças feitas no metro (agrupamento numérico de pulsos ou tempos em compassos) e nas subdivisões (divisão adicional do tempo entre as batidas em segmentos iguais).</p>
+      <p class="rp"><em><strong>Rígido.</strong></em> Apenas um metro e uma subdivisão são usados, sem mudança. Os acentos métricos são feitos com precisão e regularidade mecânicas. As subdivisões são rigidamente precisas e nunca mudam. Os esforços são direcionados para organizar as batidas e fazer subdivisões com precisão temporal absoluta.</p>
+      <p class="rp"><em><strong>Estável.</strong></em> Um metro é usado. Uma faixa limitada de subdivisões (i.e., duplas ou triplas) pode ser usada, porém as mudanças são leves e graduais. Os acentos métricos são feitos com certa flexibilidade e os contra-acentos ocorrem raramente. Os esforços são feitos para manter agrupamentos de pulsos e ritmos sucessivos numericamente estáveis.</p>
+      <p class="rp"><em><strong>Variável.</strong></em> Alguns metros podem ser usados, incluindo simples e compostos. Uma faixa moderadamente ampla de subdivisões é usada, incluindo duple e triple. Os acentos métricos e contra-acentos são feitos para enfatizar os limites das frases em vez dos agrupamentos regulares das batidas em compassos. As subdivisões são feitas para realçar as formas das frases em vez da batida básica. Os esforços são feitos para manter a estabilidade nos agrupamentos de pulsos e ritmos sucessivos enquanto também exploram variações de acordo com a estrutura de frases.</p>
+      <p class="rp"><em><strong>Contrastante.</strong></em> Uma extensa faixa de metros e subdivisões é usada, incluindo metros simples e compostos e subdivisões duplas e triplas. Tanto o metro quanto as subdivisões são alterados e contrastados frequentemente, e muitas vezes simultaneamente. Um grau mínimo de estabilidade é mantido. Os esforços são feitos para contrastar agrupamentos duplos e triplos de batidas e subdivisões, e para mudar a estrutura organizacional da batida básica.</p>
+      <p class="rp"><em><strong>Aleatório.</strong></em> Metros e subdivisões não são controlados ou mantidos. Há mudanças contínuas, abruptas e drásticas em ambos, sempre que são estabelecidos. Nenhum esforço é feito para manter consistência ou fluxo no metro ou nas subdivisões.</p>
+    </div>
+
+    <!-- Variabilidade de Figura Rítmica -->
+    <h3 class="subsec-title" data-lang="pt">Variabilidade de Figura Rítmica</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Figure Variability</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which rhythmic ideas or themes are repeated, varied, developed, changed, and contrasted.</p>
+      <p class="rp"><em><strong>Rigid.</strong></em> One rhythmic fragment or pattern is used exclusively. The pattern is repeated persistently, often without stopping. No variations are made in the pattern.</p>
+      <p class="rp"><em><strong>Stable.</strong></em> One basic rhythmic idea is used thematically. The idea is repeated, varied slightly, augmented, diminished, or conserved. Structural rhythm changes are not made. New or different ideas are rarely introduced, and then only as subordinate ideas. Efforts are made to preserve a basic rhythmic theme, and to limit rhythmic development.</p>
+      <p class="rp"><em><strong>Variable.</strong></em> A few rhythmic ideas are used thematically. All of the ideas are related in some way. Repetition, variation, developmental change, and contrast occur equally. Efforts are made to establish rhythmic continuity as thematic development occurs.</p>
+      <p class="rp"><em><strong>Contrasting.</strong></em> Several rhythmic ideas are used thematically. Most of the ideas are rhythmically contrasted in some way. Structural and dramatic changes in rhythm are used in progressing from one thematic section to the next. Rhythmic ideas are rarely repeated. Efforts are made to emphasize differences in the rhythmic ideas.</p>
+      <p class="rp"><em><strong>Random.</strong></em> Many rhythmic ideas are used. Most of the ideas are unrelated. Fragments, motifs, or patterns are generated continuously and randomly. No efforts are made to complete, develop, or repeat them. Rhythm is not used thematically.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que ideias ou temas rítmicos são repetidos, variados, desenvolvidos, alterados e contrastados.</p>
+      <p class="rp"><em><strong>Rígido.</strong></em> Um fragmento ou padrão rítmico é usado exclusivamente. O padrão é repetido persistentemente, muitas vezes sem parar. Nenhuma variação é feita no padrão.</p>
+      <p class="rp"><em><strong>Estável.</strong></em> Uma ideia rítmica básica é usada tematicamente. A ideia é repetida, variada levemente, aumentada, diminuída ou conservada. Mudanças rítmicas estruturais não são feitas. Ideias novas ou diferentes raramente são introduzidas, e então apenas como ideias subordinadas. Os esforços são feitos para preservar um tema rítmico básico e limitar o desenvolvimento rítmico.</p>
+      <p class="rp"><em><strong>Variável.</strong></em> Algumas ideias rítmicas são usadas tematicamente. Todas as ideias estão relacionadas de alguma forma. Repetição, variação, mudança de desenvolvimento e contraste ocorrem igualmente. Os esforços são feitos para estabelecer continuidade rítmica à medida que o desenvolvimento temático ocorre.</p>
+      <p class="rp"><em><strong>Contrastante.</strong></em> Várias ideias rítmicas são usadas tematicamente. A maioria das ideias é ritmicamente contrastada de alguma forma. Mudanças estruturais e dramáticas no ritmo são usadas ao progredir de uma seção temática para a próxima. As ideias rítmicas raramente são repetidas. Os esforços são feitos para enfatizar as diferenças nas ideias rítmicas.</p>
+      <p class="rp"><em><strong>Aleatório.</strong></em> Muitas ideias rítmicas são usadas. A maioria das ideias não está relacionada. Fragmentos, motivos ou padrões são gerados contínua e aleatoriamente. Nenhum esforço é feito para completá-los, desenvolvê-los ou repeti-los. O ritmo não é usado tematicamente.</p>
+    </div>
+
+    <!-- Tensão de Fundo Rítmico, Figura Rítmica, Congruência, Saliência, Autonomia -->
+    <h3 class="subsec-title" data-lang="pt">Tensão de Fundo Rítmico</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Ground Tension</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the amount of tension gathered and released through tempo, meter, and subdivision.</p>
+      <p class="rp"><em><strong>Hypotense.</strong></em> Tempos are extremely slow and not maintained for long periods. Efforts are not made to manipulate or control tempo, meter, and subdivision. No expectations are built with respect to increasing or decreasing tension levels in the rhythmic ground.</p>
+      <p class="rp"><em><strong>Calm.</strong></em> Slow tempos are maintained for longer periods than fast ones, and ritardandos are longer and more frequent than accelerandos. Simple meters and subdivisions are maintained, with predictable changes made occasionally. Efforts are made to keep the rhythmic ground free of tension.</p>
+      <p class="rp"><em><strong>Cyclic.</strong></em> Slow and fast tempos are used with equal frequency, as are accelerandos and ritardandos. Meter and subdivisions are stable and variable. There are equal expectations for tension levels to increase and decrease. Efforts are made to equalize and balance the processes of accumulating and releasing tension through tempo, meter, and subdivision.</p>
+      <p class="rp"><em><strong>Tense.</strong></em> Fast tempos are maintained for longer periods than slow ones, and accelerandos are longer and more frequent than ritardandos. Complex, contrasting meters and subdivisions are used. Efforts are made to stimulate tension in the rhythmic ground.</p>
+      <p class="rp"><em><strong>Hypertense.</strong></em> The tempo may be extremely fast with frequent accelerandos and no ritardandos, or extremely slow with strong expectation for change. Meter and subdivision changes may be erratic and serve to confuse the basic beat, or they may be maintained with extreme rigidity. Excessive tension is generated by the rigidity or the randomness of tempo, meter, and subdivision.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da quantidade de tensão acumulada e liberada por meio do andamento, metro e subdivisão.</p>
+      <p class="rp"><em><strong>Hipotensa.</strong></em> Os andamentos são extremamente lentos e não são mantidos por longos períodos. Não são feitos esforços para manipular ou controlar andamento, metro e subdivisão. Nenhuma expectativa é construída em relação ao aumento ou diminuição dos níveis de tensão no fundo rítmico.</p>
+      <p class="rp"><em><strong>Calma.</strong></em> Andamentos lentos são mantidos por períodos mais longos do que os rápidos, e ritardandos são mais longos e frequentes do que accelerandos. Metros simples e subdivisões são mantidos, com mudanças previsíveis feitas ocasionalmente. Esforços são feitos para manter o fundo rítmico livre de tensão.</p>
+      <p class="rp"><em><strong>Cíclica.</strong></em> Andamentos lentos e rápidos são usados com igual frequência, assim como accelerandos e ritardandos. Metro e subdivisões são estáveis e variáveis. Há iguais expectativas para que os níveis de tensão aumentem e diminuam. Esforços são feitos para equalizar e equilibrar os processos de acumulação e liberação de tensão por meio do andamento, metro e subdivisão.</p>
+      <p class="rp"><em><strong>Tensa.</strong></em> Andamentos rápidos são mantidos por períodos mais longos do que os lentos, e accelerandos são mais longos e frequentes do que ritardandos. Metros e subdivisões complexos e contrastantes são usados. Esforços são feitos para estimular tensão no fundo rítmico.</p>
+      <p class="rp"><em><strong>Hipertensa.</strong></em> O andamento pode ser extremamente rápido com accelerandos frequentes e sem ritardandos, ou extremamente lento com forte expectativa de mudança. As mudanças de metro e subdivisão podem ser erráticas e servir para confundir a batida básica, ou podem ser mantidas com rigidez extrema. Tensão excessiva é gerada pela rigidez ou aleatoriedade do andamento, metro e subdivisão.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia de Fundo Rítmico</h3>
+    <h3 class="subsec-title" data-lang="en">Rhythmic Ground Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client and/or partner develop in establishing and changing the rhythmic ground (i.e., tempo, meter, and subdivisions).</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client depends entirely on the partner for all matters related to rhythmic grounds, taking the follower role exclusively.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and tends to match the partner's tempos, meters, subdivisions, and changes therein. The client occasionally takes the leader role and establishes or changes the rhythmic ground.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes the leader and follower role with equal frequency, sharing control over the rhythmic ground with the partner. The client sets tempos, meters, and subdivisions through interaction with the partner, and initiates changes in them as often as the partner does.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, and tends to control the rhythmic ground. As leader, the client independently sets tempos, meters, and subdivisions for both parties, and initiates changes in them for the partner to follow.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The subject evades or destroys any tempo or meter relationship with the partner. This is most often accomplished by playing irrelevant or conflicting tempos, meters, and/or subdivisions.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente e/ou parceiro desenvolvem no estabelecimento e mudança do fundo rítmico (i.e., andamento, metro e subdivisões).</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente depende inteiramente do parceiro para todos os assuntos relacionados aos fundos rítmicos, assumindo o papel de seguidor exclusivamente.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e tende a combinar os andamentos, metros, subdivisões e mudanças do parceiro. O cliente ocasionalmente assume o papel de líder e estabelece ou muda o fundo rítmico.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor com igual frequência, compartilhando o controle sobre o fundo rítmico com o parceiro. O cliente define andamentos, metros e subdivisões por meio da interação com o parceiro, e inicia mudanças neles com a mesma frequência que o parceiro.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, e tende a controlar o fundo rítmico. Como líder, o cliente define independentemente andamentos, metros e subdivisões para ambas as partes, e inicia mudanças neles para o parceiro seguir.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O sujeito evita ou destrói qualquer relação de andamento ou metro com o parceiro. Isso é feito mais frequentemente tocando andamentos, metros e/ou subdivisões irrelevantes ou conflitantes.</p>
+    </div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"Um padrão rítmico existe como uma entidade, à parte de seu pulso subjacente, como uma criança separada, mas próxima à mãe."</blockquote>
+      <blockquote data-lang="en">"A rhythmic pattern exists as an entity, apart from its underlying pulse, like a child separated from, yet near its mother."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 471</cite></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════════════ TABELA XXV · ESCALAS TONAIS ══════════════════ -->
+  <section class="section" id="sec-tonal">
+    <h2 class="sec-title" data-lang="pt">Tabela XXV · Escalas Tonais</h2>
+    <h2 class="sec-title" data-lang="en">Table XXV · Tonal Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração Figura-Fundo Melódica</h3>
+    <h3 class="subsec-title" data-lang="en">Melodic Figure-Ground Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">As used here, a melodic "ground" consists of a scale (i.e., a series of pitches arranged in a vertical sequence according to an intervallic plan), and a tonal center (i.e., the fundamental pitch upon which a scale is built and rests, and around which a melody is centered as a point of resolution). A "figure" is a melody, or a sequential arrangement of tones that move in different directions and at different intervals from one another to form a distinct contour.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Figure and ground are unformed. Pitch, interval, and contour are not manipulated systematically to form melodies or scales.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> Tonal patterns resemble grounds more than figures. All of the pitches are drawn exclusively from a particular scale with a tonal center. Melodies are diatonic in a key, and often consist of scalar passages.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> There are distinct melodic figures that are integrated into a scale and tonal center. Most of the pitches are drawn from a scale with tonal center, however, chromaticism does occur. Melodies are both diatonic and chromatic. Intervallic steps and leaps are made in both directions, forming balanced but varied contours.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> There are very distinct melodies that are centered loosely around a scale and/or tonal center. Melodies may be highly chromatic yet in a key, or not in a scale yet tonally centered. Intervals and directional movement are extremely varied. Contours are very distinct.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> The melodies are extremely complex fragments or patterns that have no relation to a scale or tonal center. The pitches are not organized sequentially according to intervallic relationships, contour, directional sequences, or any other principle of tonal organization.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Conforme usado aqui, um "fundo" melódico consiste em uma escala (i.e., uma série de alturas arranjadas em sequência vertical de acordo com um plano intervalar) e um centro tonal (i.e., a altura fundamental sobre a qual uma escala é construída e repousa, e em torno da qual uma melodia é centrada como ponto de resolução). Uma "figura" é uma melodia, ou um arranjo sequencial de tons que se movem em direções diferentes e em diferentes intervalos entre si para formar um contorno distinto.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> Figura e fundo não estão formados. Altura, intervalo e contorno não são manipulados sistematicamente para formar melodias ou escalas.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> Os padrões tonais se assemelham mais a fundos do que a figuras. Todas as alturas são extraídas exclusivamente de uma escala específica com um centro tonal. As melodias são diatônicas em uma tonalidade e frequentemente consistem em passagens escalares.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> Há figuras melódicas distintas que estão integradas em uma escala e centro tonal. A maioria das alturas é extraída de uma escala com centro tonal, no entanto, o cromatismo ocorre. As melodias são tanto diatônicas quanto cromáticas. Passos e saltos intervalares são feitos em ambas as direções, formando contornos equilibrados mas variados.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> Há melodias muito distintas que estão centradas vagamente em torno de uma escala e/ou centro tonal. As melodias podem ser altamente cromáticas, mas em uma tonalidade, ou não estar em uma escala, mas ser tonalmente centradas. Intervalos e movimentos direcionais são extremamente variados. Os contornos são muito distintos.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> As melodias são fragmentos ou padrões extremamente complexos que não têm relação com uma escala ou centro tonal. As alturas não são organizadas sequencialmente de acordo com relações intervalares, contorno, sequências direcionais ou qualquer outro princípio de organização tonal.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Integração Harmônica</h3>
+    <h3 class="subsec-title" data-lang="en">Harmonic Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which chords fit into a scale and tonal center.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Chords are not formed in a purposeful way. A scale and tonal center have not been established as a basis for chord formation.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> All chords are grounded in a scale and tonal center. Occasionally, secondary alterations occur.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> All chords are grounded in a scale and tonal center, however they are frequently altered to create modulations to related keys.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> Chords are frequently altered to relate to distant keys, yet fit within the progression so that they are compatible with the current tonal center.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> Chords rarely belong in the current scale or tonal center. The chords are in conflict with any tonal ground that may have been temporarily established.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que os acordes se encaixam em uma escala e centro tonal.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> Os acordes não são formados de maneira intencional. Uma escala e um centro tonal não foram estabelecidos como base para a formação de acordes.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> Todos os acordes estão fundamentados em uma escala e centro tonal. Ocasionalmente, alterações secundárias ocorrem.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> Todos os acordes estão fundamentados em uma escala e centro tonal, no entanto, são frequentemente alterados para criar modulações para tonalidades relacionadas.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> Os acordes são frequentemente alterados para se relacionar com tonalidades distantes, mas se encaixam na progressão de modo que são compatíveis com o centro tonal atual.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> Os acordes raramente pertencem à escala ou centro tonal atual. Os acordes estão em conflito com qualquer fundo tonal que possa ter sido temporariamente estabelecido.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia Tonal e Melódica</h3>
+    <h3 class="subsec-title" data-lang="en">Tonal and Melodic Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client develops with the partner in determining the melodic content and form of the improvisation. This includes selection of the scale and tonality for the melody, construction of melodic ideas, and the sequencing of melodic themes.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client takes the follower role exclusively, depending entirely upon the partner in all matters related to melody. The client offers no melodic ideas, and continually attempts to synchronize with or imitate the melodies of the partner.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and allows the partner to determine the melodic content and form of the improvisation. As a follower, the client uses the scale and tonality selected by the partner; offers tonal accompaniments more often than melodies; and accepts the partner's melodies as themes.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes leader and follower roles with equal frequency, sharing control over the melodic content and form of the improvisation. As an equal partner, the client selects a scale and tonality with the partner; offers melodic themes and accompaniment patterns with equal frequency; and allows the melodic form of the improvisation to emerge from musical interaction with the partner.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, and assumes control over the melodic content and form of the improvisation. As a leader, the client selects the scale and tonality of the melody independently; plays more melodic themes than accompaniment patterns; and repeats and models melodies for the partner to imitate.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client resists any kind of relationship with the partner in melodic themes. The client may evade or destroy the relationship through melodic perseveration, tonal fixations, erratic changes, and/or conflicts in scales and tonalities.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente desenvolve com o parceiro na determinação do conteúdo e forma melódicos da improvisação. Isso inclui a seleção da escala e tonalidade para a melodia, construção de ideias melódicas e o sequenciamento de temas melódicos.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente assume o papel de seguidor exclusivamente, dependendo inteiramente do parceiro em todos os assuntos relacionados à melodia. O cliente não oferece ideias melódicas e continuamente tenta sincronizar com ou imitar as melodias do parceiro.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e permite que o parceiro determine o conteúdo e forma melódicos da improvisação. Como seguidor, o cliente usa a escala e tonalidade selecionadas pelo parceiro; oferece acompanhamentos tonais mais frequentemente do que melodias; e aceita as melodias do parceiro como temas.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor com igual frequência, compartilhando o controle sobre o conteúdo e forma melódicos da improvisação. Como parceiro igual, o cliente seleciona uma escala e tonalidade com o parceiro; oferece temas melódicos e padrões de acompanhamento com igual frequência; e permite que a forma melódica da improvisação emerja da interação musical com o parceiro.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, e assume o controle sobre o conteúdo e forma melódicos da improvisação. Como líder, o cliente seleciona a escala e tonalidade da melodia independentemente; toca mais temas melódicos do que padrões de acompanhamento; e repete e modela melodias para o parceiro imitar.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente resiste a qualquer tipo de relacionamento com o parceiro em temas melódicos. O cliente pode evitar ou destruir o relacionamento por meio de perseveração melódica, fixações tonais, mudanças erráticas e/ou conflitos em escalas e tonalidades.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXVI · ESCALAS DE TEXTURA ══════════════════ -->
+  <section class="section" id="sec-texture">
+    <h2 class="sec-title" data-lang="pt">Tabela XXVI · Escalas de Textura</h2>
+    <h2 class="sec-title" data-lang="en">Table XXVI · Texture Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração de Textura: Parte-Todo</h3>
+    <h3 class="subsec-title" data-lang="en">Texture Integration: Part-whole</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which the texture is organized into part-whole relationships according to role functions. As used here, a part (or voice) is a single strand of sounds, or a sequential series of single sounds. A part takes on a textural role when it serves the musical function of figure or ground, solo or accompaniment, leader or follower.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> The texture has not been manipulated or controlled to form consistent part-whole role relationships. Parts are not identifiable as separate, distinct entities with any specific musical role.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> The texture consists of either one part that plays a single role function, or two or more parts that play very similar role functions. Although the parts are distinguishable as separate rhythms or melodies, both are figures or both are grounds.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> The texture consists of either one part that plays more than one different role function (e.g., solo and accompaniment), or two or more parts that play different role functions. Although the role functions are different, they fit together into a meaningful whole.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> The texture consists of two or more parts that play independent role functions. The roles fit together to form a whole with highly differentiated parts. Included in this level are contrapuntal textures such as canons, inventions, and fugues.</p>
+      <p class="rp"><em><strong>Overdifferentiation.</strong></em> The texture consists of several independent parts that are not organized in relation to one another or to an overall texture. The parts may be fragmentary and fleeting. Role functions that can be identified are not interrelated.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que a textura é organizada em relações parte-todo de acordo com funções de papel. Conforme usado aqui, uma parte (ou voz) é um único fio de sons, ou uma série sequencial de sons únicos. Uma parte assume um papel textural quando serve à função musical de figura ou fundo, solo ou acompanhamento, líder ou seguidor.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> A textura não foi manipulada ou controlada para formar relações consistentes de papel parte-todo. As partes não são identificáveis como entidades separadas e distintas com qualquer função musical específica.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> A textura consiste em uma parte que desempenha uma única função de papel, ou duas ou mais partes que desempenham funções de papel muito semelhantes. Embora as partes sejam distinguíveis como ritmos ou melodias separados, ambas são figuras ou ambas são fundos.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> A textura consiste em uma parte que desempenha mais de uma função de papel diferente (ex.: solo e acompanhamento), ou duas ou mais partes que desempenham funções de papel diferentes. Embora as funções de papel sejam diferentes, elas se encaixam em um todo significativo.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> A textura consiste em duas ou mais partes que desempenham funções de papel independentes. Os papéis se encaixam para formar um todo com partes altamente diferenciadas. Incluídas neste nível estão texturas contrapontísticas como cânones, invenções e fugas.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> A textura consiste em várias partes independentes que não são organizadas em relação umas às outras ou a uma textura geral. As partes podem ser fragmentárias e fugazes. As funções de papel que podem ser identificadas não estão inter-relacionadas.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia Textural</h3>
+    <h3 class="subsec-title" data-lang="en">Textural Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client and/or partner develop in determining textural aspects of the improvisation. Texture includes overall fabric (e.g., polyphonic), registers, and voicing configurations.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client takes the follower role exclusively, and depends entirely on the partner for all matters related to texture.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and allows the partner to control most aspects of the texture. As follower, the client accepts the overall fabric of the improvisation established by the partner; matches the partner's registers; and imitates the partner's voicing configurations.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes the leader and follower role with equal frequency, sharing control over all aspects of texture with the partner. As an equal partner, the client determines the overall fabric, register, and voicing configurations through musical interaction with the partner, taking equal responsibility for their stabilization, change, and vertical relationships.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, and assumes control over most aspects of texture. As leader, the client determines the overall fabric of the improvisation; selects registers for the partner to match; and develops voicing configurations for the partner to imitate.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client avoids or destroys any relationship with the partner in texture. This is most often accomplished by using incompatible textures that overpower or obliterate those of the partner or making erratic changes in them.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente e/ou parceiro desenvolvem na determinação dos aspectos texturais da improvisação. A textura inclui o tecido geral (ex.: polifônico), registros e configurações de vozeamento.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente assume o papel de seguidor exclusivamente, e depende inteiramente do parceiro para todos os assuntos relacionados à textura.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e permite que o parceiro controle a maioria dos aspectos da textura. Como seguidor, o cliente aceita o tecido geral da improvisação estabelecido pelo parceiro; combina com os registros do parceiro; e imita as configurações de vozeamento do parceiro.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor com igual frequência, compartilhando o controle sobre todos os aspectos da textura com o parceiro. Como parceiro igual, o cliente determina o tecido geral, o registro e as configurações de vozeamento por meio da interação musical com o parceiro, assumindo responsabilidade igual pela sua estabilização, mudança e relações verticais.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, e assume o controle sobre a maioria dos aspectos da textura. Como líder, o cliente determina o tecido geral da improvisação; seleciona registros para o parceiro combinar; e desenvolve configurações de vozeamento para o parceiro imitar.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente evita ou destrói qualquer relacionamento com o parceiro em textura. Isso é feito mais frequentemente usando texturas incompatíveis que superam ou obliteram as do parceiro ou fazendo mudanças erráticas nelas.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXVII · ESCALAS DE FRASEADO ══════════════════ -->
+  <section class="section" id="sec-phrasing">
+    <h2 class="sec-title" data-lang="pt">Tabela XXVII · Escalas de Fraseado</h2>
+    <h2 class="sec-title" data-lang="en">Table XXVII · Phrasing Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração de Fraseado</h3>
+    <h3 class="subsec-title" data-lang="en">Phrasing Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which two or more parts are related to each other with regard to the length and shape of phrasing.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Phrases are not controlled or manipulated in length and shape. The two simultaneous parts cannot be compared in terms of phrasing.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> The two parts are identical in phrase length and more alike than different in shape. The parts are distinguishable with respect to the shape of phrases.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> The two parts are the same or different in length of phrase, but begin and end together at the next highest level of organization (i.e., sentence or theme). The two parts are both alike and different in the shape of the phrase.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> The two parts are more different than alike in phrase length, but begin and end together at the next highest level of organization (i.e., sentence or thematic section). The two parts are more different than alike in shape, yet compatible with each other.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> The two parts are extremely different in the length and shape of the phrases, hardly ever beginning and ending together even at higher levels of organization.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que duas ou mais partes estão relacionadas entre si em relação ao comprimento e forma do fraseado.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> As frases não são controladas ou manipuladas em comprimento e forma. As duas partes simultâneas não podem ser comparadas em termos de fraseado.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> As duas partes são idênticas no comprimento da frase e mais semelhantes do que diferentes em forma. As partes são distinguíveis com relação à forma das frases.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> As duas partes têm o mesmo comprimento ou comprimentos diferentes de frase, mas começam e terminam juntas no próximo nível mais alto de organização (i.e., sentença ou tema). As duas partes são tanto semelhantes quanto diferentes na forma da frase.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> As duas partes são mais diferentes do que semelhantes no comprimento da frase, mas começam e terminam juntas no próximo nível mais alto de organização (i.e., sentença ou seção temática). As duas partes são mais diferentes do que semelhantes em forma, mas compatíveis entre si.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> As duas partes são extremamente diferentes no comprimento e forma das frases, quase nunca começando e terminando juntas mesmo nos níveis mais altos de organização.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia de Fraseado</h3>
+    <h3 class="subsec-title" data-lang="en">Phrasing Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client and/or partner develop in determining the length and shape of phrases.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client depends entirely on the partner for determining phrasing.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and tends to match the partner's phrasing. The client determines phrasing only occasionally.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes both leader and follower roles equally, establishing the length and shapes of phrases as frequently as matching the partner's.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, and tends to determine the phrasing more often than the partner.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client evades or destroys any relationship with the partner in phrasing.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente e/ou parceiro desenvolvem na determinação do comprimento e forma das frases.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente depende inteiramente do parceiro para determinar o fraseado.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e tende a combinar o fraseado do parceiro. O cliente determina o fraseado apenas ocasionalmente.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor igualmente, estabelecendo o comprimento e as formas das frases com a mesma frequência com que combina as do parceiro.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, e tende a determinar o fraseado mais frequentemente do que o parceiro.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente evita ou destrói qualquer relacionamento com o parceiro no fraseado.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXVIII · ESCALAS DE VOLUME ══════════════════ -->
+  <section class="section" id="sec-volume">
+    <h2 class="sec-title" data-lang="pt">Tabela XXVIII · Escalas de Volume</h2>
+    <h2 class="sec-title" data-lang="en">Table XXVIII · Volume Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração de Volume</h3>
+    <h3 class="subsec-title" data-lang="en">Volume Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which the intensity and amount of sound are manipulated to form figure-ground, part-whole and solo-accompaniment relationships within volume.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Volume is not manipulated to form separate, simultaneous entities, such as figure-ground, part-whole, and solo-accompaniment relationships.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> Simultaneous volume levels are more alike than different. The intensity and amount of sound are manipulated sufficiently however, to discern figure-ground, part-whole, and solo-accompaniment relationships within volume.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> Simultaneous volume levels are both alike and different. The intensity and amount of sound are manipulated to clearly distinguish figure-ground, part-whole, and solo-accompaniment relationships within volume.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> Simultaneous volume levels are more different than alike. The intensity and amount of sound are manipulated to form contrasting figure-ground, part-whole, and solo-accompaniment relationships within volume.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> Simultaneous volume levels are so highly contrasted that figure-ground, part-whole, and solo-accompaniment relationships are obscured or destroyed.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que a intensidade e quantidade de som são manipuladas para formar relações figura-fundo, parte-todo e solo-acompanhamento dentro do volume.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> O volume não é manipulado para formar entidades simultâneas separadas, como relações figura-fundo, parte-todo e solo-acompanhamento.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> Os níveis de volume simultâneos são mais semelhantes do que diferentes. No entanto, a intensidade e quantidade de som são manipuladas suficientemente para discernir relações figura-fundo, parte-todo e solo-acompanhamento dentro do volume.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> Os níveis de volume simultâneos são tanto semelhantes quanto diferentes. A intensidade e quantidade de som são manipuladas para distinguir claramente relações figura-fundo, parte-todo e solo-acompanhamento dentro do volume.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> Os níveis de volume simultâneos são mais diferentes do que semelhantes. A intensidade e quantidade de som são manipuladas para formar relações contrastantes figura-fundo, parte-todo e solo-acompanhamento dentro do volume.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> Os níveis de volume simultâneos são tão altamente contrastados que as relações figura-fundo, parte-todo e solo-acompanhamento são obscurecidas ou destruídas.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia de Volume</h3>
+    <h3 class="subsec-title" data-lang="en">Volume Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationship that the client and/or partner develop in setting volume levels and making volume changes. Volume includes both the intensity and amount of sound.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client takes the follower role exclusively, and depends entirely on the partner for all matters related to volume.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and tends to match the partner's volume levels and changes. When not matching the partner's volume level, the client tends to play softer, like an accompanist. The client occasionally takes the leader role and controls volume.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes the leader and follower roles with equal frequency, sharing control over volume and volume changes with the partner. The client establishes volume levels through interaction with the partner, and initiates changes in them as often as the partner. The client tends to play at the same volume level as the partner, playing louder or softer when acting as soloist or accompanist.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, and tends to control the volume of the improvisation. As leader, the client independently sets volume levels for both parties, and initiates changes in them for the partner to follow.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client evades or destroys any relationship with the partner in volume. This is most often accomplished by erratic or conflictual changes in volume.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da relação de papel que o cliente e/ou parceiro desenvolvem na definição dos níveis de volume e nas mudanças de volume. O volume inclui tanto a intensidade quanto a quantidade de som.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente assume o papel de seguidor exclusivamente, e depende inteiramente do parceiro para todos os assuntos relacionados ao volume.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e tende a combinar os níveis e mudanças de volume do parceiro. Quando não combina com o nível de volume do parceiro, o cliente tende a tocar mais suavemente, como um acompanhador. O cliente ocasionalmente assume o papel de líder e controla o volume.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor com igual frequência, compartilhando o controle sobre o volume e as mudanças de volume com o parceiro. O cliente estabelece níveis de volume por meio da interação com o parceiro, e inicia mudanças neles com a mesma frequência que o parceiro. O cliente tende a tocar no mesmo nível de volume que o parceiro, tocando mais alto ou mais suave quando age como solista ou acompanhador.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, e tende a controlar o volume da improvisação. Como líder, o cliente define independentemente os níveis de volume para ambas as partes, e inicia mudanças neles para o parceiro seguir.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente evita ou destrói qualquer relacionamento com o parceiro em volume. Isso é feito mais frequentemente por mudanças erráticas ou conflituosas no volume.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXIX · ESCALAS DE TIMBRE ══════════════════ -->
+  <section class="section" id="sec-timbre">
+    <h2 class="sec-title" data-lang="pt">Tabela XXIX · Escalas de Timbre</h2>
+    <h2 class="sec-title" data-lang="en">Table XXIX · Timbre Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração de Timbre</h3>
+    <h3 class="subsec-title" data-lang="en">Timbre Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which simultaneous sound qualities are manipulated to form figure-ground, part-whole, and solo-accompaniment relationships in timbre.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> Timbre is not manipulated to form separate simultaneous entities, such as figure-ground, part-whole, or solo-accompaniment relationships.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> Simultaneous timbres are more alike than different. Frequently, the timbres are drawn from identical or similar media, instruments, production techniques and/or sound vocabularies, so that they are homogeneous. Nevertheless, figure-ground, part-whole, and solo-accompaniment relationships are discernible in timbres.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> Simultaneous timbres are alike and different, distinct but well blended. The timbres may be drawn from homogeneous or heterogeneous media, instruments, production techniques, and vocabularies. Figure-ground, part-whole, and solo-accompaniment relationships are distinct in timbres.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> Simultaneous timbres are more different than alike. The timbres are drawn from heterogeneous media, instruments, production techniques, and vocabularies. Contrasts are made in timbres to form highly differentiated figure-ground, part-whole, and solo-accompaniment relationships.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> Simultaneous timbres are so highly contrasted that figure-ground, part-whole, and solo-accompaniment relationships are obscured or destroyed.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que as qualidades sonoras simultâneas são manipuladas para formar relações figura-fundo, parte-todo e solo-acompanhamento no timbre.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> O timbre não é manipulado para formar entidades simultâneas separadas, como relações figura-fundo, parte-todo ou solo-acompanhamento.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> Os timbres simultâneos são mais semelhantes do que diferentes. Com frequência, os timbres são extraídos de meios, instrumentos, técnicas de produção e/ou vocabulários sonoros idênticos ou semelhantes, de modo que são homogêneos. No entanto, as relações figura-fundo, parte-todo e solo-acompanhamento são discerníveis nos timbres.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> Os timbres simultâneos são semelhantes e diferentes, distintos mas bem mesclados. Os timbres podem ser extraídos de meios, instrumentos, técnicas de produção e vocabulários homogêneos ou heterogêneos. As relações figura-fundo, parte-todo e solo-acompanhamento são distintas nos timbres.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> Os timbres simultâneos são mais diferentes do que semelhantes. Os timbres são extraídos de meios, instrumentos, técnicas de produção e vocabulários heterogêneos. Contrastes são feitos nos timbres para formar relações figura-fundo, parte-todo e solo-acompanhamento altamente diferenciadas.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> Os timbres simultâneos são tão altamente contrastados que as relações figura-fundo, parte-todo e solo-acompanhamento são obscurecidas ou destruídas.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia de Timbre</h3>
+    <h3 class="subsec-title" data-lang="en">Timbre Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client and/or partner develop in determining the timbre of the improvisation and changes therein. Timbre includes the selection of sound media, instruments, production techniques, and sound vocabulary.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client takes the follower role exclusively, and depends entirely on the partner for all matters related to timbre.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client takes the follower role more often than the leader role, and tends to match the partner's timbre. As follower, the client uses the same medium as the partner, and matches or blends with the partner's timbres.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client takes the leader and follower roles with equal frequency, sharing control over all aspects of timbre with the partner. The client selects and changes timbres through interaction with the partner, assuming equal responsibility.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client takes the leader role more often than the follower role, assuming control over most aspects of timbre. As leader, the client independently selects and changes the medium, instrument, production techniques, and sound vocabulary for the partner to match.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client evades or destroys any relationship with the partner in timbre. This may be accomplished through avoidance or obliteration of the partner's medium, instrument, production techniques, or sound vocabulary.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente e/ou parceiro desenvolvem na determinação do timbre da improvisação e mudanças nele. O timbre inclui a seleção de meios sonoros, instrumentos, técnicas de produção e vocabulário sonoro.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente assume o papel de seguidor exclusivamente, e depende inteiramente do parceiro para todos os assuntos relacionados ao timbre.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente assume o papel de seguidor mais frequentemente do que o papel de líder, e tende a combinar o timbre do parceiro. Como seguidor, o cliente usa o mesmo meio que o parceiro, e combina ou se mescla com os timbres do parceiro.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente assume os papéis de líder e seguidor com igual frequência, compartilhando o controle sobre todos os aspectos do timbre com o parceiro. O cliente seleciona e muda os timbres por meio da interação com o parceiro, assumindo responsabilidade igual.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente assume o papel de líder mais frequentemente do que o papel de seguidor, assumindo o controle sobre a maioria dos aspectos do timbre. Como líder, o cliente seleciona e muda independentemente o meio, instrumento, técnicas de produção e vocabulário sonoro para o parceiro combinar.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente evita ou destrói qualquer relacionamento com o parceiro em timbre. Isso pode ser realizado por meio de evitação ou obliteração do meio, instrumento, técnicas de produção ou vocabulário sonoro do parceiro.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXX · ESCALAS FÍSICAS ══════════════════ -->
+  <section class="section" id="sec-physical">
+    <h2 class="sec-title" data-lang="pt">Tabela XXX · Escalas Físicas</h2>
+    <h2 class="sec-title" data-lang="en">Table XXX · Physical Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Integração Motora</h3>
+    <h3 class="subsec-title" data-lang="en">Motor Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which different parts of the body (e.g., two hands, hands and feet) are coordinated in playing a rhythm or melody.</p>
+      <p class="rp"><em><strong>Undifferentiated.</strong></em> The body parts can only be used in complete unison, or reflexively. They have no motor independence.</p>
+      <p class="rp"><em><strong>Fused.</strong></em> The body parts are used together most of the time, playing the rhythmic or melodic line in unison or nearly so. One body part may elaborate on the line. The body parts depend upon each other to maintain their togetherness, yet operate with some independence.</p>
+      <p class="rp"><em><strong>Integrated.</strong></em> Different body parts are given interdependent roles in playing a single rhythmic or melodic line. Or, two body parts are used to play two different but closely related lines.</p>
+      <p class="rp"><em><strong>Differentiated.</strong></em> Different body parts are given completely independent roles and are used to play very distinct, independent lines or roles.</p>
+      <p class="rp"><em><strong>Overdifferentiated.</strong></em> Different body parts are completely independent from one another and are not coordinated in any way.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que diferentes partes do corpo (ex.: duas mãos, mãos e pés) são coordenadas para tocar um ritmo ou melodia.</p>
+      <p class="rp"><em><strong>Indiferenciado.</strong></em> As partes do corpo só podem ser usadas em completo uníssono ou reflexivamente. Elas não têm independência motora.</p>
+      <p class="rp"><em><strong>Fundido.</strong></em> As partes do corpo são usadas juntas na maioria do tempo, tocando a linha rítmica ou melódica em uníssono ou quase isso. Uma parte do corpo pode elaborar a linha. As partes do corpo dependem umas das outras para manter sua união, mas operam com alguma independência.</p>
+      <p class="rp"><em><strong>Integrado.</strong></em> Diferentes partes do corpo recebem papéis interdependentes para tocar uma única linha rítmica ou melódica. Ou, duas partes do corpo são usadas para tocar duas linhas diferentes mas estreitamente relacionadas.</p>
+      <p class="rp"><em><strong>Diferenciado.</strong></em> Diferentes partes do corpo recebem papéis completamente independentes e são usadas para tocar linhas ou papéis muito distintos e independentes.</p>
+      <p class="rp"><em><strong>Sobrediferenciado.</strong></em> Diferentes partes do corpo são completamente independentes umas das outras e não são coordenadas de forma alguma.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Congruência Corporal</h3>
+    <h3 class="subsec-title" data-lang="en">Body Congruence</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which the client's postures, facial expressions, and movements are consistent with feelings, tension levels, and role relationships manifested in the improvisation.</p>
+      <p class="rp"><em><strong>Uncommitted.</strong></em> The client's body is not sufficiently engaged in the improvisation to assess congruence.</p>
+      <p class="rp"><em><strong>Congruent.</strong></em> The client matches his/her postures, facial expressions, and movements to feelings, tensions, and role relationships in the improvisation.</p>
+      <p class="rp"><em><strong>Centered.</strong></em> During the improvisation, the client's body is both congruent and incongruent with feelings, tensions, and roles in the music.</p>
+      <p class="rp"><em><strong>Incongruent.</strong></em> The client's postures, facial expressions, and movements are generally inconsistent with the overall feeling of the music.</p>
+      <p class="rp"><em><strong>Polarized.</strong></em> The client's postures, facial expressions, and movements are totally contradictory of feelings, tensions, and roles in the music.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que as posturas, expressões faciais e movimentos do cliente são consistentes com os sentimentos, níveis de tensão e relações de papel manifestados na improvisação.</p>
+      <p class="rp"><em><strong>Não comprometido.</strong></em> O corpo do cliente não está suficientemente engajado na improvisação para avaliar a congruência.</p>
+      <p class="rp"><em><strong>Congruente.</strong></em> O cliente combina suas posturas, expressões faciais e movimentos com sentimentos, tensões e relações de papel na improvisação.</p>
+      <p class="rp"><em><strong>Centrado.</strong></em> Durante a improvisação, o corpo do cliente é tanto congruente quanto incongruente com os sentimentos, tensões e papéis na música.</p>
+      <p class="rp"><em><strong>Incongruente.</strong></em> As posturas, expressões faciais e movimentos do cliente são geralmente inconsistentes com o sentimento geral da música.</p>
+      <p class="rp"><em><strong>Polarizado.</strong></em> As posturas, expressões faciais e movimentos do cliente são totalmente contraditórios com os sentimentos, tensões e papéis na música.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ TABELA XXXI · ESCALAS DE PROGRAMA ══════════════════ -->
+  <section class="section" id="sec-program">
+    <h2 class="sec-title" data-lang="pt">Tabela XXXI · Escalas de Programa</h2>
+    <h2 class="sec-title" data-lang="en">Table XXXI · Program Scales</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Autonomia de Programa/Letras</h3>
+    <h3 class="subsec-title" data-lang="en">Program/Lyrics Autonomy</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the role relationships that the client and/or partner develop in determining the programs and/or lyrics to the improvisation.</p>
+      <p class="rp"><em><strong>Dependent.</strong></em> The client relies entirely on the partner.</p>
+      <p class="rp"><em><strong>Follower.</strong></em> The client accepts most of the program and/or lyrics offered by the partner, adding only minor or supplementary elements. The client may offer a few original ideas on occasion.</p>
+      <p class="rp"><em><strong>Partner.</strong></em> The client participates in the formation of program and/or lyrics as an equal partner, accepting what the partner offers as often as contributing his/her own original ideas.</p>
+      <p class="rp"><em><strong>Leader.</strong></em> The client determines most of the program and/or lyrics, and takes a leadership role in their formation.</p>
+      <p class="rp"><em><strong>Resister.</strong></em> The client evades or destroys any relationships that may develop with the partner in formulating a program and/or lyrics.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata das relações de papel que o cliente e/ou parceiro desenvolvem na determinação dos programas e/ou letras da improvisação.</p>
+      <p class="rp"><em><strong>Dependente.</strong></em> O cliente depende inteiramente do parceiro.</p>
+      <p class="rp"><em><strong>Seguidor.</strong></em> O cliente aceita a maior parte do programa e/ou letras oferecidos pelo parceiro, adicionando apenas elementos menores ou suplementares. O cliente pode oferecer algumas ideias originais ocasionalmente.</p>
+      <p class="rp"><em><strong>Parceiro.</strong></em> O cliente participa da formação do programa e/ou letras como parceiro igual, aceitando o que o parceiro oferece com a mesma frequência com que contribui com suas próprias ideias originais.</p>
+      <p class="rp"><em><strong>Líder.</strong></em> O cliente determina a maior parte do programa e/ou letras, e assume um papel de liderança em sua formação.</p>
+      <p class="rp"><em><strong>Resistente.</strong></em> O cliente evita ou destrói quaisquer relacionamentos que possam se desenvolver com o parceiro na formulação de um programa e/ou letras.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Congruência Interpessoal</h3>
+    <h3 class="subsec-title" data-lang="en">Interpersonal Congruence</h3>
+
+    <div data-lang="en">
+      <p class="rp">This scale deals with the extent to which tension levels and role relationships in the music are consistent with tension levels and role relationships observed between the client and partner(s).</p>
+      <p class="rp"><em><strong>Uncommitted.</strong></em> The client is not sufficiently committed to the music or the partner to infer any feelings with regard to either.</p>
+      <p class="rp"><em><strong>Congruent.</strong></em> Tension levels and role relationships between the client and partner are accurately reflected in the music. For example, if the relationship is competitive, the music is also; if the client is reticent to interact, the music is also.</p>
+      <p class="rp"><em><strong>Centered.</strong></em> Tensions and roles between the client and partner are reflected in certain parts or aspects of the music.</p>
+      <p class="rp"><em><strong>Incongruent.</strong></em> Tensions and roles between the client and partner are not reflected in every aspect of the music, however, the differences can be understood.</p>
+      <p class="rp"><em><strong>Polarized.</strong></em> Tensions and roles between the client and partner are contradictory to the music.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Esta escala trata da extensão em que os níveis de tensão e as relações de papel na música são consistentes com os níveis de tensão e relações de papel observados entre o cliente e o(s) parceiro(s).</p>
+      <p class="rp"><em><strong>Não comprometido.</strong></em> O cliente não está suficientemente comprometido com a música ou o parceiro para inferir quaisquer sentimentos em relação a qualquer um deles.</p>
+      <p class="rp"><em><strong>Congruente.</strong></em> Os níveis de tensão e as relações de papel entre o cliente e o parceiro são refletidos com precisão na música. Por exemplo, se o relacionamento é competitivo, a música também é; se o cliente está relutante em interagir, a música também está.</p>
+      <p class="rp"><em><strong>Centrado.</strong></em> As tensões e os papéis entre o cliente e o parceiro são refletidos em certas partes ou aspectos da música.</p>
+      <p class="rp"><em><strong>Incongruente.</strong></em> As tensões e os papéis entre o cliente e o parceiro não são refletidos em todos os aspectos da música, no entanto, as diferenças podem ser compreendidas.</p>
+      <p class="rp"><em><strong>Polarizado.</strong></em> As tensões e os papéis entre o cliente e o parceiro são contraditórios à música.</p>
+    </div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"Cada elemento musical simbolicamente representa um aspecto particular da personalidade, e cada processo musical corresponde a um processo psicológico."</blockquote>
+      <blockquote data-lang="en">"Each musical element symbolically represents a particular aspect of personality, and each musical process corresponds to a psychological process."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 430</cite></figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<!-- ════════════════════════ CHAPTER NAV ════════════════════ -->
+<nav aria-label="Navegação entre capítulos" class="chapter-nav">
+  <a class="chapter-nav-prev" href="cap33.html">
+    <span aria-hidden="true" class="chapter-nav-arrow">←</span>
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Capítulo anterior</span>
+      <span class="chapter-nav-label" data-lang="en">Previous chapter</span>
+      <span class="chapter-nav-title" data-lang="pt">Cap. 33 · Perspectivas Psicanalíticas e Existenciais</span>
+      <span class="chapter-nav-title" data-lang="en">Ch. 33 · Psychoanalytic and Existential Perspectives</span>
+    </span>
+  </a>
+  <div class="chapter-nav-center">
+    <span class="chapter-nav-current" data-lang="pt">Apêndice</span>
+    <span class="chapter-nav-current" data-lang="en">Appendix</span>
+  </div>
+  <a aria-disabled="true" class="chapter-nav-next" href="#" tabindex="-1">
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Próximo</span>
+      <span class="chapter-nav-label" data-lang="en">Next</span>
+      <span class="chapter-nav-title" data-lang="pt">Fim do Material</span>
+      <span class="chapter-nav-title" data-lang="en">End of Material</span>
+    </span>
+    <span aria-hidden="true" class="chapter-nav-arrow">→</span>
+  </a>
+</nav>
+
+<footer>
+  <p>
+    <strong>Bruscia, K. E.</strong> · Improvisational Models of Music Therapy<br/>
+    Springfield: Charles C. Thomas · 1987<br/>
+    <span data-lang="pt">Apêndice · Tabelas XXIV–XXXI · pp. 465–496</span>
+    <span data-lang="en">Appendix · Tables XXIV–XXXI · pp. 465–496</span>
+  </p>
+  <p>
+    <span data-lang="pt">Adaptação e Interface gráfica</span>
+    <span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong>
+  </p>
+</footer>
+
+<script src="iaps.js"></script>
+</body>
+</html>

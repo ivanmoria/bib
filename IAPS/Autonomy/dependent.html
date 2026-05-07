@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dependente · Perfis Improvisacionais</title>
+  <style>:root { --profile-color: #1E6FCC; }</style>
+  <link rel="stylesheet" href="perfil-shared.css">
+</head>
+<body class="lang-pt">
+
+<nav class="top-nav" role="navigation" aria-label="Navegação principal">
+  <a class="nav-back" href="grupos/tela.html?id=0000" aria-label="Voltar para o início">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+    <span data-lang="pt">Início</span>
+    <span data-lang="en">Home</span>
+  </a>
+
+  <nav class="pnav" aria-label="Perfis improvisacionais">
+    <a class="pnav-item active" href="dependent.html" aria-current="page" style="--item-color:#1E6FCC">
+      <span class="pnav-num" aria-hidden="true">01</span>
+      <span class="pnav-label" data-lang="pt">Dependente</span>
+      <span class="pnav-label" data-lang="en">Dependent</span>
+    </a>
+    <a class="pnav-item" href="follower.html" style="--item-color:#1a8c52">
+      <span class="pnav-num" aria-hidden="true">02</span>
+      <span class="pnav-label" data-lang="pt">Seguidor</span>
+      <span class="pnav-label" data-lang="en">Follower</span>
+    </a>
+    <a class="pnav-item" href="partner.html" style="--item-color:#b08a00">
+      <span class="pnav-num" aria-hidden="true">03</span>
+      <span class="pnav-label" data-lang="pt">Parceiro</span>
+      <span class="pnav-label" data-lang="en">Partner</span>
+    </a>
+    <a class="pnav-item" href="leader.html" style="--item-color:#c44a1a">
+      <span class="pnav-num" aria-hidden="true">04</span>
+      <span class="pnav-label" data-lang="pt">Líder</span>
+      <span class="pnav-label" data-lang="en">Leader</span>
+    </a>
+    <a class="pnav-item" href="resister.html" style="--item-color:#6b2fa0">
+      <span class="pnav-num" aria-hidden="true">05</span>
+      <span class="pnav-label" data-lang="pt">Resistente</span>
+      <span class="pnav-label" data-lang="en">Resister</span>
+    </a>
+  </nav>
+
+  <div class="nav-controls">
+    <div class="audio-controls" id="audio-controls">
+      <button class="nav-audio-btn" id="btn-audio-read"
+              onclick="toggleAudioRead()"
+              aria-label="Iniciar leitura"
+              title="Play / Stop">
+        <svg id="icon-play" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg id="icon-stop" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="display:none"><rect x="3" y="3" width="10" height="10" rx="1"/></svg>
+      </button>
+      <button class="nav-audio-btn" id="btn-audio-pause"
+              onclick="togglePause()"
+              aria-label="Pausar leitura"
+              title="Pause / Resume"
+              style="display:none">
+        <svg id="icon-pause" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="4" height="12" rx="1"/><rect x="9" y="2" width="4" height="12" rx="1"/></svg>
+        <svg id="icon-resume" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="display:none"><path d="M4 2.5l9 5.5-9 5.5z"/></svg>
+      </button>
+    </div>
+
+    <div class="lang-toggle" role="group" aria-label="Selecionar idioma">
+      <button class="lang-btn active" onclick="setLang('pt')" aria-pressed="true" lang="pt">PT</button>
+      <button class="lang-btn"        onclick="setLang('en')" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════ HERO -->
+<header class="hero" role="banner">
+  <div class="hero-eyebrow">
+    <span class="hero-number" aria-label="Perfil 01">PERFIL 01</span>
+    <span class="hero-eyebrow-sep" aria-hidden="true"></span>
+    <span class="hero-label">Bruscia · Improvisational Models of Music Therapy</span>
+  </div>
+
+  <h1 class="hero-title">
+    <span data-lang="pt"><em>Dependente</em></span>
+    <span data-lang="en"><em>Dependent</em></span>
+  </h1>
+
+  <p class="hero-lead">
+    <span data-lang="pt">O músico que segue, espelha e sustenta — sem propor, sem conduzir.</span>
+    <span data-lang="en">The musician who follows, mirrors and sustains — without proposing, without leading.</span>
+  </p>
+
+  <div class="hero-divider" aria-hidden="true"></div>
+</header>
+
+
+<main class="page-body">
+
+  <!-- ═══════════════════════════════════════ § 01 DESCRIÇÃO -->
+  <section class="section" aria-labelledby="sec-title-01">
+    <div class="section-label" aria-hidden="true">
+      <span class="section-num">§ 01</span>
+      <span class="section-line"></span>
+    </div>
+
+    <h2 class="section-title" id="sec-title-01">
+      <span data-lang="pt">Descrição do Perfil</span>
+      <span data-lang="en">Profile Description</span>
+    </h2>
+
+<div class="prose">
+      <div data-lang="pt" lang="pt">
+        <p class="rp">O perfil <strong>Dependente</strong> descreve o músico que assume exclusivamente o papel de seguidor na relação improvisacional. Ele não propõe material musical novo, não inicia mudanças de dinâmica, andamento ou caráter, e não assume posições de liderança mesmo quando o parceiro cede espaço para isso.</p>
+        
+        <p class="rp">O cliente assume exclusivamente o papel de seguidor e nunca assume um papel de liderança. Ao fazê-lo, depende inteiramente do parceiro em todos os aspectos, incluindo o conteúdo de sua própria música e a direção geral da improvisação. Esta postura é mantida independentemente de manobras do parceiro para encorajar a liderança. Quando sobrecarregado pela música do parceiro, a participação do cliente pode diminuir ou cessar completamente. Em relação a outros perfis, este papel pode ser assumido através da indiferenciação, fusão, estabilização e mudança. Musicalmente, isso inclui: foco exclusivo na música do parceiro; sincronização ou imitação incessante dos ritmos ou melodias do parceiro; seguimento de todas as mudanças feitas pelo parceiro no tempo e volume; fusão com os timbres e texturas do parceiro; e permissão para que o parceiro controle todos os aspectos formais da improvisação. Não possuindo identidade musical, o cliente não atua nem como solista nem como acompanhante.</p>
+
+       
+        <p class="rp">O terapeuta que reconhece esse perfil é convidado a oferecer uma estrutura clara, previsível e acolhedora — um solo que fale, mas que também convide sem exigir resposta.</p>
+      </div>
+
+      <div data-lang="en" lang="en">
+        <p class="rp">The <strong>Dependent</strong> profile describes a musician who exclusively assumes the follower role in the improvisational relationship. They do not propose new musical material, do not initiate changes in dynamics, tempo or character, and do not take on leadership positions even when the partner creates space for them.</p>
+
+        <p class="rp">The client takes the follower role exclusively, and never takes a leader role. In doing so, s/he depends entirely on the partner in all matters, including the content of his/her own music as well as the overall direction of the improvisation. This stance is taken regardless of any maneuvers by the partner to encourage leadership. When overwhelmed by the partner's music, the client's participation may wane or cease altogether. In relation to other profiles, this role may be assumed through undifferentiation, fusion, stabilization, and change. Musically this includes: focusing exclusively on the partner's music; incessantly synchronizing with or imitating the partner's rhythms or melodies; following all changes made by the partner in tempo and volume; fusing with the partner's timbres and textures; and allowing the partner to control all formal aspects of the improvisation. Having no musical identity, the client acts as neither soloist nor accompanist.</p>
+
+
+        <p class="rp">The therapist who recognizes this profile is invited to offer a clear, predictable and welcoming structure — a solo that speaks, but also invites without demanding a response.</p>
+      </div>
+    </div>
+    </div>
+
+    <figure class="pull-quote" role="figure" aria-label="Citação bibliográfica">
+      <blockquote data-lang="pt" lang="pt">
+        "O cliente dependente revela sua necessidade de ser sustentado. A musicalidade do terapeuta torna-se o chão sobre o qual ele caminha."
+      </blockquote>
+      <blockquote data-lang="en" lang="en">
+        "The dependent client reveals a need to be held. The therapist's musicality becomes the ground upon which they walk."
+      </blockquote>
+      <figcaption>
+        <cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 355</cite>
+      </figcaption>
+    </figure>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ § 02 EXEMPLOS -->
+  <section class="section" aria-labelledby="sec-title-02">
+    <div class="section-label" aria-hidden="true">
+      <span class="section-num">§ 02</span>
+      <span class="section-line"></span>
+    </div>
+
+    <h2 class="section-title" id="sec-title-02">
+      <span data-lang="pt">Exemplos Musicais e Clínicos</span>
+      <span data-lang="en">Musical &amp; Clinical Examples</span>
+    </h2>
+
+    <!-- Cards PT -->
+    <div class="examples-grid" data-lang="pt" lang="pt" role="list" aria-label="Exemplos clínicos e musicais">
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Tipo: Musical">Musical</div>
+        <p>O cliente toca um bordão contínuo enquanto o terapeuta improvisa melodias variadas. Mesmo com pausas do terapeuta, o cliente mantém o mesmo padrão rítmico sem explorar novas ideias.</p>
+      </article>
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Tipo: Clínico">Clínico</div>
+        <p>Adolescente com baixa autoestima que toca apenas quando o terapeuta toca — jamais iniciando sozinho. "Não sei o que tocar sem você."</p>
+      </article>
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Tipo: Intervenção">Intervenção</div>
+        <p>O terapeuta pausa intencionalmente, criando um espaço vazio para observar se o cliente arrisca preencher. A ausência de resposta é em si um dado clínico valioso.</p>
+      </article>
+    </div>
+
+    <!-- Cards EN -->
+    <div class="examples-grid" data-lang="en" lang="en" role="list" aria-label="Musical and clinical examples">
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Type: Musical">Musical</div>
+        <p>The client plays a continuous drone while the therapist improvises varied melodies. Even with pauses from the therapist, the client maintains the same rhythmic pattern without exploring new ideas.</p>
+      </article>
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Type: Clinical">Clinical</div>
+        <p>A teenager with low self-esteem who only plays when the therapist plays — never initiating alone. "I don't know what to play without you."</p>
+      </article>
+      <article class="example-card" role="listitem">
+        <div class="example-tag" aria-label="Type: Intervention">Intervention</div>
+        <p>The therapist intentionally pauses, creating an empty space to observe whether the client risks filling it. The absence of response is itself a valuable clinical datum.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ § 03 REFERÊNCIAS -->
+  <section class="section" aria-labelledby="sec-title-03">
+    <div class="section-label" aria-hidden="true">
+      <span class="section-num">§ 03</span>
+      <span class="section-line"></span>
+    </div>
+
+    <h2 class="section-title" id="sec-title-03">
+      <span data-lang="pt">Referências Bibliográficas</span>
+      <span data-lang="en">Bibliographic References</span>
+    </h2>
+
+    <ul class="ref-list" data-lang="pt" lang="pt" aria-label="Referências bibliográficas">
+      <li><span class="ref-year">1987</span><span class="ref-body"><strong>Bruscia, K. E.</strong> <em>Improvisational Models of Music Therapy.</em> Springfield: Charles C. Thomas. Perfis de Interação, pp. 341–372.</span></li>
+      <li><span class="ref-year">1998</span><span class="ref-body"><strong>Bruscia, K. E.</strong> <em>Defining Music Therapy.</em> 2ª ed. Gilsum: Barcelona Publishers.</span></li>
+      <li><span class="ref-year">2014</span><span class="ref-body"><strong>Wigram, T.</strong> <em>Improvisation: Methods and Techniques for Music Therapy.</em> London: Jessica Kingsley.</span></li>
+      <li><span class="ref-year">2002</span><span class="ref-body"><strong>Pavlicevic, M.</strong> <em>Groups in Music: Strategies from Music Therapy.</em> London: Jessica Kingsley.</span></li>
+    </ul>
+
+    <ul class="ref-list" data-lang="en" lang="en" aria-label="Bibliographic references">
+      <li><span class="ref-year">1987</span><span class="ref-body"><strong>Bruscia, K. E.</strong> <em>Improvisational Models of Music Therapy.</em> Springfield: Charles C. Thomas. Interaction Profiles, pp. 341–372.</span></li>
+      <li><span class="ref-year">1998</span><span class="ref-body"><strong>Bruscia, K. E.</strong> <em>Defining Music Therapy.</em> 2nd ed. Gilsum: Barcelona Publishers.</span></li>
+      <li><span class="ref-year">2014</span><span class="ref-body"><strong>Wigram, T.</strong> <em>Improvisation: Methods and Techniques for Music Therapy.</em> London: Jessica Kingsley.</span></li>
+      <li><span class="ref-year">2002</span><span class="ref-body"><strong>Pavlicevic, M.</strong> <em>Groups in Music: Strategies from Music Therapy.</em> London: Jessica Kingsley.</span></li>
+    </ul>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════ § 04 REFLEXÃO -->
+  <section class="section" aria-labelledby="sec-title-04">
+    <div class="reflection-box">
+      <div class="section-label" aria-hidden="true">
+        <span class="section-num">§ 04</span>
+        <span class="section-line"></span>
+      </div>
+
+      <h2 class="section-title" id="sec-title-04">
+        <span data-lang="pt">Exercício de Reflexão</span>
+        <span data-lang="en">Reflection Exercise</span>
+      </h2>
+
+      <ol class="reflection-questions" data-lang="pt" lang="pt" aria-label="Perguntas de reflexão">
+        <li>Você já se percebeu no papel Dependente durante uma improvisação? O que estava acontecendo internamente naquele momento?</li>
+        <li>Como terapeuta, como você distingue uma dependência que pede acolhimento daquela que pede desafio?</li>
+        <li>Que estrutura musical você ofereceria a um cliente Dependente para encorajar, sem forçar, a iniciativa?</li>
+        <li>Dependência musical e dependência relacional: onde elas se tocam no seu trabalho clínico?</li>
+      </ol>
+
+      <ol class="reflection-questions" data-lang="en" lang="en" aria-label="Reflection questions">
+        <li>Have you ever found yourself in the Dependent role during an improvisation? What was happening internally at that moment?</li>
+        <li>As a therapist, how do you distinguish a dependency that calls for holding from one that calls for challenge?</li>
+        <li>What musical structure would you offer a Dependent client to encourage — without forcing — initiative?</li>
+        <li>Musical dependency and relational dependency: where do they meet in your clinical work?</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+
+<script src="perfil-audio.js"></script>
+<script>
+  function setLang(l) {
+    document.documentElement.lang = l;
+    document.body.className = 'lang-' + l;
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      const isActive = b.textContent.trim().toLowerCase() === l;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    if (window.onLangSwitch) window.onLangSwitch(l);
+  }
+</script>
+
+</body>
+</html>
