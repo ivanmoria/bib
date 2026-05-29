@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupos – Improvisação Musicoterápica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Syne+Mono&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050505;
+      --surface: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --green: #00ff87;
+      --green-dim: rgba(0,255,135,0.12);
+      --text: rgba(255,255,255,0.75);
+      --muted: rgba(255,255,255,0.35);
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'Syne Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+
+    .page { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 64px 28px 80px; }
+
+    /* ── Header ── */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--green); opacity: 0.8; margin-bottom: 18px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800; line-height: 1.05; color: #fff;
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: clamp(14px, 1.6vw, 17px);
+      line-height: 1.65; color: var(--muted);
+      max-width: 580px; margin-bottom: 52px;
+    }
+
+    /* ── Flow ── */
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 580px) { .flow { grid-template-columns: 1fr; } }
+
+    .flow-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: border-color 0.3s;
+    }
+    .flow-card:hover { border-color: rgba(255,255,255,0.16); }
+
+    .flow-badge {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 6px;
+      width: fit-content;
+    }
+    .flow-badge.teacher { background: rgba(129,140,248,0.12); color: #818cf8; border: 1px solid rgba(129,140,248,0.25); }
+    .flow-badge.student { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,255,135,0.25); }
+
+    .flow-title {
+      font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: #fff;
+    }
+    .flow-desc {
+      font-size: 0.88rem; line-height: 1.6; color: var(--muted);
+    }
+    .flow-desc code {
+      font-family: var(--font-mono); font-size: 0.9em;
+      background: rgba(255,255,255,0.07); border-radius: 4px;
+      padding: 2px 6px; color: rgba(255,255,255,0.65);
+    }
+
+    .flow-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 10px; text-decoration: none;
+      font-family: var(--font-display); font-size: 0.84rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      transition: all 0.2s; margin-top: auto;
+    }
+    .flow-link.teacher { background: rgba(129,140,248,0.1); color: #818cf8; border: 1px solid rgba(129,140,248,0.3); }
+    .flow-link.teacher:hover { background: rgba(129,140,248,0.18); }
+    .flow-link.student { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,255,135,0.3); }
+    .flow-link.student:hover { background: rgba(0,255,135,0.18); }
+
+    /* ── Steps ── */
+    .steps-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 20px;
+    }
+    .steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; }
+
+    .step {
+      display: grid; grid-template-columns: 28px 1fr;
+      gap: 16px; padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+      color: var(--green); opacity: 0.7; padding-top: 2px;
+    }
+    .step-body { display: flex; flex-direction: column; gap: 4px; }
+    .step-label {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; color: #fff;
+    }
+    .step-detail { font-size: 0.84rem; line-height: 1.55; color: var(--muted); }
+    .step-detail code {
+      font-family: var(--font-mono); font-size: 0.88em;
+      background: rgba(255,255,255,0.07); border-radius: 4px;
+      padding: 2px 6px; color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Secondary links ── */
+    .aux-links {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .aux-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 8px 16px; border-radius: 8px; text-decoration: none;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .aux-link:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+
+    /* ── ID generator ── */
+    .id-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 24px;
+      margin-bottom: 48px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .id-section-title {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .id-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .id-display {
+      font-family: var(--font-mono); font-size: 2.6rem; letter-spacing: 0.3em;
+      color: var(--green); font-weight: 400;
+    }
+    .id-btn {
+      background: var(--green-dim); color: var(--green);
+      border: 1px solid rgba(0,255,135,0.3); border-radius: 8px;
+      padding: 8px 16px; cursor: pointer;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: all 0.2s;
+    }
+    .id-btn:hover { background: rgba(0,255,135,0.2); }
+    .id-hint { font-size: 0.83rem; color: var(--muted); line-height: 1.55; }
+    .id-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .id-tela-link {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.4); word-break: break-all;
+      background: rgba(255,255,255,0.04); border-radius: 6px; padding: 6px 10px;
+    }
+
+    /* ── Back link ── */
+    .back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); text-decoration: none;
+      margin-bottom: 48px; transition: color 0.2s;
+    }
+    .back:hover { color: rgba(255,255,255,0.6); }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back" href="../index.html">← Autonomy</a>
+
+  <p class="eyebrow">Improvisação em Musicoterapia I · UFMG</p>
+  <h1>Ferramenta de<br>Grupos</h1>
+  <p class="lead">
+    Distribui papéis de autonomia improvisacional (IAPs) entre participantes em tempo real,
+    via conexão P2P entre dispositivos. O professor controla; cada participante vê seu papel na tela.
+  </p>
+
+  <!-- Quick access -->
+  <div class="flow">
+    <div class="flow-card">
+      <span class="flow-badge teacher">Professor</span>
+      <div class="flow-title">Painel de Controle</div>
+      <p class="flow-desc">
+        Atribua papéis, alterne entre modos <code>dupla</code> e <code>grupo</code>,
+        use a rolagem aleatória e monitore as conexões.
+      </p>
+      <a class="flow-link teacher" href="control.html" target="_blank">↗ Abrir Controle</a>
+    </div>
+
+    <div class="flow-card">
+      <span class="flow-badge student">Participantes</span>
+      <div class="flow-title">Tela de Projeção</div>
+      <p class="flow-desc">
+        Cada participante abre esta tela no próprio dispositivo e vê seu papel.
+        Gere um código abaixo e compartilhe o link.
+      </p>
+      <a class="flow-link student" href="tela.html" target="_blank">↗ Abrir Tela</a>
+    </div>
+  </div>
+
+  <!-- ID generator -->
+  <div class="id-section">
+    <p class="id-section-title">Gerar código de sessão</p>
+    <div class="id-row">
+      <span class="id-display" id="id-val">—</span>
+      <button class="id-btn" onclick="generateId()">Gerar novo</button>
+    </div>
+    <p class="id-hint">
+      Compartilhe o link abaixo com os participantes — o código já vem preenchido.
+      O mesmo código deve ser digitado no Painel de Controle para estabelecer a conexão.
+    </p>
+    <div class="id-links">
+      <span class="id-tela-link" id="id-link-display">—</span>
+    </div>
+  </div>
+
+  <!-- Step-by-step -->
+  <p class="steps-title">Como usar</p>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <div class="step-body">
+        <span class="step-label">Gere um código de sessão</span>
+        <span class="step-detail">Clique em "Gerar novo" acima. O código de 4 dígitos identifica a sessão.</span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <div class="step-body">
+        <span class="step-label">Abra o Painel de Controle</span>
+        <span class="step-detail">No seu dispositivo (professor). A tela de bloqueio pedirá o código da sessão.</span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <div class="step-body">
+        <span class="step-label">Compartilhe o link da Tela</span>
+        <span class="step-detail">
+          Cada participante abre <code>tela.html?id=XXXX</code> no próprio dispositivo
+          e clica em <code>Conectar</code>. O código já vem preenchido no link gerado acima.
+        </span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <div class="step-body">
+        <span class="step-label">Digite o código no Controle</span>
+        <span class="step-detail">
+          Insira o mesmo código na tela de bloqueio do Painel de Controle.
+          A conexão com todos os participantes é estabelecida automaticamente.
+        </span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-num">05</span>
+      <div class="step-body">
+        <span class="step-label">Atribua os papéis e envie</span>
+        <span class="step-detail">
+          Use o slider ou as pílulas para definir o papel de cada participante.
+          Clique em <code>Enviar</code> ou use o modo aleatório para distribuir automaticamente.
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aux links -->
+  <div class="aux-links">
+    <a class="aux-link" href="monitor.html" target="_blank">⬛ Monitor Interno</a>
+    <a class="aux-link" href="qr.html" target="_blank">⊞ QR Code</a>
+    <a class="aux-link" href="../index.html">← Perfis Individuais</a>
+  </div>
+
+</div>
+
+<script>
+  function generateId() {
+    const id = Math.floor(1000 + Math.random() * 9000).toString();
+    document.getElementById('id-val').textContent = id;
+    const base = location.href.replace(/\/index\.html.*$/, '').replace(/\/$/, '');
+    const link = `${base}/tela.html?id=${id}`;
+    document.getElementById('id-link-display').textContent = link;
+  }
+  generateId();
+</script>
+</body>
+</html>

@@ -343,3 +343,147 @@
       font-size: 0.62em;
       color: var(--muted);
     }
+
+    /* ── PROJECTION TOGGLE BUTTON ── */
+    .proj-toggle-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65em;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface2);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .proj-toggle-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+    body.proj-mode .proj-toggle-btn {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(110,231,183,0.08);
+    }
+
+    /* ── PROJECTION VIEW ── */
+    #projection-view {
+      position: fixed;
+      top: 56px; left: 0; right: 0; bottom: 0;
+      display: none;
+      overflow: hidden;
+    }
+    body.proj-mode #projection-view { display: flex; }
+    body.proj-mode #main-area,
+    body.proj-mode #no-signal { display: none !important; }
+
+    /* Dupla layout */
+    .proj-dupla {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+
+    /* Grupo layout */
+    .proj-grupo {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media (max-width: 900px) { .proj-grupo { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 600px) { .proj-grupo { grid-template-columns: repeat(2, 1fr); } }
+
+    /* Each colored panel */
+    .proj-panel {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.8s ease;
+    }
+    .proj-panel::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 15%, rgba(255,255,255,0.18), transparent 65%),
+        linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.3));
+      pointer-events: none;
+    }
+
+    .proj-slot {
+      font-family: 'DM Mono', monospace;
+      font-size: clamp(9px, 0.9vw, 13px);
+      letter-spacing: 0.5em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      margin-bottom: 3vh;
+      background: rgba(255,255,255,0.1);
+      border-radius: 40px;
+      padding: 4px 14px;
+      position: relative; z-index: 1;
+    }
+
+    .proj-role {
+      font-family: 'Syne', sans-serif;
+      /* 6vw stays comfortably in a 50vw dupla panel for the longest word (DEPENDENTE) */
+      font-size: clamp(24px, min(6vw, 18vh), 130px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      color: #fff;
+      text-align: center;
+      text-shadow:
+        0 2px 0 rgba(0,0,0,0.15),
+        0 6px 30px rgba(0,0,0,0.4);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      position: relative; z-index: 1;
+    }
+    /* Smaller role text in grupo (5 panels per row) */
+    .proj-grupo .proj-role {
+      font-size: clamp(12px, min(2.4vw, 8vh), 48px);
+    }
+
+    .proj-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(11px, min(1.3vw, 2.2vh), 20px);
+      color: rgba(255,255,255,0.82);
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.5;
+      margin-top: clamp(12px, 2vh, 28px);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+      position: relative; z-index: 1;
+    }
+    .proj-grupo .proj-desc {
+      font-size: clamp(9px, min(0.9vw, 1.6vh), 13px);
+      max-width: 90%;
+      margin-top: clamp(6px, 1vh, 14px);
+    }
+
+    .proj-name {
+      font-family: 'DM Mono', monospace;
+      font-size: clamp(10px, 1vw, 16px);
+      letter-spacing: 0.25em;
+      opacity: 0.7;
+      margin-top: clamp(16px, 3vh, 36px);
+      text-transform: uppercase;
+      color: #fff;
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .proj-grupo .proj-name {
+      font-size: clamp(8px, 0.7vw, 12px);
+      margin-top: clamp(8px, 1.5vh, 20px);
+    }
