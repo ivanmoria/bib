@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gabarito Ficha 2</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
+<script>try{var s=localStorage.getItem("tema");if(s&&s!=="system")document.documentElement.dataset.theme=s}catch(e){}</script>
+<style>
+:root{color-scheme:light;
+ --bg:#fbfaf7;--fg:#1c1a17;--mut:#6b6459;--line:#e0dbd1;--acc:#8a4b2a;
+ --card:#fff;--code:#f4f1ea;--ctl:#3a352c;--warnbg:#fff3cd;--warnfg:#5c4708;--warnline:#e8d48b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#16150f;--fg:#eceae4;--mut:#a49c8e;--line:#33302a;--acc:#e0a26a;
+   --card:#1e1c16;--code:#232019;--ctl:#2b2721;--warnbg:#3a3011;--warnfg:#f0dfae;--warnline:#6b5a25}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#16150f;--fg:#eceae4;--mut:#a49c8e;--line:#33302a;--acc:#e0a26a;
+   --card:#1e1c16;--code:#232019;--ctl:#2b2721;--warnbg:#3a3011;--warnfg:#f0dfae;--warnline:#6b5a25}
+:root[data-theme="light"]{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:16px/1.65 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+.wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:2.5rem;max-width:1180px;margin:0 auto;padding:2rem 1.25rem 6rem}
+nav{position:sticky;top:1.5rem;align-self:start;max-height:calc(100vh - 3rem);overflow:auto;
+ font:13px/1.5 ui-sans-serif,system-ui,-apple-system,sans-serif;border-right:1px solid var(--line);padding-right:1rem}
+nav a{color:var(--mut);text-decoration:none;display:block;padding:.18rem 0}
+nav a:hover{color:var(--acc)}
+nav ul{list-style:none;margin:0;padding-left:.85rem}nav>ul{padding-left:0}
+main{min-width:0}
+h1{font-size:1.9rem;line-height:1.2;margin:.2em 0 .1em;letter-spacing:-.01em}
+h2{font-size:1.4rem;margin:2.4em 0 .5em;padding-bottom:.3em;border-bottom:2px solid var(--line)}
+h3{font-size:1.12rem;margin:1.9em 0 .4em;color:var(--acc)}
+h1+p,h2+p{margin-top:.3em}
+hr{border:0;border-top:1px solid var(--line);margin:2.5em 0}
+table{border-collapse:collapse;width:100%;margin:1.1em 0;font:14px/1.45 ui-sans-serif,system-ui,sans-serif;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:.42rem .6rem;text-align:left;vertical-align:top}
+th{background:var(--code);font-weight:600}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--code) 55%,transparent)}
+code{background:var(--code);padding:.1em .35em;border-radius:3px;font:13px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace}
+pre{background:var(--code);padding:.9rem 1rem;border-radius:6px;overflow-x:auto;
+ font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid var(--line)}
+pre code{background:none;padding:0}
+blockquote{margin:1.2em 0;padding:.6em 1em;border-left:3px solid var(--acc);background:var(--code);color:var(--mut)}
+blockquote p{margin:.3em 0}
+a{color:var(--acc)}
+.tune{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:1rem 1.1rem;margin:1.4em 0;
+ box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.tune-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.5rem;position:relative}
+.tune-title{font:600 13px/1.3 ui-sans-serif,system-ui,sans-serif;letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
+.ck{font:12px ui-sans-serif,system-ui,sans-serif;color:var(--mut);display:flex;gap:.35em;align-items:center;cursor:pointer}
+.score svg{max-width:100%;height:auto}
+/* a partitura do abcjs vem com preto fixo: forcamos a cor do tema */
+.score svg path,.score svg text,.score svg tspan{fill:var(--fg)}
+.audio{margin-top:.6rem}
+details{margin-top:.7rem;font:13px ui-sans-serif,system-ui,sans-serif}
+summary{cursor:pointer;color:var(--mut)}
+.copy{margin:.5rem 0;font:12px ui-sans-serif,system-ui,sans-serif;padding:.25rem .7rem;border:1px solid var(--line);
+ background:var(--code);color:var(--fg);border-radius:4px;cursor:pointer}
+.copy:hover{border-color:var(--acc);color:var(--acc)}
+.warn{background:var(--warnbg);color:var(--warnfg);border:1px solid var(--warnline);padding:.7rem 1rem;border-radius:6px;
+ font:14px ui-sans-serif,system-ui,sans-serif;margin:1em 0}
+/* seletor de tema */
+.tema{position:fixed;top:.9rem;right:.9rem;z-index:20;cursor:pointer;
+ font:12px/1 ui-sans-serif,system-ui,sans-serif;padding:.45rem .75rem;border-radius:999px;
+ border:1px solid var(--line);background:var(--card);color:var(--mut);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.tema:hover{color:var(--acc);border-color:var(--acc)}
+/* cursor de execucao */
+.nowat{font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--acc);
+ background:var(--code);border:1px solid var(--line);border-radius:4px;padding:.15rem .5rem;
+ margin-left:auto;white-space:nowrap}
+.score svg .abc-inmeasure,.score svg .abc-inmeasure path,.score svg .abc-inmeasure text{
+ fill:#9a7f66;fill:color-mix(in srgb,var(--acc) 45%,var(--mut))}
+.score svg .abc-now,.score svg .abc-now path,.score svg .abc-now text{fill:var(--acc)!important}
+.score svg .abc-cursor{stroke:var(--acc);stroke-width:2.5;opacity:.7;stroke-linecap:round}
+@media(max-width:860px){.wrap{grid-template-columns:1fr;gap:1rem}
+ nav{position:static;max-height:none;border-right:0;border-bottom:1px solid var(--line);padding:0 0 1rem}
+ .tema{position:static;display:block;margin:0 auto 1rem}}
+@media print{:root,:root[data-theme="dark"],:root[data-theme="light"]{
+  --bg:#fff;--fg:#000;--card:#fff;--code:#f7f7f7;--line:#ccc;--mut:#555;--acc:#7a3f22}
+ nav,.audio,.yt,details,.ck,.tema{display:none}.wrap{display:block;max-width:none}
+ .tune{break-inside:avoid;box-shadow:none}h2{break-after:avoid}}
+
+/* ---- abcjs-audio.css v6.2.2 (embutido: cdnjs nao serve este arquivo) ---- */
+/* Some basic CSS to make the Audio controls in abcjs presentable. */
+
+.abcjs-inline-audio {
+	height: 26px;
+	padding: 0 5px;
+	border-radius: 3px;
+	background-color: #424242;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio.abcjs-disabled {
+	opacity: 0.5;
+}
+
+.abcjs-inline-audio .abcjs-btn {
+	display: block;
+	width: 28px;
+	height: 34px;
+	margin-right: 2px;
+	padding: 7px 4px;
+
+	background: none !important;
+	border: 1px solid transparent;
+	box-sizing: border-box;
+	line-height: 1;
+}
+
+.abcjs-btn g {
+	fill: #f4f4f4;
+	stroke: #f4f4f4;
+}
+
+.abcjs-inline-audio .abcjs-btn:hover g {
+	fill: #cccccc;
+	stroke: #cccccc;
+}
+
+.abcjs-inline-audio .abcjs-midi-selection.abcjs-pushed {
+	border: 1px solid #cccccc;
+	background-color: #666666;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-midi-loop.abcjs-pushed {
+	border: 1px solid #cccccc;
+	background-color: #666666;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-midi-reset.abcjs-pushed {
+	border: 1px solid #cccccc;
+	background-color: #666666;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-midi-start .abcjs-pause-svg {
+	display: none;
+}
+
+.abcjs-inline-audio .abcjs-midi-start .abcjs-loading-svg {
+	display: none;
+}
+
+.abcjs-inline-audio .abcjs-midi-start.abcjs-pushed .abcjs-play-svg {
+	display: none;
+}
+
+.abcjs-inline-audio .abcjs-midi-start.abcjs-loading .abcjs-play-svg {
+	display: none;
+}
+
+.abcjs-inline-audio .abcjs-midi-start.abcjs-pushed .abcjs-pause-svg {
+	display: block;
+}
+
+.abcjs-inline-audio .abcjs-midi-progress-background {
+	background-color: #424242;
+	height: 10px;
+	border-radius: 5px;
+	border: 2px solid #cccccc;
+	margin: 0 8px 0 15px;
+	position: relative;
+	flex: 1;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-midi-progress-indicator {
+	width: 20px;
+	margin-left: -10px; /* half of the width */
+	height: 14px;
+	background-color: #f4f4f4;
+	position: absolute;
+	display: inline-block;
+	border-radius: 6px;
+	top: -4px;
+	left: 0;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-midi-clock {
+	margin-left: 4px;
+	margin-top: 1px;
+	margin-right: 2px;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 16px;
+	box-sizing: border-box;
+	color: #f4f4f4;
+}
+
+.abcjs-inline-audio .abcjs-tempo-wrapper {
+	font-size: 10px;
+	color: #f4f4f4;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+
+.abcjs-inline-audio .abcjs-midi-tempo {
+	border-radius: 2px;
+	border: none;
+	margin: 0 2px 0 4px;
+	width: 42px;
+	padding-left: 2px;
+	box-sizing: border-box;
+}
+
+.abcjs-inline-audio .abcjs-loading .abcjs-loading-svg {
+	display: inherit;
+}
+
+.abcjs-inline-audio .abcjs-loading {
+	outline: none;
+	animation-name: abcjs-spin;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+
+}
+.abcjs-inline-audio .abcjs-loading-svg circle {
+	stroke: #f4f4f4;
+}
+
+@keyframes abcjs-spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+/* Adding the class "abcjs-large" will make the control easier on a touch device. */
+.abcjs-large .abcjs-inline-audio {
+	height: 52px;
+}
+.abcjs-large .abcjs-btn {
+	width: 56px;
+	height: 52px;
+	font-size: 28px;
+	padding: 6px 8px;
+}
+.abcjs-large .abcjs-midi-progress-background {
+	height: 20px;
+	border: 4px solid #cccccc;
+}
+.abcjs-large .abcjs-midi-progress-indicator {
+	height: 28px;
+	top: -8px;
+	width: 40px;
+}
+.abcjs-large .abcjs-midi-clock {
+	font-size: 32px;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: -1px;
+}
+.abcjs-large .abcjs-midi-tempo {
+	font-size: 20px;
+	width: 50px;
+}
+.abcjs-large .abcjs-tempo-wrapper {
+	font-size: 20px;
+}
+
+.abcjs-css-warning {
+	display: none;
+}
+
+/* controle de audio seguindo o tema */
+.abcjs-inline-audio{background-color:var(--ctl);max-width:100%}
+.abcjs-inline-audio .abcjs-midi-current-time,
+.abcjs-inline-audio .abcjs-midi-total-time{color:#f0ece4}
+/* ---- fim do abcjs-audio.css ---- */
+.lei th{text-align:center}
+.lei td{text-align:center;white-space:nowrap}
+.lei td b{display:block;font-size:15px}
+.lei td small{color:var(--mut);font-size:12px}
+.lei td.k{font-weight:600;background:var(--code)}
+.cad{display:inline-block;font:600 11px/1.3 ui-sans-serif,system-ui,sans-serif;padding:.05rem .45rem;border-radius:999px;
+ border:1.5px solid var(--acc);color:var(--acc);white-space:nowrap}
+.resp{border-bottom:1.5px solid var(--acc);padding:0 .15em;font-weight:600}
+.ouvir{display:inline-flex;align-items:center;gap:.4em;margin:.2em 0 .6em;font:600 13px/1 ui-sans-serif,system-ui,sans-serif;padding:.5rem .9rem;border-radius:999px;border:1.5px solid var(--acc);color:var(--acc);text-decoration:none}
+.ouvir:hover{background:var(--acc);color:var(--bg)}
+.yt{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);
+ border-radius:10px;padding:.75rem;margin:.4em 0 1.2em;font:13px/1.3 ui-sans-serif,system-ui,sans-serif}
+.yt-frame{width:200px;height:200px;border-radius:8px;overflow:hidden;background:#000;flex:none}
+.yt-frame iframe,.yt-frame>div{width:200px;height:200px;border:0;display:block}
+.yt-ctl{flex:1;min-width:200px;display:flex;flex-direction:column;gap:.55rem}
+.yt-t{font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;font-size:12px}
+.yt-row{display:flex;align-items:center;gap:.6rem}
+.yt-play{width:42px;height:42px;border-radius:50%;border:0;background:var(--acc);color:var(--bg);font-size:16px;cursor:pointer;flex:none}
+.yt-play:disabled{opacity:.4;cursor:default}
+.yt-seek{flex:1;accent-color:var(--acc)}
+.yt-time{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mut);white-space:nowrap}
+.yt-err{color:var(--mut)}
+.jswitch{display:flex;gap:.4rem;flex-wrap:wrap;margin:1rem 0 1.2rem;padding:.3rem;background:var(--code);
+ border:1px solid var(--line);border-radius:12px;width:max-content;max-width:100%}
+.jswitch button{flex:1;min-width:110px;cursor:pointer;border:0;border-radius:9px;padding:.55rem 1rem;background:transparent;
+ color:var(--mut);font:600 14px/1.2 ui-sans-serif,system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;gap:.15rem}
+.jswitch button small{white-space:nowrap;font-weight:400;font-size:11.5px;opacity:.85}
+.jswitch button:hover{color:var(--acc)}
+.jswitch button[aria-selected="true"]{background:var(--acc);color:var(--bg)}
+.jpanel h4{font-size:1.05rem;margin:.4em 0 .6em}
+.jpanel.off{display:none}
+@media print{.jswitch{display:none}.jpanel.off{display:block}}
+</style></head><body>
+<button id="tema" class="tema" type="button">tema: sistema</button>
+<div class="wrap">
+<nav><div class="toc">
+<ul>
+<li><a href="#topo">GABARITO — Ficha de Exercícios 2</a><ul>
+<li><a href="#q1">Questão 1 — Cadências em “Um Tom para Jobim”</a></li>
+<li><a href="#q2">Questão 2 — Cadências em “Perigoso”</a></li>
+<li><a href="#q3">Questão 3 — Complete as frases</a></li>
+<li><a href="#q4">Questão 4 — Tabela das leis tonais</a></li>
+<li><a href="#q5">Questão 5 — Jingle do XXVI ENPEMT</a><ul>
+<li><a href="#q5-colinha">Colinha (Dó maior)</a></li>
+<li><a href="#q5-jingle">Jingle-modelo (7 opções)</a></li>
+<li><a href="#q5-criterios">Checklist</a></li>
+</ul></li>
+<li><a href="#resumo">Resumo das respostas</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+<main>
+<div class="warn" id="audiowarn" hidden>Seu navegador não liberou áudio. Clique em qualquer lugar da página e use o botão ▶ de cada exemplo.</div>
+<h1 id="topo">GABARITO — Ficha de Exercícios 2</h1>
+<p><strong>DIG MUS224 — Fundamentos de Harmonia II — UFMG — 2026/1 — Turma TN1</strong>
+Prof. Ivan Moria Borges Rodrigues</p>
+<blockquote>
+<p>Resolução comentada da ficha <code>FICHA HARMONIA2-2.pdf</code>. Nas questões 1 e 2, cada música aparece como <strong>redução harmônica tocável</strong>: o baixo e as cifras soando, com as cadências marcadas embaixo da pauta, no lugar do “circule”. Onde há mais de uma leitura possível, as alternativas estão indicadas.</p>
+</blockquote>
+<p><strong>Legenda das cadências</strong> (definições da própria ficha):</p>
+<table>
+<thead><tr><th>Cadência</th><th>Fórmula</th><th>Sensação</th></tr></thead>
+<tbody>
+<tr><td><span class="cad">AUT</span> Autêntica</td><td>V – I &nbsp;(ou II – V – I)</td><td>conclusiva, ponto final</td></tr>
+<tr><td><span class="cad">DOM</span> À dominante (semicadência)</td><td>I – V, VI – V, IV – V, II – V… termina em <strong>V</strong></td><td>suspensiva, vírgula</td></tr>
+<tr><td><span class="cad">INT</span> Interrompida / deceptiva</td><td>V – VI &nbsp;ou&nbsp; V – IV</td><td>surpresa: a dominante não vai para a tônica</td></tr>
+</tbody>
+</table>
+<p>Uma cadência pode acontecer <strong>no tom principal</strong> (Sol maior) ou <strong>num tom vizinho</strong>, tonicizado por uma dominante individual (3ª lei). Nas tabelas, <code>(→ C)</code> quer dizer “cadência que chega em C”.</p>
+<hr />
+
+<!-- ============================================================ Q1 -->
+<h2 id="q1">Questão 1 — Cadências em “Um Tom para Jobim” (Sivuca)</h2>
+<div class="yt" data-vid="XRO2JO8nOvI">
+  <div class="yt-frame"><div id="yt-XRO2JO8nOvI"></div></div>
+  <div class="yt-ctl"><span class="yt-t">gravação — Um Tom para Jobim</span>
+    <div class="yt-row"><button class="yt-play" type="button" disabled aria-label="tocar">▶</button>
+      <input class="yt-seek" type="range" min="0" max="1000" value="0" aria-label="posição">
+      <span class="yt-time">0:00 / 0:00</span></div>
+    <span class="yt-err" hidden></span></div>
+</div>
+<div class="tune" data-idx="6">
+  <div class="tune-head"><span class="tune-title">Partitura original — Um Tom para Jobim (Sivuca, transcrição Ivan Moriá)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score6"></div>
+  <div class="audio" id="audio6"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="6">copiar</button>
+    <pre id="abc6">X:1
+T:Um Tom para Jobim
+C:Sivuca
+C:Transcricao: Ivan Moria
+L:1/16
+M:2/4
+Q:1/4=108
+K:G
+"Am7/D""^Intro" [cegb]2&gt;"D7"[cdfa]2 z4 |"Am7/D" [Aceg]2&gt;"D7"[Acdf]2 z4 | "Am7/D" [Aceg]2&gt;"D7"[Acdf]2 z e[Acdf]2 | z8 |"Am7/D" [cegb]2&gt;"D7"[cdfa]2 z4 | "Am7/D" [Aceg]2&gt;"D7"[Acdf]2 z4 |
+"Am7/D" [Aceg]2&gt;"D"[Acdf]2 z e[Acdf]2 | z dAB cdeg | "Am7/D" [cegb]2&gt;"D7"[cdfa]2 z4 |"Am7/D" [Aceg]2&gt;"D7"[Acdf]2 z4 | "Am7/D" [Aceg]2&gt;"D7"[Acdf]2 z e[Acdf]2 |
+z AB2 ce2g | baga- a2gf | ef-f2 edcd-!fine! |  d6"D7#5" [F^Ad]2 || z DEG DEGA |:
+S"Gmaj7""^A" BdcB AGB2 | z dcB AGFG |"F#m7b5" A2c2 e2^d2- | "B7" df^dc BAGF |
+"Em7" GBAG FEG2 |"Em7" z BAG"Ebm7" _G_B_AG |"Dm7" =FAce ^cdg2- | "G7" g=f^d^c BAG=F |
+"Cmaj7" EB,CE GBA2 |"D/C" z DDA AdA2 |"Bm7" z DFA dfaf | "Em7" gbag fag"^To Coda"f |
+"A7" egfe ^dfed | ^ce^dc BdcB |"Am7" A^GAc egf2- |"D7" f=fe_e |1 dcEG :|2  dBcd ||
+"Cm7""^B" _e2_B2 G2A2- |"F7" A=FGA cAGF |"Bbmaj7" d2A2 =F2G2- |"Gm7" G=FG_B FGBd |
+"Dm7" =f2c2 A2B2- |"G7" BGAB dBAG |"Cmaj7" e2B2 G2A2- |"Am7" AGAc GAce |
+"Em7" g2e2 B2^c2- | "A7" cA^ce agfe |"Dmaj7" f2^c2 A2B2- |"G7" BGBd g=fed |
+"Cmaj7" e2B2 G2A2- |"F7" A=FAc =f^d=dc | "Bbmaj7" d=FGA cde2- |"Am7" egfd"D7" cAFD!D.S.! ||
+O"A7" egfe"Eb" _e_BG_E |"D7" D^DE=F ^FB"G"G2 |  z dAB cdeg!D.C.! |]
+</pre></details>
+</div>
+<p>Tom: <strong>Sol maior</strong> (1♯). Forma: <strong>Intro</strong> (com <em>Fine</em>) – <strong>A</strong> (casas 1 e 2) – <strong>B</strong> – D.S. – <strong>A</strong> até <em>To Coda</em> – <strong>Coda</strong> – D.C. al Fine.</p>
+
+<h3>Intro — dominante prolongada</h3>
+<table>
+<thead><tr><th>Trecho</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>toda a intro</td><td>Am7/D – D7 (repetido)</td><td><span class="cad">DOM</span></td><td><strong>II – V sobre pedal de D</strong>: Am7/D é o II grau sobre o baixo da dominante (soa como D7sus4). A intro inteira “mora” na dominante e nunca resolve — é uma grande semicadência.</td></tr>
+<tr><td>fim da intro → A</td><td><strong>D7(♯5) → GMaj7</strong></td><td><span class="cad">AUT</span></td><td>A 5ª aumentada (A♯) sobe para B, 3ª de G: a intro finalmente resolve no início do A.</td></tr>
+</tbody>
+</table>
+
+<h3>Parte A</h3>
+<table>
+<thead><tr><th>c. do A</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>3–5</td><td><strong>F♯m7(♭5) – B7 – Em7</strong></td><td><span class="cad">AUT</span> (→ Em)</td><td><strong>II – V – I menor</strong> na tônica relativa: B7 é a <strong>dominante da relativa</strong> (D/Tr).</td></tr>
+<tr><td>6–9</td><td>Em7 – E♭m7 – <strong>Dm7 – G7 – CMaj7</strong></td><td><span class="cad">AUT</span> (→ C)</td><td><strong>II – V – I</strong> na subdominante. G7 = <strong>dominante da SD</strong> (D/SD). O E♭m7 é cromatismo de passagem entre Em7 e Dm7.</td></tr>
+<tr><td>9–11</td><td>CMaj7 – <strong>D/C – Bm7</strong></td><td><span class="cad">INT</span> (leitura possível)</td><td>D/C (V com a 7ª no baixo) pede G/B; chega Bm7, que tem quase as mesmas notas (B D F♯), num lugar de tônica. Baixo C → B. A leitura mínima é “V → I substituído”.</td></tr>
+<tr><td>12–15</td><td>Em7 – <strong>A7</strong> – Am7</td><td><span class="cad">INT</span></td><td>A7 é <strong>dominante da dominante</strong> (D/D) e pede D, mas cai em <strong>Am7</strong> (II grau). O A7 vira Am7: a 3ª C♯ desce para C♮.</td></tr>
+<tr><td>15–16 → casa 1</td><td><strong>Am7 – D7 – G</strong></td><td><span class="cad">AUT</span></td><td><strong>II – V – I</strong> no tom principal: é a cadência mais importante da peça.</td></tr>
+<tr><td>casa 2 → B</td><td><strong>D7 → Cm7</strong></td><td><span class="cad">INT</span></td><td>V → IV, e ainda por cima <strong>IV menor</strong> (empréstimo modal, 4ª lei). Mudança brusca de cor para abrir o B.</td></tr>
+</tbody>
+</table>
+
+<h3>Parte B — cadeia de II – V – I por tons vizinhos</h3>
+<table>
+<thead><tr><th>c. do B</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>1–3</td><td><strong>Cm7 – F7 – B♭Maj7</strong></td><td><span class="cad">AUT</span> (→ B♭)</td><td>II – V – I em <strong>B♭</strong>, o ♭III de Sol (região de sol menor: empréstimo, 4ª lei).</td></tr>
+<tr><td>5–7</td><td><strong>Dm7 – G7 – CMaj7</strong></td><td><span class="cad">AUT</span> (→ C)</td><td>II – V – I na <strong>subdominante</strong>. O Gm7 do c.4 é a relativa de B♭ e faz a ponte.</td></tr>
+<tr><td>9–11</td><td><strong>Em7 – A7 – DMaj7</strong></td><td><span class="cad">AUT</span> (→ D)</td><td>II – V – I na <strong>dominante</strong> (A7 = D/D). A sequência <strong>sobe por tons</strong>: B♭ → C → D.</td></tr>
+<tr><td>11–13</td><td>DMaj7 – <strong>G7 – CMaj7</strong></td><td><span class="cad">AUT</span> (→ C)</td><td>V – I em C (G7 = D/SD).</td></tr>
+<tr><td>13–15</td><td>CMaj7 – <strong>F7 – B♭Maj7</strong></td><td><span class="cad">AUT</span> (→ B♭)</td><td>V – I em B♭: repete o começo do B.</td></tr>
+<tr><td>16 → D.S. (A)</td><td><strong>Am7 – D7 → GMaj7</strong></td><td><span class="cad">AUT</span></td><td><strong>II – V – I</strong> de volta à tônica: fecha o B e devolve ao A.</td></tr>
+</tbody>
+</table>
+
+<h3>Coda</h3>
+<table>
+<thead><tr><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td><strong>A7 – E♭ – D7 – G</strong></td><td><span class="cad">AUT</span> final</td><td>Cadência final enriquecida: <strong>D/D (A7)</strong> → <strong>E♭</strong>, que é o <strong>napolitano da dominante</strong> (meio tom acima de D, como a questão 5 sugere) → <strong>D7 → G</strong>. O E♭ cai por semitom no D: tensão máxima logo antes do fim.</td></tr>
+</tbody>
+</table>
+
+<div class="tune" data-idx="0">
+  <div class="tune-head"><span class="tune-title">Um Tom para Jobim — redução harmônica (Intro, A, B, Coda)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score0"></div>
+  <div class="audio" id="audio0"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="0">copiar</button>
+    <pre id="abc0">X:1
+T:Um Tom para Jobim (Sivuca) - reducao harmonica
+C:cadencias marcadas abaixo da pauta
+M:4/4
+L:1/4
+Q:1/4=110
+K:G clef=bass
+"^Intro""Am7/D"D,2 "D7"D,2 |"Am7/D"D,2 "D7"D,2 |"Am7/D"D,2 "D7"D,2 |"D7#5""_DOM (V)"D,4 |
+"^A""Gmaj7""_AUT"G,,4 |"Gmaj7"G,,4 |"F#m7b5"F,,4 |"B7"B,,4 |"Em7""_AUT (Em)"E,4 |"Em7"E,2 "Ebm7"_E,2 |"Dm7"D,4 |"G7"G,,4 |
+"Cmaj7""_AUT (C)"C,4 |"D/C"C,4 |"Bm7""_INT?"B,,4 |"Em7"E,4 |"A7"A,,4 |"A7"A,,4 |"Am7""_INT"A,,4 |"D7"D,4 |
+"^casa 1""G""_AUT"G,,4 |"^casa 2""D7"D,4 |
+"^B""Cm7""_INT (iv menor)"C,4 |"F7"=F,4 |"Bbmaj7""_AUT (Bb)"_B,,4 |"Gm7"G,,4 |"Dm7"D,4 |"G7"G,,4 |"Cmaj7""_AUT (C)"C,4 |"Am7"A,,4 |
+"Em7"E,4 |"A7"A,,4 |"Dmaj7""_AUT (D)"D,4 |"G7"G,,4 |"Cmaj7""_AUT (C)"C,4 |"F7"=F,4 |"Bbmaj7""_AUT (Bb)"_B,,4 |"Am7"A,,2 "D7"D,2 |
+"^Coda""A7"A,,4 |"Eb""_napolitano de D"_E,4 |"D7"D,4 |"G""_AUT final"G,,4 |]
+</pre></details>
+</div>
+<hr />
+
+<!-- ============================================================ Q2 -->
+<h2 id="q2">Questão 2 — Cadências em “Perigoso” (Orlando Silveira / Esmeraldino Salles)</h2>
+<div class="yt" data-vid="tXBqhsFm428">
+  <div class="yt-frame"><div id="yt-tXBqhsFm428"></div></div>
+  <div class="yt-ctl"><span class="yt-t">gravação — Perigoso</span>
+    <div class="yt-row"><button class="yt-play" type="button" disabled aria-label="tocar">▶</button>
+      <input class="yt-seek" type="range" min="0" max="1000" value="0" aria-label="posição">
+      <span class="yt-time">0:00 / 0:00</span></div>
+    <span class="yt-err" hidden></span></div>
+</div>
+<div class="tune" data-idx="7">
+  <div class="tune-head"><span class="tune-title">Partitura original — Perigoso (Orlando Silveira / Esmeraldino Salles)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score7"></div>
+  <div class="audio" id="audio7"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="7">copiar</button>
+    <pre id="abc7">X:1
+T:Perigoso
+C:Orlando Silveira / Esmeraldino Salles
+L:1/16
+Q:1/4=80
+M:2/4
+K:G
+"G""^Intro" DEFG"Em" PFE^DE |"Am" ABcd"D7" PBA^GA |"G" dB,PED"Em" PGEPBG | "Am" d(3c/B/A/"C#7" ^G"D7"A z D E/F/=G/A/ |:
+S"G""^A" BdBG"Em" FE^DE |"Am" dcdc"D7" BAGF | "G" (3AGF (3GBd"Eb7" (3=f2^d2f2 |"Am7" d4-"Ab7" d4 |
+"Dm7" (3g2a2g2"Db7" (3=f2e2g2 | "C6" (3dcB (3ceg d2&lt;c2 |"Dm/B" e=fed-"E7" dBeA- |"A" A2 _B/A/^G/A/"D+" B2&gt;=B2 |
+"G" z dBG"Em" FE^DE |"Am" dcdc"D7" BAGF |"G" (3AGF (3GBd"B+" g2ba- |"C6" a8 |
+"Cm" a/b/a/g/^d/g/c/d/"F7" A/c/d/g/b/a/^g/=g/ |"Bm" f/d/B/A/^G/B/d/f/"E7" edcB | "Am" d/c/B/c/g/e/d/c/"D7" BdB"^To Coda"G ||1
+"G" z/ d/^c/=c/B/d/A/d/G D E/F/G/A/ :|2 "G" z/ d/^c/=c/B/d/A/d/G Pgfe |:
+"Am""^B" gfac"B7" z Pfe^d |"Em" fegB z Ped^c | "Dm7" ed=fG"G7" z PdcB |"C" dceE"E7" z PBA^G |"Am" BAc_E"Cm" z PAGF |
+"G" AGBD z BBB | "A7" A/(!&gt;!^c/=c/B/)(!&gt;!d/^c/=c/)(!&gt;!_e/ d/^c/)(!&gt;!=e/_e/d/)c/g/f/ | "D7" =e/d/e/d/^c/d/f/a/ c'Pgfe |
+"Am" gfac"B7" z Pfe^d |"Em" fegB z Ped^c |"Dm7" ed=fG"G7" z PdcB | "C" dceE"E7" z PBA^G |"Am" (3BA^G (3Ace"Cm" b2fa- |
+"G" (3agf (3gbg"Em" (3fe^d (3ege | "Am" (3dcg (3edc"D7" BdBG |1"G" z/ d/^c/=c/B/d/A/d/ GPgfe :|2
+"G" z/ d/^c/=c/B/d/A/d/G D E/F/G/A/!D.S.! ||O z/"G" d/^c/=c/B/d/A/d/ G2 z2 |]
+</pre></details>
+</div>
+<p>Tom: <strong>Sol maior</strong>, 2/4, ♩ = 80. Forma: <strong>Intro</strong> – <strong>A</strong> (casas 1 e 2) – <strong>B</strong> (casas 1 e 2) – D.S. al Coda – <strong>Coda</strong>. O choro gira o tempo todo em torno do <strong>“turnaround” I – VI – II – V</strong> (G – Em – Am – D7).</p>
+
+<h3>Intro</h3>
+<table>
+<thead><tr><th>c.</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>1–2</td><td>G – Em – <strong>Am – D7</strong></td><td><span class="cad">DOM</span></td><td>I – VI – II – V: termina na dominante, suspensivo.</td></tr>
+<tr><td>3–4</td><td>G – Em – Am – <strong>C♯7 – D7</strong></td><td><span class="cad">DOM</span></td><td>Mesmo giro; o C♯7 é um acorde de <strong>aproximação cromática</strong> (meio tom abaixo do D7). A intro para em D7 e “cai” no A.</td></tr>
+</tbody>
+</table>
+
+<h3>Parte A</h3>
+<table>
+<thead><tr><th>c. do A</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>intro → 1</td><td><strong>D7 → G</strong></td><td><span class="cad">AUT</span></td><td>A dominante da intro resolve no início do A.</td></tr>
+<tr><td>1–3</td><td>G – Em – <strong>Am – D7 – G</strong></td><td><span class="cad">AUT</span></td><td>II – V – I no tom principal.</td></tr>
+<tr><td>3–6</td><td>G – E♭7 – Am7 – A♭7 – <strong>Dm7 – D♭7 – C6</strong></td><td><span class="cad">AUT</span> (→ C)</td><td>Baixo cromático descendente. <strong>D♭7 é o substituto de trítono do G7</strong> (D/SD), então Dm7 – D♭7 – C6 é um II – V – I em C. O E♭7 e o A♭7 são dominantes por trítono que não resolvem onde “deveriam”: E♭7 é <em>V7 de A♭</em>, A♭7 é o <em>subV de G</em>; ambos cedem lugar ao próximo acorde da descida.</td></tr>
+<tr><td>7–8</td><td><strong>Dm/B (= Bø) – E7 – A</strong></td><td><span class="cad">AUT</span> (→ A)</td><td>II – V – I em <strong>Lá</strong>. Dm/B tem as notas de Bm7(♭5). Como A é a dominante da dominante, o trecho prepara o próximo passo.</td></tr>
+<tr><td>8 → 9</td><td><strong>A – D(♯5) – G</strong></td><td><span class="cad">AUT</span></td><td>D/D → V aumentado → I. O A♯ do D(♯5) sobe para B, 3ª de G.</td></tr>
+<tr><td>9–11</td><td>G – Em – <strong>Am – D7 – G</strong></td><td><span class="cad">AUT</span></td><td>Turnaround outra vez.</td></tr>
+<tr><td>11–12</td><td><strong>G – B(♯5) – C6</strong></td><td><span class="cad">AUT</span> (→ C)</td><td><strong>B+ = G+</strong> (B D♯ G = G B D♯): é o G com 5ª aumentada, funcionando como <strong>dominante da SD</strong>. O D♯ sobe para E, 3ª de C. <em>Outra leitura:</em> B+ é a dominante de Em que cai em C, uma <span class="cad">INT</span> (V – VI do relativo).</td></tr>
+<tr><td>13–14</td><td><strong>Cm – F7</strong> → Bm</td><td><span class="cad">INT</span></td><td><strong>Cm = SD menor</strong> (4ª lei) e F7 = ♭VII7. Cm – F7 – G é a <em>cadência “backdoor”</em>, mas no lugar de G vem <strong>Bm</strong>, que é substituto da tônica (III grau): cadência interrompida.</td></tr>
+<tr><td>14–16 (casas)</td><td><strong>Bm – E7 – Am – D7 – G</strong></td><td><span class="cad">AUT</span></td><td>Cadeia de II – V: Bm–E7 (II–V de Am), Am–D7 (II–V de G) → <strong>G</strong> nas duas casas.</td></tr>
+</tbody>
+</table>
+
+<h3>Parte B</h3>
+<table>
+<thead><tr><th>c. do B</th><th>Acordes</th><th>Cadência</th><th>Comentário</th></tr></thead>
+<tbody>
+<tr><td>1–2</td><td><strong>Am – B7 – Em</strong></td><td><span class="cad">AUT</span> (→ Em)</td><td>IV – V – I de <strong>mi menor</strong>: B7 = <strong>dominante da relativa</strong> (D/Tr).</td></tr>
+<tr><td>3–4</td><td><strong>Dm7 – G7 – C</strong></td><td><span class="cad">AUT</span> (→ C)</td><td>II – V – I na <strong>subdominante</strong> (G7 = D/SD).</td></tr>
+<tr><td>4–5</td><td><strong>C – E7 – Am</strong></td><td><span class="cad">AUT</span> (→ Am)</td><td>V – I na <strong>subdominante relativa</strong> (E7 = D/SDr).</td></tr>
+<tr><td>5–6</td><td><strong>Am – Cm – G</strong></td><td>plagal menor</td><td>IV menor → I (empréstimo, 4ª lei). Não está entre os três tipos da ficha, mas é uma conclusão clara: <em>cadência plagal</em>.</td></tr>
+<tr><td>6–8</td><td>G – <strong>A7 – D7</strong></td><td><span class="cad">DOM</span></td><td>I – V/V – V: semicadência, para na dominante.</td></tr>
+<tr><td>8 → 9</td><td><strong>D7 → Am</strong></td><td><span class="cad">INT</span></td><td>Na repetição a dominante não vai para G: vai para <strong>Am</strong> (II grau, função de SD). É o caso V – IV da ficha.</td></tr>
+<tr><td>9–14</td><td>Am – B7 – Em | Dm7 – G7 – C | C – E7 – Am | Am – Cm – G</td><td>mesmas da 1ª vez</td><td>(AUT → Em, AUT → C, AUT → Am, plagal menor)</td></tr>
+<tr><td>14–16 (casas)</td><td>G – Em – <strong>Am – D7 – G</strong></td><td><span class="cad">AUT</span></td><td>Turnaround e cadência final do B.</td></tr>
+<tr><td>Coda</td><td><strong>G</strong></td><td>—</td><td>Repouso na tônica, depois do Am – D7 do A.</td></tr>
+</tbody>
+</table>
+
+<div class="tune" data-idx="1">
+  <div class="tune-head"><span class="tune-title">Perigoso — redução harmônica (Intro, A, B)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score1"></div>
+  <div class="audio" id="audio1"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="1">copiar</button>
+    <pre id="abc1">X:2
+T:Perigoso (O. Silveira / E. Salles) - reducao harmonica
+C:cadencias marcadas abaixo da pauta
+M:2/4
+L:1/8
+Q:1/4=80
+K:G clef=bass
+"^Intro""G"G,,2 "Em"E,2 |"Am"A,,2 "D7""_DOM"D,2 |"G"G,,2 "Em"E,2 |"Am"A,,2 "C#7"^C,"D7""_DOM"D, |
+"^A""G""_AUT"G,,2 "Em"E,2 |"Am"A,,2 "D7"D,2 |"G""_AUT"G,,2 "Eb7"_E,2 |"Am7"A,,2 "Ab7"_A,,2 |
+"Dm7"D,2 "Db7"_D,2 |"C6""_AUT (C)"C,4 |"Dm/B"B,,2 "E7"E,2 |"A""_AUT (A)"A,,2 "D+"D,2 |
+"G""_AUT"G,,2 "Em"E,2 |"Am"A,,2 "D7"D,2 |"G""_AUT"G,,2 "B+"B,,2 |"C6""_AUT (C)"C,4 |
+"Cm"C,2 "F7"=F,2 |"Bm""_INT"B,,2 "E7"E,2 |"Am"A,,2 "D7"D,2 |"G""_AUT"G,,4 |
+"^B""Am"A,,2 "B7"B,,2 |"Em""_AUT (Em)"E,4 |"Dm7"D,2 "G7"G,,2 |"C""_AUT (C)"C,2 "E7"E,2 |
+"Am""_AUT (Am)"A,,2 "Cm"C,2 |"G""_plagal"G,,4 |"A7"A,,4 |"D7""_DOM"D,4 |
+"Am""_INT"A,,2 "B7"B,,2 |"Em""_AUT (Em)"E,4 |"Dm7"D,2 "G7"G,,2 |"C""_AUT (C)"C,2 "E7"E,2 |
+"Am""_AUT (Am)"A,,2 "Cm"C,2 |"G""_plagal"G,,2 "Em"E,2 |"Am"A,,2 "D7"D,2 |"G""_AUT"G,,4 |]
+</pre></details>
+</div>
+<hr />
+
+<!-- ============================================================ Q3 -->
+<h2 id="q3">Questão 3 — Complete as frases</h2>
+<p>As respostas estão <span class="resp">sublinhadas</span>.</p>
+<p>Para montar uma tríade maior, são necessárias <span class="resp">3</span> notas/funções: Tônica (I), <span class="resp">terça maior (3M) e quinta justa (5J)</span>. A tríade menor modifica apenas a <span class="resp">terça</span> (3M → 3m).</p>
+<p>Ao adicionar as sétimas, um acorde Xm7M tem a seguinte combinação: T, <span class="resp">3m</span>, 5J, 7<span class="resp">M</span> (sétima maior). Já o acorde maior com sétima (XM7, ou XMaj7): T, <span class="resp">3M</span>, 5J, <span class="resp">7M</span>.</p>
+<p><strong>A primeira lei tonal</strong> consiste no uso, principalmente, das funções tônica, <span class="resp">subdominante</span> e <span class="resp">dominante</span>. Geralmente é adicionada uma nota a mais no acorde dominante, a sétima <span class="resp">menor</span> em relação à tônica deste acorde, caracterizando uma sonoridade específica chamada <span class="resp">trítono</span>, que consiste no intervalo de <span class="resp">três tons (4ª aumentada / 5ª diminuta)</span>, ao se relacionar com a terça maior do acorde. Essa sonoridade também aparece no acorde <span class="resp">diminuto</span>, que consiste em Tônica, <span class="resp">terça menor</span>, <span class="resp">quinta diminuta</span>, ao se relacionar a <span class="resp">quinta diminuta</span> com a tônica do acorde.</p>
+<blockquote><p>Exemplo em Sol maior: D7 = D F♯ A <strong>C</strong> → o trítono é <strong>F♯–C</strong> (3ª maior × 7ª menor). No F♯° (F♯ A C) o mesmo trítono aparece entre a tônica F♯ e a 5ª diminuta C. Por isso o VII grau tem função de dominante.</p></blockquote>
+<p><strong>A segunda lei tonal</strong> trabalha com acordes relativos e <span class="resp">anti-relativos</span>. Neste momento, iremos utilizar somente os relativos. Em uma tonalidade maior, o relativo é <span class="resp">menor</span>. Em uma tonalidade menor, o relativo é <span class="resp">maior</span>. O relativo está à distância de <span class="resp">uma terça menor</span> em relação à tônica (abaixo, no maior: C → Am; acima, no menor: Am → C). Na segunda lei, vamos calcular acordes relativos de <span class="resp">tônicas</span>, subdominantes e <span class="resp">dominantes</span>.</p>
+<p><strong>Já na terceira lei tonal</strong>, trabalhamos com as <span class="resp">dominantes</span> e <span class="resp">subdominantes</span> individuais. Elas geralmente <span class="resp">antecedem (precedem)</span> o acorde relacionado, mas em alguns casos podem vir depois dele.</p>
+<p><strong>A quarta lei tonal</strong> propõe que <span class="resp">os acordes de função podem trocar de modo (maior ↔ menor), tomando acordes emprestados do tom homônimo, o chamado empréstimo modal. Ex.: em Dó maior, usar Fm (SD menor) e Gm (D menor) do tom de dó menor.</span></p>
+<p>Para este exercício, trabalharemos apenas com a alteração do maior para o menor em dominantes e subdominantes.</p>
+<hr />
+
+<!-- ============================================================ Q4 -->
+<h2 id="q4">Questão 4 — Tabela das leis tonais</h2>
+<p>Receita para qualquer tom maior (graus em relação à tônica):</p>
+<table>
+<thead><tr><th>Lei</th><th>Função</th><th>Como achar</th><th>Qualidade</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">1ª</td><td>Tônica (T)</td><td>I</td><td>7M</td></tr>
+<tr><td>Subdominante (SD)</td><td>IV (5ª abaixo da T)</td><td>7M</td></tr>
+<tr><td>Dominante (D)</td><td>V (5ª acima da T)</td><td>7 (7ª menor)</td></tr>
+<tr><td rowspan="3">2ª</td><td>T relativa</td><td>3ª menor abaixo da T (VI)</td><td>m7</td></tr>
+<tr><td>SD relativa</td><td>3ª menor abaixo da SD (II)</td><td>m7</td></tr>
+<tr><td>D relativa</td><td>3ª menor abaixo da D (III)</td><td>m7</td></tr>
+<tr><td rowspan="4">3ª</td><td>D/D</td><td>5ª acima da D (II grau maior)</td><td>7</td></tr>
+<tr><td>D/SD</td><td>5ª acima da SD (= a própria tônica)</td><td>7</td></tr>
+<tr><td>D/Dr</td><td>5ª acima da D relativa (VII grau maior)</td><td>7</td></tr>
+<tr><td>D/SDr</td><td>5ª acima da SD relativa (VI grau maior)</td><td>7</td></tr>
+<tr><td rowspan="2">4ª</td><td>SD menor</td><td>abaixar a 3ª da SD7M</td><td>m7M</td></tr>
+<tr><td>D menor</td><td>abaixar a 3ª da D7</td><td>m7</td></tr>
+</tbody>
+</table>
+<blockquote><p><strong>Sobre a 4ª lei:</strong> a ficha manda alterar <em>apenas o maior para o menor</em>. Abaixando só a 3ª, a SD7M vira <strong>m7M</strong> (ex.: F7M → Fm7M) e o D7 vira <strong>m7</strong> (G7 → Gm7). O cabeçalho da tabela diz “D menor 7M”: se a intenção for essa, a resposta passa a ser Gm7M (G B♭ D F♯). A grafia mais comum na prática popular é <strong>Fm7 / Fm6</strong> e <strong>Gm7</strong>. Os títulos “7M/7m” do cabeçalho não batem com o exemplo dado (Dm7 na T relativa). Por isso, aqui vale a qualidade real de cada acorde.</p></blockquote>
+
+<table class="lei">
+<thead>
+<tr><th rowspan="2">Armadura</th><th colspan="3">1ª Lei tonal</th><th colspan="3">2ª Lei tonal</th><th colspan="4">3ª Lei tonal</th><th colspan="2">4ª Lei tonal</th></tr>
+<tr><th>Tônica</th><th>SD</th><th>D</th><th>T relativa</th><th>SD relativa</th><th>D relativa</th><th>D/D</th><th>D/SD</th><th>D/Dr</th><th>D/SDr</th><th>SD menor</th><th>D menor</th></tr>
+</thead>
+<tbody>
+<tr><td class="k">1♭<br><small>Fá maior</small></td>
+<td><b>F7M</b><small>F A C E</small></td>
+<td><b>B♭7M</b><small>B♭ D F A</small></td>
+<td><b>C7</b><small>C E G B♭</small></td>
+<td><b>Dm7</b><small>D F A C</small></td>
+<td><b>Gm7</b><small>G B♭ D F</small></td>
+<td><b>Am7</b><small>A C E G</small></td>
+<td><b>G7</b><small>G B D F</small></td>
+<td><b>F7</b><small>F A C E♭</small></td>
+<td><b>E7</b><small>E G♯ B D</small></td>
+<td><b>D7</b><small>D F♯ A C</small></td>
+<td><b>B♭m7M</b><small>B♭ D♭ F A</small></td>
+<td><b>Cm7</b><small>C E♭ G B♭</small></td></tr>
+<tr><td class="k">0<br><small>Dó maior</small></td>
+<td><b>C7M</b><small>C E G B</small></td>
+<td><b>F7M</b><small>F A C E</small></td>
+<td><b>G7</b><small>G B D F</small></td>
+<td><b>Am7</b><small>A C E G</small></td>
+<td><b>Dm7</b><small>D F A C</small></td>
+<td><b>Em7</b><small>E G B D</small></td>
+<td><b>D7</b><small>D F♯ A C</small></td>
+<td><b>C7</b><small>C E G B♭</small></td>
+<td><b>B7</b><small>B D♯ F♯ A</small></td>
+<td><b>A7</b><small>A C♯ E G</small></td>
+<td><b>Fm7M</b><small>F A♭ C E</small></td>
+<td><b>Gm7</b><small>G B♭ D F</small></td></tr>
+<tr><td class="k">1♯<br><small>Sol maior</small></td>
+<td><b>G7M</b><small>G B D F♯</small></td>
+<td><b>C7M</b><small>C E G B</small></td>
+<td><b>D7</b><small>D F♯ A C</small></td>
+<td><b>Em7</b><small>E G B D</small></td>
+<td><b>Am7</b><small>A C E G</small></td>
+<td><b>Bm7</b><small>B D F♯ A</small></td>
+<td><b>A7</b><small>A C♯ E G</small></td>
+<td><b>G7</b><small>G B D F</small></td>
+<td><b>F♯7</b><small>F♯ A♯ C♯ E</small></td>
+<td><b>E7</b><small>E G♯ B D</small></td>
+<td><b>Cm7M</b><small>C E♭ G B</small></td>
+<td><b>Dm7</b><small>D F A C</small></td></tr>
+</tbody>
+</table>
+<p><strong>Para conferir:</strong> as dominantes individuais (3ª lei) são sempre <strong>acordes maiores com 7ª menor</strong>, cada um uma 5ª justa acima do acorde que vão “acender”: G7 → C7 (D/D em Fá), F7 → B♭ (D/SD), E7 → Am (D/Dr), D7 → Gm (D/SDr). A D/SD é sempre a <strong>própria tônica com 7ª menor</strong>: F7M → F7.</p>
+<p>Cada linha abaixo toca os 12 acordes da tabela, na ordem das colunas.</p>
+
+<div class="tune" data-idx="2">
+  <div class="tune-head"><span class="tune-title">Tabela — Fá maior (1♭)</span><span class="nowat" hidden></span></div>
+  <div class="score" id="score2"></div>
+  <div class="audio" id="audio2"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="2">copiar</button>
+    <pre id="abc2">X:3
+T:Leis tonais - Fa maior
+M:4/4
+L:1/4
+Q:1/4=120
+K:F
+"^F7M""_T"[FAce]4 |"^Bb7M""_SD"[Bdfa]4 |"^C7""_D"[CEGB]4 |"^Dm7""_Tr"[DFAc]4 |"^Gm7""_SDr"[GBdf]4 |"^Am7""_Dr"[Aceg]4 |
+"^G7""_D/D"[G=Bdf]4 |"^F7""_D/SD"[FAc_e]4 |"^E7""_D/Dr"[E^G=Bd]4 |"^D7""_D/SDr"[D^FAc]4 |"^Bbm7M""_SD menor"[B_dfa]4 |"^Cm7""_D menor"[C_EGB]4 |]
+</pre></details>
+</div>
+<div class="tune" data-idx="3">
+  <div class="tune-head"><span class="tune-title">Tabela — Dó maior (sem armadura)</span><span class="nowat" hidden></span></div>
+  <div class="score" id="score3"></div>
+  <div class="audio" id="audio3"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="3">copiar</button>
+    <pre id="abc3">X:4
+T:Leis tonais - Do maior
+M:4/4
+L:1/4
+Q:1/4=120
+K:C
+"^C7M""_T"[CEGB]4 |"^F7M""_SD"[FAce]4 |"^G7""_D"[GBdf]4 |"^Am7""_Tr"[Aceg]4 |"^Dm7""_SDr"[DFAc]4 |"^Em7""_Dr"[EGBd]4 |
+"^D7""_D/D"[D^FAc]4 |"^C7""_D/SD"[CEG_B]4 |"^B7""_D/Dr"[B^d^fa]4 |"^A7""_D/SDr"[A^ceg]4 |"^Fm7M""_SD menor"[F_Ace]4 |"^Gm7""_D menor"[G_Bdf]4 |]
+</pre></details>
+</div>
+<div class="tune" data-idx="4">
+  <div class="tune-head"><span class="tune-title">Tabela — Sol maior (1♯)</span><span class="nowat" hidden></span></div>
+  <div class="score" id="score4"></div>
+  <div class="audio" id="audio4"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="4">copiar</button>
+    <pre id="abc4">X:5
+T:Leis tonais - Sol maior
+M:4/4
+L:1/4
+Q:1/4=120
+K:G
+"^G7M""_T"[GBdf]4 |"^C7M""_SD"[CEGB]4 |"^D7""_D"[DFAc]4 |"^Em7""_Tr"[EGBd]4 |"^Am7""_SDr"[Aceg]4 |"^Bm7""_Dr"[Bdfa]4 |
+"^A7""_D/D"[A^ceg]4 |"^G7""_D/SD"[GBd=f]4 |"^F#7""_D/Dr"[F^A^ce]4 |"^E7""_D/SDr"[E^GBd]4 |"^Cm7M""_SD menor"[C_EGB]4 |"^Dm7""_D menor"[D=FAc]4 |]
+</pre></details>
+</div>
+<hr />
+
+<!-- ============================================================ Q5 -->
+<h2 id="q5">Questão 5 — Jingle do XXVI ENPEMT</h2>
+<p><em>Tema: “Conexões e Sistematizações para o Fortalecimento da Pesquisa em Musicoterapia no Brasil”.</em> Pede-se usar até a <strong>4ª lei tonal</strong>, com expansões opcionais: napolitanos, SD menor, 5ª aumentada e cadências II – V – I.</p>
+
+<h3 id="q5-colinha">Colinha preenchida — tom escolhido: Dó maior</h3>
+<table>
+<tbody>
+<tr><th>Tom escolhido</th><td><strong>Dó maior</strong></td></tr>
+<tr><th>Campo harmônico</th><td><strong>C7M, Dm7, Em7, F7M, G7, Am7, Bm7(♭5)</strong></td></tr>
+<tr><th>Tônica</th><td>C (C7M)</td></tr>
+<tr><th>Tônica relativa</th><td>Am (Am7)</td></tr>
+<tr><th>Subdominante</th><td>F (F7M)</td></tr>
+<tr><th>Subdominante relativa</th><td>Dm (Dm7)</td></tr>
+<tr><th>Subdominante menor</th><td>Fm (Fm6 / Fm7M)</td></tr>
+<tr><th>Dominante</th><td>G7</td></tr>
+<tr><th>Dominante relativa</th><td>Em (Em7)</td></tr>
+<tr><th>Dominante da dominante</th><td>D7</td></tr>
+<tr><th>Dominante da dominante relativa</th><td>B7 (→ Em)</td></tr>
+<tr><th>Dominante da subdominante</th><td>C7 (→ F)</td></tr>
+<tr><th>Dominante da subdominante relativa</th><td>A7 (→ Dm)</td></tr>
+<tr><th>1 semitom acima da tônica (napolitano)</th><td>D♭ (D♭7M)</td></tr>
+<tr><th>1 semitom acima da dominante (napolitano)</th><td>A♭ (A♭7M)</td></tr>
+<tr><th>Cadência II – V – I</th><td><strong>Dm7, G7, C7M</strong></td></tr>
+</tbody>
+</table>
+
+<h3 id="q5-jingle">Jingle-modelo — escolha uma das 7 opções</h3>
+<p>As sete opções estão em <strong>Dó maior</strong> e usam a mesma colinha. O que muda é o gênero, a letra rimada e o caminho harmônico. As melodias foram escritas <strong>para cantar junto</strong>: tessitura de uma oitava (si 3 a dó 5), quase só graus conjuntos e saltos de 3ª, sílaba forte no tempo forte e respiração no fim de cada frase.</p>
+<div class="jswitch" role="tablist" aria-label="Opções de jingle">
+  <button type="button" role="tab" data-j="1" aria-selected="true">Jingle 1<small>Marcha-pop · 4/4</small></button>
+  <button type="button" role="tab" data-j="2" aria-selected="false">Jingle 2<small>Baião · 2/4</small></button>
+  <button type="button" role="tab" data-j="3" aria-selected="false">Jingle 3<small>Valsa · 3/4</small></button>
+  <button type="button" role="tab" data-j="4" aria-selected="false">Jingle 4<small>Samba · 2/4</small></button>
+  <button type="button" role="tab" data-j="5" aria-selected="false">Jingle 5<small>Choro · 2/4</small></button>
+  <button type="button" role="tab" data-j="6" aria-selected="false">Jingle 6<small>Bossa · 4/4</small></button>
+  <button type="button" role="tab" data-j="7" aria-selected="false">Jingle 7<small>Estilo Um Tom · II–V</small></button>
+</div>
+<div class="jpanel" data-j="1" role="tabpanel">
+<h4>Jingle 1 — Marcha-pop, Dó maior, 4/4, 16 compassos + anacruse</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Conexões no som, conexões no <b>ar</b>,<br>
+pesquisar e sistematiz<b>ar</b>!<br>
+Musicoterapia vai floresc<b>er</b>,<br>
+lá na U-F-M-G, Minas vai receb<b>er</b>!<br>
+Vinte e seis, é o ENPEMT:<br>
+conexão que faz cresc<b>er</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>| C7M | Am7 | Dm7 | G7  || C  C+   | C6  C7 | F7M | Fm6      ||
+   T    Tr    SDr   D       T  5ª aum. D/SD     SD    SD menor
+| Em7 | A7    | Dm7 | D7  G7 || A♭7M  | D♭7M  | Dm7  G7 | C7M ||
+   Dr   D/SDr   SDr   D/D  D     napol.  napol.  II  –  V  –  I
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>anac.–4</td><td>C7M – Am7 – Dm7 – G7</td><td>1ª e 2ª</td><td>Gancho “co-ne-<strong>xões</strong> no <strong>som</strong>” (G – A – G) repetido no c.2: fácil de decorar. A frase termina na dominante (<span class="cad">DOM</span>). Rima <em>ar / -zar</em>.</td></tr>
+<tr><td>5–8</td><td>C – C+ – C6 – C7 – F7M – Fm6</td><td>3ª e 4ª</td><td>A melodia sobe por semitons (G – G♯ – A – B♭) junto com o clichê do acorde; depois desce por grau até F. O A♭ do <strong>Fm6</strong> fica no acompanhamento.</td></tr>
+<tr><td>9–12</td><td>Em7 – A7 – Dm7 – D7 – G7</td><td>2ª e 3ª</td><td>“U-é-fe-ê-me-<strong>gê</strong>” cai no C♯ do A7 (D/SDr). Rima <em>gê / receber</em>. Semicadência no G7.</td></tr>
+<tr><td>13–16</td><td>A♭7M – D♭7M – Dm7 – G7 – C7M</td><td>expansão, 1ª</td><td>Os dois napolitanos no nome do evento, e o II – V – I final (<span class="cad">AUT</span>) descendo por grau até o C.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="5">
+  <div class="tune-head"><span class="tune-title">Jingle 1 — Marcha-pop (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score5"></div>
+  <div class="audio" id="audio5"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="5">copiar</button>
+    <pre id="abc5">X:5
+T:Jingle XXVI ENPEMT - opcao 1 (marcha-pop)
+C:Modelo - Ficha 2, questao 5
+M:4/4
+L:1/8
+Q:1/4=108
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+ E F |"Cmaj7" G2 A G3 E F |"Am7" G2 A E3 z2 |"Dm7" F F A2 G F E2 |"G7" D D G4 z2 |
+w: Co-ne-xões no som, co-ne-xões no ar, pes-qui-sar e sis-te-ma-ti-zar!
+"C" E F G2 "C+" ^G4 |"C6" A2 A2 "C7" _B4 |"Fmaj7" z2 A2 G2 E2 |"Fm6" F6 z2 |
+w: Mu-si-co-te-ra-pi-a vai flo-res-cer,
+"Em7" E E G3 B B2 |"A7" A A ^c4 z2 |"Dm7" A2 A G F2 E2 |"D7" D4 "G7" z4 |
+w: lá na U-é-fe-ê-me-gê, Mi-nas vai re-ce-ber!
+"Abmaj7" G2 G2 _E4 |"Dbmaj7" F2 F _A3 F2 |"Dm7" A A F2 "G7" D2 F2 |"Cmaj7" E2 C6 |]
+w: Vin-te~e seis, é~o En-pem-te: co-ne-xão que faz cres-cer!
+V:2
+%%MIDI program 32
+ z2 | C,4 E,4 | A,,4 E,4 | D,4 A,,4 | G,,4 B,,4 |
+ C,8 | C,4 _B,,4 | A,,4 F,,4 | F,,4 _A,,4 |
+ E,4 B,,4 | A,,4 ^C,4 | D,4 A,,4 | D,4 G,,4 |
+ _A,,4 _E,4 | _D,4 _A,,4 | D,4 G,,4 | C,8 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="2" role="tabpanel">
+<h4>Jingle 2 — Baião, Dó maior, 2/4, 16 compassos</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Conexão, conexão,<br>
+pesquisa e cora<b>ção</b>!<br>
+Musicoterapia<br>
+no compasso do bai<b>ão</b>!<br>
+Lá em Minas Gerais,<br>
+U-F-M-<b>G</b>,<br>
+vinte e seis, ENPEMT,<br>
+vem crescer com voc<b>ê</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>| C  | C7   | F  | Fm       || Em7 | A7    | Dm7 | G7 ||
+  T   D/SD   SD   SD menor     Dr   D/SDr   SDr   D
+| Em7 | A7    | Dm7 | D7  || D♭7M   | G7 | C  | C  ||
+  Dr   D/SDr   SDr   D/D    napol.   D    T
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–4</td><td>C – C7 – F – Fm</td><td>1ª, 3ª e 4ª</td><td>Ritmo de baião com notas repetidas, fácil de cantar. O B♭ em “co-ne-<strong>xão</strong>” é a 7ª do C7 (D/SD). “Co-ra-<strong>ção</strong>” pousa no A♭ do <strong>Fm</strong>.</td></tr>
+<tr><td>5–8</td><td>Em7 – A7 – Dm7 – G7</td><td>2ª e 3ª</td><td>O C♯ em “te-ra-<strong>pi</strong>-a” é a sensível de Dm. Termina em G7 (<span class="cad">DOM</span>). Rima <em>coração / baião</em>.</td></tr>
+<tr><td>9–12</td><td>Em7 – A7 – Dm7 – D7</td><td>2ª e 3ª</td><td>“Minas Gerais” e a sigla da UFMG. O F♯ de “me-<strong>gê</strong>” é a cor do <strong>D7 (D/D)</strong>.</td></tr>
+<tr><td>13–16</td><td>D♭7M – G7 – C</td><td>expansão</td><td>Napolitano (♭II) no nome do evento → V → I (<span class="cad">AUT</span>). Rima <em>gê / você</em>.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="8">
+  <div class="tune-head"><span class="tune-title">Jingle 2 — Baião (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score8"></div>
+  <div class="audio" id="audio8"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="8">copiar</button>
+    <pre id="abc8">X:8
+T:Jingle XXVI ENPEMT - opcao 2 (baiao)
+C:Modelo - Ficha 2, questao 5
+M:2/4
+L:1/16
+Q:1/4=100
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"C" E2 F2 G4 |"C7" G2 G2 _B4 |"F" A A2 F3 A2 |"Fm" G2 _A6 |
+w: Co-ne-xão, co-ne-xão, pes-qui-sa~e co-ra-ção!
+"Em7" E E G2 G2 B2 |"A7" ^c4 A4 |"Dm7" A A2 F3 F2 |"G7" D2 F2 G4 |
+w: Mu-si-co-te-ra-pi-a no com-pas-so do bai-ão!
+"Em7" E2 G3 G A2 |"A7" ^c4 z4 |"Dm7" D D2 F3 F2 |"D7" ^F2 A4 z2 |
+w: Lá~em Mi-nas Ge-rais, U-é-fe-ê-me-gê,
+"Dbmaj7" c c2 _A3 z2 |"G7" B B2 G3 z2 |"C" G G2 E3 E2 |"C" D2 C6 |]
+w: vin-te~e seis, En-pem-te, vem cres-cer com vo-cê!
+V:2
+%%MIDI program 32
+ C,3 G,,3 C,2 | C,3 G,,3 _B,,2 | F,,3 C,3 F,,2 | F,,3 C,3 _A,,2 |
+ E,3 B,,3 E,2 | A,,3 E,3 ^C,2 | D,3 A,,3 D,2 | G,,3 D,3 G,,2 |
+ E,3 B,,3 E,2 | A,,3 E,3 ^C,2 | D,3 A,,3 D,2 | D,3 A,,3 ^F,,2 |
+ _D,3 _A,,3 _D,2 | G,,3 D,3 B,,2 | C,3 G,,3 C,2 | C,8 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="3" role="tabpanel">
+<h4>Jingle 3 — Valsa, Dó maior, 3/4, 16 compassos</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Ponte de som,<br>
+afeto e ra<b>zão</b>,<br>
+vinte e seis vozes<br>
+num só cora<b>ção</b>.<br>
+Na U-F-M-<b>G</b>,<br>
+pesquisar e cresc<b>er</b>;<br>
+é o ENPEMT,<br>
+música em a<b>ção</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>| C7M | B7   | Em7 | C7   || F7M | Fm6      | Em7 | A7    ||
+  T     D/Dr   Dr    D/SD    SD    SD menor   Dr    D/SDr
+| Dm7 | G7 | A♭7M  | D♭7M  || Dm7 | G7 | C7M | C7M ||
+  SDr   D    INT!    napol.   II  –  V  –  I
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–4</td><td>C7M – B7 – Em7 – C7</td><td>2ª e 3ª</td><td>O D♯ longo em “<strong>som</strong>” é a sensível de Em (D/Dr). O B♭ de “ra-<strong>zão</strong>” é a 7ª do C7 (D/SD). Rima <em>razão / coração</em>.</td></tr>
+<tr><td>5–8</td><td>F7M – Fm6 – Em7 – A7</td><td>3ª e 4ª</td><td>O A♭ longo em “<strong>vo</strong>-zes” é o momento mais escuro da valsa (SD menor).</td></tr>
+<tr><td>9–12</td><td>Dm7 – G7 → A♭7M – D♭7M</td><td>4ª e expansão</td><td>A sigla da UFMG por grau conjunto. <strong>G7 → A♭7M</strong> é uma cadência interrompida (<span class="cad">INT</span>): V → ♭VI emprestado. Rima <em>gê / crescer</em>.</td></tr>
+<tr><td>13–16</td><td>Dm7 – G7 – C7M</td><td>1ª e 2ª</td><td>II – V – I (<span class="cad">AUT</span>) com a melodia descendo até o C. Rima final <em>ação</em>.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="9">
+  <div class="tune-head"><span class="tune-title">Jingle 3 — Valsa (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score9"></div>
+  <div class="audio" id="audio9"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="9">copiar</button>
+    <pre id="abc9">X:9
+T:Jingle XXVI ENPEMT - opcao 3 (valsa)
+C:Modelo - Ficha 2, questao 5
+M:3/4
+L:1/8
+Q:1/4=132
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"Cmaj7" E4 D C |"B7" ^D6 |"Em7" E G3 G A |"C7" _B4 z2 |
+w: Pon-te de som, a-fe-to~e ra-zão,
+"Fmaj7" A2 A2 c2 |"Fm6" _A4 F2 |"Em7" E2 G3 G |"A7" G2 A4 |
+w: vin-te~e seis vo-zes num só co-ra-ção.
+"Dm7" D F F2 E D |"G7" F2 D4 |"Abmaj7" C2 C2 _E2 |"Dbmaj7" F F _A4 |
+w: Na U-é-fe-ê-me-gê, pes-qui-sar e cres-cer;
+"Dm7" z2 D2 E2 |"G7" F4 D2 |"Cmaj7" E4 D C |"Cmaj7" D2 C4 |]
+w: é~o En-pem-te, mú-si-ca~em a-ção!
+V:2
+%%MIDI program 32
+ C,4 G,,2 | B,,4 ^F,2 | E,4 B,,2 | C,4 _B,,2 |
+ F,,4 C,2 | F,,4 _A,,2 | E,4 B,,2 | A,,4 E,2 |
+ D,4 A,,2 | G,,4 D,2 | _A,,4 _E,2 | _D,4 _A,,2 |
+ D,4 A,,2 | G,,4 D,2 | C,4 G,,2 | C,6 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="4" role="tabpanel">
+<h4>Jingle 4 — Samba, Dó maior, 2/4, 16 compassos</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Bate o tambor, abre o sa<b>lão</b>,<br>
+musicoterapia é cone<b>xão</b>!<br>
+Na U-F-M-G eu <b>vou</b>,<br>
+o ENPEMT che<b>gou</b>!<br>
+Vinte e seis, que aleg<b>ria</b>,<br>
+pesquisa e poe<b>sia</b>!<br>
+Bate o tambor, abre o sa<b>lão</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>| C7M | A7    | Dm7 | G7 || C7M | C7   | F7M | Fm6      ||
+  T     D/SDr   SDr   D     T     D/SD   SD    SD menor
+| Em7 | A7    | Dm7 | G7 || A♭7M          | G7 | C6 | C6 ||
+  Dr   D/SDr   SDr   D     napol. da D     D    T
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–4</td><td>C7M – A7 – Dm7 – G7</td><td>1ª, 2ª e 3ª</td><td>Gancho sincopado “Ba-te~o tam-<strong>bor</strong>”: a sílaba forte <strong>antecipa</strong> o tempo, como no samba. A7 = D/SDr. Rima <em>salão / conexão</em>.</td></tr>
+<tr><td>5–8</td><td>C7M – C7 – F7M – Fm6</td><td>3ª e 4ª</td><td>“Eu <strong>vou</strong>” antecipa o F7M. “Che-<strong>gou</strong>” pousa no Fm6 (SD menor). Rima <em>vou / chegou</em>.</td></tr>
+<tr><td>9–12</td><td>Em7 – A7 – Dm7 – G7</td><td>2ª e 3ª</td><td>Cadeia de quintas. O C♯ em “a-le-<strong>gri</strong>-a” vem do A7. Rima <em>alegria / poesia</em>.</td></tr>
+<tr><td>13–16</td><td>A♭7M – G7 – C6</td><td>expansão, 1ª</td><td>O gancho volta, um tom acima no A♭7M, o <strong>napolitano da dominante</strong> (meio tom acima de G), e resolve em G7 → C6 (<span class="cad">AUT</span>).</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="10">
+  <div class="tune-head"><span class="tune-title">Jingle 4 — Samba (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score10"></div>
+  <div class="audio" id="audio10"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="10">copiar</button>
+    <pre id="abc10">X:10
+T:Jingle XXVI ENPEMT - opcao 4 (samba)
+C:Modelo - Ficha 2, questao 5
+M:2/4
+L:1/16
+Q:1/4=92
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"Cmaj7" E2 D E2 G3 |"A7" z A A2 G E3 |"Dm7" A A A2 G F3 |"G7" G2 F F E D3 |
+w: Ba-te~o tam-bor, a-bre~o sa-lão, mu-si-co-te-ra-pi-a~é co-ne-xão!
+"Cmaj7" z E G2 G E3 |"C7" G2 G _B2 A3 |"Fmaj7" z F A2 c2 A2 |"Fm6" _A2 F6 |
+w: Na U-é-fe-ê-me-gê~eu vou, o En-pem-te che-gou!
+"Em7" z G2 G2 B3 |"A7" A2 A ^c3 A2 |"Dm7" z F2 A2 A3 |"G7" B B d3 B3 |
+w: Vin-te~e seis, que~a-le-gri-a, pes-qui-sa~e po-e-si-a!
+"Abmaj7" c2 _B c2 _e3 |"G7" z d d2 B4 |"C6" c8 |"C6" z8 |]
+w: Ba-te~o tam-bor, a-bre~o sa-lão!
+V:2
+%%MIDI program 32
+ C,3 C, G,,4 | A,,3 A,, E,4 | D,3 D, A,,4 | G,,3 G,, D,4 |
+ C,3 C, G,,4 | C,3 C, _B,,4 | F,,3 F,, C,4 | F,,3 F,, _A,,4 |
+ E,3 E, B,,4 | A,,3 A,, ^C,4 | D,3 D, A,,4 | G,,3 G,, D,4 |
+ _A,,3 _A,, _E,4 | G,,3 G,, D,4 | C,3 C, G,,4 | C,8 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="5" role="tabpanel">
+<h4>Jingle 5 — Choro, Dó maior, 2/4, 16 compassos</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Chora o cava<b>quinho</b>,<br>
+sorri o vio<b>lão</b>,<br>
+segue no ca<b>minho</b><br>
+a pesquisa em a<b>ção</b>.<br>
+Na U-F-M-<b>G</b>,<br>
+vinte e seis vai s<b>er</b>:<br>
+ENPEMT, musicoterapia e voc<b>ê</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>| C | C♯°7   | Dm7 | G7 || E7   | Am | D7  | G7 ||
+  T   D/SDr*   SDr   D     D/Tr   Tr   D/D   D
+| C | C7   | F  | Fm6      || C/G     | A7    | Dm7  G7 | C ||
+  T   D/SD   SD   SD menor    T (6/4)   D/SDr   II  –  V  – I
+* C♯°7 = A7(♭9) sem a fundamental
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–4</td><td>C – C♯°7 – Dm7 – G7</td><td>1ª, 2ª e 3ª</td><td>Baixo e melodia sobem <strong>cromaticamente</strong> (C → C♯ → D), a marca do choro. C♯°7 = A7(♭9) sem a fundamental, dominante de Dm. O c.3 repete o desenho do c.1 um grau acima (<strong>sequência</strong>). Rima <em>cavaquinho / caminho</em>.</td></tr>
+<tr><td>5–8</td><td>E7 – Am – D7 – G7</td><td>2ª e 3ª</td><td>G → G♯ cromático em “<strong>se</strong>-gue” (E7 = D/Tr), cadência em Am e depois D7 → G7 (D/D → D). Rima <em>violão / ação</em>.</td></tr>
+<tr><td>9–12</td><td>C – C7 – F – Fm6</td><td>3ª e 4ª</td><td>O B♭ de “me-<strong>gê</strong>” leva ao F; “vai <strong>ser</strong>” no Fm6 (SD menor). Rima <em>gê / ser</em>.</td></tr>
+<tr><td>13–16</td><td>C/G – A7 – Dm7 – G7 – C</td><td>2ª, 3ª, 1ª</td><td>C/G → A7 → II – V – I (<span class="cad">AUT</span>), terminando no E, a 3ª do acorde, como fim de choro-canção. Rima <em>você</em>.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="11">
+  <div class="tune-head"><span class="tune-title">Jingle 5 — Choro (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score11"></div>
+  <div class="audio" id="audio11"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="11">copiar</button>
+    <pre id="abc11">X:11
+T:Jingle XXVI ENPEMT - opcao 5 (choro)
+C:Modelo - Ficha 2, questao 5
+M:2/4
+L:1/16
+Q:1/4=84
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"C" E3 D C4 |"C#dim7" ^C2 E4 G2 |"Dm7" F3 E D4 |"G7" D2 G6 |
+w: Cho-ra~o ca-va-qui-nho, sor-ri~o vi-o-lão,
+"E7" ^G3 B B2 d2 |"Am" c4 A4 |"D7" A A c3 A3 |"G7" B2 G6 |
+w: se-gue no ca-mi-nho, a pes-qui-sa~em a-ção.
+"C" E E G3 E3 |"C7" G2 G2 _B4 |"F" A2 A2 c4 |"Fm6" _A2 F6 |
+w: Na U-é-fe-ê-me-gê, vin-te~e seis vai ser:
+"C/G" E2 G3 E3 |"A7" E E G3 A3 |"Dm7" F2 A2 "G7" G2 F2 |"C" E8 |]
+w: En-pem-te, mu-si-co-te-ra-pi-a~e vo-cê!
+V:2
+%%MIDI program 32
+ C,4 G,,4 | ^C,4 E,4 | D,4 A,,4 | G,,4 B,,4 |
+ E,4 B,,4 | A,,4 E,4 | D,4 ^F,4 | G,,4 D,4 |
+ C,4 G,,4 | C,4 _B,,4 | A,,4 F,,4 | F,,4 _A,,4 |
+ G,,4 C,4 | A,,4 ^C,4 | D,4 G,,4 | C,8 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="6" role="tabpanel">
+<h4>Jingle 6 — Bossa nova, Dó maior, 4/4, 16 compassos</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Pesquisa e can<b>ção</b><br>
+toca o cora<b>ção</b>.<br>
+Lá em Minas Ge<b>rais</b>,<br>
+sempre aprende <b>mais</b>!<br>
+Lá na Fede<b>ral</b>,<br>
+encontro nacio<b>nal</b>:<br>
+vinte e seis, ENPEMT,<br>
+musicoterapia!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>c.1–4    C7M  | Em7   A7    | Dm7  G7 | C7M   Gm7   C7
+         T      SD/Dm D/Dm    II – V    T     SD/F  D/F
+c.5–8    F7M  | Fm6   B♭7   | C7M  E♭°7  | Dm7  G7
+         SD     SD menor ♭VII7  T  dim. de passagem  II – V
+c.9–12   C7M  | Bm7(♭5) E7  | Am7  D7 | Dm7  G7
+         T      SD/Am  D/Am   Tr   D/D   II – V
+c.13–16  A♭7M  G7 | C7M  A7    | Dm7  D♭7M  | C6
+         napol. V    T    D/SDr  SDr  napol.   T
+
+Regiões tonais: C (casa), F (SD) e Am (Tr). Dm só de passagem.
+Subdominantes individuais: Em7 (de Dm), Gm7 (de F), Bm7(♭5) (de Am).
+Dominantes individuais: A7 (de Dm), C7 (de F), E7 (de Am), D7 (de G).
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–4</td><td>C7M · Em7 A7 · Dm7 G7 · C7M Gm7 C7</td><td>1ª, 2ª e 3ª</td><td>Começa <strong>parado na tônica</strong>: a melodia sobe pelo arpejo do C7M e desce (D – C – B). Em “can-<strong>ção</strong>” o G é a 3ª do Em7; quando entra o <strong>A7</strong>, a melodia vai para <strong>B♭ → A</strong> (9ª menor → fundamental), sem ficar presa no C♯. No c.3, a 7ª do Dm7 (C) desce para a 3ª do G7 (B), uma <em>nota-guia</em>. No c.4, a melisma E – F – E acompanha C7M → Gm7 → C7 (3ª, 7ª, 3ª), preparando o F.</td></tr>
+<tr><td>5–8</td><td>F7M · Fm6 B♭7 · C7M E♭°7 · Dm7 G7</td><td>3ª e 4ª</td><td><strong>Repouso em F</strong>. “Ge-<strong>rais</strong>” pousa no A♭ do <strong>Fm6</strong>, e o mesmo A♭ continua no <strong>B♭7</strong>, onde vira a 7ª (nota comum entre os acordes). Em “<strong>mais</strong>” a melodia desce cromaticamente <strong>E – E♭ – D</strong> junto com C7M → E♭°7 → Dm7, e respira no G7.</td></tr>
+<tr><td>9–12</td><td>C7M · Bm7(♭5) E7 · Am7 D7 · Dm7 G7</td><td>2ª e 3ª</td><td>“Fe-de-<strong>ral</strong>” pousa no B (7M do C). No II – V de Am, a melodia passa pelas notas do Bø (A – F – D) e chega no <strong>G♯</strong> do E7. Em “na-cio-<strong>nal</strong>”: C (3ª do Am7) → A – <strong>F♯</strong> no D7 (D/D). O F♯ desce para F no Dm7, uma surpresa cromática no lugar do G esperado.</td></tr>
+<tr><td>13–16</td><td>A♭7M G7 · C7M A7 · Dm7 D♭7M · C6</td><td>4ª e expansão</td><td>G7 → <strong>A♭7M</strong> é uma cadência interrompida (<span class="cad">INT</span>). A melodia vai de E♭ (5ª do A♭7M) a D (5ª do G7): o napolitano da dominante resolvendo por semitom. No c.14 volta o gesto <strong>B – B♭ – A</strong> do c.2 sobre o A7 (<em>coerência motívica</em>). O F longo no <strong>D♭7M</strong> (3ª) desce meio tom para o E do C6: o napolitano da tônica resolvendo na própria voz.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="12">
+  <div class="tune-head"><span class="tune-title">Jingle 6 — Bossa nova (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score12"></div>
+  <div class="audio" id="audio12"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="12">copiar</button>
+    <pre id="abc12">X:12
+T:Jingle XXVI ENPEMT - opcao 6 (bossa nova)
+C:Modelo - Ficha 2, questao 5
+M:4/4
+L:1/8
+Q:1/4=120
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"Cmaj7" z E G B d2 c B |"Em7" G4 "A7" _B2 A2 |"Dm7" z F A c "G7" B2 G2 |"Cmaj7" E4 "Gm7" F2 "C7" E2 |
+w: Pes-qui-sa~e can _ _ ção _ _ to-ca~o co-ra _ ção _ _
+"Fmaj7" z A c2 A2 G2 |"Fm6" _A4 "Bb7" z F G _A |"Cmaj7" G2 E4 "Ebdim7" _E2 |"Dm7" D4 "G7" z4 |
+w: Lá~em Mi-nas Ge-rais, sem-pre~a-pren-de mais _ _
+"Cmaj7" z G G E G2 B2 |"Bm7b5" z A F D "E7" ^G2 B2 |"Am7" c4 "D7" A2 ^F2 |"Dm7" z F A c "G7" B2 z2 |
+w: Lá na Fe-de-ral, en-con-tro na-cio-nal _ _ vin-te~e seis _
+"Abmaj7" z c _e2 "G7" d2 B2 |"Cmaj7" z E G B "A7" _B2 A2 |"Dm7" A2 F2 "Dbmaj7" F4 |"C6" E8 |]
+w: En-pem-te _ mu-si-co-te-ra-pi _ _ a!
+V:2
+%%MIDI program 32
+ C,3 G,, C,3 G,, | E,3 B,, A,,3 E, | D,3 A,, G,,3 D, | C,3 G,, G,,2 C,2 |
+ F,,3 C, F,,3 C, | F,,3 C, _B,,3 F, | E,3 G,, E,2 _E,2 | D,3 A,, G,,3 D, |
+ C,3 G,, C,3 G,, | B,,3 F, E,3 B,, | A,,3 E, D,3 A,, | D,3 A,, G,,3 D, |
+ _A,,3 _E, G,,3 D, | C,3 G,, A,,3 E, | D,3 A,, _D,3 _A,, | C,3 G,, C,4 |]
+</pre></details>
+</div>
+</div>
+<div class="jpanel" data-j="7" role="tabpanel">
+<h4>Jingle 7 — Jazz-samba, Dó maior, 4/4, 16 compassos (cadências de “Um Tom para Jobim”)</h4>
+<p><strong>Letra</strong> (rimas em destaque):</p>
+<blockquote><p><em>Um tom pra pesquis<b>ar</b>,<br>
+um som pra conect<b>ar</b>,<br>
+de Minas pro Bras<b>il</b>,<br>
+um céu de cor an<b>il</b>.<br>
+Na U-F-M-<b>G</b>,<br>
+o ENPEMT vai s<b>er</b>:<br>
+vinte e seis, que bel<b>eza</b>,<br>
+musicoterapia com cert<b>eza</b>!</em></p></blockquote>
+<p><strong>Grade harmônica e leis usadas:</strong></p>
+<pre><code>c.1–4    C7M | Bm7(♭5)  E7 | Am7  D7 | Dm7  G7(♯5)
+         T     II – V (Am)    II – V (G)  II – V (C)     ← II–V, II–V, II–V…
+c.5–8    C7M | Am7  A♭m7  | Gm7  C7 | F7M
+         I     Tr  cromático  II – V – I em F
+c.9–12   Fm7  B♭7 | E♭7M | Gm7  C7 | F7M
+         II – V – I em E♭     II – V – I em F         ← sobe por tom, como o B de “Um Tom”
+c.13–16  Am7  D7 | A♭7M  G7 | Dm7/G  G7 | C6
+         II – V (G)  napol. → V  II/V – V – I         ← como a Coda de “Um Tom”
+
+Regiões tonais: C, F e E♭. Am e G só aparecem como alvos de II – V que seguem em frente.
+</code></pre>
+<table>
+<thead><tr><th>c.</th><th>Acorde</th><th>Lei</th><th>Melodia / recurso</th></tr></thead>
+<tbody>
+<tr><td>1–5</td><td>C7M · Bø E7 · Am7 D7 · Dm7 G7(♯5) · C7M</td><td>2ª e 3ª</td><td><strong>Cadeia de II – V</strong>: cada chegada já é o II do par seguinte (E7 → Am7, que é II de G; D7 → Dm7, que é II de C), até o II – V – I em C. O <strong>G7(♯5)</strong> é o mesmo gesto do fim da Intro de “Um Tom” (D7(♯5) → GMaj7): o D♯ da melodia sobe para o E do C7M. Notas-guia: A → G♯ (Bø → E7), G → F♯ (Am7 → D7).</td></tr>
+<tr><td>6–8</td><td>Am7 A♭m7 · Gm7 C7 · F7M</td><td>2ª e 3ª</td><td><strong>Descida cromática de acordes menores</strong>, como o Em7 – E♭m7 – Dm7 da parte A de “Um Tom”. A melodia desce junto, C → B → B♭ → A (“Bra-<strong>sil</strong> … a-<strong>nil</strong>”), e o arpejo B♭ – G – E do C7 cai no F do F7M.</td></tr>
+<tr><td>9–12</td><td>Fm7 B♭7 · E♭7M · Gm7 C7 · F7M</td><td>4ª e 3ª</td><td>Como na parte B de “Um Tom” (Cm7 F7 B♭ → Dm7 G7 C), dois II – V – I que <strong>sobem por tom</strong>: E♭ (♭III emprestado de dó menor; o Fm7 é a SD menor) → F. O A♭ é nota comum (3ª do Fm7, 7ª do B♭7); a melodia chega no G (3ª do E♭7M), e depois B♭ (7ª do C7) → A (3ª do F7M).</td></tr>
+<tr><td>13–16</td><td>Am7 D7 · A♭7M G7 · Dm7/G G7 · C6</td><td>4ª, 3ª e 1ª</td><td>Como a Coda de “Um Tom” (A7 – E♭ – D7 – G): o II – V de G cai no <strong>A♭7M, napolitano da dominante</strong>, que resolve por semitom no G7. Na melodia, o C (comum ao Am7, ao D7 e ao A♭7M) desce para B. O <strong>Dm7/G</strong> é o “II sobre o baixo do V”, como o Am7/D da Intro de “Um Tom”.</td></tr>
+</tbody>
+</table>
+<div class="tune" data-idx="13">
+  <div class="tune-head"><span class="tune-title">Jingle 7 — Jazz-samba (canto, letra e baixo)</span>
+    <span class="nowat" hidden></span>
+    <label class="ck"><input type="checkbox" class="chords" checked> cifras soando</label></div>
+  <div class="score" id="score13"></div>
+  <div class="audio" id="audio13"></div>
+  <details><summary>código ABC (copiar)</summary>
+    <button class="copy" data-idx="13">copiar</button>
+    <pre id="abc13">X:13
+T:Jingle XXVI ENPEMT - opcao 7 (jazz-samba)
+C:Modelo - Ficha 2, questao 5
+M:4/4
+L:1/8
+Q:1/4=112
+K:C
+V:1 clef=treble name="Canto"
+V:2 clef=bass name="Baixo"
+V:1
+%%MIDI program 73
+"Cmaj7" z G E3 G B A |"Bm7b5" A4 "E7" ^G4 |"Am7" z A c G "D7" ^F2 E2 |"Dm7" F4 "G7#5" ^D2 B2 |
+w: Um tom pra pes-qui-sar _ um som pra co-nec-tar _ _
+"Cmaj7" z E G3 E G2 |"Am7" c4 "Abm7" B4 |"Gm7" z _B d _B "C7" c _B G E |"Fmaj7" F6 z2 |
+w: de Mi-nas pro Bra-sil, um céu de cor a _ _ nil.
+"Fm7" z c _A F "Bb7" _A2 F2 |"Ebmaj7" F2 G6 |"Gm7" z _B d2 "C7" c2 _B2 |"Fmaj7" A6 z2 |
+w: na U-é-fe-ê-me-gê, o~En-pem-te vai ser:
+"Am7" z A c e "D7" d2 c2 |"Abmaj7" c4 "G7" B4 |"Dm7/G" F A c A "G7" B d B G |"C6" z A G2 E4 |]
+w: vin-te~e seis, que be-le-za, mu-si-co-te-ra-pi-a com cer-te-za!
+V:2
+%%MIDI program 32
+ C,4 G,,4 | B,,4 E,4 | A,,4 D,4 | D,4 G,,4 |
+ C,4 E,4 | A,,4 _A,,4 | G,,4 C,4 | F,,4 A,,4 |
+ F,,4 _B,,4 | _E,4 _B,,4 | G,,4 C,4 | F,,4 C,4 |
+ A,,4 D,4 | _A,,4 G,,4 | G,,4 G,,4 | C,8 |]
+</pre></details>
+</div>
+</div>
+
+<h3 id="q5-criterios">Checklist do que a questão cobra <small style="font-weight:normal;color:var(--mut)">(exemplos do Jingle 1)</small></h3>
+<ol>
+<li><strong>Tom definido</strong> e colinha preenchida (aqui: Dó maior).</li>
+<li><strong>1ª lei</strong>: C, F, G7 presentes. <strong>2ª</strong>: Am7, Dm7, Em7. <strong>3ª</strong>: C7 (D/SD), A7 (D/SDr), D7 (D/D). <strong>4ª</strong>: Fm6 (SD menor).</li>
+<li><strong>Expansões sugeridas</strong>: C+ (5ª aumentada) e os napolitanos A♭7M e D♭7M.</li>
+<li><strong>Cadências</strong>: semicadência no c.4 e no c.12, II – V – I final.</li>
+<li><strong>Melodia que navega pelas notas dos acordes</strong>: tempos fortes com nota do acorde, e as alterações (G♯, B♭, A♭, C♯) cantadas na própria melodia, para o ouvinte <em>ouvir</em> cada lei.</li>
+<li><strong>Prosódia</strong>: sílabas tônicas nos tempos fortes (“co-ne-<strong>xões</strong>”, “U-é-fe-ê-me-<strong>gê</strong>”, “cres-<strong>cer</strong>”).</li>
+</ol>
+<p><strong>Variação para quem quiser ir além:</strong> trocar o c.8 por <strong>Fm6 – B♭7</strong> (SD menor + ♭VII7, a cadência “backdoor”, como no Cm – F7 de <em>Perigoso</em>) ou o c.14 por <strong>A♭7 – D♭7M</strong>.</p>
+<hr />
+
+<!-- ============================================================ resumo -->
+<h2 id="resumo">Resumo das respostas</h2>
+<table>
+<thead><tr><th>Questão</th><th>Resposta curta</th></tr></thead>
+<tbody>
+<tr><td>1 — Um Tom para Jobim</td><td>Intro = <span class="cad">DOM</span> (II – V sobre pedal D) → <span class="cad">AUT</span> D7(♯5) – G. A: II–V–I → Em, II–V–I → C, A7 → Am7 <span class="cad">INT</span>, <strong>Am7 – D7 – G</strong> <span class="cad">AUT</span>, D7 → Cm7 <span class="cad">INT</span>. B: II–V–I em B♭, C e D (sobe por tons) e Am7 – D7 → G. Coda: <strong>A7 – E♭ – D7 – G</strong> (napolitano da dominante).</td></tr>
+<tr><td>2 — Perigoso</td><td>Intro <span class="cad">DOM</span> (I–VI–II–V). A: II–V–I em G, Dm7–D♭7–C6 (subV), Bø–E7–A, A–D+–G, G–G+(=B+)–C6, Cm–F7 → Bm <span class="cad">INT</span>, Bm–E7–Am–D7–G <span class="cad">AUT</span>. B: Am–B7–Em, Dm7–G7–C, C–E7–Am, Am–Cm–G (plagal menor), G–A7–D7 <span class="cad">DOM</span>, D7 → Am <span class="cad">INT</span>.</td></tr>
+<tr><td>3 — Frases</td><td>3; 3M e 5J; terça · 3m, 7M; 3M, 7M · SD e D; menor; trítono; 3 tons (4ªA/5ªd); diminuto; 3m, 5ª diminuta; 5ª diminuta · anti-relativos; menor; maior; 3ª menor; tônicas, dominantes · dominantes e subdominantes; antecedem · empréstimo modal (troca maior ↔ menor do tom homônimo).</td></tr>
+<tr><td>4 — Tabela</td><td>Fá: F7M B♭7M C7 | Dm7 Gm7 Am7 | G7 F7 E7 D7 | B♭m7M Cm7. Dó: C7M F7M G7 | Am7 Dm7 Em7 | D7 C7 B7 A7 | Fm7M Gm7. Sol: G7M C7M D7 | Em7 Am7 Bm7 | A7 G7 F♯7 E7 | Cm7M Dm7.</td></tr>
+<tr><td>5 — Jingle</td><td>Dó maior; colinha completa acima; sete jingles-modelo de 16 compassos, rimados e citando a UFMG, com as quatro leis: <strong>1</strong> marcha-pop, <strong>2</strong> baião, <strong>3</strong> valsa (cadência interrompida G7 → A♭7M), <strong>4</strong> samba (A♭7M, napolitano da dominante), <strong>5</strong> choro (C♯°7 cromático, E7 → Am), <strong>6</strong> bossa nova (repousos em C e F, subdominantes e dominantes individuais de Dm, F e Am, e os dois napolitanos), <strong>7</strong> jazz-samba no estilo de “Um Tom para Jobim” (cadeia de II – V, descida cromática, II – V – I subindo por tom e o napolitano da Coda).</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota sobre o player:</strong> as reduções das questões 1 e 2 tocam só o baixo e as cifras. As marcas embaixo da pauta (AUT, DOM, INT) são as cadências que a questão pede para circular. Nas tabelas da questão 4 os nomes ficam como texto, para tocar exatamente as notas escritas; por isso não há a opção “cifras soando” nelas.</p>
+</blockquote>
+</main></div>
+<script>
+
+(function(){var b=document.getElementById("tema"),ordem=["system","light","dark"],
+ rot={system:"tema: sistema",light:"tema: claro",dark:"tema: escuro"},atual="system";
+ try{atual=localStorage.getItem("tema")||"system"}catch(e){}
+ if(ordem.indexOf(atual)<0)atual="system";
+ function aplica(v){if(v==="system")delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme=v;
+  b.textContent=rot[v];try{localStorage.setItem("tema",v)}catch(e){}}
+ aplica(atual);
+ b.addEventListener("click",function(){atual=ordem[(ordem.indexOf(atual)+1)%3];aplica(atual)});})();
+document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{
+  navigator.clipboard.writeText(document.getElementById("abc"+b.dataset.idx).textContent)
+    .then(()=>{b.textContent="copiado!";setTimeout(()=>b.textContent="copiar",1400)});
+});
+
+// mostra compasso, notas soando e uma linha vertical na posicao atual
+function makeCursor(el,vo){
+  const score=el.querySelector(".score"), badge=el.querySelector(".nowat");
+  const pickup=(vo.getPickupLength&&vo.getPickupLength()>0);
+  let line=null;
+  const clear=c=>score.querySelectorAll("."+c).forEach(n=>n.classList.remove(c));
+  const rotulo=m=>pickup?(m===0?"anacruse":"c. "+m):("c. "+(m+1));
+  return {
+    onStart(){
+      const svg=score.querySelector("svg"); if(!svg) return;
+      line=svg.querySelector(".abc-cursor");
+      if(!line){ line=document.createElementNS("http://www.w3.org/2000/svg","line");
+        line.setAttribute("class","abc-cursor"); svg.appendChild(line); }
+      badge.hidden=false; badge.textContent="…";
+    },
+    onEvent(ev){
+      if(ev.measureStart && ev.left===null) return;   // 2a metade de ligadura sobre a barra
+      clear("abc-now"); clear("abc-inmeasure");
+      if(ev.line!=null && ev.measureNumber!=null)
+        score.querySelectorAll(".abcjs-l"+ev.line+".abcjs-m"+ev.measureNumber)
+             .forEach(n=>n.classList.add("abc-inmeasure"));
+      (ev.elements||[]).forEach(g=>g.forEach(n=>n.classList.add("abc-now")));
+      if(line && ev.left!=null){
+        line.setAttribute("x1",ev.left-2); line.setAttribute("x2",ev.left-2);
+        line.setAttribute("y1",ev.top);    line.setAttribute("y2",ev.top+ev.height);
+      }
+      const nn=[...new Set((ev.midiPitches||[]).map(p=>ABCJS.synth.pitchToNoteName[p.pitch]))]
+               .filter(Boolean).reverse();
+      badge.textContent=rotulo(ev.measureNumber)+(nn.length?"  ·  "+nn.join(" "):"");
+    },
+    onFinished(){
+      clear("abc-now"); clear("abc-inmeasure");
+      if(line){["x1","x2","y1","y2"].forEach(a=>line.setAttribute(a,0));}
+      badge.hidden=true; badge.textContent="";
+    }
+  };
+}
+window.addEventListener("DOMContentLoaded",()=>{
+  if(typeof ABCJS==="undefined"){document.getElementById("audiowarn").hidden=false;
+    document.getElementById("audiowarn").textContent="Não foi possível carregar a biblioteca abcjs (precisa de internet na primeira abertura).";return;}
+  const audioOk=ABCJS.synth.supportsAudio();
+  document.querySelectorAll(".tune").forEach(el=>{
+    const i=el.dataset.idx, abc=document.getElementById("abc"+i).textContent;
+    const vo=ABCJS.renderAbc("score"+i,abc,{responsive:"resize",add_classes:true})[0];
+    if(!audioOk){document.getElementById("audiowarn").hidden=false;return;}
+    const ctrl=new ABCJS.synth.SynthController();
+    ctrl.load("#audio"+i,makeCursor(el,vo),{displayPlay:true,displayProgress:true,displayWarp:true,displayRestart:true});
+    const ck=el.querySelector(".chords");
+    const set=()=>ctrl.setTune(vo,false,{chordsOff:!(ck&&ck.checked)})
+      .catch(e=>console.warn("audio",i,e));
+    set();
+    if(ck) ck.addEventListener("change",set);
+  });
+});
+
+// gravacoes do YouTube tocando dentro da pagina (IFrame API)
+(function(){
+  const cards=[...document.querySelectorAll(".yt")]; if(!cards.length) return;
+  const fmt=s=>{s=Math.max(0,Math.floor(s||0));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
+  const players=[];
+  window.onYouTubeIframeAPIReady=()=>cards.forEach(c=>{
+    const vid=c.dataset.vid, btn=c.querySelector(".yt-play"), seek=c.querySelector(".yt-seek"),
+          time=c.querySelector(".yt-time"), err=c.querySelector(".yt-err");
+    let arrastando=false;
+    const p=new YT.Player("yt-"+vid,{videoId:vid,width:200,height:200,
+      playerVars:Object.assign({playsinline:1,rel:0},location.protocol.startsWith("http")?{origin:location.origin}:{}),
+      events:{
+        onReady(){btn.disabled=false},
+        onStateChange(e){btn.textContent=e.data===YT.PlayerState.PLAYING?"❚❚":"▶";
+          if(e.data===YT.PlayerState.PLAYING) players.forEach(o=>{if(o!==p&&o.pauseVideo)o.pauseVideo()});},
+        onError(e){err.hidden=false;
+          const motivo=location.protocol==="file:"?"o YouTube bloqueia páginas abertas direto do disco"
+            :(e.data===101||e.data===150)?"o dono do vídeo não permite tocá-lo fora do YouTube":e.data===153?"o YouTube não recebeu o endereço do site"
+            :"o YouTube recusou o vídeo";
+          err.innerHTML='O vídeo não abriu aqui ('+motivo+', erro '+e.data+'). <a href="https://youtu.be/'+vid+'" target="_blank" rel="noopener">Abrir no YouTube</a>.';}
+      }});
+    players.push(p);
+    btn.onclick=()=>{p.getPlayerState()===YT.PlayerState.PLAYING?p.pauseVideo():p.playVideo()};
+    seek.oninput=()=>{arrastando=true;const d=p.getDuration()||0;time.textContent=fmt(seek.value/1000*d)+" / "+fmt(d)};
+    seek.onchange=()=>{const d=p.getDuration()||0;p.seekTo(seek.value/1000*d,true);arrastando=false};
+    setInterval(()=>{if(!p.getDuration||arrastando)return;const d=p.getDuration()||0,t=p.getCurrentTime()||0;
+      if(d){seek.value=Math.round(t/d*1000);time.textContent=fmt(t)+" / "+fmt(d)}},500);
+  });
+  const s=document.createElement("script");s.src="https://www.youtube.com/iframe_api";document.head.appendChild(s);
+})();
+
+// chave das 3 opcoes de jingle (esconde so depois que o abcjs desenhou, para medir o texto certo)
+window.addEventListener("DOMContentLoaded",()=>{
+  const bts=[...document.querySelectorAll(".jswitch button")], pans=[...document.querySelectorAll(".jpanel")];
+  let atual="1"; try{atual=localStorage.getItem("jingle")||"1"}catch(e){}
+  const mostra=j=>{bts.forEach(b=>b.setAttribute("aria-selected",b.dataset.j===j));
+    pans.forEach(p=>p.classList.toggle("off",p.dataset.j!==j));try{localStorage.setItem("jingle",j)}catch(e){}};
+  bts.forEach(b=>b.addEventListener("click",()=>mostra(b.dataset.j)));
+  mostra(pans.some(p=>p.dataset.j===atual)?atual:"1");
+});
+</script></body></html>

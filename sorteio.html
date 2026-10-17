@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sorteio Workshop UBAM</title>
+  <style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8;
+  padding: 30px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden; /* Evita scroll horizontal desnecessário */
+}
+
+.main-content {
+  flex: 1;
+  max-width: calc(100% - 650px);
+  padding-right: 20px;
+}
+
+h1, h3 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.section {
+  background: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  max-width: 800px;
+}
+
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+button {
+  padding: 8px 14px;
+  margin: 5px 4px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.population, .participant-item {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.objectives {
+  margin-top: 10px;
+  padding-left: 15px;
+  color: #555;
+}
+
+.results {
+  white-space: pre-wrap;
+  background: #ecf3fc;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #cde;
+  font-family: monospace;
+  font-size: 15px;
+  color: #2c3e50;
+}
+.link-lab a,
+.library a {
+  font-size: 16px;
+  color: #1e90ff;          /* Azul mais suave, mais agradável */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  outline: none;           /* Remove o contorno padrão ao focar */
+}
+
+.link-lab a:hover,
+.library a:hover {
+  text-decoration: underline;
+  color: #104e8b;          /* Azul mais escuro ao passar mouse */
+}
+
+/* Remove contorno azul no clique/foco */
+.link-lab a:focus,
+.library a:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* === Sugestões (chips) === */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.chip {
+  background: #eaf4fd;
+  color: #1c5f8b;
+  border: 1px solid #cde;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 13px;
+  margin: 0;
+  text-align: left;
+}
+
+.chip:hover {
+  background: #d3e9fb;
+}
+
+.chip-panel {
+  border: 1px dashed #cde;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+  background: #fbfdff;
+}
+
+.chip-panel .chip {
+  background: #fff;
+}
+
+.sug-label {
+  font-size: 13px;
+  color: #777;
+  margin-top: 10px;
+}
+
+.obj-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.obj-remove {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 4px;
+  margin: 0;
+}
+
+.obj-remove:hover {
+  background: none;
+  color: #c0392b;
+}
+
+/* === Grupos === */
+.mode-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+  font-size: 15px;
+  color: #2c3e50;
+}
+
+.mode-row label {
+  cursor: pointer;
+}
+
+.mode-row select {
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #777;
+  margin: 4px 0 10px;
+}
+
+.groups-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.group-card {
+  border: 1px solid #cde;
+  border-radius: 8px;
+  background: #ecf3fc;
+  padding: 12px;
+}
+
+.group-card h4 {
+  margin: 0 0 8px;
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+.group-card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #333;
+  font-size: 14px;
+}
+
+.group-card li {
+  margin-bottom: 3px;
+}
+
+/* === Sidebar melhorado === */
+.sidebar {
+  width: 650px;
+  background-color: #fffdf5;
+  border-left: 2px solid #f0d98c;
+  padding: 25px 20px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh; /* Limita a altura total à tela */
+  box-sizing: border-box;
+  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scroll apenas na lista se necessário */
+.sidebar ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #f0d98c #fffdf5;
+}
+
+.sidebar ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar ul::-webkit-scrollbar-track {
+  background: #fffdf5;
+}
+
+.sidebar ul::-webkit-scrollbar-thumb {
+  background-color: #f0d98c;
+  border-radius: 10px;
+}
+
+.sidebar h3 {
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  background: #fffdf5;
+  padding-bottom: 10px;
+  margin: 0 0 12px 0;
+  border-bottom: 2px solid #f0d98c;
+  font-weight: 700;
+  font-size: 20px;
+  z-index: 10;
+}
+
+.sidebar li {
+  background: #ffeebb;
+  padding: 8px 10px; /* Reduz o espaçamento interno */
+  border-radius: 6px; /* Pode reduzir um pouco para acompanhar o tamanho */
+  font-size: 13px;    /* Diminui a fonte */
+  font-weight: 600;
+  color: #333;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  line-height: 1.2; /* Mais compacto verticalmente */
+}
+.sidebar ul {
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}
+
+.sidebar li:hover {
+  background-color: #ffd966;
+}
+
+
+/* === Biblioteca (rodapé) === */
+.library {
+  background: #fff8dc;
+  border-top: 2px solid #f0d98c;
+  padding: 20px;
+  margin-top: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  color: #333;
+  font-size: 15px;
+  max-height: none;
+  overflow-y: visible;
+}
+
+.library h3 {
+  margin-top: 0;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.library ul {
+  padding-left: 20px;
+  margin-top: 10px;
+  max-height: none;
+  overflow-y: visible;
+}
+
+.library li {
+  margin-bottom: 14px;
+}
+
+.library strong {
+  color: #2980b9;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="main-content">
+    <h1>Sorteio de Desafio Musicoterapêutico</h1>
+
+    
+<div class="section">
+  <h3>Proposta da atividade</h3>
+  <p>
+    Cada participante ou grupo receberá um desafio musicoterapêutico baseado em uma população específica e objetivos sugeridos.
+    A tarefa é <strong>simular um trecho de sessão clínica</strong> <em>(duração entre 1 a 3 minutos)</em> com essa população,
+    partindo de uma das quatro experiências musicais de <strong>Kenneth Bruscia</strong> — improvisação, re-criação, composição e receptiva.
+  </p>
+  <p>
+    Os recursos podem ser <strong>acústicos</strong> (instrumentos, voz, corpo, materiais sonoros) ou <strong>digitais</strong>, com uma ou mais
+    ferramentas do <strong><a href="https://musiclab.chromeexperiments.com/" target="_blank">Google Chrome Music Lab</a></strong> — escolha a modalidade antes de sortear.
+  </p>
+</div>
+
+    <div class="section">
+      <h3>1. Adicionar População Clínica</h3>
+      <input type="text" id="popInput" list="popSugestoes" placeholder="Ex: Crianças com autismo (digite para ver sugestões)" />
+      <datalist id="popSugestoes"></datalist>
+      <button onclick="addPopulation()">+ Adicionar População</button>
+      <button onclick="togglePopSugestoes()">💡 Sugestões de populações</button>
+      <button onclick="addPopulacaoAleatoria()">🎲 População aleatória</button>
+      <div class="chip-panel" id="popSuggestionsPanel" style="display:none;">
+        <div class="hint">Clique em uma população para adicioná-la — os objetivos clínicos sugeridos aparecem logo abaixo dela.</div>
+        <div class="chips" id="popSuggestionsChips"></div>
+      </div>
+      <div id="populationsContainer"></div>
+    </div>
+
+    <div class="section">
+      <h3>2. Adicionar Participantes</h3>
+      <input type="text" id="participantInput" placeholder="Nome do participante" />
+      <button onclick="addParticipant()">+ Adicionar Participante</button>
+      <div id="participantsList"></div>
+    </div>
+
+    <div class="section">
+      <h3>3. Formar Grupos</h3>
+      <div class="mode-row">
+        <label><input type="radio" name="modo" value="individual" checked onchange="atualizarModo()" /> Sorteio individual</label>
+        <label><input type="radio" name="modo" value="grupo" onchange="atualizarModo()" /> Sorteio por grupos</label>
+        <select id="groupSize" onchange="formarGrupos()">
+          <option value="2">Grupos de 2</option>
+          <option value="3" selected>Grupos de 3</option>
+          <option value="4">Grupos de 4</option>
+          <option value="5">Grupos de 5</option>
+        </select>
+        <button onclick="formarGrupos()">🔀 Sortear grupos</button>
+      </div>
+      <div class="hint">Os participantes são embaralhados a cada sorteio de grupos. Se sobrar apenas 1 pessoa, ela é distribuída em um dos grupos existentes.</div>
+      <div class="groups-container" id="groupsContainer"></div>
+    </div>
+
+    <div class="section">
+      <h3>4. Resultado do Sorteio</h3>
+      <div class="mode-row">
+        <span>Modalidade dos recursos:</span>
+        <label><input type="radio" name="modalidade" value="misto" checked /> 🎼 Acústico + digital</label>
+        <label><input type="radio" name="modalidade" value="acustico" /> 🥁 Só acústico</label>
+        <label><input type="radio" name="modalidade" value="digital" /> 💻 Só Chrome Music Lab</label>
+      </div>
+      <div class="mode-row">
+        <span>Objetivos por desafio:</span>
+        <select id="objCount">
+          <option value="todos" selected>Todos os objetivos da população</option>
+          <option value="1">1 objetivo sorteado</option>
+          <option value="2">2 objetivos sorteados</option>
+          <option value="3">3 objetivos sorteados</option>
+        </select>
+      </div>
+      <button onclick="sortear()">🎲 Sortear desafios</button>
+      <button onclick="copiarResultado()">📋 Copiar resultado</button>
+      <button onclick="baixarResultado()">⬇️ Baixar .txt</button>
+      <span id="exportStatus" class="hint" style="display:inline; margin-left:6px;"></span>
+      <div class="results" id="results">Nenhum sorteio realizado ainda.</div>
+    </div>
+
+    <div class="library">
+      <h3>🎼 Experiências Musicais em Musicoterapia (Kenneth Bruscia)</h3>
+      <ul id="experienciasList"></ul>
+    </div>
+
+    <div class="library">
+      <h3>🎻 Acervo Acústico por Função Sonora</h3>
+      <p style="margin:0; font-size:14px; color:#555;">Organizado pelo que cada grupo de instrumentos permite perceber — útil para desenhar atividades de percepção musical.</p>
+      <ul id="acervoList"></ul>
+    </div>
+
+    <div class="library">
+      <h3>📚 Biblioteca das Ferramentas do Chrome Music Lab</h3>
+      <ul id="libraryList"></ul>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <h3>📌 Palavras-chave</h3>
+    <ul id="listaPalavrasChave"></ul>
+  </div>
+
+  <script>
+    // Biblioteca com ferramentas e descrições
+    const bibliotecaFerramentas = [
+        {nome: "Arpeggios", descricao: "Exploração de sequências de notas tocadas em sucessão rápida.", url: "https://musiclab.chromeexperiments.com/Arpeggios/" },
+        { nome: "Chords", descricao: "Criação e experimentação com acordes musicais.", url: "https://musiclab.chromeexperiments.com/Chords/" },
+        { nome: "Harmonics", descricao: "Exploração de sons harmônicos e suas relações musicais.", url: "https://musiclab.chromeexperiments.com/Harmonics/" },
+        { nome: "Kandinsky", descricao: "Geração visual e sonora interativa baseada em formas e cores.", url: "https://musiclab.chromeexperiments.com/Kandinsky/" },
+        { nome: "Melody Maker", descricao: "Criação e edição de melodias com várias opções de notas e escalas.", url: "https://musiclab.chromeexperiments.com/Melody-Maker/" },
+        { nome: "Oscillators", descricao: "Geração de sons baseados em ondas oscilatórias, útil para estímulos sonoros e movimento.", url: "https://musiclab.chromeexperiments.com/Oscillators/" },
+        { nome: "Piano Roll", descricao: "Visualização e edição de notas musicais em formato de piano roll.", url: "https://musiclab.chromeexperiments.com/Piano-Roll/" },
+        { nome: "Rhythm", descricao: "Exploração e criação de padrões rítmicos e movimentos corporais.", url: "https://musiclab.chromeexperiments.com/Rhythm/" },
+        { nome: "Shared Piano", descricao: "Incrível para atendimentos de musicoterapia online. Permite tocar piano com múltiplos usuários simultaneamente.", url: "https://musiclab.chromeexperiments.com/Shared-Piano/" },
+        { nome: "Song Maker", descricao: "Criação e edição de músicas simples, com ritmo, melodia e harmonia.", url: "https://musiclab.chromeexperiments.com/Song-Maker/" },
+        { nome: "Sound Waves", descricao: "Visualização das ondas sonoras e experimentação com frequências.", url: "https://musiclab.chromeexperiments.com/Sound-Waves/" },
+        { nome: "Spectrogram", descricao: "Visualização gráfica do espectro sonoro, útil para percepção auditiva.", url: "https://musiclab.chromeexperiments.com/Spectrogram/" },
+        { nome: "Strings", descricao: "Exploração sonora de instrumentos de cordas virtuais.", url: "https://musiclab.chromeexperiments.com/Strings/" },
+        { nome: "Voice Spinner", descricao: "Manipulação de gravações de voz com efeitos de looping e variações.", url: "https://musiclab.chromeexperiments.com/Voice-Spinner/" }
+      ];
+
+    // Catálogo de populações clínicas com objetivos sugeridos
+    const catalogoPopulacoes = [
+      { nome: "Crianças com Transtorno do Espectro Autista (TEA)", objetivos: [
+        "Ampliar a comunicação não-verbal e a interação social",
+        "Favorecer a expressão de emoções pela improvisação",
+        "Desenvolver atenção compartilhada e escuta do outro",
+        "Organizar as respostas sensoriais com estrutura rítmica previsível",
+        "Estimular a iniciativa e a espontaneidade no diálogo sonoro"
+      ]},
+      { nome: "Crianças com TDAH", objetivos: [
+        "Sustentar atenção e foco em tarefas de duração crescente",
+        "Trabalhar o controle inibitório com jogos de parar e recomeçar",
+        "Organizar a sequência e o tempo em padrões rítmicos",
+        "Canalizar a impulsividade pelo movimento corporal ritmado"
+      ]},
+      { nome: "Crianças com atraso no desenvolvimento neuropsicomotor", objetivos: [
+        "Estimular a coordenação motora ampla e fina",
+        "Ampliar a linguagem e a vocalização pelo canto",
+        "Favorecer a exploração sensorial de timbres e materiais",
+        "Trabalhar a repetição e o padrão como apoio à aprendizagem"
+      ]},
+      { nome: "Bebês prematuros na UTI Neonatal", objetivos: [
+        "Favorecer a regulação fisiológica e o relaxamento pela escuta",
+        "Fortalecer o vínculo entre bebê e cuidador pelo canto materno",
+        "Reduzir o impacto do estímulo ambiental excessivo",
+        "Apoiar a organização do sono e do padrão de respiração"
+      ]},
+      { nome: "Crianças e adolescentes hospitalizados (oncologia pediátrica)", objetivos: [
+        "Reduzir a ansiedade e a dor percebida durante procedimentos",
+        "Oferecer espaço lúdico de expressão do medo e do sentimento",
+        "Resgatar autonomia e possibilidade de escolha no hospital",
+        "Fortalecer o vínculo com a família pela criação de canções"
+      ]},
+      { nome: "Adolescentes em situação de vulnerabilidade social", objetivos: [
+        "Fortalecer a identidade e o pertencimento pelo repertório do grupo",
+        "Ampliar a autoestima pela composição e pela apresentação",
+        "Exercitar a escuta do outro e o diálogo dentro do grupo",
+        "Elaborar experiências difíceis pela criação de letras"
+      ]},
+      { nome: "Adultos com depressão", objetivos: [
+        "Mobilizar a expressão de sentimentos pouco verbalizados",
+        "Ampliar a iniciativa e a energia vital pelo ritmo e movimento",
+        "Resgatar a memória afetiva positiva com canções significativas",
+        "Fortalecer a autoestima pela criação musical concluída"
+      ]},
+      { nome: "Adultos com transtorno de ansiedade", objetivos: [
+        "Favorecer o relaxamento e a consciência da respiração",
+        "Reduzir a ruminação pelo foco na escuta do momento presente",
+        "Regular a ativação corporal pela variação de andamento",
+        "Nomear e expressar a emoção pela improvisação"
+      ]},
+      { nome: "Estudantes universitários com ansiedade e estresse acadêmico", objetivos: [
+        "Reduzir a ansiedade e a tensão corporal em períodos de prova",
+        "Favorecer o relaxamento e a consciência da respiração",
+        "Criar espaço de expressão para a pressão e a autocobrança acadêmica",
+        "Fortalecer o vínculo e o apoio entre colegas pela improvisação em grupo",
+        "Resgatar o prazer e a criatividade fora da lógica do desempenho",
+        "Melhorar a qualidade do descanso e do sono pela escuta"
+      ]},
+      { nome: "Pessoas em sofrimento psíquico grave (CAPS)", objetivos: [
+        "Ampliar a comunicação e a socialização no grupo",
+        "Favorecer o contato com uma experiência compartilhada pelo ritmo",
+        "Sustentar organização e estrutura temporal na atividade",
+        "Oferecer espaço de expressão que não exija a palavra"
+      ]},
+      { nome: "Pessoas em tratamento de dependência química (CAPS AD)", objetivos: [
+        "Elaborar a história de vida pela composição de letras",
+        "Ampliar a tolerância à frustração em atividades de re-criação",
+        "Fortalecer o vínculo e o pertencimento ao grupo terapêutico",
+        "Reconhecer emoções e gatilhos pela escuta dirigida"
+      ]},
+      { nome: "Idosos com doença de Alzheimer e outras demências", objetivos: [
+        "Ativar a memória autobiográfica com canções da juventude",
+        "Sustentar atenção e orientação pelo padrão rítmico regular",
+        "Estimular a linguagem residual pelo canto",
+        "Reduzir a agitação do fim do dia com escuta calma"
+      ]},
+      { nome: "Idosos institucionalizados (ILPI)", objetivos: [
+        "Enfrentar o isolamento pela socialização musical em grupo",
+        "Manter a coordenação motora e o movimento pelo ritmo",
+        "Valorizar a identidade e a história pessoal pelo repertório",
+        "Estimular memória e atenção em jogos musicais"
+      ]},
+      { nome: "Pessoas com doença de Parkinson", objetivos: [
+        "Regular a marcha e o movimento por estímulo rítmico auditivo",
+        "Ampliar a projeção e a intensidade vocal pelo canto",
+        "Manter a coordenação motora fina em instrumentos de percussão",
+        "Reduzir a ansiedade associada ao congelamento da marcha"
+      ]},
+      { nome: "Pessoas em reabilitação pós-AVC (afasia e hemiparesia)", objetivos: [
+        "Estimular a linguagem e a fala pelo canto de frases melódicas",
+        "Recuperar a coordenação motora do membro afetado ao tocar",
+        "Trabalhar a sequência e a organização temporal do movimento",
+        "Sustentar a motivação e a autoestima no processo de reabilitação"
+      ]},
+      { nome: "Pessoas com deficiência intelectual", objetivos: [
+        "Ampliar a comunicação e a expressão pelas experiências musicais",
+        "Desenvolver a coordenação motora e a lateralidade",
+        "Favorecer a autonomia pelas escolhas musicais",
+        "Trabalhar a repetição e o padrão como apoio à aprendizagem"
+      ]},
+      { nome: "Pessoas com Síndrome de Down", objetivos: [
+        "Estimular a linguagem e a articulação pelo canto",
+        "Desenvolver a coordenação motora e o tônus muscular",
+        "Ampliar a socialização e a interação em grupo",
+        "Sustentar a atenção com uma estrutura musical previsível"
+      ]},
+      { nome: "Pessoas com deficiência visual", objetivos: [
+        "Refinar a percepção auditiva e a discriminação de timbres",
+        "Ampliar a orientação espacial pela localização da fonte sonora",
+        "Favorecer a exploração tátil e livre dos instrumentos",
+        "Fortalecer a autonomia e a autoestima"
+      ]},
+      { nome: "Pessoas surdas ou com deficiência auditiva", objetivos: [
+        "Explorar a vibração e o estímulo sensorial dos instrumentos",
+        "Trabalhar a percepção do pulso e do padrão pelo corpo",
+        "Favorecer a expressão pelo movimento e pela dança",
+        "Ampliar a interação em grupo sem depender da audição"
+      ]},
+      { nome: "Gestantes (pré-natal e preparação para o parto)", objetivos: [
+        "Fortalecer o vínculo entre mãe e bebê pelo canto",
+        "Trabalhar respiração e relaxamento para o trabalho de parto",
+        "Reduzir a ansiedade pré-parto",
+        "Construir um repertório afetivo para o nascimento"
+      ]},
+      { nome: "Pacientes em cuidados paliativos", objetivos: [
+        "Oferecer espaço de expressão para despedidas e sentimentos",
+        "Promover conforto e relaxamento diante da dor",
+        "Registrar a história de vida em uma composição de legado",
+        "Fortalecer o vínculo entre paciente e família"
+      ]},
+      { nome: "Pessoas com dor crônica e fibromialgia", objetivos: [
+        "Reduzir a percepção da dor pelo foco na escuta",
+        "Favorecer o relaxamento e a consciência corporal",
+        "Reconstruir uma relação positiva com o movimento",
+        "Expressar a experiência da dor sem passar pela palavra"
+      ]},
+      { nome: "Cuidadores e equipes de saúde (prevenção de burnout)", objetivos: [
+        "Aliviar a tensão e favorecer o relaxamento no ambiente de trabalho",
+        "Fortalecer o vínculo e a cooperação da equipe pela improvisação",
+        "Criar espaço de expressão do sofrimento profissional",
+        "Resgatar o prazer e a criatividade no cotidiano"
+      ]}
+    ];
+
+    // Objetivos genéricos para populações fora do catálogo
+    const objetivosGenericos = [
+      "Ampliar a comunicação e a expressão",
+      "Favorecer o vínculo terapêutico e a interação",
+      "Estimular a percepção e a escuta",
+      "Sustentar a atenção e a organização temporal",
+      "Fortalecer a autoestima e a identidade",
+      "Favorecer o relaxamento e a respiração"
+    ];
+
+    // Experiências musicais de Kenneth Bruscia — base para a simulação de sessão
+    const experienciasMusicais = [
+      {
+        nome: "Improvisação",
+        descricao: "O cliente cria música espontaneamente — tocando, cantando ou com o corpo. Trabalha expressão, comunicação não-verbal, espontaneidade e vínculo.",
+        atividades: [
+          "Improvisação referencial: sonorizar uma imagem, cena ou sentimento proposto pelo terapeuta.",
+          "Diálogo sonoro: pergunta e resposta entre terapeuta e cliente em instrumentos de percussão.",
+          "Espelhamento rítmico: imitar e variar o ritmo do outro, alternando quem conduz.",
+          "Improvisação livre em grupo, com regra de escuta (entra quem consegue ouvir os outros).",
+          "Solo com acompanhamento: um participante improvisa enquanto o grupo sustenta uma base estável.",
+          "Improvisação apenas com voz e percussão corporal, sem instrumentos.",
+          "Improvisação em escala pentatônica nos xilofones e metalofones: tudo soa consonante, a escuta se volta para a altura e o contorno.",
+          "Pergunta e resposta melódica: o terapeuta toca uma frase curta e o cliente responde na mesma escala.",
+          "Improvisar sobre um bordão (drone) sustentado, percebendo momentos de consonância e dissonância.",
+          "Improvisação com um parâmetro por vez: mudar só a altura, só a intensidade, só o andamento ou só o timbre.",
+          "Dois subgrupos: um sustenta a harmonia (I–V) e o outro improvisa a melodia por cima; depois trocam.",
+          "Improvisação de timbres: escolher instrumentos pelo som que produzem, não pelo nome, e justificar a escolha.",
+          "Improvisar com síncope e contratempo sobre um pulso constante mantido por um subgrupo."
+        ],
+        instrumentos: ["tambor/atabaque", "djembê", "pandeiro", "chocalho", "agogô", "clavas", "caxixi", "xilofone pentatônico", "metalofone diatônico", "jogo de sinos afinados", "boomwhackers", "escaleta (melódica)", "flauta doce", "kalimba", "ukulele", "cavaquinho", "teclado", "violão", "voz", "percussão corporal", "tambor oceânico"]
+      },
+      {
+        nome: "Re-criação",
+        descricao: "O cliente reproduz, interpreta ou recria uma música pré-existente — cantar, tocar, reger, dramatizar, jogar com regras musicais.",
+        atividades: [
+          "Cantar em grupo uma canção significativa escolhida pelos participantes.",
+          "Tocar um arranjo simples da canção, distribuindo os instrumentos por função rítmica.",
+          "Jogo musical com regras: parar e recomeçar ao sinal, alternando andamento e intensidade.",
+          "Dramatizar ou gestualizar a canção, associando um movimento a cada trecho.",
+          "Reger o grupo: um participante conduz entradas, dinâmica e andamento.",
+          "Reproduzir padrões rítmicos apresentados pelo terapeuta, com dificuldade crescente.",
+          "Ditado melódico brincado: reproduzir de ouvido frases curtas tocadas pelo terapeuta, sem partitura.",
+          "Cantar a mesma canção em alturas diferentes (transposição) e comparar como a tessitura muda a sensação.",
+          "Tocar a melodia com boomwhackers ou sinos afinados, cada participante responsável por uma nota da escala.",
+          "Desenhar no ar o contorno melódico (sobe, desce, repete) antes de cantar ou tocar a frase.",
+          "Levantar a mão a cada troca de acorde da canção, percebendo a mudança harmônica.",
+          "Cantar em cânone a duas vozes e escutar a sobreposição resultante.",
+          "Tocar a mesma canção em modo maior e em modo menor, descrevendo a diferença de caráter.",
+          "Marcar o pulso enquanto o grupo canta, alternando quem sustenta a pulsação e quem canta a melodia.",
+          "Jogo de métrica: agrupar o pulso de dois em dois, de três em três e de quatro em quatro, acentuando o primeiro tempo.",
+          "Executar a canção em andamentos diferentes e comentar o que muda na percepção do caráter.",
+          "Percussão corporal em camadas: cada subgrupo com uma duração diferente sobre o mesmo pulso."
+        ],
+        instrumentos: ["violão", "teclado", "voz", "pandeiro", "tamborim", "clavas", "ovinho/chocalho", "triângulo", "flauta doce", "escaleta (melódica)", "boomwhackers", "sinos de mão afinados", "carrilhão", "kalimba", "ukulele", "cavaquinho", "xilofone diatônico", "metalofone"]
+      },
+      {
+        nome: "Composição",
+        descricao: "O cliente cria um produto musical com apoio do terapeuta: canção, paródia, letra, trilha ou gravação — algo que permanece depois da sessão.",
+        atividades: [
+          "Paródia: manter a melodia de uma canção conhecida e criar uma letra nova sobre o tema da sessão.",
+          "Canção coletiva: cada participante contribui com um verso e o grupo constrói o refrão.",
+          "Preenchimento de lacunas (song filling) em uma letra pronta trazida pelo terapeuta.",
+          "Criar uma trilha sonora para uma história, uma cena ou um momento do dia do cliente.",
+          "Compor o 'tema do grupo': um motivo rítmico-melódico que abre e fecha os encontros.",
+          "Gravar a criação, ouvir junto e decidir coletivamente os ajustes.",
+          "Compor uma frase melódica em pergunta e resposta (antecedente e consequente) de quatro compassos.",
+          "Criar uma melodia sobre uma sequência harmônica dada (I–vi–IV–V), percebendo o efeito de cada acorde.",
+          "Compor duas versões do mesmo tema, uma em escala maior e outra em menor, e comparar o caráter.",
+          "Criar um ostinato melódico de acompanhamento para a canção do grupo.",
+          "Compor variações de um mesmo motivo mudando andamento, intensidade, registro ou timbre.",
+          "Registrar a criação em partitura gráfica: linhas, cores e tamanhos para altura, duração e intensidade.",
+          "Compor um padrão rítmico de dois compassos e transformá-lo mudando durações, acentos e andamento."
+        ],
+        instrumentos: ["violão", "teclado", "voz", "kalimba", "xilofone", "metalofone", "escaleta (melódica)", "flauta doce", "ukulele", "boomwhackers", "jogo de sinos afinados", "percussão variada", "gravador do celular", "papel e caneta para a letra e a partitura gráfica"]
+      },
+      {
+        nome: "Receptiva",
+        descricao: "O cliente escuta música ao vivo ou gravada e responde em silêncio, verbalmente, por imagem ou movimento. Trabalha relaxamento, memória, imaginação e percepção.",
+        atividades: [
+          "Relaxamento musical com música ao vivo e condução da respiração.",
+          "Audição dirigida: ouvir uma música escolhida pelo cliente e conversar sobre memórias e sensações.",
+          "Imagem sonora: desenhar ou escrever durante e depois da escuta.",
+          "Banho sonoro com instrumentos de timbre sustentado, em decúbito ou sentado.",
+          "Reconhecimento de timbres e fontes sonoras de olhos fechados.",
+          "Escuta com movimento mínimo: mover apenas uma parte do corpo conforme a música.",
+          "Escuta comparada: a mesma melodia em dois timbres diferentes, descrevendo o que muda na sensação.",
+          "De olhos fechados, identificar o instrumento tocado e sua região (grave, média ou aguda).",
+          "Acompanhar o contorno melódico com a mão no ar, seguindo as subidas e descidas da altura.",
+          "Reconhecer modo maior e menor em trechos curtos, associando cada um a uma sensação.",
+          "Escutar a série harmônica em cordas soltas do violão ou em taças afinadas, percebendo os harmônicos.",
+          "Mapa de escuta: marcar no papel as seções da música (A/B) e as mudanças de textura e intensidade.",
+          "Escuta de intervalos: comparar duas notas e dizer se a segunda é mais aguda, mais grave ou igual.",
+          "Escutar e identificar a métrica (binária ou ternária), marcando o primeiro tempo de cada grupo de pulsos."
+        ],
+        instrumentos: ["taça tibetana", "taças afinadas (glass harp)", "garrafas afinadas", "sinos/sino de barra", "carrilhão", "tambor oceânico", "kalimba", "violão dedilhado", "harmônicos nas cordas soltas do violão", "voz em canto suave", "flauta doce", "gaita/harmônica", "diapasão", "caixa de música", "playlist trazida pelo cliente"]
+      }
+    ];
+
+    // Acervo acústico organizado por função sonora — apoio para percepção musical
+    const acervoAcustico = [
+      {
+        grupo: "Melódicos",
+        uso: "Uma linha de cada vez — para trabalhar altura, contorno melódico, intervalo e frase.",
+        gatilhos: ["altura", "contorno", "intervalo", "frase", "melodia", "solfejo", "ditado", "transposição", "escala", "afinação", "agudo", "grave", "registro"],
+        itens: ["flauta doce", "escaleta (melódica)", "gaita/harmônica", "voz", "flauta transversal", "apito de êmbolo (glissando)", "kalimba", "boomwhackers", "jogo de sinos afinados"]
+      },
+      {
+        grupo: "Harmônicos",
+        uso: "Sustentam acordes — para perceber tonalidade, cadência, consonância e dissonância.",
+        gatilhos: ["acorde", "cadência", "tonalidade", "harmonia", "consonância", "dissonância", "textura", "harmônico", "compor", "criação"],
+        itens: ["violão", "ukulele", "cavaquinho", "teclado", "acordeão/sanfona", "lira/harpa de mesa", "canto a duas vozes"]
+      },
+      {
+        grupo: "Percussivos de altura definida",
+        uso: "Ponte entre ritmo e melodia — escala, ditado melódico, ostinato e transposição.",
+        gatilhos: ["escala", "ostinato", "ditado", "notas", "melodia", "altura", "sequência", "padrão", "improvisação", "criação", "coordenação"],
+        itens: ["xilofone diatônico", "xilofone pentatônico", "metalofone", "carrilhão", "taças afinadas (glass harp)", "garrafas afinadas", "sinos de mão afinados", "tubos sonoros"]
+      },
+      {
+        grupo: "Percussivos de altura indefinida",
+        uso: "Foco em pulso, métrica, duração, intensidade e discriminação de timbres.",
+        gatilhos: ["pulso", "pulsação", "métrica", "andamento", "duração", "tempo", "padrão", "repetição", "síncope", "polirritmia", "coordenação", "motora", "movimento", "corporal", "gesto", "estrutura", "interação", "grupo"],
+        itens: ["tambor/atabaque", "djembê", "pandeiro", "tamborim", "chocalho", "caxixi", "agogô", "triângulo", "clavas", "reco-reco", "tambor oceânico"]
+      },
+      {
+        grupo: "Voz, corpo e materiais",
+        uso: "Sempre disponíveis — registro vocal, dinâmica, série harmônica e escuta comparada.",
+        gatilhos: ["timbre", "registro", "dinâmica", "intensidade", "discriminação", "escuta", "audição", "percepção", "auditivo", "respiração", "relaxamento", "expressão", "linguagem", "sensorial"],
+        itens: ["canto e vocalizes", "percussão corporal", "respiração sonorizada", "diapasão", "papel, tecido e objetos do cotidiano"]
+      }
+    ];
+
+    // Palavras-chave que apontam para cada experiência musical
+    const experienciaPalavras = {
+      "Improvisação": ["expressão", "emoção", "sentimento", "afetividade", "catarsis", "criatividade", "improvisação", "interação", "diálogo", "espelhamento", "lúdico", "exploração", "vínculo", "troca", "relação", "empatia", "grupo", "comunicação", "estímulo", "sensorial", "sinestesia", "timbre", "contorno", "dinâmica", "registro", "ostinato", "consonância", "dissonância"],
+      "Re-criação": ["memória", "identidade", "atenção", "foco", "concentração", "coordenação", "motora", "gesto", "movimento", "corporal", "organização", "estrutura", "sequência", "tempo", "padrão", "repetição", "socialização", "linguagem", "afinação", "notas", "escala", "autoestima", "grupo", "altura", "contorno", "solfejo", "ditado", "transposição", "pulso", "pulsação", "métrica", "andamento", "síncope", "polirritmia", "frase", "acorde", "tonalidade"],
+      "Composição": ["criação", "compor", "inventar", "criatividade", "identidade", "expressão", "autoestima", "harmonia", "melodia", "intervalo", "letra", "narrativa", "frase", "cadência", "acorde", "tonalidade", "ostinato", "contorno", "textura", "transposição"],
+      "Receptiva": ["relaxamento", "ansiedade", "calma", "respiração", "tranquilidade", "escuta", "audição", "percepção", "auditivo", "visual", "sentidos", "estímulo", "memória", "atenção", "timbre", "altura", "agudo", "grave", "registro", "intensidade", "dinâmica", "duração", "textura", "harmônico", "consonância", "dissonância", "discriminação"]
+    };
+
+    // Índice invertido: palavra-chave → experiências musicais
+    const palavraParaExperiencias = {};
+    Object.entries(experienciaPalavras).forEach(([experiencia, palavras]) => {
+      palavras.forEach(palavra => {
+        if (!palavraParaExperiencias[palavra]) palavraParaExperiencias[palavra] = [];
+        palavraParaExperiencias[palavra].push(experiencia);
+      });
+    });
+
+    // Mapeamento palavras-chave para ferramentas
+    const palavraParaFerramentas = {
+      "expressão": ["Kandinsky", "Song Maker"],
+      "identidade": ["Shared Piano", "Melody Maker"],
+      "memória": ["Melody Maker", "Piano Roll"],
+      "autoestima": ["Kandinsky", "Shared Piano"],
+      "exploração": ["Song Maker", "Shared Piano","Strings", "Oscillators"],
+      "emoção": ["Kandinsky", "Song Maker"],
+      "sentimento": ["Kandinsky", "Song Maker"],
+      "afetividade": ["Kandinsky", "Song Maker"],
+      "catarsis": ["Kandinsky", "Song Maker"],
+      "comunicação": ["Song Maker","Spectrogram","Shared Piano", "Rhythm"],
+      "linguagem": ["Song Maker","Spectrogram", "Shared Piano","Rhythm"],
+      "interação": ["Song Maker","Strings","Shared Piano", "Rhythm"],
+      "diálogo": ["Song Maker", "Rhythm"],
+      "socialização": ["Song Maker", "Shared Piano","Rhythm"],
+      "coordenação": ["Rhythm", "Oscillators"],
+      "motora": ["Rhythm", "Oscillators"],
+      "gesto": ["Rhythm", "Oscillators"],
+      "movimento": ["Rhythm", "Oscillators"],
+      "corporal": ["Rhythm", "Oscillators"],
+      "escuta": ["Sound Waves","Voice Spinner", "Spectrogram", "Harmonics"],
+      "audição": ["Sound Waves", "Voice Spinner","Spectrogram", "Harmonics"],
+      "atenção": ["Sound Waves", "Spectrogram"],
+      "foco": ["Sound Waves", "Strings","Spectrogram"],
+      "concentração": ["Sound Waves", "Spectrogram"],
+      "percepção": ["Sound Waves", "Oscillators","Spectrogram", "Harmonics"],
+      "criação": ["Song Maker", "Kandinsky", "Melody Maker", "Voice Spinner"],
+      "criatividade": ["Song Maker", "Voice Spinner","Shared Piano","Kandinsky", "Melody Maker", "Voice Spinner"],
+      "improvisação": ["Song Maker","Voice Spinner","Spectrogram","Arpeggios","Shared Piano", "Kandinsky", "Melody Maker", "Shared Piano"],
+      "compor": ["Song Maker", "Melody Maker", "Chords", "Piano Roll"],
+      "inventar": ["Song Maker", "Shared Piano","Kandinsky", "Melody Maker"],
+      "lúdico": ["Song Maker", "Kandinsky"],
+      "organização": ["Rhythm", "Melody Maker", "Chords"],
+      "estrutura": ["Rhythm", "Voice Spinner","Melody Maker", "Chords"],
+      "sequência": ["Rhythm", "Strings","Arpeggios","Melody Maker", "Chords"],
+      "tempo": ["Rhythm", "Melody Maker", "Chords"],
+      "padrão": ["Rhythm", "Melody Maker", "Chords"],
+      "repetição": ["Rhythm","Voice Spinner", "Strings","Melody Maker", "Chords"],
+      "afinação": ["Melody Maker","Oscillators", "Song Maker", "Chords"],
+      "notas": ["Melody Maker", "Oscillators","Shared Piano","Arpeggios","Song Maker", "Piano Roll", "Chords"],
+      "escala": ["Melody Maker", "Song Maker", "Piano Roll"],
+      "melodia": ["Melody Maker","Spectrogram","Arpeggios", "Song Maker"],
+      "harmonia": ["Melody Maker", "Song Maker", "Chords"],
+      "intervalo": ["Melody Maker", "Song Maker"],
+      "visual": ["Kandinsky","Oscillators", "Spectrogram"],
+      "auditivo": ["Sound Waves", "Spectrogram"],
+      "sensorial": ["Kandinsky","Spectrogram", "Spectrogram"],
+      "sinestesia": ["Kandinsky"],
+      "estímulo": ["Kandinsky", "Sound Waves", "Oscillators"],
+      "sentidos": ["Kandinsky", "Sound Waves"],
+      "relaxamento": ["Song Maker (modo lento)", "Spectrogram"],
+      "ansiedade": ["Song Maker (modo lento)", "Spectrogram"],
+      "calma": ["Song Maker (modo lento)", "Spectrogram"],
+      "respiração": ["Song Maker (modo lento)", "Spectrogram"],
+      "tranquilidade": ["Song Maker (modo lento)", "Spectrogram"],
+      "grupo": ["Rhythm (em duplas)","Shared Piano", "Song Maker (colaborativo)"],
+      "vínculo": ["Rhythm (em duplas)", "Shared Piano","Song Maker (colaborativo)"],
+      "empatia": ["Rhythm (em duplas)", "Shared Piano","Song Maker (colaborativo)"],
+      "espelhamento": ["Rhythm (em duplas)", "Song Maker (colaborativo)"],
+      "relação": ["Rhythm (em duplas)","Shared Piano", "Song Maker (colaborativo)"],
+      "troca": ["Rhythm (em duplas)", "Shared Piano","Song Maker (colaborativo)"],
+
+      // Percepção musical — parâmetros do som e elementos da linguagem musical
+      "altura": ["Melody Maker", "Piano Roll", "Sound Waves", "Oscillators"],
+      "agudo": ["Sound Waves", "Oscillators", "Spectrogram"],
+      "grave": ["Sound Waves", "Oscillators", "Spectrogram"],
+      "registro": ["Melody Maker", "Piano Roll", "Spectrogram"],
+      "timbre": ["Spectrogram", "Strings", "Voice Spinner", "Harmonics"],
+      "intensidade": ["Sound Waves", "Spectrogram", "Song Maker"],
+      "dinâmica": ["Song Maker", "Sound Waves", "Spectrogram"],
+      "duração": ["Rhythm", "Piano Roll", "Song Maker"],
+      "pulso": ["Rhythm", "Song Maker", "Shared Piano"],
+      "pulsação": ["Rhythm", "Song Maker"],
+      "métrica": ["Rhythm", "Song Maker", "Piano Roll"],
+      "andamento": ["Rhythm", "Song Maker"],
+      "síncope": ["Rhythm", "Song Maker", "Piano Roll"],
+      "polirritmia": ["Rhythm", "Song Maker", "Shared Piano"],
+      "ostinato": ["Rhythm", "Song Maker", "Melody Maker", "Shared Piano"],
+      "contorno": ["Melody Maker", "Piano Roll", "Kandinsky"],
+      "frase": ["Melody Maker", "Song Maker", "Piano Roll"],
+      "acorde": ["Chords", "Piano Roll", "Shared Piano", "Song Maker"],
+      "cadência": ["Chords", "Song Maker", "Arpeggios"],
+      "tonalidade": ["Chords", "Melody Maker", "Song Maker"],
+      "consonância": ["Harmonics", "Chords", "Oscillators"],
+      "dissonância": ["Harmonics", "Chords", "Oscillators"],
+      "harmônico": ["Harmonics", "Sound Waves", "Strings", "Spectrogram"],
+      "textura": ["Song Maker", "Shared Piano", "Spectrogram"],
+      "transposição": ["Melody Maker", "Piano Roll", "Song Maker"],
+      "solfejo": ["Melody Maker", "Shared Piano", "Piano Roll"],
+      "ditado": ["Melody Maker", "Piano Roll", "Rhythm"],
+      "discriminação": ["Spectrogram", "Sound Waves", "Oscillators", "Strings"]
+    };
+
+    // Extrair palavras-chave únicas e ordenar
+    const palavrasChave = Object.keys(palavraParaFerramentas).sort();
+
+    let populations = [];
+    let participants = [];
+    let groups = [];
+
+    function normalizar(texto) {
+      return texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[̀-ͯ]/g, '');
+    }
+
+    // Objetivos sugeridos para uma população: do catálogo, por aproximação, ou genéricos
+    function sugestoesObjetivos(nome) {
+      const alvo = normalizar(nome);
+      const exato = catalogoPopulacoes.find(p => normalizar(p.nome) === alvo);
+      if (exato) return exato.objetivos.slice();
+
+      // Palavras genéricas demais para servirem de correspondência
+      const comuns = ['pessoas', 'pacientes', 'adultos', 'outras', 'tratamento', 'situacao', 'preparacao', 'deficiencia', 'transtorno', 'doenca', 'sindrome', 'grave'];
+      const relevantes = t => t.split(/[^a-z]+/).filter(p => p.length > 4 && !comuns.includes(p));
+      const palavrasAlvo = relevantes(alvo);
+      let melhor = null;
+      let melhorPontos = 0;
+      catalogoPopulacoes.forEach(p => {
+        const palavras = relevantes(normalizar(p.nome));
+        const pontos = palavrasAlvo.filter(w => palavras.some(x => x.startsWith(w) || w.startsWith(x))).length;
+        if (pontos > melhorPontos) {
+          melhorPontos = pontos;
+          melhor = p;
+        }
+      });
+      return melhor ? melhor.objetivos.slice() : objetivosGenericos.slice();
+    }
+
+    function criarPopulacao(nome, objetivos) {
+      const jaExiste = populations.find(p => normalizar(p.name) === normalizar(nome));
+      if (jaExiste) {
+        alert(`"${jaExiste.name}" já está na lista de populações.`);
+        return;
+      }
+      populations.push({
+        name: nome,
+        objectives: objetivos || [],
+        _sugestoes: sugestoesObjetivos(nome)
+      });
+      renderPopulations();
+    }
+
+    function addPopulation() {
+      const popName = document.getElementById('popInput').value.trim();
+      if (!popName) return;
+      document.getElementById('popInput').value = '';
+      criarPopulacao(popName);
+    }
+
+    function addPopulationFromCatalog(index) {
+      criarPopulacao(catalogoPopulacoes[index].nome);
+    }
+
+    function addPopulacaoAleatoria() {
+      const disponiveis = catalogoPopulacoes.filter(p => !populations.some(atual => atual.name === p.nome));
+      if (disponiveis.length === 0) {
+        alert("Todas as populações do catálogo já foram adicionadas.");
+        return;
+      }
+      criarPopulacao(sortearItem(disponiveis).nome);
+    }
+
+    function togglePopSugestoes() {
+      const painel = document.getElementById('popSuggestionsPanel');
+      painel.style.display = painel.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function addObjectiveSugerido(popIndex, sugIndex) {
+      const pop = populations[popIndex];
+      pop.objectives.push(pop._sugestoes[sugIndex]);
+      pop._sugestoes.splice(sugIndex, 1);
+      renderPopulations();
+    }
+
+    function addTodosObjetivos(popIndex) {
+      const pop = populations[popIndex];
+      pop.objectives = pop.objectives.concat(pop._sugestoes);
+      pop._sugestoes = [];
+      renderPopulations();
+    }
+
+    function removeObjective(popIndex, objIndex) {
+      populations[popIndex].objectives.splice(objIndex, 1);
+      renderPopulations();
+    }
+
+    function addObjective(index) {
+      const objInput = document.getElementById(`objInput${index}`);
+      const objective = objInput.value.trim();
+      if (!objective) return;
+      populations[index].objectives.push(objective);
+      objInput.value = '';
+      renderPopulations();
+    }
+
+    function removePopulation(index) {
+      populations.splice(index, 1);
+      renderPopulations();
+    }
+
+    function renderPopulations() {
+      const container = document.getElementById('populationsContainer');
+      container.innerHTML = '';
+      populations.forEach((pop, index) => {
+        const div = document.createElement('div');
+        div.className = 'population';
+        const sugestoes = pop._sugestoes || [];
+        div.innerHTML = `
+          <strong>${pop.name}</strong>
+          <button class="remove-btn" onclick="removePopulation(${index})">Remover</button>
+          <div class="objectives">
+            ${pop.objectives.length
+              ? pop.objectives.map((obj, i) => `<div class="obj-row"><span>• ${obj}</span><button class="obj-remove" title="Remover objetivo" onclick="removeObjective(${index}, ${i})">×</button></div>`).join('')
+              : '<em style="color:#c0392b;">⚠️ Sem objetivo clínico — esta população fica de fora do sorteio</em>'}
+          </div>
+          ${sugestoes.length ? `
+          <div class="sug-label">💡 Objetivos clínicos sugeridos (clique para adicionar):</div>
+          <div class="chips">
+            ${sugestoes.map((obj, i) => `<button class="chip" onclick="addObjectiveSugerido(${index}, ${i})">+ ${obj}</button>`).join('')}
+            <button class="chip" onclick="addTodosObjetivos(${index})">➕ Adicionar todos</button>
+          </div>` : ''}
+          <input type="text" id="objInput${index}" placeholder="Adicionar objetivo clínico..."
+                 onkeydown="if(event.key==='Enter') addObjective(${index})" 
+                 oninput="mostrarSugestaoFerramenta(${index})" />
+          <div id="sugestao${index}" style="font-size: 13px; color: #555; margin-top: 6px; line-height: 1.55;"></div>
+          <button onclick="addObjective(${index})">+ Objetivo</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addParticipant() {
+      const input = document.getElementById('participantInput');
+      const name = input.value.trim();
+      if (!name) return;
+      participants.push(name);
+      input.value = '';
+      groups = [];
+      renderParticipants();
+      renderGroups();
+    }
+
+    function removeParticipant(index) {
+      participants.splice(index, 1);
+      groups = [];
+      renderParticipants();
+      renderGroups();
+    }
+
+    function renderParticipants() {
+      const list = document.getElementById('participantsList');
+      list.innerHTML = '';
+      participants.forEach((name, index) => {
+        const div = document.createElement('div');
+        div.className = 'participant-item';
+        div.innerHTML = `
+          <strong>${name}</strong>
+          <button class="remove-btn" onclick="removeParticipant(${index})">Remover</button>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    // === Grupos ===
+    function modoAtual() {
+      return document.querySelector('input[name="modo"]:checked').value;
+    }
+
+    function atualizarModo() {
+      if (modoAtual() === 'grupo' && groups.length === 0 && participants.length > 0) {
+        formarGrupos();
+      } else {
+        renderGroups();
+      }
+    }
+
+    function embaralhar(lista) {
+      const copia = lista.slice();
+      for (let i = copia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copia[i], copia[j]] = [copia[j], copia[i]];
+      }
+      return copia;
+    }
+
+    function formarGrupos() {
+      if (participants.length === 0) {
+        alert("Adicione participantes antes de formar os grupos.");
+        return;
+      }
+      const tamanho = parseInt(document.getElementById('groupSize').value, 10);
+      const sorteados = embaralhar(participants);
+
+      groups = [];
+      for (let i = 0; i < sorteados.length; i += tamanho) {
+        groups.push(sorteados.slice(i, i + tamanho));
+      }
+
+      // Sobrou uma pessoa sozinha: distribui no grupo anterior
+      if (groups.length > 1 && groups[groups.length - 1].length === 1) {
+        const sobra = groups.pop()[0];
+        groups[groups.length - 1].push(sobra);
+      }
+
+      // Ao formar grupos, assume o modo de sorteio por grupos
+      document.querySelector('input[name="modo"][value="grupo"]').checked = true;
+      renderGroups();
+    }
+
+    function renderGroups() {
+      const container = document.getElementById('groupsContainer');
+      container.innerHTML = '';
+      if (modoAtual() !== 'grupo') return;
+      groups.forEach((membros, index) => {
+        const div = document.createElement('div');
+        div.className = 'group-card';
+        div.innerHTML = `
+          <h4>Grupo ${index + 1} (${membros.length})</h4>
+          <ul>${membros.map(nome => `<li>${nome}</li>`).join('')}</ul>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function sugerirFerramenta(texto) {
+      texto = normalizar(texto);
+      for (let palavra in palavraParaFerramentas) {
+        if (texto.includes(normalizar(palavra))) {
+          return palavraParaFerramentas[palavra].join(", ");
+        }
+      }
+      return "Escolha livre no Music Lab 🎧";
+    }
+
+    function sortearItem(lista) {
+      return lista[Math.floor(Math.random() * lista.length)];
+    }
+
+    function buscarExperiencia(nome) {
+      return experienciasMusicais.find(e => e.nome === nome);
+    }
+
+    // Experiências musicais cujas palavras-chave aparecem no texto (vazio se nenhuma)
+    function experienciasEncontradas(texto) {
+      const alvo = normalizar(texto);
+      const encontradas = [];
+      for (let palavra in palavraParaExperiencias) {
+        if (alvo.includes(normalizar(palavra))) {
+          palavraParaExperiencias[palavra].forEach(exp => {
+            if (!encontradas.includes(exp)) encontradas.push(exp);
+          });
+        }
+      }
+      return encontradas;
+    }
+
+    // Experiências compatíveis com o objetivo; sem correspondência, todas valem
+    function experienciasSugeridas(texto) {
+      const encontradas = experienciasEncontradas(texto);
+      return encontradas.length ? encontradas : experienciasMusicais.map(e => e.nome);
+    }
+
+    // Todas as palavras-chave (de experiências e de ferramentas) presentes no texto
+    function palavrasEncontradas(texto) {
+      const alvo = normalizar(texto);
+      const achadas = [];
+      [palavraParaExperiencias, palavraParaFerramentas].forEach(mapa => {
+        Object.keys(mapa).forEach(p => {
+          const normal = normalizar(p);
+          if (alvo.includes(normal) && !achadas.includes(normal)) achadas.push(normal);
+        });
+      });
+      return achadas;
+    }
+
+    // Atividades da experiência que falam das palavras do objetivo; se nenhuma, todas valem
+    function atividadesRelevantes(exp, texto) {
+      const palavras = palavrasEncontradas(texto);
+      const relevantes = exp.atividades.filter(a => palavras.some(p => normalizar(a).includes(p)));
+      return relevantes.length ? relevantes : exp.atividades;
+    }
+
+    // Instrumentos pela função sonora pedida no objetivo; sem correspondência, os da experiência
+    function instrumentosParaTexto(texto, nomes) {
+      const palavras = palavrasEncontradas(texto);
+      const grupos = acervoAcustico.filter(g => g.gatilhos.some(t => palavras.includes(normalizar(t))));
+      if (!grupos.length) return instrumentosDe(nomes);
+
+      const lista = [];
+      grupos.slice(0, 3).forEach(g => {
+        g.itens.slice(0, 4).forEach(i => {
+          if (!lista.includes(i)) lista.push(i);
+        });
+      });
+      return lista;
+    }
+
+    // Exemplos de atividade acústica para as experiências encontradas
+    function exemplosAtividades(nomes, texto) {
+      if (nomes.length === 1) {
+        const exp = buscarExperiencia(nomes[0]);
+        return atividadesRelevantes(exp, texto).slice(0, 2).map(a => `<strong>${exp.nome}</strong> — ${a}`);
+      }
+      return nomes.slice(0, 3).map(nome => {
+        const exp = buscarExperiencia(nome);
+        return `<strong>${exp.nome}</strong> — ${atividadesRelevantes(exp, texto)[0]}`;
+      });
+    }
+
+    // Instrumentos típicos das experiências encontradas, sem repetir
+    function instrumentosDe(nomes) {
+      const lista = [];
+      nomes.slice(0, 2).forEach(nome => {
+        buscarExperiencia(nome).instrumentos.slice(0, 4).forEach(i => {
+          if (!lista.includes(i)) lista.push(i);
+        });
+      });
+      return lista;
+    }
+
+    // Sorteia experiência + atividade + instrumentos acústicos a partir do objetivo
+    function sugerirRecursoAcustico(objetivo) {
+      const nome = sortearItem(experienciasSugeridas(objetivo));
+      const experiencia = experienciasMusicais.find(e => e.nome === nome);
+      return {
+        experiencia: experiencia.nome,
+        atividade: sortearItem(atividadesRelevantes(experiencia, objetivo)),
+        instrumentos: embaralhar(instrumentosParaTexto(objetivo, [experiencia.nome])).slice(0, 3).join(', ')
+      };
+    }
+
+    function modalidadeAtual() {
+      return document.querySelector('input[name="modalidade"]:checked').value;
+    }
+
+    function mostrarSugestaoFerramenta(index) {
+      const objInput = document.getElementById(`objInput${index}`);
+      const sugestaoDiv = document.getElementById(`sugestao${index}`);
+      const texto = objInput.value.toLowerCase().trim();
+
+      const ferramenta = sugerirFerramenta(texto);
+      let sugestaoHTML = '';
+
+      const encontradas = experienciasEncontradas(texto);
+      if (encontradas.length) {
+        sugestaoHTML += `🎼 <strong>Experiência musical:</strong> ${encontradas.join(", ")}<br/>`;
+        sugestaoHTML += `🥁 <strong>Atividades acústicas:</strong><br/>`;
+        sugestaoHTML += exemplosAtividades(encontradas, texto).map(e => `&nbsp;&nbsp;• ${e}`).join('<br/>') + '<br/>';
+        sugestaoHTML += `🎵 <strong>Instrumentos:</strong> ${instrumentosParaTexto(texto, encontradas).join(', ')}<br/>`;
+      }
+
+      sugestaoHTML += `🎧 <strong>Sugestão de ferramenta:</strong> ${ferramenta}<br/>`;
+
+      if (texto.length >= 1) {
+        const sugestoes = palavrasChave.filter(p => normalizar(p).startsWith(normalizar(texto))).slice(0, 5);
+        if (sugestoes.length) {
+          sugestaoHTML += `🔍 <strong>Palavras-chave:</strong> ${sugestoes.join(", ")}`;
+        }
+      }
+
+      sugestaoDiv.innerHTML = sugestaoHTML;
+    }
+
+    // Sorteia uma população ainda não usada do conjunto e um de seus objetivos
+    function sortearDesafio(pool, usedPopulations) {
+      let popOptions = pool.filter((_, idx) => !usedPopulations.has(idx));
+      if (popOptions.length === 0) {
+        usedPopulations.clear();
+        popOptions = pool;
+      }
+      const pop = popOptions[Math.floor(Math.random() * popOptions.length)];
+      usedPopulations.add(pool.indexOf(pop));
+
+      const objetivos = sortearObjetivos(pop);
+      const textoObjetivos = objetivos.join(' ');
+      const sugestao = objetivos.length ? sugerirFerramenta(textoObjetivos) : 'Sem sugestão de ferramenta.';
+
+      return { pop, objetivos, sugestao, recurso: sugerirRecursoAcustico(textoObjetivos) };
+    }
+
+    // Quantos objetivos entram em cada desafio, conforme a opção escolhida
+    function sortearObjetivos(pop) {
+      if (pop.objectives.length === 0) return [];
+
+      const modo = document.getElementById('objCount').value;
+      if (modo === 'todos') return pop.objectives.slice();
+
+      const quantidade = Math.min(parseInt(modo, 10), pop.objectives.length);
+      const escolhidos = [];
+      if (!pop._usedObjectives) pop._usedObjectives = new Set();
+
+      while (escolhidos.length < quantidade) {
+        let disponiveis = pop.objectives.filter((obj, idx) => !pop._usedObjectives.has(idx) && !escolhidos.includes(obj));
+        if (disponiveis.length === 0) {
+          pop._usedObjectives = new Set();
+          disponiveis = pop.objectives.filter(obj => !escolhidos.includes(obj));
+        }
+        if (disponiveis.length === 0) break;
+        const escolhido = sortearItem(disponiveis);
+        pop._usedObjectives.add(pop.objectives.indexOf(escolhido));
+        escolhidos.push(escolhido);
+      }
+      return escolhidos;
+    }
+
+    function formatarObjetivos(objetivos) {
+      if (objetivos.length === 0) return 'Objetivo: ⚠️ Sem objetivo clínico definido.';
+      if (objetivos.length === 1) return `Objetivo: ${objetivos[0]}`;
+      return 'Objetivos:\n' + objetivos.map(o => `• ${o}`).join('\n');
+    }
+
+    // Monta as linhas de recurso conforme a modalidade escolhida
+    function formatarRecursos(sugestao, recurso) {
+      const modalidade = modalidadeAtual();
+      const linhas = [];
+      if (modalidade !== 'digital') {
+        linhas.push(`🎼 Experiência musical (Bruscia): ${recurso.experiencia}`);
+        linhas.push(`🥁 Atividade sugerida: ${recurso.atividade}`);
+        linhas.push(`🎵 Recursos acústicos: ${recurso.instrumentos}`);
+      }
+      if (modalidade !== 'acustico') {
+        linhas.push(`🎧 Ferramenta digital: ${sugestao}`);
+      }
+      return linhas.join('\n');
+    }
+
+    // Sorteio
+    function sortear() {
+      const resultsDiv = document.getElementById('results');
+      if (participants.length === 0 || populations.length === 0) {
+        alert("Adicione participantes e populações clínicas.");
+        return;
+      }
+
+      const emGrupos = modoAtual() === 'grupo';
+      if (emGrupos && groups.length === 0) {
+        alert("Forme os grupos antes de sortear.");
+        return;
+      }
+
+      const output = [];
+      const usedPopulations = new Set();
+
+      // Populações sem objetivo clínico ficam de fora, desde que sobre alguma com objetivo
+      const comObjetivos = populations.filter(p => p.objectives.length > 0);
+      const semObjetivos = populations.filter(p => p.objectives.length === 0);
+      const pool = comObjetivos.length ? comObjetivos : populations;
+      const aviso = (comObjetivos.length && semObjetivos.length)
+        ? `⚠️ Fora do sorteio por não ter objetivo clínico: ${semObjetivos.map(p => p.name).join('; ')}\n\n`
+        : '';
+
+      // Unidades sorteadas: cada participante, ou cada grupo
+      const unidades = emGrupos
+        ? groups.map((membros, i) => ({ titulo: `Grupo ${i + 1}`, membros }))
+        : participants.map(name => ({ titulo: name, membros: null }));
+
+      unidades.forEach(({ titulo, membros }) => {
+        const { pop, objetivos, sugestao, recurso } = sortearDesafio(pool, usedPopulations);
+        const cabecalho = membros ? `${titulo} (${membros.join(', ')}):` : `${titulo}:`;
+        output.push(`${cabecalho}\nPopulação: ${pop.name}\n${formatarObjetivos(objetivos)}\n${formatarRecursos(sugestao, recurso)}\n`);
+      });
+
+      const corpo = aviso + output.join('\n---\n');
+      resultsDiv.textContent = corpo;
+      ultimoSorteio = montarTextoExportavel(corpo, emGrupos);
+    }
+
+    // === Exportação do resultado ===
+    let ultimoSorteio = null;
+
+    function montarTextoExportavel(corpo, emGrupos) {
+      const modalidades = { misto: 'Acústico + digital', acustico: 'Só acústico', digital: 'Só Chrome Music Lab' };
+      const agora = new Date();
+      const formato = emGrupos
+        ? `Grupos (${groups.length} grupos, base de ${document.getElementById('groupSize').value} por grupo)`
+        : `Sorteio individual (${participants.length} participantes)`;
+      return [
+        'SORTEIO DE DESAFIO MUSICOTERAPÊUTICO',
+        `Data: ${agora.toLocaleDateString('pt-BR')} às ${agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}`,
+        `Formato: ${formato}`,
+        `Modalidade dos recursos: ${modalidades[modalidadeAtual()]}`,
+        '='.repeat(52),
+        '',
+        corpo
+      ].join('\n');
+    }
+
+    function avisoExport(mensagem) {
+      const span = document.getElementById('exportStatus');
+      span.textContent = mensagem;
+      setTimeout(() => { span.textContent = ''; }, 3000);
+    }
+
+    function semSorteio() {
+      if (!ultimoSorteio) {
+        alert("Faça um sorteio antes de exportar o resultado.");
+        return true;
+      }
+      return false;
+    }
+
+    // Fallback para quando a API de clipboard não está disponível (arquivo aberto via file://)
+    function copiarFallback(texto) {
+      const ta = document.createElement('textarea');
+      ta.value = texto;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    }
+
+    function copiarResultado() {
+      if (semSorteio()) return;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(ultimoSorteio)
+          .then(() => avisoExport('✅ Resultado copiado!'))
+          .catch(() => avisoExport(copiarFallback(ultimoSorteio) ? '✅ Resultado copiado!' : '⚠️ Não foi possível copiar.'));
+        return;
+      }
+      avisoExport(copiarFallback(ultimoSorteio) ? '✅ Resultado copiado!' : '⚠️ Não foi possível copiar.');
+    }
+
+    function baixarResultado() {
+      if (semSorteio()) return;
+      const data = new Date().toISOString().slice(0, 10);
+      const blob = new Blob([ultimoSorteio], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `sorteio-musicoterapia-${data}.txt`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      avisoExport('⬇️ Arquivo baixado.');
+    }
+
+    // Preencher palavras-chave na sidebar e adicionar clique para inserir no último input objetivo
+    function preencherPalavrasChave() {
+      const ul = document.getElementById('listaPalavrasChave');
+      ul.innerHTML = '';
+      palavrasChave.forEach(palavra => {
+        const li = document.createElement('li');
+        li.textContent = palavra;
+        const exps = palavraParaExperiencias[palavra];
+        li.title = exps
+          ? `Inserir "${palavra}" no objetivo clínico da última população\nExperiência musical: ${exps.join(', ')}`
+          : `Inserir "${palavra}" no objetivo clínico da última população`;
+        li.addEventListener('click', () => {
+          if (populations.length === 0) {
+            alert("Adicione pelo menos uma população clínica antes de usar as palavras-chave.");
+            return;
+          }
+          const indexUltimaPop = populations.length - 1;
+          const objInput = document.getElementById(`objInput${indexUltimaPop}`);
+          if (!objInput) return;
+          if (objInput.value.length > 0 && !objInput.value.endsWith(' ')) objInput.value += ' ';
+          objInput.value += palavra;
+          objInput.focus();
+          mostrarSugestaoFerramenta(indexUltimaPop);
+        });
+        ul.appendChild(li);
+      });
+    }
+
+    // Preencher o autocomplete e o painel de sugestões de populações clínicas
+    function preencherSugestoesPopulacoes() {
+      const datalist = document.getElementById('popSugestoes');
+      const chips = document.getElementById('popSuggestionsChips');
+      datalist.innerHTML = '';
+      chips.innerHTML = '';
+      catalogoPopulacoes.forEach((p, i) => {
+        const opt = document.createElement('option');
+        opt.value = p.nome;
+        datalist.appendChild(opt);
+
+        const btn = document.createElement('button');
+        btn.className = 'chip';
+        btn.textContent = p.nome;
+        btn.title = `Objetivos sugeridos:\n• ${p.objetivos.join('\n• ')}`;
+        btn.onclick = () => addPopulationFromCatalog(i);
+        chips.appendChild(btn);
+      });
+    }
+
+    // Preencher o acervo acústico por função sonora
+    function preencherAcervo() {
+      const ul = document.getElementById('acervoList');
+      ul.innerHTML = '';
+      acervoAcustico.forEach(grupo => {
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${grupo.grupo}:</strong> ${grupo.uso}<br/><em>${grupo.itens.join(', ')}</em>`;
+        ul.appendChild(li);
+      });
+    }
+
+    // Preencher a referência das experiências musicais de Bruscia
+    function preencherExperiencias() {
+      const ul = document.getElementById('experienciasList');
+      ul.innerHTML = '';
+      experienciasMusicais.forEach(exp => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <strong>${exp.nome}:</strong> ${exp.descricao}
+          <br/><em>Exemplos de atividade:</em>
+          <ul>${exp.atividades.map(a => `<li>${a}</li>`).join('')}</ul>
+          <em>Instrumentos e materiais:</em> ${exp.instrumentos.join(', ')}
+          <br/><em>Palavras-chave relacionadas:</em> ${experienciaPalavras[exp.nome].join(', ')}
+        `;
+        ul.appendChild(li);
+      });
+    }
+
+    // Preencher biblioteca das ferramentas com descrições e suas palavras-chave relacionadas
+   function preencherBiblioteca() {
+    const ul = document.getElementById('libraryList');
+    ul.innerHTML = '';
+    bibliotecaFerramentas.forEach(ferramenta => {
+      const relacionadas = Object.entries(palavraParaFerramentas)
+        .filter(([palavra, ferramentas]) => ferramentas.includes(ferramenta.nome))
+        .map(([palavra]) => palavra);
+      const li = document.createElement('li');
+      li.innerHTML = `<strong><a href="${ferramenta.url}" target="_blank" rel="noopener noreferrer">${ferramenta.nome}</a>:</strong> ${ferramenta.descricao} <br/><em>Palavras-chave relacionadas:</em> ${relacionadas.join(', ')}`;
+      ul.appendChild(li);
+    });
+  }
+    // Eventos para Enter nas entradas principais
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('popInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') addPopulation();
+      });
+      document.getElementById('participantInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') addParticipant();
+      });
+
+      preencherSugestoesPopulacoes();
+      preencherPalavrasChave();
+      preencherExperiencias();
+      preencherAcervo();
+      preencherBiblioteca();
+    });
+  </script>
+</body>
+</html>

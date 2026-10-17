@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IAPs · Capítulo 32 · Os Perfis · Bruscia 1987</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="iaps.css" rel="stylesheet"/>
+</head>
+<body class="lang-pt">
+<a class="skip-link" data-lang="pt" href="#main-content">Ir para o conteúdo</a>
+<a class="skip-link" data-lang="en" href="#main-content">Skip to content</a>
+<div aria-hidden="true" id="progress-bar"></div>
+<div aria-live="polite" id="read-tip" role="status"></div>
+
+<!-- ════════════════════════ VERTICAL TOC ════════════════════ -->
+<nav aria-label="Navegação de seções" id="vtoc">
+  <div class="vtoc-dot" data-href="#sec-integration" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">1 Integração</span>
+    <span class="vtoc-dot-label" data-lang="en">1 Integration</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-variability" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">2 Variabilidade</span>
+    <span class="vtoc-dot-label" data-lang="en">2 Variability</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-tension" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">3 Tensão</span>
+    <span class="vtoc-dot-label" data-lang="en">3 Tension</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-congruence" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">4 Congruência</span>
+    <span class="vtoc-dot-label" data-lang="en">4 Congruence</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-salience" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">5 Saliência</span>
+    <span class="vtoc-dot-label" data-lang="en">5 Salience</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-autonomy" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">6 Autonomia</span>
+    <span class="vtoc-dot-label" data-lang="en">6 Autonomy</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+  <div class="vtoc-dot" data-href="#sec-overlaps" role="link" tabindex="0">
+    <span class="vtoc-dot-label" data-lang="pt">7 Sobreposições</span>
+    <span class="vtoc-dot-label" data-lang="en">7 Overlaps</span>
+    <span class="vtoc-dot-pip"></span>
+  </div>
+</nav>
+
+<!-- ════════════════════════ TOP NAV ════════════════════════ -->
+<nav aria-label="Navegação principal" class="top-nav" role="navigation">
+  <div aria-hidden="true" class="nav-brand"><strong>IAPs</strong> ·
+    <span data-lang="pt">Adaptado de Bruscia (1987) por <strong>Ivan Moriá Borges</strong> · Improvisação em Musicoterapia I - UFMG · 2026</span>
+    <span data-lang="en">Adapted from Bruscia (1987) by <strong>Ivan Moriá Borges</strong> · Improvisation in Music Therapy I - UFMG · 2026</span>
+  </div>
+  
+
+
+
+
+
+
+
+  <div class="nav-controls">
+    <div aria-label="Controles de leitura em voz alta" class="audio-controls" id="audio-controls" role="group">
+      <button aria-label="Iniciar leitura em voz alta" class="nav-audio-btn" id="btn-play" onclick="ttsTogglePlay()">
+        <svg aria-hidden="true" fill="currentColor" id="icon-play" viewbox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"></path></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-stop" style="display:none" viewbox="0 0 16 16"><rect height="10" rx="1" width="10" x="3" y="3"></rect></svg>
+      </button>
+      <button aria-label="Pausar leitura" class="nav-audio-btn" id="btn-pause" onclick="ttsTogglePause()" style="display:none">
+        <svg aria-hidden="true" fill="currentColor" id="icon-pause" viewbox="0 0 16 16"><rect height="12" rx="1" width="4" x="3" y="2"></rect><rect height="12" rx="1" width="4" x="9" y="2"></rect></svg>
+        <svg aria-hidden="true" fill="currentColor" id="icon-resume" style="display:none" viewbox="0 0 16 16"><path d="M4 2.5l9 5.5-9 5.5z"></path></svg>
+      </button>
+      <label class="sr-only" for="speed-sel">Velocidade de leitura</label>
+      <select class="speed-select" id="speed-sel" onchange="ttsSpeedChange()">
+        <option value="0.7">0.7×</option>
+        <option value="0.85">0.85×</option>
+        <option selected="" value="1">1×</option>
+        <option value="1.2">1.2×</option>
+        <option value="1.5">1.5×</option>
+      </select>
+    </div>
+    <div aria-label="Selecionar idioma" class="lang-toggle" role="group">
+      <button aria-pressed="true" class="lang-btn active" lang="pt" onclick="setLang('pt')">PT</button>
+      <button aria-pressed="false" class="lang-btn" lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════ HERO ═══════════════════════════ -->
+<header class="hero" role="banner">
+  <div class="hero-eyebrow">
+    <span data-lang="pt">Unidade 9 · Capítulo 32</span>
+    <span data-lang="en">Unit 9 · Chapter 32</span>
+  </div>
+  <h1 class="hero-title">
+    <span data-lang="pt"><em>Os Perfis</em></span>
+    <span data-lang="en"><em>The Profiles</em></span>
+  </h1>
+  <p class="hero-sub">IAPs · Improvisation Assessment Profiles</p>
+  <p class="hero-lead">
+    <span data-lang="pt">Definições, escalas, níveis e orientações interpretativas para cada um dos seis Perfis de Avaliação da Improvisação.</span>
+    <span data-lang="en">Definitions, scales, levels, and interpretive guidelines for each of the six Improvisation Assessment Profiles.</span>
+  </p>
+  <div class="hero-meta">
+    <div class="hero-chip"><span data-lang="pt">Autor</span><span data-lang="en">Author</span> · <strong>Kenneth E. Bruscia</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Livro</span><span data-lang="en">Book</span> · <strong>Improvisational Models of Music Therapy</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Publicação</span><span data-lang="en">Published</span> · <strong>1987</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Páginas</span><span data-lang="en">Pages</span> · <strong>pp. 423–449</strong></div>
+    <div class="hero-chip"><span data-lang="pt">Adaptação e Interface gráfica</span><span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong></div>
+  </div>
+</header>
+
+<!-- ════════════════════════ MAIN ═══════════════════════════ -->
+<main class="page-body" id="main-content">
+
+  <!-- ══════════════════ 1. PERFIL DE INTEGRAÇÃO ══════════════════ -->
+  <section class="section" id="sec-integration">
+    <h2 class="sec-title" data-lang="pt">Perfil de Integração</h2>
+    <h2 class="sec-title" data-lang="en">The Integration Profile</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+
+    <div data-lang="en">
+      <p class="rp">The Integration profile is a composite description of how the client organizes and relates <em>simultaneous</em> aspects of an improvisation. Of chief concern is how simultaneous events, qualities, ideas, and sequences create figure-ground and part-whole relationships within and among the musical elements, components, and parts. The profile may be used to analyze solo, duet, or group improvisation, and may focus on intramusical, intrapersonal, intermusical, and interpersonal relationships. Table XVIII provides a definition of cach scale belonging to the profile.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O Perfil de Integração é uma descrição composta de como o cliente organiza e relaciona os aspectos <em>simultâneos</em> de uma improvisação. De principal preocupação é como eventos, qualidades, ideias e sequências simultâneas criam relações figura-fundo e parte-todo dentro e entre os elementos, componentes e partes musicais. O perfil pode ser usado para analisar improvisação solo, duo ou grupo, e pode focar em relações intramusicais, intrapessoais, intermusicais e interpessoais. A Tabela XVIII fornece uma definição da escala de cache pertencente ao perfil.</p>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Integração</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Integration</h3>
+
+    <div data-lang="en">
+      <p class="rp">A continuum with five gradients or levels of integration is used to specify the extent to which figure-ground and part-whole relationships are formed within and between the various musical elements. The central question is whether simultaneous components and parts are: alike or different, separate or together, and dependent or independent. The five gradients are: </p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Um contínuo com cinco gradientes ou níveis de integração é usado para especificar até que ponto as relações figura-fundo e parte-todo são formadas dentro e entre os vários elementos musicais. A questão central é se os componentes e partes simultâneos são: semelhantes ou diferentes, separados ou juntos, e dependentes ou independentes. Os cinco gradientes são: </p>
+    </div>
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Indiferenciado</span><span class="grad-chip-lbl" data-lang="en">Undifferentiated</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Fundido</span><span class="grad-chip-lbl" data-lang="en">Fused</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Integrado</span><span class="grad-chip-lbl" data-lang="en">Integrated</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Diferenciado</span><span class="grad-chip-lbl" data-lang="en">Differentiated</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Superdiferenciado</span><span class="grad-chip-lbl" data-lang="en">Overdifferentiated</span></div>
+    </div>
+
+    <div data-lang="en">
+      <ul class="i-list">
+        <li><strong>Undifferentiated.</strong> The entities have not been separated, and are merged as one. There are no differences between them. The figure is the ground, the parts are unseparated from each other and the whole. The entities are equal, and mutually dependent.</li>
+        <li><strong>Fused.</strong> The entities are separate, and have converged with one another to create unity or uniformity. They are more alike than different, and frequently coincide in time. Nevertheless, they are distinguishable. The figure can be distinguished from the ground, but relates to and coincides with it. The parts are separated from one another and the whole, but are uniformly related. To maintain a fused relationship, one entity is independent while the other is dependent.</li>
+        <li><strong>Integrated.</strong> The entities have been separated and differentiated, and have blended with one another to create a unified diversity. They are equally alike and different. They coincide and relate as often as they do not. They are clearly distinguishable, yet they are closely intertwined. The figure is integrated into the ground, coinciding with it half of the time. The parts are integrated, matching each other half of the time. To maintain an integrated relationship, the entities are both independent and interdependent.</li>
+        <li><strong>Differentiated.</strong> The entities are separated and highly contrasted from one another, yet they form a compatible relationship. They are more different than alike, and they coincide only occasionally. The figure digresses from the ground, yet relates to it. The parts are distinct yet compatible, matching each other only occasionally. To maintain the differentiation, both entities are more independent than interdependent.</li>
+        <li><strong>Overdifferentiated.</strong> The entities are distant, highly contrasted, and incompatible. They are not alike and do not coincide, unless by accident. The figure is not related to the ground, and the parts are not related to one another or the whole. The relationships are conflictual most of the time. To maintain the overdifferentiation, both entities remain totally independent from one another.</li>
+      </ul>
+    </div>
+    <div data-lang="pt">
+      <ul class="i-list">
+        <li><strong>Indiferenciado.</strong> As entidades não foram separadas e estão fundidas como uma só. Não há diferenças entre elas. A figura é o fundo, as partes são inseparáveis umas das outras e do todo. As entidades são iguais e mutuamente dependentes.</li>
+        <li><strong>Fundido.</strong> As entidades são separadas e convergiram umas com as outras para criar unidade ou uniformidade. São mais parecidas do que diferentes e frequentemente coincidem no tempo. Contudo, são distinguíveis. A figura pode ser distinguida do fundo, mas relaciona-se com ele e coincide com ele. As partes são separadas umas das outras e do todo, mas estão uniformemente relacionadas. Para manter uma relação fundida, uma entidade é independente enquanto a outra é dependente.</li>
+        <li><strong>Integrado.</strong> As entidades foram separadas e diferenciadas, e se mesclaram umas com as outras para criar uma diversidade unificada. São igualmente parecidas e diferentes. Coincidem e se relacionam tão frequentemente quanto não o fazem. São claramente distinguíveis, mas intimamente entrelaçadas. A figura se integra ao fundo, coincidindo com ele metade do tempo. As partes são integradas, combinando umas com as outras metade do tempo. Para manter uma relação integrada, as entidades são ao mesmo tempo independentes e interdependentes.</li>
+        <li><strong>Diferenciado.</strong> As entidades são separadas e altamente contrastadas umas com as outras, mas formam uma relação compatível. São mais diferentes do que parecidas e coincidem apenas ocasionalmente. A figura diverge do fundo, mas ainda se relaciona com ele. As partes são distintas mas compatíveis, combinando umas com as outras apenas ocasionalmente. Para manter a diferenciação, ambas as entidades são mais independentes do que interdependentes.</li>
+        <li><strong>Superdiferenciado.</strong> As entidades são distantes, altamente contrastadas e incompatíveis. Não são parecidas e não coincidem, a não ser por acidente. A figura não está relacionada ao fundo, e as partes não estão relacionadas entre si ou ao todo. As relações são conflitivas na maior parte do tempo. Para manter a superdiferenciação, ambas as entidades permanecem totalmente independentes uma da outra.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Tabela XVIII - Escalas do Perfil de Integração </h3>
+    <h3 class="subsec-title" data-lang="en"> Table XVIII - Scales in the Integration Profile</h3>
+
+    <div data-lang="en">
+      <ul class="scales-list">
+        <li><strong>Rhythmic Figure-Ground.</strong> To what extent does the rhythm create a ground or a figure, and how grounded is the figure in a basic pulse and meter? More specifically, how often do the sound durations coincide with an underlying pulse, and how often do the emphases given to the sounds coincide with a basic meter?</li>
+        <li><strong>Rhythmic Part-Whole.</strong> To what extent do two or more simultaneous rhythmic parts coincide with each other, and to what extent are they integrated into the same underlying pulse and meter? 
+        The entities may be two pulses, two rhythm patterns, or any combination thereof.
+        </li>
+        <li><strong>Melodic Figure-Ground.</strong> To what extent does the melody form a figure or ground, and how grounded is the melody in a scale and tonality?</li>
+        <li><strong>Melodic Part-Whole.</strong> To what extent are two or more tonal parts related in pitch to each other, and to the same scale and tonal center? The entities may be two simultaneous melodies, or a melody with chordal accompaniment.</li>
+        <li><strong>Harmonic Figure-Ground.</strong> To what extent do the chords fit into a scale and tonal center?</li>
+        <li><strong>Textural Part-Whole.</strong> To what extent is the texture organized into part-whole relationships according to role functions (e.g., figure-ground, solo-accompaniment, leader-follower)?
+        
+        With reference to tonal parts, the scale describes whether the parts are playing the same or different roles, thereby creating monophony, homophony, or polyphony.
+Do the parts form a single melody, a melody with accompaniment, or two melodies?
+Do the rhythmic parts create a single figure or ground, a figure and ground, two figures, or two grounds?
+        
+        
+        
+        
+        
+        </li>
+        <li><strong>Textural – Register &amp; Configurations.</strong> To what extent do the voices or parts appear in the same or different pitch registers, and to what extent do they have different voicing configurations?</li>
+        <li><strong>Phrasing.</strong> To what extent are two or more simultaneous parts related to each other with regard to phrase length and shape?</li>
+        <li><strong>Timbre.</strong> To what extent are simultaneous sound qualities manipulated to form figure-ground, part-whole, and solo-accompaniment relationships in timbre?</li>
+        <li><strong>Volume.</strong> To what extent are the intensity and amount of sound manipulated to form figure-ground, part-whole, and solo-accompaniment relationships?</li>
+        <li><strong>Motor.</strong> To what extent are different parts of the body (e.g., two hands, hands and feet) coordinated in playing a rhythm or melody?</li>
+        <li><strong>Body-phrase.</strong> To what extent do breaths and motor sequences coincide with the length of phrases, and to what extent do they serve as the primary source for shape? Are the phrases motor-dominated or sound-dominated?</li>
+        <li><strong>Lyrics.</strong> To what extent do the lyrics of an improvisation (if used) coincide with the rhythm of the melody?</li>
+      </ul>
+    </div>
+    <div data-lang="pt">
+      <ul class="scales-list">
+        <li><strong>Figura-Fundo Rítmico.</strong> Até que ponto o ritmo cria um fundo ou uma figura, e quão fundamentada está a figura em um pulso básico e no metro? Mais especificamente, com que frequência as durações dos sons coincidem com um pulso subjacente, e com que frequência as ênfases dadas aos sons coincidem com um metro básico?</li>
+        <li><strong>Parte-Todo Rítmico.</strong> Até que ponto duas ou mais partes rítmicas simultâneas coincidem entre si, e até que ponto estão integradas no mesmo pulso e metro subjacentes? As entidades podem ser dois pulsos, dois padrões de ritmo ou qualquer combinação destes.</li>
+        <li><strong>Figura-Fundo Melódico.</strong> Até que ponto a melodia forma uma figura ou fundo, e quão fundamentada está a melodia em uma escala e tonalidade? </li>
+        <li><strong>Parte-Todo Melódico.</strong> Até que ponto duas ou mais partes tonais estão relacionadas em altura entre si e ao mesmo centro tonal e escala? As entidades podem ser duas melodias simultâneas ou uma melodia com acompanhamento harmônico.</li>
+        <li><strong>Figura-Fundo Harmônico.</strong> Até que ponto os acordes se encaixam em uma escala e centro tonal?</li>
+        <li><strong>Parte-Todo Textural.</strong> Até que ponto a textura está organizada em relações parte-todo de acordo com funções de papel (ex.: figura-fundo, solo-acompanhamento, líder-seguidor)?
+        
+        Com referência às partes tonais, a escala descreve se as partes estão desempenhando os mesmos ou diferentes papéis, criando assim monofonia, homofonia ou polifonia.
+As partes formam uma única melodia, uma melodia com acompanhamento ou duas melodias?
+As partes rítmicas criam uma única figura ou base (ground), uma figura e uma base, duas figuras, ou duas bases?
+        
+        </li>
+        <li><strong>Textural – Registro e Configurações.</strong> Até que ponto as vozes ou partes aparecem nos mesmos ou diferentes registros de altura, e até que ponto possuem diferentes configurações de voicing?</li>
+        <li><strong>Fraseado.</strong> Até que ponto duas ou mais partes simultâneas estão relacionadas entre si com relação ao comprimento e forma das frases?</li>
+        <li><strong>Timbre.</strong> Até que ponto qualidades sonoras simultâneas são manipuladas para formar relações figura-fundo, parte-todo e solo-acompanhamento no timbre?</li>
+        <li><strong>Volume.</strong> Até que ponto a intensidade e quantidade de som são manipuladas para formar relações figura-fundo, parte-todo e solo-acompanhamento?</li>
+        <li><strong>Motor.</strong> Até que ponto diferentes partes do corpo (ex.: duas mãos, mãos e pés) são coordenadas ao tocar um ritmo ou melodia?</li>
+        <li><strong>Frase Corporal.</strong> Até que ponto respirações e sequências motoras coincidem com o comprimento das frases, e até que ponto servem como fonte primária de forma? As frases são dominadas pelo motor ou pelo som?</li>
+        <li><strong>Letra.</strong> Até que ponto a letra de uma improvisação (quando usada) coincide com o ritmo da melodia?</li>
+      </ul>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Integração</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Integration Profile</h3>
+
+    <div data-lang="en">
+      <p class="rp">The integration profile reflects several basic psychological processes, including those that are sensorimotor, perceptual, cognitive, emotional, and interpersonal in focus.
+
+         Consequently, interpretation must proceed accordingly,
+      </p>
+      <p class="rp"><strong>Sensorimotor Functions.</strong> At the sensorimotor level, the integration profile reveals how the individual organizes, controls, and coordinates visual, auditory, tactual, and motor functions in time. Levels of integration can reflect degrees of reflexivity, intentionality, impulse control, sensory elaboration, and body integration. By comparing the subscales, one can discover which sensory modality predominates over the others, which is most organized or neurologically controlled, and whether the musical forms are dominated by sensorimotor or perceptual processes. The motor scale is particularly helpful in examining the development of sidedness and the integration of the sides and parts of the body.</p>
+      <p class="rp"><strong>Perceptual Functions.</strong> At the perceptual level, the integration profile reveals how the individual organizes perceptual fields into figure-ground and part-whole relationships. Levels of integration often reflect the extent to which the individual has control over impulses and perceptual illusions. Impulses are controlled by channeling one's motor energy into perceptible forms, which requires intentionality, object relations, and motor control. Illusions are controlled by directing attention to the most important aspects of the perceptual field, which requires multiple levels of consciousness, selective attention, and breadth of attention.<br>
+When impulses are not controlled, perceptible forms of expression do not emerge within rhythm or melody, and organization is not apparent within the other musical elements. When illusions are not controlled, figure–ground and part–whole relationships within each musical element are unformed, unstable, or inconsistent. When impulses and illusions are not controlled, perceptual schemes between the musical elements cannot be coordinated.</p>
+      <p class="rp"><strong>Cognitive Functions.</strong> At the cognitive level, the integration profile deals with how percepts fit together and logically relate to one another in content and form. Figure-ground relationships reflect levels of ideational complexity and structural clarity. Part-whole relationships reflect concepts of classification (e.g., similarities and differences).The temporal concepts of simultaneity, and the spatial concepts of boundaries, separation, and distance are also revealed in the integration profile.
+      </p>
+      <p class="rp"><strong>Emotional Functions.</strong> At the emotional level, the integration profile deals with how an entity (or identity) emerges from embeddedness. Figure-ground and part-whole relationships reflect: the clarity of boundaries between self and not-self, the degree of separation from the holding environment, and the amount of distancing necessary to maintain boundaries and separateness.Sometimes these relationships reflect parts within the self; at other times they reflect the self and introjected parts of the other. <br>
+Another issue at the emotional level is control. The basic tendency to organize one’s environment stems from the anxiety produced by overstimulation. In this case, overstimulation occurs when too many different things are happening at once. The individual cannot adequately deal with the simultaneous aspects of his or her experience. Whenever sensorimotor functions are not integrated, or the perceptual field is not organized enough to form clear concepts, the individual becomes overwhelmed by the environment. When the world is incomprehensible, the individual does not receive constant support from a holding environment, and anxiety takes over.
+      
+      </p>
+      <p class="rp"><strong>Interpersonal Functions.</strong> At the interpersonal level, the integration profile reveals how all of the above psychological processes are accomplished with another person or group. Of key importance in interpreting this profile is identifying the roles that each person plays. Who is the figure and who is the ground? How are the parts related, and which parts belong to whom?
+Emotionally speaking, the levels of integration reflect the permeability of boundaries and the degree of separation and distancing from others. Synchrony is unification or fusion with the other, or it is parallel play. Integration is separation but closeness with the other, or it is cooperative play. Differentiation is separation and distancing from the other, or it is competitive play.</p>
+ <p class="rp">The next chapter gives guidelines on interpreting the integration profile from psychoanalytic and existential perspectives.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O perfil de integração reflete vários processos psicológicos básicos, incluindo aqueles com foco sensoriomotor, perceptual, cognitivo, emocional e interpessoal. Consequentemente, a interpretação deve proceder de acordo com:</p>
+      <p class="rp"><strong>Funções Sensoriomotoras.</strong> No nível sensoriomotor, o perfil de integração revela como o indivíduo organiza, controla e coordena funções visuais, auditivas, táteis e motoras no tempo. Os níveis de integração podem refletir graus de reflexividade, intencionalidade, controle de impulsos, elaboração sensorial e integração corporal. Ao comparar as subescalas, pode-se descobrir qual modalidade sensorial predomina sobre as outras, qual é a mais organizada ou controlada neurologicamente, e se as formas musicais são dominadas por processos sensório-motores ou perceptivos. A escala motora é particularmente útil para examinar o desenvolvimento da lateralidade e a integração dos lados e das partes do corpo.</p>
+      <p class="rp"><strong>Funções Perceptuais.</strong> No nível perceptual, o perfil de integração revela como o indivíduo organiza campos perceptuais em relações figura-fundo e parte-todo. Os níveis de integração frequentemente refletem até que ponto o indivíduo tem controle sobre impulsos e ilusões perceptuais. Os impulsos são controlados ao canalizar a energia motora em formas perceptíveis, o que requer intencionalidade, relações de objeto e controle motor. As ilusões são controladas ao direcionar a atenção para os aspectos mais importantes do campo perceptivo, o que requer múltiplos níveis de consciência, atenção seletiva e amplitude de atenção.<br>
+Quando os impulsos não são controlados, formas perceptíveis de expressão não emergem no ritmo ou na melodia, e a organização não se torna aparente nos outros elementos musicais. Quando as ilusões não são controladas, as relações figura–fundo e parte–todo dentro de cada elemento musical permanecem não formadas, instáveis ou inconsistentes. Quando impulsos e ilusões não são controlados, os esquemas perceptivos entre os elementos musicais não podem ser coordenados. </p>
+      <p class="rp"><strong>Funções Cognitivas.</strong> No nível cognitivo, o perfil de integração trata de como os perceptos se encaixam e se relacionam logicamente entre si em conteúdo e forma. Relações figura-fundo refletem níveis de complexidade ideacional e clareza estrutural. Relações parte-todo refletem conceitos de classificação (ex.: semelhanças e diferenças). Os conceitos temporais de simultaneidade, bem como os conceitos espaciais de limites, separação e distância, também são revelados no perfil de integração.
+</p>
+      <p class="rp"><strong>Funções Emocionais.</strong> No nível emocional, o perfil de integração trata de como uma entidade (ou identidade) emerge da imersão. Relações figura-fundo e parte-todo refletem: a clareza das fronteiras entre o eu e o não-eu, o grau de separação do ambiente de sustentação, e a quantidade de distanciamento necessário para manter fronteiras e separação. Às vezes, essas relações refletem partes dentro do próprio eu; em outras ocasiões, refletem o eu e partes introjetadas do outro.<br>
+Outra questão no nível emocional é o controle. A tendência básica de organizar o próprio ambiente surge da ansiedade produzida pela superestimulação. Nesse caso, a superestimulação ocorre quando muitas coisas diferentes estão acontecendo ao mesmo tempo. O indivíduo não consegue lidar adequadamente com os aspectos simultâneos de sua experiência. Sempre que as funções sensório-motoras não estão integradas, ou o campo perceptivo não está suficientemente organizado para formar conceitos claros, o indivíduo fica sobrecarregado pelo ambiente. Quando o mundo se torna incompreensível, o indivíduo não recebe apoio constante de um ambiente de sustentação (holding environment), e a ansiedade assume o controle.</p>
+      <p class="rp"><strong>Funções Interpessoais.</strong> No nível interpessoal, o perfil de integração revela como todos os processos psicológicos mencionados acima são realizados com outra pessoa ou com um grupo. De grande importância na interpretação desse perfil é identificar os papéis que cada pessoa desempenha. Quem é a figura e quem é o fundo? Como as partes se relacionam e a quem cada parte pertence?
+Em termos emocionais, os níveis de integração refletem a permeabilidade dos limites e o grau de separação e distanciamento em relação aos outros. A sincronia é a unificação ou fusão com o outro, ou corresponde ao brincar paralelo. A integração é separação, mas com proximidade em relação ao outro, ou corresponde ao brincar cooperativo. A diferenciação é separação e distanciamento do outro, ou corresponde ao brincar competitivo.</p>
+  <p class="rp">O próximo capítulo apresenta diretrizes para interpretar o perfil de integração a partir de perspectivas psicanalíticas e existenciais.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ 2. PERFIL DE VARIABILIDADE ══════════════════ -->
+  <section class="section" id="sec-variability">
+    <h2 class="sec-title" data-lang="pt">Perfil de Variabilidade</h2>
+    <h2 class="sec-title" data-lang="en">The Variability Profile</h2>
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+    <div data-lang="en">
+      <p class="rp">The variability profile provides a composite description of how the client organizes and relates <em>successive</em> or <em>sequential</em> aspects of an improvisation. Scales within the profile provide a means of analyzing each musical element with regard to sequences in figures and grounds, and temporal part-whole relationships that emerge as the improvisation progresses.</p>
+      <p class="rp">The variability profile describes the extent to which components of each musical element are maintained, repeated, varied, developed, changed, and contrasted through time. As such, it reveals musical "forms" that emerge in thematic components (i.e., rhythm, melody, harmony), organizing components (i.e., tempo, meter, modality, tonality), and qualitative components (i.e., volume, timbre, and texture).</p>
+ <p class="rp">The profile may be used to analyze sequences within an individual's music (intramusical and intrapersonal relationships) or sequences within the musical whole created by two or more persons (intermusical and interpersonal relationships). Thus, it may be applied to solo, duet, or group improvisations, using the same criteria and procedures.</p>
+ <p class="rp">Table XIX provides a definition of each scale belonging to the profile.
+
+      </p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O Perfil de Variabilidade fornece uma descrição composta de como o cliente organiza e relaciona os aspectos <em>sucessivos</em> ou <em>sequenciais</em> de uma improvisação. As escalas dentro do perfil fornecem um meio de analisar cada elemento musical com relação a sequências em figuras e fundos, e relações parte-todo temporais que emergem à medida que a improvisação progride.</p>
+      <p class="rp">O perfil de variabilidade descreve a extensão em que os componentes de cada elemento musical são mantidos, repetidos, variados, desenvolvidos, alterados e contrastados ao longo do tempo. Como tal, revela "formas" musicais que emergem componentes temáticos (ex. ritmo, melodia, harmonia), componentes organizadores (isto é, andamento, métrica, modalidade, tonalidade) e componentes qualitativos (isto é, volume, timbre e textura). </p>
+    <p class="rp">O perfil pode ser utilizado para analisar sequências dentro da música de um indivíduo (relações intramusicais e intrapessoais) ou sequências dentro do todo musical criado por duas ou mais pessoas (relações intermusicais e interpessoais). Assim, pode ser aplicado a improvisações solo, em dueto ou em grupo, utilizando os mesmos critérios e procedimentos.</p>
+  <p class="rp">A Tabela XIX apresenta a definição de cada escala pertencente ao perfil.</p>
+    </div>
+
+
+
+
+
+<h3 class="subsec-title" data-lang="pt">Tabela XIX - Escalas do Perfil de Variabilidade</h3>
+<h3 class="subsec-title" data-lang="en">Table XIX - Scales in the Variability Profile</h3>
+
+<div data-lang="en">
+  <ul class="scales-list">
+
+    <li><strong>Tempo.</strong> What is the range of tempos used, and the amount, frequency, and abruptness of changes made in them?</li>
+
+    <li><strong>Meter & Subdivision.</strong> What is the range of meters and subdivisions used, and the extent, frequency, and abruptness of changes made in them?</li>
+
+    <li><strong>Rhythmic Figure.</strong> To what extent are rhythmic ideas or themes repeated, varied, developed, changed, and contrasted?</li>
+
+    <li><strong>Melodic Figure.</strong> To what extent are melodic ideas or themes repeated, varied, developed, changed, and contrasted?</li>
+
+    <li><strong>Tonal Ground – Modality & Tonality.</strong> What is the range of scales and key centers used, and the amount, frequency, and abruptness of changes made in them?</li>
+
+    <li><strong>Harmonic.</strong> What is the range of chords, chord voicings, and progressions used, and the amount, frequency, and abruptness of changes made in them?</li>
+
+    <li><strong>Texture – Overall.</strong> What is the range of overall textures (e.g., monophony, homophony, polyphony) used within the improvisation, and the frequency and abruptness of any changes made?</li>
+
+    <li><strong>Texture – Roles.</strong> To what extent are textural roles maintained, varied, or contrasted? Does a particular voice or part function solely as a figure or ground, soloist or accompanist, leader or follower, or does the part change its role function?</li>
+
+    <li><strong>Texture – Register.</strong> What is the breadth of pitch ranges used, and the amount, frequency, and abruptness of changes made in the registers of each part?</li>
+
+    <li><strong>Texture – Configurations.</strong> What is the range of voicing configurations used, and the extent, frequency, and abruptness of changes made in them?</li>
+
+    <li><strong>Style.</strong> To what extent is a particular musical style maintained throughout the improvisation, and from one improvisation to the next?</li>
+
+    <li><strong>Phrasing.</strong> What is the range, frequency, and abruptness of changes made in the length and shape of phrases?</li>
+
+    <li><strong>Timbre.</strong> What is the range of sound qualities used, and the amount, frequency, and abruptness of changes made in them? Timbre variability is affected by the choice of medium (e.g., voice, body sounds, instruments), instruments (e.g., drum, xylophone), sound production techniques (e.g., hitting, shaking), and basic sound vocabulary (e.g., attack, articulation, resonance).</li>
+
+    <li><strong>Volume.</strong> What is the range of dynamics used, and the amount, frequency, and abruptness of changes made in sound intensity and mass?</li>
+
+    <li><strong>Body.</strong> To what extent do the improviser’s posture, movement patterns, facial expressions, etc., remain the same or change during an improvisation?</li>
+
+    <li><strong>Program.</strong> What is the range of characters and events used within the program for a single improvisation, and the extent and abruptness of changes made in them as the program and improvisation unfold?</li>
+
+    <li><strong>Lyrics.</strong> How repetitive are the lyrics?</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="scales-list">
+
+    <li><strong>Tempo.</strong> Qual é a amplitude de andamentos utilizados e qual é a quantidade, frequência e brusquidão das mudanças realizadas neles?</li>
+
+    <li><strong>Métrica e Subdivisão.</strong> Qual é a variedade de métricas e subdivisões utilizadas, e qual é a extensão, frequência e brusquidão das mudanças realizadas nelas?</li>
+
+    <li><strong>Figura Rítmica.</strong> Em que medida ideias ou temas rítmicos são repetidos, variados, desenvolvidos, modificados ou contrastados?</li>
+
+    <li><strong>Figura Melódica.</strong> Em que medida ideias ou temas melódicos são repetidos, variados, desenvolvidos, modificados ou contrastados?</li>
+
+    <li><strong>Base Tonal – Modalidade e Tonalidade.</strong> Qual é a variedade de escalas e centros tonais utilizados, e qual é a quantidade, frequência e brusquidão das mudanças realizadas neles?</li>
+
+    <li><strong>Harmonia.</strong> Qual é a variedade de acordes, disposições de vozes (voicings) e progressões harmônicas utilizadas, e qual é a quantidade, frequência e brusquidão das mudanças realizadas nelas?</li>
+
+    <li><strong>Textura – Geral.</strong> Qual é a variedade de texturas gerais (ex.: monofonia, homofonia, polifonia) utilizadas dentro da improvisação, e qual é a frequência e brusquidão das mudanças realizadas?</li>
+
+    <li><strong>Textura – Papéis.</strong> Em que medida os papéis texturais são mantidos, variados ou contrastados? Uma voz ou parte específica funciona apenas como figura ou fundo, solista ou acompanhador, líder ou seguidor, ou essa parte altera sua função ao longo da improvisação?</li>
+
+    <li><strong>Textura – Registro.</strong> Qual é a amplitude dos registros de altura utilizados, e qual é a quantidade, frequência e brusquidão das mudanças realizadas nos registros de cada parte?</li>
+
+    <li><strong>Textura – Configurações.</strong> Qual é a variedade de configurações de voicing utilizadas, e qual é a extensão, frequência e brusquidão das mudanças realizadas nelas?</li>
+
+    <li><strong>Estilo.</strong> Em que medida um determinado estilo musical é mantido ao longo da improvisação e de uma improvisação para outra?</li>
+
+    <li><strong>Fraseado.</strong> Qual é a amplitude, frequência e brusquidão das mudanças no comprimento e na forma das frases?</li>
+
+    <li><strong>Timbre.</strong> Qual é a variedade de qualidades sonoras utilizadas e qual é a quantidade, frequência e brusquidão das mudanças realizadas nelas? A variabilidade do timbre é influenciada pela escolha do meio (ex.: voz, sons corporais, instrumentos), dos instrumentos (ex.: tambor, xilofone), das técnicas de produção sonora (ex.: bater, sacudir) e do vocabulário sonoro básico (ex.: ataque, articulação, ressonância).</li>
+
+    <li><strong>Volume.</strong> Qual é a amplitude de dinâmicas utilizadas e qual é a quantidade, frequência e brusquidão das mudanças realizadas na intensidade e massa sonora?</li>
+
+    <li><strong>Corpo.</strong> Em que medida a postura, os padrões de movimento, as expressões faciais etc. do improvisador permanecem iguais ou mudam durante a improvisação?</li>
+
+    <li><strong>Programa.</strong> Qual é a variedade de personagens e eventos utilizados dentro do programa de uma improvisação, e qual é a extensão e brusquidão das mudanças que ocorrem à medida que o programa e a improvisação se desenvolvem?</li>
+
+    <li><strong>Letra.</strong> Quão repetitivas são as letras?</li>
+
+  </ul>
+</div>
+
+
+
+
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Variabilidade</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Variability</h3>
+<div data-lang="en">
+
+      <p class="rp">
+A continuum with five gradients or levels of variability is used to specify: how many options for change are considered, how much change is made, how often change is made, and how gradually it is made.
+The five gradients are:   </p></div>
+<div data-lang="pt">
+      <p class="rp">
+
+  Um contínuo com cinco gradientes ou níveis de variabilidade é utilizado para especificar: quantas opções de mudança são consideradas, quanta mudança é realizada, com que frequência a mudança ocorre e quão gradual ela é.
+Os cinco gradientes são:   </p>
+</div>
+   
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Rígido</span><span class="grad-chip-lbl" data-lang="en">Rigid</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Estável</span><span class="grad-chip-lbl" data-lang="en">Stable</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Variável</span><span class="grad-chip-lbl" data-lang="en">Variable</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Contrastante</span><span class="grad-chip-lbl" data-lang="en">Contrasting</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Aleatório</span><span class="grad-chip-lbl" data-lang="en">Random</span></div>
+    </div>
+
+    <div data-lang="en">
+      <ul class="i-list">
+        <li><strong>Rigid.</strong> This level is characterized by severe limitations in the number of options for change that are considered, an unswerving focus, and an active avoidance of even slight, occasional, or gradual changes. Musically, this rigidity is manifested in prolonged, persistent maintenance or repetition of a musical element or any of its components - beyond what is commonly accepted as musically meaningful.
+Successive events or qualities within the musical element do not vary, differ, or change except rarely, and then only in very slight or almost imperceptible ways. There is a limited range of options, a fixed focus on a particular aspect or component, and an inflexibility in the way things unfold.
+Examples of this level include:
+
+<ul class="i-list">
+<li>Fixations – prolonged, meaningless focus on a particular pitch, tonality, sound duration, speed, volume level, texture, and/or timbre.</li>
+<li>Perseverations – persistent, meaningless repetition of a rhythm, melody, or harmonic progression.</li>
+<li>Rituals – rigid and meaningless adherence to a particular sequence of musical events or manipulations.</li>
+<li>Stereotypy – rigid and meaningless adherence to a certain rule, convention, or principle for manipulating the musical element.</li>
+</ul>
+
+</li>
+        <li><strong>Stable.</strong> This level is characterized by a delimitation in the options for change that are considered, a selective and stable focus, and active efforts to preserve, maintain, and repeat a particular aspect or musical element. Changes tend to be slight, occasional, and gradual. Structural, drastic, or abrupt changes are not made.
+Variation may take place; however, it is ornamental in nature. New ideas are rarely introduced. Successive events, qualities, or ideas are more similar than they are different, and there is a predictability in the way things unfold. The expectation is that the music will remain the same.
+Examples of this level include:
+
+
+<ul class="i-list">
+<li>Repetition of a melody, rhythm, chord progression, timbre, texture, etc. (i.e., "A–A" forms).</li>
+<li>Maintenance of a tempo, tonality, texture, timbre, volume, etc.</li>
+<li>Ornamental variation of a melody, rhythm, chord progression, etc. (i.e., "A–A" forms).</li>
+<li>Augmentation or diminution.</li>
+<li>Conservation – repetition of one element with variation of another.</li>
+<li>Sequencing – repetition of a melody at different pitch levels.</li>
+</ul>
+
+
+</li>
+
+        <li><strong>Variable.</strong>This level is characterized by a balance and integration of efforts to stabilize and change the music. Options for change are limited yet varied. The focus is stable yet flexible, selective yet adaptive. There are active efforts to preserve, maintain, and repeat while also introducing change.
+The amount and rate of change are moderate, and transitions are made from one idea or quality to the next. Structural, drastic, or abrupt changes are rarely made. New ideas may be introduced; however, they grow out of previous ones. Successive events, qualities, or ideas are similar but different, related but distinct. Repetition, variation, and developmental change occur equally.
+The expectation is that the music will both stay the same and change, and that both courses can be anticipated.
+Examples of this level include:
+        
+
+<ul class="i-list">
+<li>Character variations.</li>
+<li>Musical transformations such as inversions and reversals.</li>
+<li>Modulations or changes in tempo, tonality, texture, timbre, volume, etc.</li>
+<li>Antecedent–consequent progressions (i.e., “A–B” forms).</li>
+<li>Extensions, transitions, codas, etc.</li>
+<li>Developmental progressions or forward-directed change.</li>
+<li>Cyclic returns to an original theme or idea (i.e., “A–B–A–C–A” forms).</li>
+</ul>
+
+
+
+
+        </li>
+
+
+
+        <li><strong>Contrasting.</strong> This level is characterized by a wide range of options for change, shifting foci, and dramatic changes. There are active efforts to move in entirely new and different directions and to contrast these directions with previous ones. Changes tend to be substantial, frequent, and quick, yet meaningful.
+Successive events, qualities, or ideas are more different than they are similar, yet there is compatibility between them. Contrasts occur more frequently than repetition and variation. The expectation is that, although the precise nature of the changes cannot be predicted, the occurrence of continuous change can be anticipated.
+Examples of this level include:
+<ul class="i-list">
+<li>Thematic contrasts in successive rhythms, melodies, etc.</li>
+<li>Dramatic changes in tempo, volume, tonality, etc.</li>
+</ul>
+
+</li>
+
+
+
+        <li><strong>Random.</strong> This level is characterized by an unlimited range of possibilities for change, a lack of focus, and an absence of efforts to preserve, maintain, or repeat previous materials. There is a proliferation of different qualities or ideas without regard for how they are related in content or organized sequentially.
+Changes are drastic, frequent, abrupt, and meaningless. Qualities and ideas are not maintained or reiterated, except by accident. Successive events are not related. The unpredictability is so great that expectations are not formed, and nothing but random change can be anticipated.
+Examples of this level include:
+
+<ul class="i-list">
+<li>Fragmentation – absence of a complete idea.</li>
+<li>Distortion and exaggeration – meaningless exploitation of extremes or qualities.</li>
+<li>Discontinuity – incompatibility between successive ideas accompanied by gaps in activity.</li>
+<li>Diffusion – lack of consistent focus or any other kind of stability.</li>
+</ul>
+
+</li>
+      </ul>
+    </div>
+    <div data-lang="pt">
+      <ul class="i-list">
+        <li><strong>Rígido.</strong> Este nível é caracterizado por severas limitações no número de opções de mudança consideradas, um foco inabalável e uma evitação ativa até mesmo de mudanças leves, ocasionais ou graduais. Musicalmente, essa rigidez manifesta-se na manutenção ou repetição prolongada e persistente de um elemento musical ou de qualquer um de seus componentes, além do que é comumente aceito como musicalmente significativo.
+Eventos ou qualidades sucessivas dentro do elemento musical não variam, diferem ou mudam, exceto raramente, e apenas de maneiras muito sutis ou quase imperceptíveis. Há uma gama limitada de opções, um foco fixo em um aspecto ou componente específico e uma inflexibilidade na forma como os acontecimentos se desenvolvem.
+Exemplos desse nível incluem:
+
+<ul class="i-list">
+<li>Fixações – foco prolongado e sem significado em uma determinada altura (pitch), tonalidade, duração do som, velocidade, nível de volume, textura e/ou timbre.</li>
+<li>Perseverações – repetição persistente e sem significado de um ritmo, melodia ou progressão harmônica.</li>
+<li>Rituais – adesão rígida e sem significado a uma sequência específica de eventos ou manipulações musicais.</li>
+<li>Estereotipia – adesão rígida e sem significado a uma determinada regra, convenção ou princípio para manipular o elemento musical.</li>
+</ul>
+
+</li>
+        <li><strong>Estável.</strong> Este nível é caracterizado por uma delimitação nas opções de mudança consideradas, um foco seletivo e estável, e esforços ativos para preservar, manter e repetir um determinado aspecto ou elemento musical. As mudanças tendem a ser leves, ocasionais e graduais. Mudanças estruturais, drásticas ou abruptas não são realizadas.
+Pode ocorrer variação; no entanto, ela é de natureza ornamental. Novas ideias raramente são introduzidas. Eventos, qualidades ou ideias sucessivas são mais semelhantes do que diferentes, e há uma previsibilidade na forma como as coisas se desenvolvem. A expectativa é que a música permaneça a mesma.
+Exemplos desse nível incluem:
+
+
+
+<ul class="i-list">
+<li>Repetição de uma melodia, ritmo, progressão de acordes, timbre, textura, etc. (isto é, formas “A–A”).</li>
+<li>Manutenção de um andamento, tonalidade, textura, timbre, volume, etc.</li>
+<li>Variação ornamental de uma melodia, ritmo, progressão de acordes, etc. (isto é, formas “A–A”).</li>
+<li>Augmentação ou diminuição.</li>
+<li>Conservação – repetição de um elemento com variação de outro.</li>
+<li>Sequenciamento – repetição de uma melodia em diferentes níveis de altura.</li>
+</ul>
+
+</li>
+        <li><strong>Variável.</strong> Este nível é caracterizado por um equilíbrio e uma integração entre esforços para estabilizar e modificar a música. As opções de mudança são limitadas, porém variadas. O foco é estável, mas flexível; seletivo, porém adaptável. Há esforços ativos para preservar, manter e repetir, ao mesmo tempo em que se introduzem mudanças.
+A quantidade e a velocidade das mudanças são moderadas, e transições são realizadas de uma ideia ou qualidade para a seguinte. Mudanças estruturais, drásticas ou abruptas raramente ocorrem. Novas ideias podem ser introduzidas; contudo, elas se desenvolvem a partir das anteriores. Eventos, qualidades ou ideias sucessivas são semelhantes, mas diferentes; relacionadas, mas distintas. Repetição, variação e desenvolvimento ocorrem de forma equilibrada.
+A expectativa é que a música permaneça a mesma e também mude, e que ambos os caminhos possam ser antecipados.
+Exemplos desse nível incluem:
+
+
+
+<ul class="i-list">
+<li>Variações de caráter.</li>
+<li>Transformações musicais como inversões e retrogradações.</li>
+<li>Modulações ou mudanças de andamento, tonalidade, textura, timbre, volume, etc.</li>
+<li>Progressões antecedente–consequente (isto é, formas “A–B”).</li>
+<li>Extensões, transições, codas, etc.</li>
+<li>Progressões de desenvolvimento ou mudanças direcionadas para frente.</li>
+<li>Retornos cíclicos a um tema ou ideia original (isto é, formas “A–B–A–C–A”).</li>
+</ul>
+
+</li>
+        <li><strong>Contrastante.</strong> Este nível é caracterizado por uma ampla gama de opções de mudança, focos que se deslocam e mudanças dramáticas. Há esforços ativos para seguir em direções completamente novas e diferentes e para contrastar essas direções com as anteriores. As mudanças tendem a ser substanciais, frequentes e rápidas, porém significativas.
+Eventos, qualidades ou ideias sucessivas são mais diferentes do que semelhantes, embora exista compatibilidade entre elas. Os contrastes ocorrem com mais frequência do que a repetição e a variação. A expectativa é que, embora a natureza exata das mudanças não possa ser prevista, a ocorrência de mudanças contínuas possa ser antecipada.
+Exemplos desse nível incluem:
+
+
+
+<ul class="i-list">
+<li>Contrastes temáticos em ritmos, melodias, etc., sucessivos.</li>
+<li>Mudanças dramáticas de andamento, volume, tonalidade, etc.</li>
+</ul>
+
+</li>
+
+
+
+
+        <li><strong>Aleatório.</strong> Este nível é caracterizado por uma gama ilimitada de possibilidades de mudança, falta de foco e ausência de esforços para preservar, manter ou repetir materiais anteriores. Há uma proliferação de diferentes qualidades ou ideias, sem consideração por como elas se relacionam em conteúdo ou por como são organizadas sequencialmente.
+As mudanças são drásticas, frequentes, abruptas e sem significado. Qualidades e ideias não são mantidas ou reiteradas, exceto por acaso. Eventos sucessivos não se relacionam entre si. A imprevisibilidade é tão grande que expectativas não são construídas, e nada além de mudanças aleatórias pode ser antecipado.
+Exemplos desse nível incluem:
+
+
+
+
+<ul class="i-list">
+<li>Fragmentação – ausência de uma ideia completa.</li>
+<li>Distorção e exagero – exploração sem significado de extremos ou qualidades.</li>
+<li>Descontinuidade – incompatibilidade entre ideias sucessivas acompanhada por lacunas na atividade.</li>
+<li>Difusão – falta de foco consistente ou de qualquer outro tipo de estabilidade.</li>
+</ul>
+
+</li>
+      </ul>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Variabilidade</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Variability Profile</h3>
+
+    <div data-lang="en">
+      <p class="rp">The variability profile deals with the individual's tendency to keep things the same or change them over time. As such, the profile reflects temporal relationships between ideas and feelings of the past, present, and future.</p>
+            <p class="rp">Sameness is preserved when there is a need for permanence, stability, predictability, tradition, or selectivity. When taken to extremes, sameness leads to fixation, obsession, compulsion, perseveration, rumination, and ritualism.</p>
+
+
+      <p class="rp"><strong>Preserving Sameness.</strong> Sameness is preserved by maintaining or repeating previous ideas or feelings, and by minimizing the introduction of new and different ones. The process is both retentive and conservative. One must keep what one already has and not let go of it. At the same time, one must resist change and the introduction of any new ideas or feelings.
+          <p class="rp">Keeping what one has, and not accepting every change or new idea that comes along, builds a secure foundation for the present and a clear direction for the future. However, when sameness is preserved rigidly and urgently, there is no security in the present and no direction for the future.</p>
+            <p class="rp">
+
+
+Keeping what one already has is a process of living the present in the past, or reliving the past in the present. As such, it is a regressive process. Since the future is not pursued, it is also a static process. Regressive and static processes are valuable. Not moving into the present or future can be a way of indulging in time. Pausing, waiting, or being suspended can be an exploration of existing possibilities before moving onward.
+When taken to its extreme, however, regression or keeping the past can lead to blocking out the present and the future, and to never returning from the regression. Without plunging into the future, the present becomes incomprehensible and the past has no meaning or purpose.</p>
+
+
+<p class="rp"><strong>Making Changes.</strong> Change takes place when there is a need for divergence, experimentation, freedom, flexibility, or adaptation. When taken to extremes, change leads to diffusion, impulsivity, disorganization, discontinuity, and fragmentation.</p>
+
+<p class="rp">Change is made by introducing new ideas and feelings, and minimizing the repetition or maintenance of previous ones. The process is innovative and liberal. One must explore, invent, and create something new in order to improve and grow. One cannot be bound exclusively to what is already known and comfortable. When taken to extremes, however, excessive change implies that there is no map to guide the course of exploration, and there is no meaningful rationale for invention or creation. The present becomes random and the future becomes erratic, with no guidance from the past.</p>
+
+<p class="rp">Change requires moving forward in time, predicting the future, and formulating expectations of what will develop out of the present and past. It is progressive and dynamic. Without looking to the future and expecting something to emerge, the present becomes capricious and the past becomes senseless. On the other hand, when taken to extremes, futurism and innovation become rigid in their preservation of randomness and discontinuity. Paradoxically then, they can become repressive, conservative, retentive, and static forces.</p>
+
+
+
+
+<p class="rp"><strong>Finding a Balance.</strong> When the processes of stability and change are integrated, there is a balance between regressive and progressive directions, between conservative and liberal tendencies, and between dynamic and static forces. One is bound to the present through the past and future. A natural developmental process takes place. Previous ideas and feelings provide a basis for present ones, and present ideas and feelings project hopes and directions for the future.</p>
+
+<p class="rp">The levels of variability reveal how much one keeps and lets go, and how avidly one resists changes and new ideas or feelings. They also reflect how much the past is kept, how much the present is based on the past, and how much the future relates to the past and present.</p>
+
+<p class="rp">Within the intrapersonal context, the variability profile reveals how various aspects of the self are preserved and changed. Within the interpersonal context, the variability profile reveals whether one accepts or rejects oneself or the other; whether one preserves one's own ideas or the ideas of another; whether one changes one's own ideas or those of another; whether one accepts one's own past or present or that of another; and whether one determines one's own future or follows the direction of another.</p>
+
+<p class="rp">The next chapter gives guidelines on interpreting the variability profile from psychoanalytic and existential perspectives.</p>
+
+
+</div>
+
+
+
+
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O perfil de variabilidade trata da tendência do indivíduo de manter as coisas iguais ou alterá-las ao longo do tempo. Como tal, o perfil reflete relações temporais entre ideias e sentimentos do passado, presente e futuro.</p>
+                  <p class="rp">A mesmidade é preservada quando há necessidade de permanência, estabilidade, previsibilidade, tradição ou seletividade. Quando levada aos extremos, a mesmidade conduz à fixação, obsessão, compulsão, perseveração, ruminação e ritualismo.</p>
+
+<p class="rp"><strong>Preservando a Mesmidade.</strong> A mesmidade é preservada ao manter ou repetir ideias ou sentimentos anteriores e ao minimizar a introdução de novos e diferentes. O processo é ao mesmo tempo retentivo e conservador. É necessário manter aquilo que já se tem e não deixá-lo ir. Ao mesmo tempo, é preciso resistir à mudança e à introdução de novas ideias ou sentimentos.</p>
+
+<p class="rp">Manter o que se possui, e não aceitar toda mudança ou nova ideia que surge, constrói uma base segura para o presente e uma direção clara para o futuro. No entanto, quando a mesmidade é preservada de forma rígida e urgente, não há segurança no presente nem direção para o futuro.</p>
+
+<p class="rp">Manter o que já se tem é um processo de viver o presente no passado, ou de reviver o passado no presente. Nesse sentido, trata-se de um processo regressivo. Como o futuro não é buscado, também se trata de um processo estático. Processos regressivos e estáticos podem ser valiosos. Não avançar para o presente ou para o futuro pode ser uma maneira de permanecer no tempo. Pausar, esperar ou permanecer suspenso pode representar uma exploração das possibilidades existentes antes de seguir adiante.</p>
+
+<p class="rp">Quando levado ao extremo, porém, a regressão ou a manutenção do passado pode levar ao bloqueio do presente e do futuro, e a nunca retornar da regressão. Sem avançar em direção ao futuro, o presente torna-se incompreensível e o passado perde seu significado e propósito.</p>
+
+
+
+<p class="rp"><strong>Fazendo Mudanças.</strong> A mudança ocorre quando há necessidade de divergência, experimentação, liberdade, flexibilidade ou adaptação. Quando levada aos extremos, a mudança conduz à difusão, impulsividade, desorganização, descontinuidade e fragmentação.</p>
+
+<p class="rp">A mudança é realizada ao introduzir novas ideias e sentimentos, minimizando a repetição ou manutenção dos anteriores. O processo é inovador e liberal. É necessário explorar, inventar e criar algo novo para melhorar e crescer. Não se pode estar limitado exclusivamente ao que já é conhecido e confortável. No entanto, quando levada ao extremo, a mudança excessiva implica que não há um mapa para orientar o curso da exploração, nem uma justificativa significativa para a invenção ou criação. O presente torna-se aleatório e o futuro torna-se errático, sem orientação do passado.</p>
+
+<p class="rp">A mudança exige avançar no tempo, prever o futuro e formular expectativas sobre o que se desenvolverá a partir do presente e do passado. Trata-se de um processo progressivo e dinâmico. Sem olhar para o futuro e esperar que algo emerja, o presente torna-se caprichoso e o passado perde o sentido. Por outro lado, quando levados aos extremos, o futurismo e a inovação tornam-se rígidos na preservação da aleatoriedade e da descontinuidade. Paradoxalmente, então, podem tornar-se forças repressivas, conservadoras, retentivas e estáticas.</p>
+
+
+
+
+<p class="rp"><strong>Encontrando um Equilíbrio.</strong> Quando os processos de estabilidade e mudança são integrados, há um equilíbrio entre direções regressivas e progressivas, entre tendências conservadoras e liberais, e entre forças dinâmicas e estáticas. A pessoa está ligada ao presente por meio do passado e do futuro. Um processo natural de desenvolvimento ocorre. Ideias e sentimentos anteriores fornecem uma base para os presentes, e as ideias e sentimentos presentes projetam esperanças e direções para o futuro.</p>
+
+<p class="rp">Os níveis de variabilidade revelam o quanto se mantém e o quanto se deixa ir, e o quanto se resiste a mudanças e a novas ideias ou sentimentos. Eles também refletem quanto do passado é mantido, quanto do presente se baseia no passado e quanto o futuro se relaciona com o passado e o presente.</p>
+
+<p class="rp">No contexto intrapessoal, o perfil de variabilidade revela como diversos aspectos do self são preservados e modificados. No contexto interpessoal, o perfil de variabilidade revela se alguém aceita ou rejeita a si mesmo ou ao outro; se preserva suas próprias ideias ou as ideias de outra pessoa; se modifica suas próprias ideias ou as de outra pessoa; se aceita seu próprio passado ou presente ou o de outra pessoa; e se determina seu próprio futuro ou segue a direção de outro.</p>
+
+<p class="rp">O próximo capítulo apresenta diretrizes para interpretar o perfil de variabilidade a partir de perspectivas psicanalíticas e existenciais.</p>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ 3. PERFIL DE TENSÃO ══════════════════ -->
+  <section class="section" id="sec-tension">
+    <h2 class="sec-title" data-lang="pt">Perfil de Tensão</h2>
+    <h2 class="sec-title" data-lang="en">The Tension Profile</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+
+<div data-lang="en">
+
+<p class="rp">The tension profile is a composite description of the amount and flow of tension generated through each musical element. Scales within the profile provide a means of analyzing each element and its components in terms of the amount of tension that is accumulated, sustained, stored, modulated, and released.</p>
+
+<p class="rp">As used here, tension may be a quality belonging to the element or a feeling state produced in the listener. It may be an objective property of the music, or a subjective reaction or expectation in the listener. For instance, loudness as a quality of sound is usually perceived as more tension-producing than softness. On the other hand, there are situations when sustained softness can generate more tension than loudness, and when loudness can provide a welcome relief or release. Thus, tension is not simply a function of the amount of energy manifested in the element itself; it also involves the way the energy is manipulated and perceived by the listener.</p>
+
+<p class="rp">Musical tension varies according to several factors, including the amount of energy accumulated and released, the flow of energy, the size and frequency of climaxes, structural clarity, predictability, pleasantness, and the extent to which the capabilities of the element, improviser, and media are exploited, utilized, and strained.</p>
+
+<p class="rp">Tension influences and is influenced by all of the other profiles. Lack of integration or overdifferentiation often creates tension. Conversely, extreme tension may cause disintegration or overdifferentiation. Rigidity and randomness also create tension, and are often induced by tension. Tension can be a function of how the musical elements are manipulated to achieve prominence and control over one another, as well as how role relationships are created between the improvisers. Finally, tension levels are also influenced by how congruent the feelings expressed in the improvisation are with each other.</p>
+
+<p class="rp">Tension may be analyzed intramusically (within an individual's improvisation) or intermusically (between individuals making up a musical whole). It may indicate intrapersonal relationships between the music and the self, or interpersonal relationships between the improvisers.</p>
+
+<p class="rp">Table XX provides a definition of each scale belonging to the profile.</p>
+
+</div>
+
+
+<div data-lang="pt">
+
+<p class="rp">O perfil de tensão é uma descrição composta da quantidade e do fluxo de tensão gerados por cada elemento musical. As escalas dentro do perfil fornecem um meio de analisar cada elemento e seus componentes em termos da quantidade de tensão que é acumulada, sustentada, armazenada, modulada e liberada.</p>
+
+<p class="rp">Conforme utilizado aqui, a tensão pode ser uma qualidade pertencente ao elemento ou um estado emocional produzido no ouvinte. Pode ser uma propriedade objetiva da música ou uma reação ou expectativa subjetiva no ouvinte. Por exemplo, a intensidade sonora (volume) como qualidade do som geralmente é percebida como gerando mais tensão do que a suavidade. Por outro lado, há situações em que uma suavidade sustentada pode gerar mais tensão do que o volume alto, e em que o volume alto pode proporcionar um alívio ou liberação bem-vinda. Assim, a tensão não é simplesmente uma função da quantidade de energia manifestada no próprio elemento; ela também envolve a maneira como essa energia é manipulada e percebida pelo ouvinte.</p>
+
+<p class="rp">A tensão musical varia de acordo com diversos fatores, incluindo a quantidade de energia acumulada e liberada, o fluxo de energia, o tamanho e a frequência dos clímax, a clareza estrutural, a previsibilidade, a agradabilidade e o grau em que as capacidades do elemento, do improvisador e do meio são exploradas, utilizadas e levadas ao limite.</p>
+
+<p class="rp">A tensão influencia e é influenciada por todos os outros perfis. A falta de integração ou a sobrediferenciação frequentemente cria tensão. Por outro lado, uma tensão extrema pode causar desintegração ou sobrediferenciação. Rigidez e aleatoriedade também criam tensão e muitas vezes são induzidas pela própria tensão. A tensão pode ser uma função de como os elementos musicais são manipulados para alcançar proeminência e controle uns sobre os outros, bem como de como são criadas relações de papéis entre os improvisadores. Por fim, os níveis de tensão também são influenciados pelo grau de congruência entre os sentimentos expressos na improvisação.</p>
+
+<p class="rp">A tensão pode ser analisada intramusicalmente (dentro da improvisação de um indivíduo) ou intermusicalmente (entre indivíduos que compõem um todo musical). Ela pode indicar relações intrapessoais entre a música e o self, ou relações interpessoais entre os improvisadores.</p>
+
+<p class="rp">A Tabela XX apresenta uma definição de cada escala pertencente a esse perfil.</p>
+
+</div>
+
+
+
+<h3 class="subsec-title" data-lang="pt">Tabela XX - Escalas do Perfil de Tensão</h3>
+<h3 class="subsec-title" data-lang="en">Table XX - Scales in the Tension Profile</h3>
+
+<div data-lang="en">
+  <ul class="scales-list">
+
+    <li><strong>Rhythmic Ground.</strong> How much tension is gathered and released through tempo, meter, and subdivisions of the beat, and how often is ground tension varied?</li>
+
+    <li><strong>Rhythmic Figure.</strong> How much tension is gathered and released through rhythmic patterns and themes, and how often is rhythmic tension varied?</li>
+
+    <li><strong>Tonal Ground.</strong> How much tension is gathered and released through modality and tonality, and how often is it varied?</li>
+
+    <li><strong>Melodic.</strong> How much tension is gathered and released through melody, and how often is it varied?</li>
+
+    <li><strong>Harmonic.</strong> How much tension is gathered and released through chord choices, voicings, and progressions, and how often is harmonic tension varied?</li>
+
+    <li><strong>Textural.</strong> How much tension is gathered and released through the spatial arrangement and role functions of the various parts? How often is textural tension varied?</li>
+
+    <li><strong>Phrasing.</strong> How much tension is gathered and released by the length and shape of the phrases, and how often does phrase tension vary?</li>
+
+    <li><strong>Volume.</strong> How much tension is gathered and released through sound intensity and mass, and how often does volume tension vary?</li>
+
+    <li><strong>Timbral.</strong> How much tension is gathered and released through medium, instrument, sound production techniques, and sound vocabulary, and how often is timbral tension varied?</li>
+
+    <li><strong>Body / Motor.</strong> How much tension is gathered and released through the improviser’s posture, body language, facial expression, and movement, and how often does it vary?</li>
+
+    <li><strong>Program.</strong> How much tension is found in the images, associations, and stories attached to the improvisation by the client? How much tension is found in the lyrics of vocal improvisations?</li>
+
+    <li><strong>Verbal Reaction.</strong> How much tension is expressed by the client when discussing the improvisation or its programmatic reference?</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="scales-list">
+
+    <li><strong>Base Rítmica.</strong> Quanta tensão é acumulada e liberada por meio do andamento (tempo), da métrica e das subdivisões do pulso, e com que frequência a tensão da base rítmica é variada?</li>
+
+    <li><strong>Figura Rítmica.</strong> Quanta tensão é acumulada e liberada por meio de padrões e temas rítmicos, e com que frequência a tensão rítmica é variada?</li>
+
+    <li><strong>Base Tonal.</strong> Quanta tensão é acumulada e liberada por meio da modalidade e da tonalidade, e com que frequência ela é variada?</li>
+
+    <li><strong>Melódico.</strong> Quanta tensão é acumulada e liberada por meio da melodia, e com que frequência ela é variada?</li>
+
+    <li><strong>Harmônico.</strong> Quanta tensão é acumulada e liberada por meio da escolha de acordes, das disposições de vozes (voicings) e das progressões harmônicas, e com que frequência a tensão harmônica é variada?</li>
+
+    <li><strong>Textural.</strong> Quanta tensão é acumulada e liberada por meio da organização espacial e das funções de papel das diferentes partes? Com que frequência a tensão textural é variada?</li>
+
+    <li><strong>Fraseado.</strong> Quanta tensão é acumulada e liberada pelo comprimento e pela forma das frases, e com que frequência a tensão do fraseado varia?</li>
+
+    <li><strong>Volume.</strong> Quanta tensão é acumulada e liberada por meio da intensidade e da massa sonora, e com que frequência a tensão dinâmica varia?</li>
+
+    <li><strong>Timbre.</strong> Quanta tensão é acumulada e liberada por meio do meio utilizado, do instrumento, das técnicas de produção sonora e do vocabulário sonoro, e com que frequência a tensão tímbrica é variada?</li>
+
+    <li><strong>Corpo / Motor.</strong> Quanta tensão é acumulada e liberada por meio da postura do improvisador, da linguagem corporal, das expressões faciais e do movimento, e com que frequência ela varia?</li>
+
+    <li><strong>Programa.</strong> Quanta tensão está presente nas imagens, associações e histórias vinculadas à improvisação pelo cliente? Quanta tensão está presente nas letras das improvisações vocais?</li>
+
+    <li><strong>Reação Verbal.</strong> Quanta tensão é expressa pelo cliente ao discutir a improvisação ou sua referência programática?</li>
+
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Tensão</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Tension</h3>
+<div data-lang="en">
+  <p class="rp">
+    A continuum of five gradients or levels is used to specify how much tension is maintained through each musical element. The five gradients are: 
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    Um contínuo de cinco gradientes ou níveis é utilizado para especificar quanta tensão é mantida em cada elemento musical. Os cinco gradientes são:
+  </p>
+</div>
+
+
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Hipotenso</span><span class="grad-chip-lbl" data-lang="en">Hypotense</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Calmo</span><span class="grad-chip-lbl" data-lang="en">Calm</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Cíclico</span><span class="grad-chip-lbl" data-lang="en">Cyclic</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Tenso</span><span class="grad-chip-lbl" data-lang="en">Tense</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Hipertenso</span><span class="grad-chip-lbl" data-lang="en">Hypertense</span></div>
+    </div>
+
+    <div data-lang="en">
+      <ul class="i-list">
+        <li><strong>Hypotense.</strong> The element is not manipulated with sufficient energy or commitment to create tension, or the element is inadequately formed. There may be complete inactivity, euphoria, avoidance of tension, and a total lack of resistance to the instrument or flow of energy. As a result, there is nothing about the element which can arouse or release tension.</li>
+        <li><strong>Calm.</strong> The element is manipulated to sustain steady states of low tension, or to continuously release any tension accumulated. Low levels of energy are used to avoid tension, or high energy levels are used to release tension. The flow of energy is smooth, and disruptions are avoided. Climaxes are small and infrequent. Simplicity, predictability, and structural clarity are maintained.</li>
+        <li><strong>Cyclic.</strong> The element is manipulated to accumulate and release tension and to balance states of high and low tension. Different levels of energy are employed, and the flow of energy may be smooth or interrupted for expressive purposes. Climaxes vary in size and frequency. Balances are maintained between simplicity and complexity, predictability and inhibited expectations, and structural clarity and vagueness.</li>
+        <li><strong>Tense.</strong> The element is manipulated to sustain steady states of high tension, or to continuously accumulate tension without releasing it. High levels of energy are used to sustain tension, or low energy levels are used to build tension. The flow of energy is direct, but may be interrupted frequently to create tension. The capabilities of the medium or instrument are exploited and nearly strained, and strong resistance is given to direct, smooth flows of energy. Climaxes are powerful and frequent. Strong expectations of increased tension are built, and expectations of release are inhibited. Complexity and structural uncertainty may be more prevalent than simplicity and structural clarity.</li>
+
+
+
+
+        <li><strong>Hypertense.</strong> The element is manipulated to sustain unrelenting states of tension. The amount of energy and tension is overwhelming. The flow of energy is disrupted, and the capabilities of the medium/instrument and improviser are strained. Expectations of tension release are either not established or continuously inhibited. The element is overstimulated and overstimulating.</li>
+      </ul>
+    </div>
+    <div data-lang="pt">
+      <ul class="i-list">
+        <li><strong>Hipotenso.</strong> O elemento não é manipulado com energia ou comprometimento suficientes para criar tensão, ou o elemento está inadequadamente formado. Pode haver inatividade completa, euforia, evitação de tensão e falta total de resistência ao instrumento ou fluxo de energia. Como resultado, não há nada no elemento que possa despertar ou liberar tensão.</li>
+        <li><strong>Calmo.</strong> O elemento é manipulado para sustentar estados estáveis de baixa tensão, ou para liberar continuamente qualquer tensão acumulada. Baixos níveis de energia são usados para evitar tensão, ou altos níveis de energia são usados para liberá-la. O fluxo de energia é suave, e as interrupções são evitadas. Os clímax são pequenos e infrequentes. Simplicidade, previsibilidade e clareza estrutural são mantidas.</li>
+        <li><strong>Cíclico.</strong> O elemento é manipulado para acumular e liberar tensão e para equilibrar estados de alta e baixa tensão. Diferentes níveis de energia são empregados, e o fluxo de energia pode ser suave ou interrompido para fins expressivos. Os clímax variam em tamanho e frequência. Equilíbrios são mantidos entre simplicidade e complexidade, previsibilidade e expectativas inibidas, e clareza e vagueza estrutural.</li>
+        <li><strong>Tenso.</strong> O elemento é manipulado para sustentar estados constantes de alta tensão ou para acumular tensão continuamente sem liberá-la. Níveis elevados de energia são utilizados para manter a tensão, ou níveis baixos de energia são usados para construí-la. O fluxo de energia é direto, mas pode ser frequentemente interrompido para criar tensão. As capacidades do meio ou instrumento são exploradas e quase levadas ao limite, e há forte resistência a fluxos de energia diretos e suaves. Os clímax são poderosos e frequentes. Fortes expectativas de aumento da tensão são criadas, enquanto as expectativas de liberação são inibidas. A complexidade e a incerteza estrutural podem ser mais predominantes do que a simplicidade e a clareza estrutural.
+  </li>
+        <li><strong>Hipertenso.</strong> O elemento é manipulado para sustentar estados implacáveis de tensão. A quantidade de energia e tensão é avassaladora. O fluxo de energia é perturbado, e as capacidades do meio/instrumento e do improvisador são esgotadas. As expectativas de liberação de tensão não são estabelecidas ou são continuamente inibidas. O elemento é superestimulado e superestimulante.</li>
+      </ul>
+    </div>
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Tensão</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Tension Profile</h3>
+
+    <div data-lang="en">
+      <p class="rp">A key to interpreting the tension profile is recognizing its many reciprocal influences. Musical tension may exist in the musical stimulus, the improviser (as player), and the improviser (as listener). The musical tension in one affects and is affected by the other.</p>
+
+
+<p class="rp">
+For example, when the improviser plays with tension, the music sounds tense; when the music sounds tense, the improviser reacts with tension; and when the improviser reacts with tension, s/he begins to make the music tenser. This reactionary circuit can serve to raise, lower, or modulate tension levels in the process of improvising or in the musical product itself.
+</p>
+
+<p class="rp">
+Another area of reciprocal influence is within the music. Tension in one musical element or process affects and is affected by tension in the others. For example, when there is tension in the element of timbre, tension is also created in other elements. And when there is tension in the process of rhythmic integration (e.g., overdifferentiation), rhythmic tension is the result. Usually, complexity, differentiation, and contrast create high levels of tension, whereas simplicity, fusion, and stability create lower levels. Balances between these opposites (i.e., integration and variability) usually create cyclic levels of tension.
+</p>
+
+<p class="rp">
+It is of great interpretive interest when these trends are reversed, or when the tension levels between musical elements begin to interact. For example, when rhythmic fusion is accompanied by high volume tension, a sense of urgency is conveyed. The interpretative question then becomes why so much strength, power, or energy is being devoted to keeping rhythmic figure and ground together.
+</p>
+
+<p class="rp">
+The direction and flow of tension are also important to consider. When tension accumulates, there is forward motion, predictability, and an expectation of release in the future. The focus is on what will happen. When energy is gathered for long periods without release, climaxes or catharses are welcomed. When climaxes become too frequent or intense, the energy flow loses its impact.
+</p>
+
+<p class="rp">
+On the other hand, when tension is released, there is recoiling motion, predictability, and an expectation that the energy will be dissipated. The focus is on what has already happened. When tension is continually released without ever accumulating, a depletion of energy and commitment takes place. Climaxes and catharses do not occur, and boredom may result.
+</p>
+
+<p class="rp">
+The next chapter gives guidelines for interpreting this profile from psychoanalytic and existential perspectives.
+</p>
+
+
+    </div>
+    <div data-lang="pt">
+      <p class="rp">Uma chave para interpretar o perfil de tensão é reconhecer suas múltiplas influências recíprocas. A tensão musical pode existir no estímulo musical, no improvisador (como tocador) e no improvisador (como ouvinte). A tensão musical em um afeta e é afetada pelo outro.</p>
+
+
+<p class="rp">
+Por exemplo, quando o improvisador toca com tensão, a música soa tensa; quando a música soa tensa, o improvisador reage com tensão; e quando o improvisador reage com tensão, ele ou ela começa a tornar a música ainda mais tensa. Esse circuito reativo pode servir para elevar, reduzir ou modular os níveis de tensão tanto no processo de improvisação quanto no próprio produto musical.
+</p>
+
+<p class="rp">
+Outra área de influência recíproca está dentro da própria música. A tensão em um elemento ou processo musical afeta e é afetada pela tensão nos outros. Por exemplo, quando há tensão no elemento do timbre, também se cria tensão em outros elementos. E quando há tensão no processo de integração rítmica (por exemplo, sobrediferenciação), o resultado é tensão rítmica. Em geral, complexidade, diferenciação e contraste criam altos níveis de tensão, enquanto simplicidade, fusão e estabilidade criam níveis mais baixos. Equilíbrios entre esses opostos (isto é, integração e variabilidade) geralmente produzem níveis cíclicos de tensão.
+</p>
+
+<p class="rp">
+É de grande interesse interpretativo quando essas tendências se invertem ou quando os níveis de tensão entre os elementos musicais começam a interagir. Por exemplo, quando a fusão rítmica é acompanhada por alta tensão de volume, transmite-se uma sensação de urgência. A questão interpretativa passa então a ser por que tanta força, poder ou energia está sendo dedicada a manter a figura e o fundo rítmicos juntos.
+</p>
+
+<p class="rp">
+A direção e o fluxo da tensão também são importantes a considerar. Quando a tensão se acumula, há movimento para frente, previsibilidade e uma expectativa de liberação no futuro. O foco está no que acontecerá. Quando a energia é acumulada por longos períodos sem liberação, clímax ou catarse tornam-se bem-vindos. Quando os clímax se tornam muito frequentes ou intensos, o fluxo de energia perde seu impacto.
+</p>
+
+<p class="rp">
+Por outro lado, quando a tensão é liberada, há um movimento de recuo, previsibilidade e uma expectativa de que a energia seja dissipada. O foco está no que já aconteceu. Quando a tensão é continuamente liberada sem nunca se acumular, ocorre um esgotamento de energia e de envolvimento. Clímax e catarse não ocorrem, e pode surgir tédio.
+</p>
+
+<p class="rp">
+O próximo capítulo apresenta diretrizes para interpretar esse perfil a partir de perspectivas psicanalíticas e existenciais.
+</p>
+
+
+
+    </div>
+  </section>
+
+
+
+
+  <!-- ══════════════════ 4. PERFIL DE CONGRUÊNCIA ══════════════════ -->
+  <section class="section" id="sec-congruence">
+    <h2 class="sec-title" data-lang="pt">Perfil de Congruência</h2>
+    <h2 class="sec-title" data-lang="en">The Congruence Profile</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+
+
+<div data-lang="en">
+        <p class="rp">The congruence profile is a composite description of simultaneous feeling states among the various elements and parts. Of chief concern is how consistent the elements and parts are with one another in tension levels and role relationships. Scales in the profile provide a means of analyzing: the extent to which tension levels in each musical element are consistent with the prevailing state of tension in the overall improvisation as well as with selected other musical elements; and the extent to which simultaneous tension levels in one musical element are consistent with role relationships (e.g., figure-ground, part-whole, solo-accompaniment, and leader-follower) found in others.</p>
+  <p class="rp">
+    The congruence profile overlaps with several of the other assessment profiles, including those dealing with tension, integration, and role relationships. The congruence profile is similar to the tension profile in its concern for feeling states, but different from it in its focus on simultaneous tensions among several musical elements rather than levels of tension in a single element. The congruence profile is similar to the integration profile in its concern for simultaneous relationships, but different from it in its focus on the tension generated by each musical element rather than the organization of the element itself. The congruence profile is similar to the salience profile in its concern for relative positions of control within a musical element, but different from it in its focus on how these positions are confirmed or contradicted by the other musical elements.
+  </p>
+
+  <p class="rp">
+    Table XXI provides a definition of each scale belonging to the profile.
+  </p>
+</div>
+
+<div data-lang="pt">
+      <p class="rp">O Perfil de Congruência é uma descrição composta dos estados de sentimento simultâneos entre os vários elementos e partes. De principal preocupação é quão consistentes os elementos e partes são entre si em termos de níveis de tensão e relações de papéis. As escalas no perfil fornecem um meio de analisar: até que ponto os níveis de tensão em cada elemento musical são consistentes com o estado de tensão predominante na improvisação geral, bem como com outros elementos musicais selecionados; e até que ponto os níveis de tensão simultâneos em um elemento musical são consistentes com as relações de papéis (ex.: figura-fundo, parte-todo, solo-acompanhamento e líder-seguidor) encontradas em outros.</p>
+  <p class="rp">
+  
+    O perfil de congruência se sobrepõe a vários dos outros perfis de avaliação, incluindo aqueles relacionados à tensão, integração e relações de papéis. O perfil de congruência é semelhante ao perfil de tensão em sua preocupação com estados emocionais, mas difere dele por focalizar as tensões simultâneas entre vários elementos musicais, em vez dos níveis de tensão em um único elemento. O perfil de congruência é semelhante ao perfil de integração em sua preocupação com relações simultâneas, mas difere dele por enfatizar a tensão gerada por cada elemento musical, em vez da organização do próprio elemento. O perfil de congruência é semelhante ao perfil de saliência em sua preocupação com as posições relativas de controle dentro de um elemento musical, mas difere dele por focalizar como essas posições são confirmadas ou contraditas pelos outros elementos musicais.
+  </p>
+
+  <p class="rp">
+    A Tabela XXI apresenta a definição de cada escala pertencente a esse perfil.
+  </p>
+</div>
+
+<h3 class="subsec-title" data-lang="pt">Tabela XXI - Escalas do Perfil de Congruência</h3>
+<h3 class="subsec-title" data-lang="en">Table XXI - Scales in the Congruence Profile</h3>
+
+<div data-lang="en">
+  <ul class="scales-list">
+
+    <li><strong>Rhythmic Ground.</strong> To what extent are tempo, meter, and subdivisions congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Rhythmic Figure.</strong> To what extent are rhythmic patterns congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Tonal Ground.</strong> To what extent are modality and tonality congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Melodic.</strong> To what extent is the melody congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Harmonic.</strong> To what extent are chord choices, voicings, and progressions congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Texture – Register.</strong> To what extent are registers congruent with tension levels and role relationships among the parts and with the prevailing feeling state of the improvisation?</li>
+
+    <li><strong>Texture – Configurations.</strong> To what extent are voicing configurations congruent with the prevailing feeling state of the improvisation?</li>
+
+    <li><strong>Phrasing.</strong> To what extent are the length and shapes of the phrases congruent with the prevailing feeling state of the improvisation?</li>
+
+    <li><strong>Volume.</strong> To what extent is volume congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Timbre.</strong> To what extent is timbre congruent with tension levels and role relationships in the other elements?</li>
+
+    <li><strong>Body.</strong> To what extent are tension levels observed in the client’s posture, body language, movements, and facial expressions congruent with tension levels and feeling states within the improvisation?</li>
+
+    <li><strong>Program.</strong> To what extent are images, associations, events, characters, and stories attached to the improvisation by the client congruent with tension levels and role relationships in the musical elements and with the prevailing feeling state of the improvisation? To what extent are lyrics congruent with the music?</li>
+
+    <li><strong>Verbal Reaction.</strong> To what extent are the client’s verbal reactions to the improvisation congruent with tension levels and feeling states in the improvisation itself?</li>
+
+    <li><strong>Interpersonal.</strong> To what extent are tension levels and role relationships observed in the music congruent with tensions and roles observed in the interpersonal relationships of the client and others? Are intermusical tensions and relationships congruent with interpersonal tensions and relationships?</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="scales-list">
+
+    <li><strong>Base Rítmica.</strong> Em que medida o andamento, a métrica e as subdivisões são congruentes com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Figura Rítmica.</strong> Em que medida os padrões rítmicos são congruentes com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Base Tonal.</strong> Em que medida a modalidade e a tonalidade são congruentes com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Melódico.</strong> Em que medida a melodia é congruente com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Harmônico.</strong> Em que medida as escolhas de acordes, as disposições de vozes (voicings) e as progressões são congruentes com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Textura – Registro.</strong> Em que medida os registros são congruentes com os níveis de tensão e com as relações de papéis entre as partes e com o estado emocional predominante da improvisação?</li>
+
+    <li><strong>Textura – Configurações.</strong> Em que medida as configurações de voicing são congruentes com o estado emocional predominante da improvisação?</li>
+
+    <li><strong>Fraseado.</strong> Em que medida o comprimento e as formas das frases são congruentes com o estado emocional predominante da improvisação?</li>
+
+    <li><strong>Volume.</strong> Em que medida o volume é congruente com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Timbre.</strong> Em que medida o timbre é congruente com os níveis de tensão e com as relações de papéis nos outros elementos?</li>
+
+    <li><strong>Corpo.</strong> Em que medida os níveis de tensão observados na postura, na linguagem corporal, nos movimentos e nas expressões faciais do cliente são congruentes com os níveis de tensão e os estados emocionais presentes na improvisação?</li>
+
+    <li><strong>Programa.</strong> Em que medida as imagens, associações, eventos, personagens e histórias vinculadas à improvisação pelo cliente são congruentes com os níveis de tensão e as relações de papéis nos elementos musicais e com o estado emocional predominante da improvisação? Em que medida as letras são congruentes com a música?</li>
+
+    <li><strong>Reação Verbal.</strong> Em que medida as reações verbais do cliente à improvisação são congruentes com os níveis de tensão e os estados emocionais presentes na própria improvisação?</li>
+
+    <li><strong>Interpessoal.</strong> Em que medida os níveis de tensão e as relações de papéis observados na música são congruentes com as tensões e os papéis observados nas relações interpessoais entre o cliente e o outro? As tensões e relações intermusicais são congruentes com as tensões e relações interpessoais?</li>
+
+  </ul>
+</div>
+
+
+
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Congruência</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Congruence</h3>
+
+    <div data-lang="en">
+  <p class="rp">
+    A continuum with five gradients or levels of congruence is used to specify how discrepant the tension levels of a musical element are, and with how many other musical elements. The five gradients or levels are:
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    Um contínuo com cinco gradientes ou níveis de congruência é utilizado para especificar o grau de discrepância entre os níveis de tensão de um elemento musical e os de outros elementos musicais. Os cinco gradientes ou níveis são:
+  </p>
+</div>
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Não comprometido</span><span class="grad-chip-lbl" data-lang="en">Uncommitted</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Congruente</span><span class="grad-chip-lbl" data-lang="en">Congruent</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Centrado</span><span class="grad-chip-lbl" data-lang="en">Centered</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Incongruente</span><span class="grad-chip-lbl" data-lang="en">Incongruent</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Polarizado</span><span class="grad-chip-lbl" data-lang="en">Polarized</span></div>
+    </div>
+
+   <div data-lang="en">
+  <ul class="i-list">
+
+    <li><strong>Uncommitted.</strong> The musical element is either uncontrolled, inactive, irrelevant, or neutral with respect to tension. This category is also used when the contribution of an element to the prevailing state of tension is difficult to determine.</li>
+
+    <li><strong>Congruent.</strong> Tension levels generated by the musical element are consistent with the prevailing state of tension in the improvisation, and with tension levels of most of the other musical elements, particularly those controlling the improvisation. Moreover, the way that tension levels have been differentiated within the musical element is consistent with role relationships found in most of the other elements. That is, the simultaneous tension levels within the element confirm, support, or contribute to the formation of figure-ground, part-whole, solo-accompaniment, and leader-follower relationships in the other elements. In this category, tension levels and role relationships are generally congruent among most of the musical elements, and the element under analysis is congruent with them. Thus, the element is congruent with the congruence of the improvisation itself.</li>
+
+    <li><strong>Centered.</strong> Tension levels generated by the musical element are consistent with different tension levels found among the other musical elements. The element is centered between the feeling states, reflecting and integrating the contrast itself rather than either side of it. In this category, tension levels and role relationships are incongruent but compatible within the improvisation itself, and the element under analysis reflects or integrates this incongruence. As such, the musical element is congruent with the overall incongruence found in the improvisation itself. (Incongruence as defined here is regarded as a necessary and natural ingredient of a musical improvisation.)</li>
+
+    <li><strong>Incongruent.</strong> Tension levels generated by the musical element are consistent with certain musical elements but not others. The element confirms, supports, and contributes to the incongruence found among the other musical elements. Similarly, simultaneous tension levels within the element are consistent with certain role relationships found in other musical elements but not others. In this category, tension levels and role relationships among the musical elements are incongruent but compatible, and the element under analysis aligns with one side of the contrast. Thus, the musical element is congruent with some elements and incongruent with others.</li>
+
+    <li><strong>Polarized.</strong> Tension levels generated by the musical element are singularly contradictory to the prevailing state of tension in the overall improvisation. The element does not confirm, support, or contribute to the overall congruence of the improvisation, but instead stands out as a highly discrepant and inappropriately opposite tendency. The element is so polarized with respect to tension that its level of tension becomes meaningless within the context of the improvisation. In this category, tension levels and role relationships among the musical elements are congruent, and the element under analysis stands in opposition to them. Thus, the musical element becomes an isolated polarity within a congruent improvisation.</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="i-list">
+
+    <li><strong>Não comprometido.</strong> O elemento musical é descontrolado, inativo, irrelevante ou neutro em relação à tensão. Esta categoria também é utilizada quando a contribuição de um elemento para o estado de tensão predominante é difícil de determinar.</li>
+
+    <li><strong>Congruente.</strong> Os níveis de tensão gerados pelo elemento musical são consistentes com o estado de tensão predominante na improvisação e com os níveis de tensão da maioria dos outros elementos musicais, particularmente daqueles que exercem controle sobre a improvisação. Além disso, a maneira como os níveis de tensão foram diferenciados dentro do elemento musical é consistente com as relações de papéis encontradas na maioria dos outros elementos. Ou seja, os níveis de tensão simultâneos dentro do elemento confirmam, apoiam ou contribuem para a formação de relações figura-fundo, parte-todo, solo-acompanhamento e líder-seguidor nos outros elementos. Nesta categoria, os níveis de tensão e as relações de papéis são geralmente congruentes entre a maioria dos elementos musicais, e o elemento analisado também é congruente com eles. Assim, o elemento é congruente com a própria congruência da improvisação.</li>
+
+    <li><strong>Centrado.</strong> Os níveis de tensão gerados pelo elemento musical são consistentes com diferentes níveis de tensão encontrados entre os outros elementos musicais. O elemento encontra-se centrado entre os estados de sentimento, refletindo e integrando o próprio contraste em vez de qualquer um dos seus lados. Nesta categoria, os níveis de tensão e as relações de papéis são incongruentes, porém compatíveis dentro da improvisação, e o elemento analisado reflete ou integra essa incongruência. Dessa forma, o elemento musical é congruente com a incongruência geral presente na improvisação. (Deve-se notar que a incongruência, conforme definida aqui, é considerada um ingrediente necessário e natural da improvisação musical.)</li>
+
+    <li><strong>Incongruente.</strong> Os níveis de tensão gerados pelo elemento musical são consistentes com certos elementos musicais, mas não com outros. O elemento confirma, apoia e contribui para a incongruência encontrada entre os outros elementos musicais. Da mesma forma, os níveis de tensão simultâneos dentro do elemento são consistentes com certas relações de papéis encontradas em outros elementos musicais, mas não com outras. Nesta categoria, os níveis de tensão e as relações de papéis entre os elementos musicais são incongruentes, porém compatíveis, e o elemento analisado se alinha com um dos lados do contraste. Assim, o elemento musical é congruente com alguns elementos e incongruente com outros.</li>
+
+    <li><strong>Polarizado.</strong> Os níveis de tensão gerados pelo elemento musical são singularmente contraditórios ao estado de tensão predominante na improvisação como um todo. O elemento não confirma, apoia ou contribui para a congruência geral da improvisação, mas se destaca como uma tendência altamente discrepante e inapropriadamente oposta. O elemento encontra-se tão polarizado em relação à tensão que seu nível de tensão se torna praticamente sem significado dentro do contexto da improvisação. Nesta categoria, os níveis de tensão e as relações de papéis entre os elementos musicais são congruentes, enquanto o elemento analisado se coloca em oposição a eles. Assim, o elemento musical constitui uma polaridade isolada dentro de uma improvisação congruente.</li>
+
+  </ul>
+</div>
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Congruência</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Congruence Profile</h3>
+<div data-lang="en">
+  <p class="rp">
+    The congruence profile reveals how the client feels about his or her own thoughts and feelings, and indicates whether the client's inner experiences are consistent with his or her outer expressions of them. To interpret the profile, the following questions can be helpful: Are the client's ideas consistent with one another and with the feelings that have been attached to them? Are feelings ambiguous, ambivalent, or split? Do certain musical elements and processes send one message while other elements and processes send another? Are the messages compatible or mutually exclusive? Are simultaneous parts consistent with respect to feelings and expectations? Are role relationships among the parts and elements consistent with one another? Are the musical sounds consistent with the client's body language? Are the musical sounds consistent with the client's verbalizations?
+  </p>
+
+  <p class="rp">
+    The next chapter gives additional guidelines on interpreting the profiles from psychoanalytic and existential perspectives.
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    O perfil de congruência revela como o cliente se sente em relação aos seus próprios pensamentos e sentimentos e indica se as experiências internas do cliente são consistentes com suas expressões externas. Para interpretar o perfil, as seguintes questões podem ser úteis: As ideias do cliente são consistentes entre si e com os sentimentos que lhes foram associados? Os sentimentos são ambíguos, ambivalentes ou divididos? Certos elementos e processos musicais transmitem uma mensagem enquanto outros transmitem outra? As mensagens são compatíveis ou mutuamente exclusivas? As partes simultâneas são consistentes entre si em relação aos sentimentos e expectativas? As relações de papéis entre as partes e os elementos são consistentes entre si? Os sons musicais são consistentes com a linguagem corporal do cliente? Os sons musicais são consistentes com as verbalizações do cliente?
+  </p>
+
+  <p class="rp">
+    O próximo capítulo apresenta diretrizes adicionais para interpretar os perfis a partir de perspectivas psicanalíticas e existenciais.
+  </p>
+</div>
+
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"O perfil de congruência revela como o cliente se sente acerca dos seus próprios pensamentos e sentimentos, e indica se as experiências internas do cliente são consistentes com suas expressões externas."</blockquote>
+      <blockquote data-lang="en">"The congruence profile reveals how the client feels about his/her own thoughts and feelings, and tells whether the client's inner experiences are consistent with his/her outer expressions of them."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 441</cite></figcaption>
+    </figure>
+  </section>
+
+  <!-- ══════════════════ 5. PERFIL DE SALIÊNCIA ══════════════════ -->
+  <section class="section" id="sec-salience">
+    <h2 class="sec-title" data-lang="pt">Perfil de Saliência</h2>
+    <h2 class="sec-title" data-lang="en">The Salience Profile</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+
+    <div data-lang="en">
+  <p class="rp">
+    The salience profile is a composite description of which musical elements are most prominent and exert the most influence over the other elements. Of chief concern is the locus of control and salience among the musical elements as they interact. Scales within the profile provide a means of assessing the contributions of each musical element to integration, variability, role functions, tension, and congruence within the other elements.
+  </p>
+
+  <p class="rp">
+    The salience profile deals with properties of the music as they affect the listener. An element can become prominent when its components or qualities are exaggerated, or when a discrepancy or contrast is created within them. In both cases, the exaggeration or discrepancy commands the attention of the listener. Prominence can also be achieved when the element is at an extreme gradient in the other profiles. For example, elements that are unintegrated, overdifferentiated, rigid, random, incongruent, or hypertense are usually very prominent and often exert considerable influence over the other elements.
+  </p>
+
+  <p class="rp">
+    An element gains control by becoming prominent and by taking a significant role with respect to the other elements. The amount of control is determined by the extent to which the element influences role relationships in the other elements (i.e., figure-ground, solo-accompanist, leader-follower), whether it affects the processes of integration and variability in the other elements, and the extent to which it determines prevailing states of tension and congruence within the overall improvisation.
+  </p>
+
+  <p class="rp">
+    The salience profile can be used to analyze intramusical relationships within an individual's improvisation, or intermusical relationships that occur between individuals. It also reflects intrapersonal and interpersonal relationships.
+  </p>
+
+  <p class="rp">
+    Table XXII provides a definition of each scale in the profile.
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    O perfil de saliência é uma descrição composta de quais elementos musicais são mais proeminentes e exercem maior influência sobre os outros elementos. A principal preocupação é o locus de controle e de saliência entre os elementos musicais à medida que interagem. As escalas dentro do perfil fornecem um meio de avaliar as contribuições de cada elemento musical para a integração, variabilidade, funções de papel, tensão e congruência nos outros elementos.
+  </p>
+
+  <p class="rp">
+    O perfil de saliência trata das propriedades da música à medida que afetam o ouvinte. Um elemento pode tornar-se proeminente quando seus componentes ou qualidades são exagerados ou quando uma discrepância ou contraste é criado dentro deles. Em ambos os casos, o exagero ou a discrepância chama a atenção do ouvinte. A proeminência também pode ser alcançada quando o elemento se encontra em um gradiente extremo nos outros perfis. Por exemplo, elementos que estão desintegrados, sobrediferenciados, rígidos, aleatórios, incongruentes ou hipertensos geralmente são muito proeminentes e frequentemente exercem influência considerável sobre os outros elementos.
+  </p>
+
+  <p class="rp">
+    Um elemento ganha controle ao tornar-se proeminente e ao assumir um papel significativo em relação aos outros elementos. A quantidade de controle é determinada pelo grau em que o elemento influencia as relações de papéis nos outros elementos (isto é, figura-fundo, solista-acompanhador, líder-seguidor), se ele afeta os processos de integração e variabilidade nos outros elementos e até que ponto determina os estados predominantes de tensão e congruência dentro da improvisação como um todo.
+  </p>
+
+  <p class="rp">
+    O perfil de saliência pode ser utilizado para analisar relações intramusicais dentro da improvisação de um indivíduo ou relações intermusicais que ocorrem entre indivíduos. Ele também reflete relações intrapessoais e interpessoais.
+  </p>
+
+  <p class="rp">
+    A Tabela XXII apresenta a definição de cada escala pertencente a esse perfil.
+  </p>
+</div>
+
+
+
+<h3 class="subsec-title" data-lang="pt">Tabela XXII - Escalas do Perfil de Saliência</h3>
+<h3 class="subsec-title" data-lang="en">Table XXII - Scales in the Salience Profile</h3>
+
+<div data-lang="en">
+  <ul class="scales-list">
+
+    <li><strong>Rhythmic Ground.</strong> How prominent are tempo, meter, and subdivisions in the overall improvisation, and to what extent do they control the other elements?</li>
+
+    <li><strong>Rhythmic Figure.</strong> How prominent are the rhythmic patterns, and to what extent do they control the other elements?</li>
+
+    <li><strong>Tonal Ground.</strong> How prominent are modality and tonality, and to what extent do they control the other elements?</li>
+
+    <li><strong>Melodic.</strong> How prominent is the melody, and to what extent does melody control the other elements?</li>
+
+    <li><strong>Harmonic.</strong> How prominent is the harmony, and to what extent do chord choices, voicings, and progressions control the other elements?</li>
+
+    <li><strong>Texture.</strong> How prominent are texture, register, and voicing configurations, and to what extent do they control the other elements?</li>
+
+    <li><strong>Volume.</strong> How prominent is the volume, and to what extent do sound intensity and mass control the other elements?</li>
+
+    <li><strong>Timbre.</strong> How prominent is the timbre, and to what extent do sound medium, instrument choice, sound production techniques, and sound vocabulary control the other elements?</li>
+
+    <li><strong>Program / Lyrics.</strong> How prominent are the program and lyrics, and to what extent do they control the other elements?</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="scales-list">
+
+    <li><strong>Base Rítmica.</strong> Quão proeminentes são o andamento, a métrica e as subdivisões na improvisação como um todo, e em que medida controlam os outros elementos?</li>
+
+    <li><strong>Figura Rítmica.</strong> Quão proeminentes são os padrões rítmicos e em que medida controlam os outros elementos?</li>
+
+    <li><strong>Base Tonal.</strong> Quão proeminentes são a modalidade e a tonalidade e em que medida controlam os outros elementos?</li>
+
+    <li><strong>Melódico.</strong> Quão proeminente é a melodia e em que medida ela controla os outros elementos?</li>
+
+    <li><strong>Harmônico.</strong> Quão proeminente é a harmonia e em que medida as escolhas de acordes, as disposições de vozes (voicings) e as progressões controlam os outros elementos?</li>
+
+    <li><strong>Textura.</strong> Quão proeminentes são a textura, os registros e as configurações de voicing, e em que medida controlam os outros elementos?</li>
+
+    <li><strong>Volume.</strong> Quão proeminente é o volume e em que medida a intensidade e a massa sonora controlam os outros elementos?</li>
+
+    <li><strong>Timbre.</strong> Quão proeminente é o timbre e em que medida o meio sonoro, a escolha do instrumento, as técnicas de produção sonora e o vocabulário sonoro controlam os outros elementos?</li>
+
+    <li><strong>Programa / Letra.</strong> Quão proeminentes são o programa e as letras e em que medida controlam os outros elementos?</li>
+
+  </ul>
+</div>
+
+
+
+    
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Saliência</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Salience</h3>
+
+
+    <div data-lang="en">
+  <p class="rp">
+A continuum with five gradients or levels of salience is used to specify the degree of prominence and control exhibited by the element. Prominence is a function of how noticeable, significant, and powerful the element is. Control is a function of how many other musical elements are under its influence, and the extent to which it affects integration, variability, tension, congruence, and autonomy throughout the improvisation. The five gradients are: 
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+Um contínuo com cinco gradientes ou níveis de saliência é utilizado para especificar o grau de proeminência e controle exercido por um elemento. A proeminência refere-se ao quanto o elemento é perceptível, significativo e poderoso. O controle refere-se a quantos outros elementos musicais estão sob sua influência e à medida em que ele afeta a integração, a variabilidade, a tensão, a congruência e a autonomia ao longo da improvisação. Os cinco gradientes são: 
+  </p>
+</div>
+
+
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Recuado</span><span class="grad-chip-lbl" data-lang="en">Receding</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Conformado</span><span class="grad-chip-lbl" data-lang="en">Conforming</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Contribuinte</span><span class="grad-chip-lbl" data-lang="en">Contributing</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Controlador</span><span class="grad-chip-lbl" data-lang="en">Controlling</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Dominante</span><span class="grad-chip-lbl" data-lang="en">Overpowering</span></div>
+    </div>
+
+    
+
+<div data-lang="en">
+  <ul class="i-list">
+    <li><strong>Receding.</strong> The musical element is entirely dependent upon or overpowered by the other musical elements. It has very little prominence and contributes nothing of significance to the other elements or the overall improvisation. Its integration, variability, role functions, and state of tension are under the control of the other elements.</li>
+
+    <li><strong>Conforming.</strong> The musical element consistently supports and follows most of the other musical elements, and has some prominence. It supports figure-ground, part-whole, and solo-accompaniment relationships in the other elements. The element is also manipulated to stay the same or change according to the other elements, to match their tension levels, and to remain consistent with the prevailing feeling states of the improvisation.</li>
+
+    <li><strong>Contributing.</strong> The musical element supports and controls the other musical elements with equal frequency. The element varies in prominence depending on whether it is conforming to or controlling the other elements. It may be inextricably related to the controlling element, but secondary to it. It may support certain elements while controlling others. The element may help establish figure-ground, part-whole, and solo-accompaniment relationships, stabilize or change musical processes, and stimulate or relax tension levels. It remains consistent with the prevailing feeling state of the improvisation.</li>
+
+    <li><strong>Controlling.</strong> The musical element controls most of the other musical elements and has the greatest prominence. It determines what figure-ground, part-whole, and solo-accompaniment relationships will be established. It dictates processes of stabilization, change, integration, and differentiation. The element also controls the amount of tension and sets the prevailing feeling state for the improvisation.</li>
+
+    <li><strong>Overpowering.</strong> The musical element is so prominent that it obliterates most of the other musical elements and their significance. It overwhelms or counteracts figure-ground, part-whole, and solo-accompaniment relationships present in other elements. It disrupts processes of integration and variability, creates tension, and dictates the prevailing feeling state. The overpowering element prevents the listener from apprehending or comprehending the activity and relationships in the other elements.</li>
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="i-list">
+    <li><strong>Recuado.</strong> O elemento musical é totalmente dependente ou dominado pelos outros elementos musicais. Possui muito pouca proeminência e não contribui com nada de significativo para os outros elementos ou para a improvisação como um todo. Sua integração, variabilidade, funções de papel e estado de tensão estão sob o controle dos outros elementos.</li>
+
+    <li><strong>Conformado.</strong> O elemento musical apoia e segue consistentemente a maioria dos outros elementos musicais e possui alguma proeminência. Sustenta relações figura-fundo, parte-todo e solo-acompanhamento nos outros elementos. Também é manipulado para permanecer igual ou mudar de acordo com os demais elementos, corresponder aos seus níveis de tensão e manter-se consistente com o estado afetivo predominante da improvisação.</li>
+
+    <li><strong>Contribuinte.</strong> O elemento musical apoia e controla os outros elementos musicais com frequência equivalente. Sua proeminência varia dependendo se está se conformando aos outros elementos ou exercendo controle sobre eles. Pode estar intimamente relacionado ao elemento controlador, embora em posição secundária. Pode apoiar certos elementos enquanto controla outros. Também pode ajudar a estabelecer relações figura-fundo, parte-todo e solo-acompanhamento, estabilizar ou modificar processos musicais e estimular ou relaxar níveis de tensão. Mantém-se consistente com o estado afetivo predominante da improvisação.</li>
+
+    <li><strong>Controlador.</strong> O elemento musical controla a maioria dos outros elementos musicais e apresenta a maior proeminência. Determina quais relações figura-fundo, parte-todo e solo-acompanhamento serão estabelecidas. Também dita os processos de estabilização, mudança, integração e diferenciação. O elemento controla a quantidade de tensão e define o estado afetivo predominante da improvisação.</li>
+
+    <li><strong>Dominante.</strong> O elemento musical é tão proeminente que praticamente anula a maioria dos outros elementos musicais e sua relevância. O elemento sobrepõe ou contraria relações figura-fundo, parte-todo e solo-acompanhamento presentes em outros elementos. Também perturba os processos de integração e variabilidade, cria tensão e dita o estado afetivo predominante. O elemento dominante impede a percepção ou compreensão da atividade e das relações entre os outros elementos.</li>
+  </ul>
+</div>
+
+
+
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Saliência</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Salience Profile</h3>
+
+
+<div data-lang="en">
+  <p class="rp">The salience profile deals with two forms of power, prominence and control. To have prominence, one must play a significant role, be of importance to others, and attract notice and attention. To be in control, one must dominate others and have others submit or defer to one's influence.</p>
+
+  <p class="rp">Within an intrapersonal context, the salience profile is interpreted in terms of which aspects of the self are more prominent and controlling, and which are more conforming and receding. Within an interpersonal context, the profile is interpreted in terms of which aspects of the self are used to gain prominence and control over the other, and which aspects are used to contribute to or conform with the other.</p>
+
+  <p class="rp">The converse is also of interest: which aspects of the self refuse to relinquish prominence and control, either within the self or in relation to the other.</p>
+
+  <p class="rp">The salience profile reveals the value system within the musical self and the hierarchical struggles between the musical self and the other.</p>
+
+  <p class="rp">The next chapter provides additional guidelines for interpreting the profiles from psychoanalytic and existential perspectives.</p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">O perfil de saliência trata de duas formas de poder: proeminência e controle. Para ter proeminência, é necessário desempenhar um papel significativo, ser importante para os outros e atrair atenção e reconhecimento. Para estar no controle, é preciso dominar os outros e fazer com que se submetam ou se curvem à própria influência.</p>
+
+  <p class="rp">Em um contexto intrapessoal, o perfil de saliência é interpretado em termos de quais aspectos do eu são mais proeminentes e controladores e quais são mais conformes ou recuados. Em um contexto interpessoal, o perfil é interpretado em termos de quais aspectos do eu são utilizados para obter proeminência e controle sobre o outro e quais aspectos são utilizados para contribuir ou se conformar ao outro.</p>
+
+  <p class="rp">O inverso também é relevante: quais aspectos do eu se recusam a renunciar à proeminência e ao controle, seja dentro do próprio eu ou na relação com o outro.</p>
+
+  <p class="rp">O perfil de saliência revela o sistema de valores presente no eu musical e as lutas hierárquicas entre o eu musical e o outro.</p>
+
+  <p class="rp">O próximo capítulo apresenta diretrizes adicionais para a interpretação dos perfis a partir de perspectivas psicanalíticas e existenciais.</p>
+</div>
+
+
+
+
+  </section>
+
+  <!-- ══════════════════ 6. PERFIL DE AUTONOMIA ══════════════════ -->
+  <section class="section" id="sec-autonomy">
+    <h2 class="sec-title" data-lang="pt">Perfil de Autonomia</h2>
+    <h2 class="sec-title" data-lang="en">The Autonomy Profile</h2>
+
+    <h3 class="subsec-title" data-lang="pt">Definição</h3>
+    <h3 class="subsec-title" data-lang="en">Definition</h3>
+
+    <div data-lang="en">
+      <p class="rp">The autonomy profile is a composite description of the role relationships that the client forms when improvising with a partner (or in a group). It therefore focuses only on intermusical or interpersonal relationships. Scales within the profile provide a means of analyzing role relationships within each musical element in terms of: how often the client takes leader versus follower roles, how these roles are manifested musically, and the conditions under which these roles are taken, maintained, and relinquished. Table XXIII provides a definition of each scale belonging to the profile.</p>
+    </div>
+    <div data-lang="pt">
+      <p class="rp">O Perfil de Autonomia é uma descrição composta das relações de papéis que o cliente forma ao improvisar com um parceiro (ou em grupo). Portanto, foca apenas em relações intermusicais ou interpessoais. As escalas dentro do perfil fornecem um meio de analisar relações de papéis dentro de cada elemento musical em termos de: com que frequência o cliente assume papéis de líder versus seguidor, como esses papéis são manifestados musicalmente, e as condições sob as quais esses papéis são assumidos, mantidos e abandonados. A Tabela XXIII apresenta a definição de cada escala pertencente ao perfil.</p>
+    </div>
+
+<h3 class="subsec-title" data-lang="pt">Tabela XXIII – Escalas do Perfil de Autonomia</h3>
+<h3 class="subsec-title" data-lang="en">Table XXIII – Scales in the Autonomy Profile</h3>
+
+<div data-lang="en">
+  <ul class="scales-list">
+
+    <li><strong>Rhythmic Ground.</strong> What role relationships do the client and/or partner develop through tempo, meter, and subdivisions?</li>
+
+    <li><strong>Rhythmic Figure.</strong> What role relationships do the client and/or partner develop in determining the rhythmic content and form of the improvisation? How do they relate to each other with regard to rhythmic themes and their sequencing?</li>
+
+    <li><strong>Tonal / Melodic.</strong> What role relationships do the client and/or partner develop through modality, tonality, and melody?</li>
+
+    <li><strong>Harmonic.</strong> What role relationships do the client and/or partner develop in determining the harmonic aspects of the improvisation? How do they relate to each other with regard to chord selections, voicings, progressions, and the relationship of chords to the melody?</li>
+
+    <li><strong>Textural.</strong> What role relationships do the client and/or partner develop in determining textures, registers, and voicing configurations?</li>
+
+    <li><strong>Phrasing.</strong> What role relationships do the client and/or partner develop through phrasing? How do they relate to each other with regard to the length and shape of phrases and their sequencing?</li>
+
+    <li><strong>Volume.</strong> What role relationships do the client and/or partner develop in setting volume levels and making volume changes? How do they relate to each other with regard to the intensity and amount of sound?</li>
+
+    <li><strong>Timbre.</strong> What role relationships do the client and/or partner develop in determining the medium, instrument, production techniques, and sound vocabulary used in the improvisation?</li>
+
+    <li><strong>Program / Lyrics.</strong> What role relationships do the client and/or partner develop in selecting or inventing a program or lyrics upon which to base the improvisation? How do they work together in creating lyrics and in making associations to the improvisation afterwards?</li>
+
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="scales-list">
+
+    <li><strong>Base Rítmica.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem por meio do andamento, da métrica e das subdivisões?</li>
+
+    <li><strong>Figura Rítmica.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem ao determinar o conteúdo rítmico e a forma da improvisação? Como se relacionam entre si em relação aos temas rítmicos e à sua sequência?</li>
+
+    <li><strong>Tonal / Melódico.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem por meio da modalidade, da tonalidade e da melodia?</li>
+
+    <li><strong>Harmônico.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem na determinação dos aspectos harmônicos da improvisação? Como se relacionam entre si em relação à escolha de acordes, voicings, progressões e à relação dos acordes com a melodia?</li>
+
+    <li><strong>Textural.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem na determinação das texturas, dos registros e das configurações de voicing?</li>
+
+    <li><strong>Fraseado.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem por meio do fraseado? Como se relacionam entre si em relação ao comprimento e à forma das frases e à sua sequência?</li>
+
+    <li><strong>Volume.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem ao definir níveis de volume e realizar mudanças de volume? Como se relacionam entre si em relação à intensidade e à quantidade de som?</li>
+
+    <li><strong>Timbre.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem na determinação do meio sonoro, do instrumento, das técnicas de produção sonora e do vocabulário sonoro utilizados na improvisação?</li>
+
+    <li><strong>Programa / Letra.</strong> Que relações de papel o cliente e/ou parceiro desenvolvem ao selecionar ou inventar um programa ou letras sobre os quais basear a improvisação? Como trabalham juntos na criação das letras e nas associações feitas após a improvisação?</li>
+
+  </ul>
+</div>
+
+
+
+    <h3 class="subsec-title" data-lang="pt">Os Cinco Níveis de Autonomia</h3>
+    <h3 class="subsec-title" data-lang="en">The Five Levels of Autonomy</h3>
+
+    <div data-lang="en">
+  <p class="rp">A role continuum with five gradients or levels of leadership is used.</p>
+  <p class="rp">The five gradients are:</p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">Utiliza-se um contínuo de papéis com cinco gradientes ou níveis de liderança.</p>
+  <p class="rp">Os cinco gradientes são:</p>
+</div>
+
+    <div class="grad-track" style="margin: 1.5rem 0 2rem;">
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Dependente</span><span class="grad-chip-lbl" data-lang="en">Dependent</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Seguidor</span><span class="grad-chip-lbl" data-lang="en">Follower</span></div>
+      <div class="grad-chip g-cent"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Parceiro</span><span class="grad-chip-lbl" data-lang="en">Partner</span></div>
+      <div class="grad-chip g-mid"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Líder</span><span class="grad-chip-lbl" data-lang="en">Leader</span></div>
+      <div class="grad-chip g-ext"><span class="grad-dot"></span><span class="grad-chip-lbl" data-lang="pt">Resistente</span><span class="grad-chip-lbl" data-lang="en">Resister</span></div>
+    </div>
+
+
+<div data-lang="en">
+  <ul class="i-list">
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Dependent</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/dependent.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">View Profile</span>
+        </a>
+      </div>
+      The client takes the follower role exclusively, and never takes a leader role. In doing so, s/he depends entirely on the partner in all matters, including the content of his/her own music as well as the overall direction of the improvisation. This stance is taken regardless of any maneuvers by the partner to encourage leadership. When overwhelmed by the partner's music, the client's participation may wane or cease altogether. In relation to other profiles, this role may be assumed through undifferentiation, fusion, stabilization, and change. Musically this includes: focusing exclusively on the partner's music; incessantly synchronizing with or imitating the partner's rhythms or melodies; following all changes made by the partner in tempo and volume; fusing with the partner's timbres and textures; and allowing the partner to control all formal aspects of the improvisation. Having no musical identity, the client acts as neither soloist nor accompanist.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Follower</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/follower.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">View Profile</span>
+        </a>
+      </div>
+      The client consistently takes the follower role more readily than the leader role. Responsibility for determining the quality, content, and/or sequence of the musical element is given in large part to the partner. The client is not strongly inclined to control or direct the improvisation or to influence the partner, except when the conditions warrant such a change of role. Conditions under which the client relinquishes the follower role are: when the partner refuses to take the leader role; when the partner relinquishes control in a way that threatens the musical improvisation; or when the partner's directions are unacceptable to the client. In terms of the other profiles, the follower role may be assumed through fusion, integration, stabilization, variability, or contrast. Musically this includes: offering rhythmic and melodic grounds more often than figures; synchronizing with or imitating the partner's rhythmic or melodic themes; matching the partner's volume and tempo; fusing or integrating with the partner's timbres or textures; and allowing the partner to determine the sequence of thematic material. The subject acts as an accompanist more than a soloist.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Partner</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/partner.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">View Profile</span>
+        </a>
+      </div>
+      The client assumes leader and follower roles with equal frequency. Responsibility for determining the quality, content, and/or sequence of the musical element is shared equally with the partner. The client and partner influence one another equally in controlling or giving direction to some aspect of the music. The client assumes the leader role when the partner accepts him/her as leader or when the partner accepts the follower role as well as the specific direction taken by the client; the client assumes the follower role when the partner takes the leader role and when the client accepts a direction given by the partner. In terms of other profiles in this assessment, the partner role may be assumed through fusion, integration, differentiation, stabilization, variability, contrast, stimulation, or relaxation. Musically, this includes: offering rhythmic and melodic figures as often as grounds; supplying half of the rhythmic and melodic ideas for thematic development; using volume levels, timbres, and textures that are equally prominent as the partner, and only occasionally more or less prominent; sharing control over the overall volume, tempo, timbre, and texture; and allowing the sequence of thematic material to evolve out of musical interaction with the partner. The client acts as soloist and accompanist with equal frequency.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Leader</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/leader.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">View Profile</span>
+        </a>
+      </div>
+      The client consistently takes the leader role more readily than the follower role. In doing so, the client attempts to influence the improvisation and partner by controlling or giving direction to some aspect of the music. Conditions under which the client relinquishes the leader role are when the partner refuses co take the follower role, when the partner rejects the leader's directions, or when the partner takes the leader role in an assertive, insistent, or demanding manner. In relation to the other profiles, the leadership role may be assumed through fusion or integration, stabilization or change, stimulation or relaxation. Musically, this includes: offering rhythmic or melodic figures more often than grounds; supplying most of the rhythmic and melodic ideas for thematic development; using volume levels, timbres, and textures that are more prominent than the partner's; controlling fluctuations in the overall volume, tempo, timbre, and texture; and determining the sequence of thematic material. The client acts as a soloist more than an accompanist.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Resister</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/resister.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">View Profile</span>
+        </a>
+      </div>
+      The client continually attempts to evade or destroy any leader-follower relationship with the partner. The client does not attempt to influence the overall improvisation or the partner's improvising, and does not participate in any joint efforts or interactions. Instead, s/he becomes absorbed in his/her own music, or does not participate in the improvisation in any meaningful way. This role is taken regardless of any maneuvers by the partner to lead or follow. To assume this role, the resister uses withdrawal, flight, and/or aggression. The primary intention is to move towards the self while also moving away from or against the other. In relation to other profiles, the resister role may be assumed through over-differentiation, rigidity, or randomness. Musically this includes: an exclusive focus on one's own music, continuous repetition of one's own music, a continuous following of one's own musical impulse, adherence to one's own musical preferences exclusively, complete disregard for maintaining a musical relationship with the other, active avoidance of any musical relationship, and/or attempts to block out, ignore, overpower, or obliterate what the other player is doing musically. The client acts like a soloist without an accompanist.
+    </li>
+  </ul>
+</div>
+
+<div data-lang="pt">
+  <ul class="i-list">
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Dependente</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/dependent.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">Ver Perfil</span>
+        </a>
+      </div>
+      O cliente assume exclusivamente o papel de seguidor e nunca assume um papel de liderança. Ao fazê-lo, depende inteiramente do parceiro em todos os aspectos, incluindo o conteúdo de sua própria música e a direção geral da improvisação. Esta postura é mantida independentemente de manobras do parceiro para encorajar a liderança. Quando sobrecarregado pela música do parceiro, a participação do cliente pode diminuir ou cessar completamente. Em relação a outros perfis, este papel pode ser assumido através da indiferenciação, fusão, estabilização e mudança. Musicalmente, isso inclui: foco exclusivo na música do parceiro; sincronização ou imitação incessante dos ritmos ou melodias do parceiro; seguimento de todas as mudanças feitas pelo parceiro no tempo e volume; fusão com os timbres e texturas do parceiro; e permissão para que o parceiro controle todos os aspectos formais da improvisação. Não possuindo identidade musical, o cliente não atua nem como solista nem como acompanhante.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Seguidor</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/follower.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">Ver Perfil</span>
+        </a>
+      </div>
+      O cliente assume consistentemente o papel de seguidor com mais prontidão do que o de líder. A responsabilidade por determinar a qualidade, o conteúdo e/ou a sequência do elemento musical é atribuída, em grande parte, ao parceiro. O cliente não demonstra forte inclinação para controlar a improvisação ou influenciar o parceiro, exceto quando as condições justificam tal mudança. Condições sob as quais o cliente renuncia ao papel de seguidor: quando o parceiro se recusa a liderar; quando o parceiro abdica do controle de forma que ameaça a improvisação; ou quando as direções do parceiro são inaceitáveis. Em termos de outros perfis, o papel de seguidor pode ser assumido através de fusão, integração, estabilização, variabilidade ou contraste. Musicalmente, isso inclui: oferecer bases rítmicas e melódicas com mais frequência do que figuras; sincronizar ou imitar temas do parceiro; igualar volume e tempo; e permitir que o parceiro determine a sequência do material temático. O sujeito atua mais como acompanhante do que como solista.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Parceiro</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/partner.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">Ver Perfil</span>
+        </a>
+      </div>
+      O cliente assume os papéis de líder e seguidor com a mesma frequência. A responsabilidade pelo conteúdo musical é compartilhada igualmente. Cliente e parceiro influenciam-se mutuamente no controle ou na direção de algum aspecto da música. O cliente assume a liderança quando o parceiro o aceita como líder; assume o papel de seguidor quando o parceiro lidera e o cliente aceita a direção dada. Em termos de outros perfis, este papel pode envolver fusão, integração, diferenciação, estabilização, variabilidade, contraste, estimulação ou relaxamento. Musicalmente, inclui: oferecer figuras rítmicas e melódicas tão frequentemente quanto as bases; fornecer metade das ideias para o desenvolvimento temático; usar níveis de volume e timbres igualmente proeminentes aos do parceiro; e compartilhar o controle sobre o tempo e a textura geral. O cliente atua como solista e acompanhante com a mesma frequência.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Líder</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/leader.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">Ver Perfil</span>
+        </a>
+      </div>
+      O cliente assume consistentemente o papel de líder com mais prontidão do que o de seguidor. Ao fazê-lo, tenta influenciar a improvisação e o parceiro controlando ou dando direção a algum aspecto da música. Condições sob as quais o cliente renuncia à liderança ocorrem quando o parceiro se recusa a seguir, rejeita as direções ou assume a liderança de maneira assertiva ou exigente. Em relação a outros perfis, o papel de liderança pode envolver fusão ou integração, estabilização ou mudança, estimulação ou relaxamento. Musicalmente, inclui: oferecer figuras com mais frequência que bases; fornecer a maioria das ideias melódicas; usar volumes e timbres mais proeminentes que os do parceiro; e determinar a sequência do material temático. O cliente atua mais como solista do que como acompanhante.
+    </li>
+
+    <li class="rp">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+        <strong>Resistente</strong>
+        <a href="https://ivanmoria.github.io/asap/IAPS/Autonomy/resister.html" class="chapter-nav-next" style="margin: 0; padding: 4px 12px; font-size: 10px; text-decoration: none; max-width: fit-content;">
+          <span class="chapter-nav-label" style="font-size: 9px;">Ver Perfil</span>
+        </a>
+      </div>
+      O cliente tenta continuamente evitar ou destruir qualquer relação de líder-seguidor. Não tenta influenciar a improvisação geral nem participa de esforços conjuntos. Em vez disso, absorve-se em sua própria música ou retira-se da atividade. Esta postura é mantida independentemente das manobras do parceiro. Para assumir este papel, utiliza o afastamento, a fuga ou a agressão. A intenção primária é mover-se em direção a si mesmo enquanto se afasta do outro. Pode manifestar-se através de super-diferenciação, rigidez ou aleatoriedade. Musicalmente, inclui: foco exclusivo na própria música, repetição contínua, desconsideração total pela relação musical com o outro, e tentativas de ignorar ou sobrepor-se ao que o outro músico está fazendo. Atua como um solista sem acompanhante.
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+<div data-lang="en">
+  <p class="rp">
+    Dependent. The client takes the follower role exclusively, and never takes a
+    leader role. In doing so, s/he depends entirely on the partner in all matters, in-
+    cluding the content of his/her own music as well as the overall direction of the
+    improvisation. This stance is taken regardless of any maneuvers by the partner
+    to encourage Icadership. When overwhelmed by the partner's music, the
+    client's participation may wane or cease altogether.
+  </p>
+  <p class="rp">
+    In relation to other profiles, this role may be assumed through undifferen-
+    tiation, fusion, stabilization, and change. Musically this includes: focusing ex-
+    clusively on the partner's music; incessantly synchronizing with or imitating
+    the partner's rhythms or melodies; following all changes made by the partner in
+    tempo and volume; fusing with the partner's timbres and textures; and allow-
+    ing the partner to control all formal aspects of the improvisation. Having no
+    musical identity, the client acts as ncither soloist nor accompanist.
+  </p>
+  <p class="rp">
+    Follower. The client consistently takes the follower role more readily than
+    the leader role. Responsibility for determining the quality, content, and/or sc-
+    quence of the musical element is given in large part to the partner. The client is
+    not strongly inclined to control or direct the improvisation or to influence the
+    partner, except when the conditions warrant such a change of role. Conditions
+    under which the client relinquishes the follower role are: when the partner
+    refuses to take the leader role; when the partner relinquishes control in a way
+    that threatens the musical improvisation; or when the partner's directions are
+    unacceptable to the client.
+  </p>
+  <p class="rp">
+    Interns of the other profiles, the follower role may be assumed through fu-
+    sion, integration, stabilization, variability, or contrast. Musically this includes:
+    offering rhythmic and melodic grounds more often than figures; synchronizing
+    with or imitating the partner's rhythmic or melodic themes; matching the
+    partner's volume and tempo; fusing or integrating with the partner's timbres or
+    textures; and allowing the partner to determine the sequence of thematic mate-
+    rial. The subject acts as an accompanist more than a soloist.
+  </p>
+  <p class="rp">
+    Partner. The client assumes leader and follower roles with equal frequency.
+    Responsibility for determining the quality, content, and/or sequence of the
+    musical element is shared equally with the partner. The chent and partner in-
+    fluence one another equally in controlling or giving direction to some aspect of
+    the music. The client assumes the leader role when the partner accepts him/her
+    as leader or when the partner accepts the follower role as well as the specific
+    direction taken by the client; the client assumes the follower role when the
+    partner takes the leader role and when the client accepts a direction given by
+    the partner.
+  </p>
+  <p class="rp">
+    In terms of other profiles in this assessment, the partner role may be as-
+    sumed through fusion, integration, differentiation, stabilization, variability,
+    contrast, stimulation, or relaxation. Musically, this includes: offering rhythmic
+    and melodic figures as often as grounds; supplying half of the rhythmic and
+    melodic ideas for thematic development; using volume levels, timbres, and tex-
+    tures that are equally prominent as the partner, and only occasionally more or
+    less prominent; sharing control over the overall volume, tempo, timbre, and
+    texture; and allowing the sequence of thematic material to cvolve out of musi-
+    cal interaction with the partner. The client acts as soloist and accompanist with
+    equal frequency.
+  </p>
+  <p class="rp">
+    Leader. The client consistently takes the leader role more readily than the
+    follower role. In doing so, the client attempts to influence the improvisation
+    and partner by controlling or giving direction to some aspect of the music.
+    Conditions under which the client relinquishes the leader role are when the
+    partner refuses to take the follower role, when the partner rejects the leader's
+    directions, or when the partner takes the leader role in an assertive, insistent,
+    or demanding manner.
+  </p>
+  <p class="rp">
+    In relation to the other. profiles, the leadership role may be assumed
+    through fusion or integration, stabilization or change, stimulation or relax-
+    ation. Musically, this includes: offering rhythmic or melodic figures more often
+    than grounds; supplying most of the rhythmic and melodic ideas for thematic
+    development; using volume levels, timbres, and textures that are more promi-
+    nent than the partner's; controlling fluctuations in the overall volume, tempo,
+    timbre, and texture; and determining the scquence of thematic material. The
+    client acts as a soloist more than an accompanist.
+  </p>
+  <p class="rp">
+    Resister. The client continually attempts to evade or destroy any leader-
+    follower relationship with the partner. The client does not attempt to influence
+    che overall improvisation or the partner's improvising, and does not participate
+    in any joint efforts or interactions. Insicad, s/he becomes absorbed in his/her
+    own music, or does not participate in the improvisation in any meaningful
+    way. This role is taken regardless of any maneuvers by the partner to lead or
+    follow. To assume this role, the resister uses withdrawal, flight, and/or aggres-
+    sion. The primary intention is to move towards the self while also moving away
+    from or against the other.
+  </p>
+  <p class="rp">
+    In relation to other profiles, the resister role may be assumed through over-
+    differentiation, rigidity, or randomness. Musically this includes: an exclusive
+    focus on one's own music, continuous repetition of one's own music, a continu-
+    ous following of one's own musical impulse, adherence to one's own musical
+    preferences exclusively, complete disregard for maintaining a musical relation-
+    ship with the other, active avoidance of any musical relationship, and/or at-
+    tempts to block our, ignore, overpower, or obliterate what the other player is
+    doing musically. The client acts like a soloist without an accompanist.
+  </p>
+</div>
+
+    <h3 class="subsec-title" data-lang="pt">Interpretando o Perfil de Autonomia</h3>
+    <h3 class="subsec-title" data-lang="en">Interpreting the Autonomy Profile</h3>
+
+
+<div data-lang="en">
+  <p class="rp">
+    The autonomy profile provides a composite picture of how the client func-
+    tions within an interpersonal situation. At the most basic level, the autonomy
+    profile reveals awareness of self and other, and the need for maintaining
+    boundaries between self and other.
+  </p>
+  <p class="rp">
+    When the client has a musical identity and secure boundaries, s/he is sus-
+    ceptible to musical contact with another person. There is freedom to share mu-
+    sical materials, sounds, qualities, and a willingness to coexperience the same
+    things at the same time. Conversely, the client is willing to accept the musical
+    materials, sounds, and qualities of another person, and submit to the other per-
+    sons' experiences in time. When the client has no musical identity, boundaries
+    between the self may be nonexistent or completely impermeable depending
+    upon whether the threat is individuation or engulfment. Thus, the musical
+    boundaries imposed and maintained by the client may provide insight into his/
+    her tolerance for intimacy.
+  </p>
+  <p class="rp">
+    For those who do not have boundary problems, the autonomy profile re-
+    flects degrees of selfness and otherness. Selfness is expressed on the leadership
+    (or right) side of the continuum, while otherness is expressed on the followship
+    (or left) side. At the middle of the continuum is partnership where there is a
+    balance between selfness and otherness.
+  </p>
+  <p class="rp">
+    When a person moves towards the self, s/he also takes a stance with regard
+    to the other. Selfness usually involves moving towards, away from, or against
+    the other. Similarly, in moving towards the other, one also takes a stance with
+    regard to the self. Otherness usually involves moving towards, away from, or
+    against the self. These interpersonal stances may indicate various intentions
+    and express various feelings:
+  </p>
+  <p class="rp">
+    Towards Self/Towards Other – Self-determination and leadership which take
+    into account the feelings and ideas of the other. Feelings of self-confidence and
+    self-acceptance coexist with support for, acceptance of, and agreement with the
+    other. Processes of assimilation are applicable.
+  </p>
+  <p class="rp">
+    Towards Self/Away from Other – Self-assertion and leadership which establishes
+    independence from the other. At the extreme levels, the intent may be separa-
+    tion, isolation, self-defense, withdrawal, dissociation, indifference, oblivion,
+    resistance, exhibitionism, competition, or flight.
+  </p>
+  <p class="rp">
+    Towards Self/Against Other – Self-assertion, dominance, and leadership which
+    counteracts what the other is or has been doing. Substantial changes are de-
+    manded in the other. At the extreme levels, the intent may be aggression, de-
+    fiance, rejection, retaliation, rebellion, coercion, or paranoic self-defense.
+  </p>
+  <p class="rp">
+    Towards Other/Towards Self – Acceptance of and receptivity to the other's
+    ideas and feelings that are consistent with one's own. Feelings of security and
+    trust in the other are apparent. Projection and identification are applicable.
+  </p>
+  <p class="rp">
+    Towards Other/Away from Self – Accommodation and deference to the other,
+    accompanied by a modification of one's own ideas and feelings. At the extreme
+    levels, the result may be dependency, engulfment, denial, and repression.
+  </p>
+  <p class="rp">
+    Towards Other/Against Self – Compliance with the other through the reversal,
+    contradiction, or abandonment of one's own ideas and feelings. At the extreme
+    levels, the result may be self-abasement and self-destruction.
+  </p>
+  <p class="rp">
+    Intimately linked to selfness and otherness are issues of control – over both
+    oneself and the other. The autonomy profile reveals conditions under which the
+    client takes and relinquishes control over self and other. It also reveals the ele-
+    ments and processes by which control is manipulated. Another factor to ex-
+    amine is whether the autonomy reflects competitiveness with peers, or conflicts
+    with authority figures.
+  </p>
+  <p class="rp">
+    Issues of control are intimately linked to role flexibility. Hence the autonomy
+    profile can be used to examine the role repertoire of the client, conditions under
+    which various roles are taken, and the flexibility with which the roles are modified
+    or relinquished. The analysis of roles is particularly relevant when studying the
+    client-therapist relationship and relationships within the client's family.
+  </p>
+  <p class="rp">
+    The next chapter gives additional guidelines for interpreting the profiles
+    from psychoanalytic and existential perspectives.
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    O perfil de autonomia fornece uma imagem composta de como o cliente funciona
+    dentro de uma situação interpessoal. No nível mais básico, o perfil de autonomia
+    revela consciência de si mesmo e do outro, e a necessidade de manter fronteiras
+    entre si e o outro.
+  </p>
+  <p class="rp">
+    Quando o cliente tem uma identidade musical e fronteiras seguras, é suscetível
+    ao contato musical com outra pessoa. Há liberdade para compartilhar materiais
+    musicais, sons, qualidades, e disposição para coexperimentar as mesmas coisas
+    ao mesmo tempo. De forma inversa, o cliente está disposto a aceitar os materiais,
+    sons e qualidades musicais de outra pessoa, e a submeter-se às experiências do
+    outro ao longo do tempo. Quando o cliente não possui identidade musical, as
+    fronteiras entre o eu podem ser inexistentes ou completamente impermeáveis,
+    dependendo se a ameaça é individuação ou engolfamento. Assim, as fronteiras
+    musicais impostas e mantidas pelo cliente podem fornecer insights sobre sua
+    tolerância à intimidade.
+  </p>
+  <p class="rp">
+    Para aqueles que não têm problemas de fronteiras, o perfil de autonomia reflete
+    graus de identidade própria e alteridade. A identidade própria é expressa no lado
+    da liderança (ou direito) do contínuo, enquanto a alteridade é expressa no lado
+    do seguimento (ou esquerdo). No meio do contínuo está a parceria, onde há
+    equilíbrio entre identidade própria e alteridade.
+  </p>
+  <p class="rp">
+    Quando uma pessoa se move em direção ao eu, ela também assume uma postura
+    em relação ao outro. A identidade própria geralmente envolve mover-se em direção,
+    afastando-se ou contra o outro. De forma similar, ao mover-se em direção ao outro,
+    a pessoa também assume uma postura em relação a si mesma. A alteridade geralmente
+    envolve mover-se em direção, afastando-se ou contra o eu. Essas posturas interpessoais
+    podem indicar várias intenções e expressar diversos sentimentos:
+  </p>
+  <p class="rp">
+    Em direção ao Eu/Em direção ao Outro – Autodeterminação e liderança que levam
+    em conta os sentimentos e ideias do outro. Sentimentos de autoconfiança e autoaceitação
+    coexistem com apoio, aceitação e concordância com o outro. Processos de assimilação
+    são aplicáveis.
+  </p>
+  <p class="rp">
+    Em direção ao Eu/Afastando-se do Outro – Autoafirmação e liderança que estabelece
+    independência do outro. Nos níveis extremos, a intenção pode ser separação, isolamento,
+    autodefesa, retirada, dissociação, indiferença, esquecimento, resistência, exibicionismo,
+    competição ou fuga.
+  </p>
+  <p class="rp">
+    Em direção ao Eu/Contra o Outro – Autoafirmação, domínio e liderança que contrariam
+    o que o outro está ou tem feito. Mudanças substanciais são exigidas no outro. Nos níveis
+    extremos, a intenção pode ser agressão, desafio, rejeição, retaliação, rebelião, coerção
+    ou autodefesa paranoica.
+  </p>
+  <p class="rp">
+    Em direção ao Outro/Em direção ao Eu – Aceitação e receptividade às ideias e sentimentos
+    do outro que sejam consistentes com os próprios. Sentimentos de segurança e confiança
+    no outro são aparentes. Projeção e identificação são aplicáveis.
+  </p>
+  <p class="rp">
+    Em direção ao Outro/Afastando-se do Eu – Acomodação e deferência ao outro,
+    acompanhadas de modificação das próprias ideias e sentimentos. Nos níveis extremos,
+    o resultado pode ser dependência, engolfamento, negação e repressão.
+  </p>
+  <p class="rp">
+    Em direção ao Outro/Contra o Eu – Conformidade com o outro através da reversão,
+    contradição ou abandono das próprias ideias e sentimentos. Nos níveis extremos,
+    o resultado pode ser auto-rebaixamento e autodestruição.
+  </p>
+  <p class="rp">
+    Intimamente ligados à identidade própria e à alteridade estão os problemas de
+    controle – sobre si mesmo e sobre o outro. O perfil de autonomia revela as condições
+    sob as quais o cliente assume e abandona o controle sobre si e sobre o outro.
+    Ele também revela os elementos e processos pelos quais o controle é manipulado.
+    Outro fator a examinar é se a autonomia reflete competitividade com pares ou
+    conflitos com figuras de autoridade.
+  </p>
+  <p class="rp">
+    Questões de controle estão intimamente ligadas à flexibilidade de papéis. Portanto,
+    o perfil de autonomia pode ser usado para examinar o repertório de papéis do cliente,
+    as condições sob as quais vários papéis são assumidos e a flexibilidade com que
+    os papéis são modificados ou abandonados. A análise de papéis é particularmente
+    relevante ao estudar a relação cliente-terapeuta e as relações dentro da família do cliente.
+  </p>
+  <p class="rp">
+    O próximo capítulo fornece diretrizes adicionais para a interpretação dos perfis
+    a partir de perspectivas psicanalíticas e existenciais.
+  </p>
+</div>
+
+  </section>
+
+  <!-- ══════════════════ 7. SOBREPOSIÇÕES ══════════════════ -->
+  <section class="section" id="sec-overlaps">
+    <h2 class="sec-title" data-lang="pt">Sobreposições Entre os Perfis</h2>
+    <h2 class="sec-title" data-lang="en">Overlaps Among the Profiles</h2>
+<div data-lang="en">
+  <p class="rp">
+    Although the interpretation of each profile has been discussed separately, it
+    is extremely important to understand how the profiles overlap. One cannot
+    comprehend the significance of one profile in isolation. What a client reveals in
+    one profile can often be clarified and understood through another.
+  </p>
+  <p class="rp">
+    The profiles overlap in content, yet are different. The integration and congruence
+    profiles both deal with simultaneous aspects of an improvisation — the former
+    with figure-ground and part-whole relationships and the latter with tension
+    levels and role relationships.
+  </p>
+  <p class="rp">
+    The tension and congruence profiles both deal with tension levels — the former
+    with the amount of tension generated by an element and the latter with the
+    consistency of tension levels among the elements. The tension profile deals
+    with feeling states that arise from the quality of a musical element itself as well
+    as from musical relationships it forms (e.g., those found in the integration and
+    variability profiles).
+  </p>
+  <p class="rp">
+    The variability profile overlaps with the other profiles in that the different
+    relationships described (e.g., integration, tension, congruence, salience) may
+    stay the same or change in time as the improvisation progresses.
+  </p>
+  <p class="rp">
+    The salience and autonomy profiles both deal with control issues — the former
+    dealing with control and support among the musical elements and the latter
+    with role relationships between the improvisers.
+  </p>
+  <p class="rp">
+    The profiles also affect one another reciprocally. Integration affects and is
+    affected by variability. Variability creates different levels of tension. Tension
+    affects and is affected by integration, variability, and congruence. Integration
+    determines salience. Salience has variability, and contributes to congruence.
+    Congruence is the integration of tension. Autonomy is achieved through
+    processes of integration, variability, tension, and salience.
+  </p>
+</div>
+
+<div data-lang="pt">
+  <p class="rp">
+    Embora a interpretação de cada perfil tenha sido discutida separadamente, é
+    extremamente importante entender como os perfis se sobrepõem. Não se pode
+    compreender a significância de um perfil isoladamente. O que um cliente revela
+    em um perfil frequentemente pode ser esclarecido e compreendido por meio de outro.
+  </p>
+  <p class="rp">
+    Os perfis se sobrepõem em conteúdo, mas são diferentes. Os perfis de integração
+    e congruência tratam dos aspectos simultâneos de uma improvisação — o primeiro
+    com relações figura-fundo e parte-todo, e o segundo com níveis de tensão e relações de papéis.
+  </p>
+  <p class="rp">
+    Os perfis de tensão e congruência tratam ambos de níveis de tensão — o primeiro
+    com a quantidade de tensão gerada por um elemento e o segundo com a consistência
+    dos níveis de tensão entre os elementos. O perfil de tensão lida com estados de
+    sentimento que surgem tanto da qualidade do próprio elemento musical quanto
+    das relações musicais que ele forma (ex.: aquelas encontradas nos perfis de integração
+    e variabilidade).
+  </p>
+  <p class="rp">
+    O perfil de variabilidade se sobrepõe aos outros perfis na medida em que as
+    diferentes relações descritas (ex.: integração, tensão, congruência, saliência)
+    podem permanecer as mesmas ou mudar ao longo do tempo, à medida que a
+    improvisação progride.
+  </p>
+  <p class="rp">
+    Os perfis de saliência e autonomia tratam ambos de questões de controle — o
+    primeiro lidando com controle e suporte entre os elementos musicais, e o
+    segundo com relações de papéis entre os improvisadores.
+  </p>
+  <p class="rp">
+    Os perfis também se afetam mutuamente de forma recíproca. A integração afeta
+    e é afetada pela variabilidade. A variabilidade cria diferentes níveis de tensão.
+    A tensão afeta e é afetada pela integração, variabilidade e congruência.
+    A integração determina a saliência. A saliência tem variabilidade e contribui
+    para a congruência. A congruência é a integração da tensão. A autonomia é
+    alcançada por meio de processos de integração, variabilidade, tensão e saliência.
+  </p>
+</div>
+    <figure class="pull-quote">
+      <blockquote data-lang="pt">"Não se pode compreender a significância de um perfil isoladamente. O que um cliente revela em um perfil frequentemente pode ser esclarecido e compreendido por meio de outro."</blockquote>
+      <blockquote data-lang="en">"One cannot comprehend the significance of one profile in isolation. What a client reveals in one profile can often be clarified and understood through another."</blockquote>
+      <figcaption><cite>Bruscia, K. E. — <em>Improvisational Models of Music Therapy</em>, 1987, p. 449</cite></figcaption>
+    </figure>
+  </section>
+
+</main>
+
+<!-- ════════════════════════ CHAPTER NAV ════════════════════ -->
+<nav aria-label="Navegação entre capítulos" class="chapter-nav">
+  <a class="chapter-nav-prev" href="index.html">
+    <span aria-hidden="true" class="chapter-nav-arrow">←</span>
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Capítulo anterior</span>
+      <span class="chapter-nav-label" data-lang="en">Previous chapter</span>
+      <span class="chapter-nav-title" data-lang="pt">Cap. 31 · Os Procedimentos de Avaliação</span>
+      <span class="chapter-nav-title" data-lang="en">Ch. 31 · The Assessment Procedures</span>
+    </span>
+  </a>
+  <div class="chapter-nav-center">
+    <span class="chapter-nav-current" data-lang="pt">Cap. 32</span>
+    <span class="chapter-nav-current" data-lang="en">Ch. 32</span>
+  </div>
+  <a class="chapter-nav-next" href="cap33.html">
+    <span class="chapter-nav-meta">
+      <span class="chapter-nav-label" data-lang="pt">Próximo capítulo</span>
+      <span class="chapter-nav-label" data-lang="en">Next chapter</span>
+      <span class="chapter-nav-title" data-lang="pt">Cap. 33 · Perspectivas Psicanalíticas e Existenciais</span>
+      <span class="chapter-nav-title" data-lang="en">Ch. 33 · Psychoanalytic and Existential Perspectives</span>
+    </span>
+    <span aria-hidden="true" class="chapter-nav-arrow">→</span>
+  </a>
+</nav>
+
+<footer>
+  <p>
+    <strong>Bruscia, K. E.</strong> · Improvisational Models of Music Therapy<br/>
+    Springfield: Charles C. Thomas · 1987<br/>
+    <span data-lang="pt">Unidade 9 · Capítulo 32 · pp. 423–449</span>
+    <span data-lang="en">Unit 9 · Chapter 32 · pp. 423–449</span>
+  </p>
+  <p>
+    <span data-lang="pt">Adaptação e Interface gráfica</span>
+    <span data-lang="en">Adaptation and graphs</span> · <strong>Ivan Moriá Borges</strong>
+  </p>
+</footer>
+
+<script src="iaps.js"></script>
+</body>
+</html>
